@@ -22,6 +22,10 @@ let SERVICE_ACCOUNT_CREDENTIALS = ".credentials/service_account.json"
 let CLIENT_CREDENTIALS = "google.json"
 let TOKEN = "google.json"
 
+let PROJECT = "hello-87"
+let ZONE = "us-west1-b"
+let INSTANCE = "sample"
+
 func main() throws {
   let arguments = CommandLine.arguments
   
@@ -60,12 +64,66 @@ func main() throws {
     #endif
   }
   
-  if arguments[1] == "instances" {
+  if arguments[1] == "list" {
     var parameters = Compute.InstancesListParameters()
-    parameters.project = "hello-87"
-    parameters.zone = "us-west1-b"
+    parameters.project = PROJECT
+    parameters.zone = ZONE
     let sem = DispatchSemaphore(value: 0)
     try compute.instances_list(parameters: parameters) {response, error in
+      print(String(describing:response))
+      print(String(describing:error))
+      sem.signal()
+    }
+    _ = sem.wait(timeout: DispatchTime.distantFuture)
+  }
+  
+  if arguments[1] == "insert" {
+    var disk = AttachedDisk()
+    disk.kind = "compute#attachedDisk"
+    disk.type = "PERSISTENT"
+    disk.boot = true
+    disk.mode = "READ_WRITE"
+    disk.autoDelete = true
+    disk.deviceName = INSTANCE
+    var initializeParams = AttachedDiskInitializeParams()
+    initializeParams.sourceImage = "projects/debian-cloud/global/images/debian-9-stretch-v20190124"
+    initializeParams.diskType = "projects/hello-87/zones/us-west1-b/diskTypes/pd-standard"
+    initializeParams.diskSizeGb = "10"
+    disk.initializeParams = initializeParams
+    var accessConfig = AccessConfig()
+    accessConfig.kind = "compute#accessConfig"
+    accessConfig.name = "External NAT"
+    accessConfig.type = "ONE_TO_ONE_NAT"
+    accessConfig.networkTier = "PREMIUM"
+    var networkInterface = NetworkInterface()
+    networkInterface.kind = "compute#networkInterface"
+    networkInterface.subnetwork = "projects/hello-87/regions/us-west1/subnetworks/default"
+    networkInterface.accessConfigs = [accessConfig]
+    var request = Instance()
+    request.name = INSTANCE
+    request.machineType = "zones/us-west1-b/machineTypes/f1-micro"
+    request.networkInterfaces = [networkInterface]
+    request.disks = [disk]
+    var parameters = Compute.InstancesInsertParameters()
+    parameters.project = PROJECT
+    parameters.zone = ZONE
+    let sem = DispatchSemaphore(value: 0)
+    try compute.instances_insert(request: request,
+                                 parameters: parameters) {response, error in
+                                  print(String(describing:response))
+                                  print(String(describing:error))
+                                  sem.signal()
+    }
+    _ = sem.wait(timeout: DispatchTime.distantFuture)
+  }
+  
+  if arguments[1] == "delete" {
+    var parameters = Compute.InstancesDeleteParameters()
+    parameters.project = PROJECT
+    parameters.zone = ZONE
+    parameters.instance = INSTANCE
+    let sem = DispatchSemaphore(value: 0)
+    try compute.instances_delete(parameters: parameters) {response, error in
       print(String(describing:response))
       print(String(describing:error))
       sem.signal()

@@ -154,14 +154,14 @@ public struct Unknown : Codable {}
 public class Language : Service {
 
   init(tokenProvider: TokenProvider) throws {
-    try super.init(tokenProvider, "https://language.googleapis.com/v1/")
+    try super.init(tokenProvider, "https://language.googleapis.com/")
   }
 
   public func documents_analyzeEntities (
     request: AnalyzeEntitiesRequest,
     completion: @escaping (AnalyzeEntitiesResponse?, Error?) -> ()) throws {
        try perform(method: "POST",
-                   path: "documents:analyzeEntities",
+                   path: "v1/documents:analyzeEntities",
                    request: request,
                    completion: completion)
   }
@@ -170,7 +170,7 @@ public class Language : Service {
     request: AnalyzeEntitySentimentRequest,
     completion: @escaping (AnalyzeEntitySentimentResponse?, Error?) -> ()) throws {
        try perform(method: "POST",
-                   path: "documents:analyzeEntitySentiment",
+                   path: "v1/documents:analyzeEntitySentiment",
                    request: request,
                    completion: completion)
   }
@@ -179,7 +179,7 @@ public class Language : Service {
     request: AnalyzeSentimentRequest,
     completion: @escaping (AnalyzeSentimentResponse?, Error?) -> ()) throws {
        try perform(method: "POST",
-                   path: "documents:analyzeSentiment",
+                   path: "v1/documents:analyzeSentiment",
                    request: request,
                    completion: completion)
   }
@@ -188,7 +188,7 @@ public class Language : Service {
     request: AnalyzeSyntaxRequest,
     completion: @escaping (AnalyzeSyntaxResponse?, Error?) -> ()) throws {
        try perform(method: "POST",
-                   path: "documents:analyzeSyntax",
+                   path: "v1/documents:analyzeSyntax",
                    request: request,
                    completion: completion)
   }
@@ -197,7 +197,7 @@ public class Language : Service {
     request: AnnotateTextRequest,
     completion: @escaping (AnnotateTextResponse?, Error?) -> ()) throws {
        try perform(method: "POST",
-                   path: "documents:annotateText",
+                   path: "v1/documents:annotateText",
                    request: request,
                    completion: completion)
   }
@@ -206,7 +206,7 @@ public class Language : Service {
     request: ClassifyTextRequest,
     completion: @escaping (ClassifyTextResponse?, Error?) -> ()) throws {
        try perform(method: "POST",
-                   path: "documents:classifyText",
+                   path: "v1/documents:classifyText",
                    request: request,
                    completion: completion)
   }

@@ -125,6 +125,7 @@ class Method : Codable {
   var supportsMediaUpload : Bool?
   var mediaUpload : MediaUpload?
   var supportsSubscription: Bool?
+  var flatPath : String?
   
   func HasResponse() -> Bool {
     if response != nil {
@@ -165,10 +166,32 @@ class Method : Codable {
   func ParametersTypeDeclaration(resource : String, method : String) -> String {
     var s = "\n"
     if let parameters = parameters {
-      s += "  public class " + ParametersTypeName(resource:resource, method:method) + " {\n"
+      s += "  public struct " + ParametersTypeName(resource:resource, method:method) + " : Parameterizable {\n"
       for p in parameters.sorted(by:  { $0.key < $1.key }) {
-        s += "    public var " + p.key + " : " + p.value.Type() + "\n"
+        s += "    public var " + p.key + " : " + p.value.Type() + "?\n"
       }
+      s += "    public func queryParameters() -> [String] {\n"
+      s += "      return [\n"
+      for p in parameters.sorted(by:  { $0.key < $1.key }) {
+        if let location = p.value.location {
+          if location == "query" {
+            s += "        \"" + p.key + "\",\n"
+          }
+        }
+      }
+      s += "        ]\n"
+      s += "    }\n"
+      s += "    public func pathParameters() -> [String] {\n"
+      s += "      return [\n"
+      for p in parameters.sorted(by:  { $0.key < $1.key }) {
+        if let location = p.value.location {
+          if location == "path" {
+            s += "        \"" + p.key + "\",\n"
+          }
+        }
+      }
+      s += "        ]\n"
+      s += "    }\n"
       s += "  }"
     }
     return s
@@ -243,7 +266,7 @@ class Service : Codable {
           if let itemType = itemsSchema.type {
             switch itemType {
             case "object":
-              print("typealias \(s.key) = [\(s.key)Item]")
+              print("public typealias \(s.key) = [\(s.key)Item]")
               print("")
               print("public struct \(s.key)Item : Codable {")
               if let properties = itemsSchema.properties {
@@ -268,7 +291,7 @@ class Service : Codable {
     print("public class \(self.name.capitalized()) : Service {")
     print("")
     print("  init(tokenProvider: TokenProvider) throws {")
-    print("    try super.init(tokenProvider, \"\(BaseURLWithVersion())\")")
+    print("    try super.init(tokenProvider, \"\(self.baseUrl)\")")
     print("  }")
     if let resources = resources {
       for r in resources.sorted(by:  { $0.key < $1.key }) {
@@ -288,7 +311,11 @@ class Service : Codable {
           }
           print("    completion: @escaping (\(m.value.ResponseTypeName())?, Error?) -> ()) throws {")
           print("       try perform(method: \"\(m.value.httpMethod!)\",")
-          print("                   path: \"\(r.key):\(m.key)\",")
+          var path = ""
+          if m.value.path != nil {
+            path = m.value.path!
+          }
+          print("                   path: \"\(path)\",")
           if m.value.HasRequest() {
             print("                   request: request,")
           }

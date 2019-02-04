@@ -85,7 +85,7 @@ public struct Document : Codable {
 
 public struct Entity : Codable {
   public var `mentions` : [EntityMention]?
-  public var `metadata` : Unknown?
+  public var `metadata` : Object?
   public var `name` : String?
   public var `salience` : Float?
   public var `sentiment` : Sentiment?
@@ -133,7 +133,7 @@ public struct Sentiment : Codable {
 
 public struct Status : Codable {
   public var `code` : Int?
-  public var `details` : [Unknown]?
+  public var `details` : [Object]?
   public var `message` : String?
 }
 
@@ -149,7 +149,7 @@ public struct Token : Codable {
   public var `text` : TextSpan?
 }
 
-public struct Unknown : Codable {}
+public class Object : Codable {}
 
 public class Language : Service {
 
@@ -211,3 +211,4 @@ public class Language : Service {
                    completion: completion)
   }
 }
+

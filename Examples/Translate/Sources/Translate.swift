@@ -48,7 +48,7 @@ public struct TranslationsResource : Codable {
   public var `translatedText` : String?
 }
 
-public struct Unknown : Codable {}
+public class Object : Codable {}
 
 public class Translate : Service {
 
@@ -152,3 +152,4 @@ public class Translate : Service {
                    completion: completion)
   }
 }
+

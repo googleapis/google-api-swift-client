@@ -23,9 +23,11 @@ extension String {
 class Auth : Codable {
   var scopes : [String : AuthScope]
 }
+
 class AuthScope : Codable {
   var description : String
 }
+
 class Schema : Codable {
   var id : String?
   var type : String?
@@ -77,7 +79,7 @@ class Schema : Codable {
       case "array":
         return "[" + self.ItemsType() + "]"
       case "object":
-        return "Unknown"
+        return "Object"
       default:
         return type
       }
@@ -87,6 +89,7 @@ class Schema : Codable {
     }
     return "UNKNOWN SCHEMA TYPE"
   }
+
   public func ItemsType() -> String {
     if let items = items {
       return items.Type()
@@ -133,36 +136,42 @@ class Method : Codable {
     }
     return false
   }
+
   func ResponseTypeName() -> String {
     if let response = response {
       return response.ref
     }
-    return "UNKNOWN RESPONSE TYPE"
+    return "ERROR-UNKNOWN-RESPONSE-TYPE"
   }
+
   func HasRequest() -> Bool {
     if request != nil {
       return true
     }
     return false
   }
+
   func RequestTypeName() -> String {
     if let request = request {
       return request.ref
     }
-    return "UNKNOWN REQUEST TYPE"
+    return "ERROR-UNKNOWN-REQUEST-TYPE"
   }
+
   func HasParameters() -> Bool {
     if let parameters = parameters {
       return parameters.count > 0
     }
     return false
   }
+
   func ParametersTypeName(resource : String, method : String) -> String {
     if parameters != nil {
       return resource.capitalized() + method.capitalized() + "Parameters"
     }
-    return "UNKNOWN REQUEST TYPE"
+    return "ERROR-UNKNOWN-PARAMETERS-TYPE"
   }
+
   func ParametersTypeDeclaration(resource : String, method : String) -> String {
     var s = "\n"
     if let parameters = parameters {
@@ -243,99 +252,102 @@ class Service : Codable {
     return self.baseUrl + self.version + "/"
   }
   
-  func generate() {
+  func generate() -> String {
     guard let schemas = schemas else {
-      return
+      return ""
     }
-    print("import Foundation")
-    print("import OAuth2")
-    for s in schemas.sorted(by:  { $0.key < $1.key }) {
-      switch s.value.type {
+    var s = ""
+    s += "import Foundation\n"
+    s += "import OAuth2\n"
+    for schema in schemas.sorted(by:  { $0.key < $1.key }) {
+      switch schema.value.type {
       case "object":
-        print("")
-        print("public struct \(s.key) : Codable {")
-        if let properties = s.value.properties {
+        s += "\n"
+        s += "public struct \(schema.key) : Codable {\n"
+        if let properties = schema.value.properties {
           for p in properties.sorted(by: { $0.key < $1.key }) {
-            print("  public var `\(p.key)` : \(p.value.Type())?")
+            s += "  public var `\(p.key)` : \(p.value.Type())?\n"
           }
         }
-        print("}")
+        s += "}\n"
       case "array":
-        print("")
-        if let itemsSchema = s.value.items {
+        s += "\n"
+        if let itemsSchema = schema.value.items {
           if let itemType = itemsSchema.type {
             switch itemType {
             case "object":
-              print("public typealias \(s.key) = [\(s.key)Item]")
-              print("")
-              print("public struct \(s.key)Item : Codable {")
+              s += "public typealias \(schema.key) = [\(schema.key)Item]\n"
+              s += "\n"
+              s += "public struct \(schema.key)Item : Codable {\n"
               if let properties = itemsSchema.properties {
                 for p in properties.sorted(by: { $0.key < $1.key }) {
-                  print("  public var `\(p.key)` : \(p.value.Type())?")
+                  s += "  public var `\(p.key)` : \(p.value.Type())?\n"
                 }
               }
-              print("}")
+              s += "}\n"
             default:
-              print("UNHANDLED ARRAY TYPE \(itemType)")
+              s += "ERROR-UNHANDLED-ARRAY-TYPE \(itemType)\n"
             }
           }
         }
-        
       default:
-        print("CAN'T HANDLE THIS \(s.key) \(String(describing:s.value.type))")
+        s += "ERROR-UNHANDLED-SCHEMA-VALUE-TYPE \(schema.key) \(String(describing:schema.value.type))\n"
       }
     }
-    print("")
-    print ("public struct Unknown : Codable {}")
-    print("")
-    print("public class \(self.name.capitalized()) : Service {")
-    print("")
-    print("  init(tokenProvider: TokenProvider) throws {")
-    print("    try super.init(tokenProvider, \"\(self.baseUrl)\")")
-    print("  }")
+    s += "\n"
+    s += "public class Object : Codable {}\n"
+    s += "\n"
+    s += "public class \(self.name.capitalized()) : Service {\n"
+    s += "\n"
+    s += "  init(tokenProvider: TokenProvider) throws {\n"
+    s += "    try super.init(tokenProvider, \"\(self.baseUrl)\")\n"
+    s += "  }\n"
     if let resources = resources {
       for r in resources.sorted(by:  { $0.key < $1.key }) {
         let methods = r.value.methods
         for m in methods.sorted(by:  { $0.key < $1.key }) {
           if m.value.HasParameters() {
-            print(m.value.ParametersTypeDeclaration(resource:r.key, method:m.key))
+            s += m.value.ParametersTypeDeclaration(resource:r.key, method:m.key) + "\n"
           }
           let methodName = r.key + "_" + m.key
-          print("")
-          print("  public func \(methodName) (")
+          s += "\n"
+          s += "  public func \(methodName) (\n"
           if m.value.HasRequest() {
-            print("    request: \(m.value.RequestTypeName()),")
+            s += "    request: \(m.value.RequestTypeName()),\n"
           }
           if m.value.HasParameters() {
-            print("    parameters: \(m.value.ParametersTypeName(resource:r.key, method:m.key)),")
+            s += "    parameters: \(m.value.ParametersTypeName(resource:r.key, method:m.key)),\n"
           }
-          print("    completion: @escaping (\(m.value.ResponseTypeName())?, Error?) -> ()) throws {")
-          print("       try perform(method: \"\(m.value.httpMethod!)\",")
+          if m.value.HasResponse() {
+            s += "    completion: @escaping (\(m.value.ResponseTypeName())?, Error?) -> ()) throws {\n"
+          } else {
+            s += "    completion: @escaping (Error?) -> ()) throws {\n"
+          }
+          s += "       try perform(method: \"\(m.value.httpMethod!)\",\n"
           var path = ""
           if m.value.path != nil {
             path = m.value.path!
           }
-          print("                   path: \"\(path)\",")
+          s += "                   path: \"\(path)\",\n"
           if m.value.HasRequest() {
-            print("                   request: request,")
+            s += "                   request: request,\n"
           }
           if m.value.HasParameters() {
-            print("                   parameters: parameters,")
+            s += "                   parameters: parameters,\n"
           }
-          print("                   completion: completion)")
-          print("  }")
+          s += "                   completion: completion)\n"
+          s += "  }\n"
         }
       }
-      
     }
-    
-    print("}")
+    s += "}\n"
+    return s
   }
 }
 
 func main() throws {
   let arguments = CommandLine.arguments
-  //print("arguments: \(arguments)")
+  //print("arguments: \(arguments)\n"
   
   let path = arguments[1]
   let data = try Data(contentsOf: URL(fileURLWithPath: path))
@@ -343,14 +355,15 @@ func main() throws {
   let decoder = JSONDecoder()
   do {
     let disco = try decoder.decode(Service.self, from: data)
-    disco.generate()
+    let code = disco.generate()
+    print(code)
   } catch {
-    print("error \(error)")
+    print("error \(error)\n")
   }
 }
 
 do {
   try main()
 } catch (let error) {
-  print("ERROR: \(error)")
+  print("ERROR: \(error)\n")
 }

@@ -20,11 +20,11 @@ public struct AcceleratorType : Codable {
 
 public struct AcceleratorTypeAggregatedList : Codable {
   public var `id` : String?
-  public var `items` : Unknown?
+  public var `items` : Object?
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct AcceleratorTypeList : Codable {
@@ -33,12 +33,12 @@ public struct AcceleratorTypeList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct AcceleratorTypesScopedList : Codable {
   public var `acceleratorTypes` : [AcceleratorType]?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct AccessConfig : Codable {
@@ -73,11 +73,11 @@ public struct Address : Codable {
 
 public struct AddressAggregatedList : Codable {
   public var `id` : String?
-  public var `items` : Unknown?
+  public var `items` : Object?
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct AddressList : Codable {
@@ -86,12 +86,12 @@ public struct AddressList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct AddressesScopedList : Codable {
   public var `addresses` : [Address]?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct AliasIpRange : Codable {
@@ -120,7 +120,7 @@ public struct AttachedDiskInitializeParams : Codable {
   public var `diskName` : String?
   public var `diskSizeGb` : String?
   public var `diskType` : String?
-  public var `labels` : Unknown?
+  public var `labels` : Object?
   public var `sourceImage` : String?
   public var `sourceImageEncryptionKey` : CustomerEncryptionKey?
 }
@@ -157,11 +157,11 @@ public struct Autoscaler : Codable {
 
 public struct AutoscalerAggregatedList : Codable {
   public var `id` : String?
-  public var `items` : Unknown?
+  public var `items` : Object?
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct AutoscalerList : Codable {
@@ -170,7 +170,7 @@ public struct AutoscalerList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct AutoscalerStatusDetails : Codable {
@@ -180,7 +180,7 @@ public struct AutoscalerStatusDetails : Codable {
 
 public struct AutoscalersScopedList : Codable {
   public var `autoscalers` : [Autoscaler]?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct AutoscalingPolicy : Codable {
@@ -241,7 +241,7 @@ public struct BackendBucketList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct BackendService : Codable {
@@ -271,11 +271,11 @@ public struct BackendService : Codable {
 
 public struct BackendServiceAggregatedList : Codable {
   public var `id` : String?
-  public var `items` : Unknown?
+  public var `items` : Object?
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct BackendServiceCdnPolicy : Codable {
@@ -302,12 +302,12 @@ public struct BackendServiceList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct BackendServicesScopedList : Codable {
   public var `backendServices` : [BackendService]?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct Binding : Codable {
@@ -347,11 +347,11 @@ public struct Commitment : Codable {
 
 public struct CommitmentAggregatedList : Codable {
   public var `id` : String?
-  public var `items` : Unknown?
+  public var `items` : Object?
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct CommitmentList : Codable {
@@ -360,12 +360,12 @@ public struct CommitmentList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct CommitmentsScopedList : Codable {
   public var `commitments` : [Commitment]?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct Condition : Codable {
@@ -408,7 +408,7 @@ public struct Disk : Codable {
   public var `id` : String?
   public var `kind` : String?
   public var `labelFingerprint` : String?
-  public var `labels` : Unknown?
+  public var `labels` : Object?
   public var `lastAttachTimestamp` : String?
   public var `lastDetachTimestamp` : String?
   public var `licenseCodes` : [String]?
@@ -434,11 +434,11 @@ public struct Disk : Codable {
 
 public struct DiskAggregatedList : Codable {
   public var `id` : String?
-  public var `items` : Unknown?
+  public var `items` : Object?
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct DiskInstantiationConfig : Codable {
@@ -454,7 +454,7 @@ public struct DiskList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct DiskMoveRequest : Codable {
@@ -478,11 +478,11 @@ public struct DiskType : Codable {
 
 public struct DiskTypeAggregatedList : Codable {
   public var `id` : String?
-  public var `items` : Unknown?
+  public var `items` : Object?
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct DiskTypeList : Codable {
@@ -491,12 +491,12 @@ public struct DiskTypeList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct DiskTypesScopedList : Codable {
   public var `diskTypes` : [DiskType]?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct DisksResizeRequest : Codable {
@@ -505,7 +505,7 @@ public struct DisksResizeRequest : Codable {
 
 public struct DisksScopedList : Codable {
   public var `disks` : [Disk]?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct DistributionPolicy : Codable {
@@ -524,9 +524,9 @@ public struct Expr : Codable {
 }
 
 public struct Firewall : Codable {
-  public var `allowed` : [Unknown]?
+  public var `allowed` : [Object]?
   public var `creationTimestamp` : String?
-  public var `denied` : [Unknown]?
+  public var `denied` : [Object]?
   public var `description` : String?
   public var `destinationRanges` : [String]?
   public var `direction` : String?
@@ -551,7 +551,7 @@ public struct FirewallList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct FirewallLogConfig : Codable {
@@ -589,11 +589,11 @@ public struct ForwardingRule : Codable {
 
 public struct ForwardingRuleAggregatedList : Codable {
   public var `id` : String?
-  public var `items` : Unknown?
+  public var `items` : Object?
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct ForwardingRuleList : Codable {
@@ -602,17 +602,17 @@ public struct ForwardingRuleList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct ForwardingRulesScopedList : Codable {
   public var `forwardingRules` : [ForwardingRule]?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct GlobalSetLabelsRequest : Codable {
   public var `labelFingerprint` : String?
-  public var `labels` : Unknown?
+  public var `labels` : Object?
 }
 
 public struct GlobalSetPolicyRequest : Codable {
@@ -667,7 +667,7 @@ public struct HealthCheckList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct HealthCheckReference : Codable {
@@ -709,7 +709,7 @@ public struct HttpHealthCheckList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct HttpsHealthCheck : Codable {
@@ -734,7 +734,7 @@ public struct HttpsHealthCheckList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct Image : Codable {
@@ -749,11 +749,11 @@ public struct Image : Codable {
   public var `imageEncryptionKey` : CustomerEncryptionKey?
   public var `kind` : String?
   public var `labelFingerprint` : String?
-  public var `labels` : Unknown?
+  public var `labels` : Object?
   public var `licenseCodes` : [String]?
   public var `licenses` : [String]?
   public var `name` : String?
-  public var `rawDisk` : Unknown?
+  public var `rawDisk` : Object?
   public var `selfLink` : String?
   public var `sourceDisk` : String?
   public var `sourceDiskEncryptionKey` : CustomerEncryptionKey?
@@ -774,7 +774,7 @@ public struct ImageList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct Instance : Codable {
@@ -789,7 +789,7 @@ public struct Instance : Codable {
   public var `id` : String?
   public var `kind` : String?
   public var `labelFingerprint` : String?
-  public var `labels` : Unknown?
+  public var `labels` : Object?
   public var `machineType` : String?
   public var `metadata` : Metadata?
   public var `minCpuPlatform` : String?
@@ -807,11 +807,11 @@ public struct Instance : Codable {
 
 public struct InstanceAggregatedList : Codable {
   public var `id` : String?
-  public var `items` : Unknown?
+  public var `items` : Object?
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct InstanceGroup : Codable {
@@ -832,11 +832,11 @@ public struct InstanceGroup : Codable {
 
 public struct InstanceGroupAggregatedList : Codable {
   public var `id` : String?
-  public var `items` : Unknown?
+  public var `items` : Object?
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct InstanceGroupList : Codable {
@@ -845,7 +845,7 @@ public struct InstanceGroupList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct InstanceGroupManager : Codable {
@@ -886,11 +886,11 @@ public struct InstanceGroupManagerActionsSummary : Codable {
 
 public struct InstanceGroupManagerAggregatedList : Codable {
   public var `id` : String?
-  public var `items` : Unknown?
+  public var `items` : Object?
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct InstanceGroupManagerAutoHealingPolicy : Codable {
@@ -904,7 +904,7 @@ public struct InstanceGroupManagerList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct InstanceGroupManagerStatus : Codable {
@@ -942,7 +942,7 @@ public struct InstanceGroupManagersRecreateInstancesRequest : Codable {
 
 public struct InstanceGroupManagersScopedList : Codable {
   public var `instanceGroupManagers` : [InstanceGroupManager]?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct InstanceGroupManagersSetInstanceTemplateRequest : Codable {
@@ -964,7 +964,7 @@ public struct InstanceGroupsListInstances : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct InstanceGroupsListInstancesRequest : Codable {
@@ -977,7 +977,7 @@ public struct InstanceGroupsRemoveInstancesRequest : Codable {
 
 public struct InstanceGroupsScopedList : Codable {
   public var `instanceGroups` : [InstanceGroup]?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct InstanceGroupsSetNamedPortsRequest : Codable {
@@ -991,7 +991,7 @@ public struct InstanceList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct InstanceListReferrers : Codable {
@@ -1000,7 +1000,7 @@ public struct InstanceListReferrers : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct InstanceMoveRequest : Codable {
@@ -1013,7 +1013,7 @@ public struct InstanceProperties : Codable {
   public var `description` : String?
   public var `disks` : [AttachedDisk]?
   public var `guestAccelerators` : [AcceleratorConfig]?
-  public var `labels` : Unknown?
+  public var `labels` : Object?
   public var `machineType` : String?
   public var `metadata` : Metadata?
   public var `minCpuPlatform` : String?
@@ -1045,7 +1045,7 @@ public struct InstanceTemplateList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct InstanceWithNamedPorts : Codable {
@@ -1056,12 +1056,12 @@ public struct InstanceWithNamedPorts : Codable {
 
 public struct InstancesScopedList : Codable {
   public var `instances` : [Instance]?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct InstancesSetLabelsRequest : Codable {
   public var `labelFingerprint` : String?
-  public var `labels` : Unknown?
+  public var `labels` : Object?
 }
 
 public struct InstancesSetMachineResourcesRequest : Codable {
@@ -1139,11 +1139,11 @@ public struct InterconnectAttachment : Codable {
 
 public struct InterconnectAttachmentAggregatedList : Codable {
   public var `id` : String?
-  public var `items` : Unknown?
+  public var `items` : Object?
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct InterconnectAttachmentList : Codable {
@@ -1152,7 +1152,7 @@ public struct InterconnectAttachmentList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct InterconnectAttachmentPartnerMetadata : Codable {
@@ -1167,7 +1167,7 @@ public struct InterconnectAttachmentPrivateInfo : Codable {
 
 public struct InterconnectAttachmentsScopedList : Codable {
   public var `interconnectAttachments` : [InterconnectAttachment]?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct InterconnectCircuitInfo : Codable {
@@ -1213,7 +1213,7 @@ public struct InterconnectList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct InterconnectLocation : Codable {
@@ -1240,7 +1240,7 @@ public struct InterconnectLocationList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct InterconnectLocationRegionInfo : Codable {
@@ -1304,7 +1304,7 @@ public struct LicensesListResponse : Codable {
   public var `items` : [License]?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct LogConfig : Codable {
@@ -1340,18 +1340,18 @@ public struct MachineType : Codable {
   public var `maximumPersistentDisksSizeGb` : String?
   public var `memoryMb` : Int?
   public var `name` : String?
-  public var `scratchDisks` : [Unknown]?
+  public var `scratchDisks` : [Object]?
   public var `selfLink` : String?
   public var `zone` : String?
 }
 
 public struct MachineTypeAggregatedList : Codable {
   public var `id` : String?
-  public var `items` : Unknown?
+  public var `items` : Object?
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct MachineTypeList : Codable {
@@ -1360,12 +1360,12 @@ public struct MachineTypeList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct MachineTypesScopedList : Codable {
   public var `machineTypes` : [MachineType]?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct ManagedInstance : Codable {
@@ -1377,12 +1377,12 @@ public struct ManagedInstance : Codable {
 }
 
 public struct ManagedInstanceLastAttempt : Codable {
-  public var `errors` : Unknown?
+  public var `errors` : Object?
 }
 
 public struct Metadata : Codable {
   public var `fingerprint` : String?
-  public var `items` : [Unknown]?
+  public var `items` : [Object]?
   public var `kind` : String?
 }
 
@@ -1423,7 +1423,7 @@ public struct NetworkList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct NetworkPeering : Codable {
@@ -1463,11 +1463,11 @@ public struct NodeGroup : Codable {
 
 public struct NodeGroupAggregatedList : Codable {
   public var `id` : String?
-  public var `items` : Unknown?
+  public var `items` : Object?
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct NodeGroupList : Codable {
@@ -1476,7 +1476,7 @@ public struct NodeGroupList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct NodeGroupNode : Codable {
@@ -1500,12 +1500,12 @@ public struct NodeGroupsListNodes : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct NodeGroupsScopedList : Codable {
   public var `nodeGroups` : [NodeGroup]?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct NodeGroupsSetNodeTemplateRequest : Codable {
@@ -1518,7 +1518,7 @@ public struct NodeTemplate : Codable {
   public var `id` : String?
   public var `kind` : String?
   public var `name` : String?
-  public var `nodeAffinityLabels` : Unknown?
+  public var `nodeAffinityLabels` : Object?
   public var `nodeType` : String?
   public var `nodeTypeFlexibility` : NodeTemplateNodeTypeFlexibility?
   public var `region` : String?
@@ -1529,11 +1529,11 @@ public struct NodeTemplate : Codable {
 
 public struct NodeTemplateAggregatedList : Codable {
   public var `id` : String?
-  public var `items` : Unknown?
+  public var `items` : Object?
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct NodeTemplateList : Codable {
@@ -1542,7 +1542,7 @@ public struct NodeTemplateList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct NodeTemplateNodeTypeFlexibility : Codable {
@@ -1553,7 +1553,7 @@ public struct NodeTemplateNodeTypeFlexibility : Codable {
 
 public struct NodeTemplatesScopedList : Codable {
   public var `nodeTemplates` : [NodeTemplate]?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct NodeType : Codable {
@@ -1573,11 +1573,11 @@ public struct NodeType : Codable {
 
 public struct NodeTypeAggregatedList : Codable {
   public var `id` : String?
-  public var `items` : Unknown?
+  public var `items` : Object?
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct NodeTypeList : Codable {
@@ -1586,12 +1586,12 @@ public struct NodeTypeList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct NodeTypesScopedList : Codable {
   public var `nodeTypes` : [NodeType]?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct Operation : Codable {
@@ -1599,7 +1599,7 @@ public struct Operation : Codable {
   public var `creationTimestamp` : String?
   public var `description` : String?
   public var `endTime` : String?
-  public var `error` : Unknown?
+  public var `error` : Object?
   public var `httpErrorMessage` : String?
   public var `httpErrorStatusCode` : Int?
   public var `id` : String?
@@ -1616,17 +1616,17 @@ public struct Operation : Codable {
   public var `targetId` : String?
   public var `targetLink` : String?
   public var `user` : String?
-  public var `warnings` : [Unknown]?
+  public var `warnings` : [Object]?
   public var `zone` : String?
 }
 
 public struct OperationAggregatedList : Codable {
   public var `id` : String?
-  public var `items` : Unknown?
+  public var `items` : Object?
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct OperationList : Codable {
@@ -1635,12 +1635,12 @@ public struct OperationList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct OperationsScopedList : Codable {
   public var `operations` : [Operation]?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct PathMatcher : Codable {
@@ -1735,7 +1735,7 @@ public struct RegionAutoscalerList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct RegionDiskTypeList : Codable {
@@ -1744,7 +1744,7 @@ public struct RegionDiskTypeList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct RegionDisksResizeRequest : Codable {
@@ -1757,7 +1757,7 @@ public struct RegionInstanceGroupList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct RegionInstanceGroupManagerList : Codable {
@@ -1766,7 +1766,7 @@ public struct RegionInstanceGroupManagerList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct RegionInstanceGroupManagersAbandonInstancesRequest : Codable {
@@ -1800,7 +1800,7 @@ public struct RegionInstanceGroupsListInstances : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct RegionInstanceGroupsListInstancesRequest : Codable {
@@ -1819,12 +1819,12 @@ public struct RegionList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct RegionSetLabelsRequest : Codable {
   public var `labelFingerprint` : String?
-  public var `labels` : Unknown?
+  public var `labels` : Object?
 }
 
 public struct RegionSetPolicyRequest : Codable {
@@ -1859,7 +1859,7 @@ public struct Route : Codable {
   public var `priority` : Int?
   public var `selfLink` : String?
   public var `tags` : [String]?
-  public var `warnings` : [Unknown]?
+  public var `warnings` : [Object]?
 }
 
 public struct RouteList : Codable {
@@ -1868,7 +1868,7 @@ public struct RouteList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct Router : Codable {
@@ -1893,11 +1893,11 @@ public struct RouterAdvertisedIpRange : Codable {
 
 public struct RouterAggregatedList : Codable {
   public var `id` : String?
-  public var `items` : Unknown?
+  public var `items` : Object?
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct RouterBgp : Codable {
@@ -1934,7 +1934,7 @@ public struct RouterList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct RouterNat : Codable {
@@ -1997,7 +1997,7 @@ public struct RoutersPreviewResponse : Codable {
 
 public struct RoutersScopedList : Codable {
   public var `routers` : [Router]?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct Rule : Codable {
@@ -2047,7 +2047,7 @@ public struct SecurityPolicyList : Codable {
   public var `items` : [SecurityPolicy]?
   public var `kind` : String?
   public var `nextPageToken` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct SecurityPolicyReference : Codable {
@@ -2097,7 +2097,7 @@ public struct Snapshot : Codable {
   public var `id` : String?
   public var `kind` : String?
   public var `labelFingerprint` : String?
-  public var `labels` : Unknown?
+  public var `labels` : Object?
   public var `licenseCodes` : [String]?
   public var `licenses` : [String]?
   public var `name` : String?
@@ -2117,7 +2117,7 @@ public struct SnapshotList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct SourceInstanceParams : Codable {
@@ -2141,7 +2141,7 @@ public struct SslCertificateList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct SslPoliciesList : Codable {
@@ -2150,7 +2150,7 @@ public struct SslPoliciesList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct SslPoliciesListAvailableFeaturesResponse : Codable {
@@ -2169,7 +2169,7 @@ public struct SslPolicy : Codable {
   public var `name` : String?
   public var `profile` : String?
   public var `selfLink` : String?
-  public var `warnings` : [Unknown]?
+  public var `warnings` : [Object]?
 }
 
 public struct SslPolicyReference : Codable {
@@ -2195,11 +2195,11 @@ public struct Subnetwork : Codable {
 
 public struct SubnetworkAggregatedList : Codable {
   public var `id` : String?
-  public var `items` : Unknown?
+  public var `items` : Object?
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct SubnetworkList : Codable {
@@ -2208,7 +2208,7 @@ public struct SubnetworkList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct SubnetworkSecondaryRange : Codable {
@@ -2222,7 +2222,7 @@ public struct SubnetworksExpandIpCidrRangeRequest : Codable {
 
 public struct SubnetworksScopedList : Codable {
   public var `subnetworks` : [Subnetwork]?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct SubnetworksSetPrivateIpGoogleAccessRequest : Codable {
@@ -2258,7 +2258,7 @@ public struct TargetHttpProxyList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct TargetHttpsProxiesSetQuicOverrideRequest : Codable {
@@ -2288,7 +2288,7 @@ public struct TargetHttpsProxyList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct TargetInstance : Codable {
@@ -2305,11 +2305,11 @@ public struct TargetInstance : Codable {
 
 public struct TargetInstanceAggregatedList : Codable {
   public var `id` : String?
-  public var `items` : Unknown?
+  public var `items` : Object?
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct TargetInstanceList : Codable {
@@ -2318,12 +2318,12 @@ public struct TargetInstanceList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct TargetInstancesScopedList : Codable {
   public var `targetInstances` : [TargetInstance]?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct TargetPool : Codable {
@@ -2343,11 +2343,11 @@ public struct TargetPool : Codable {
 
 public struct TargetPoolAggregatedList : Codable {
   public var `id` : String?
-  public var `items` : Unknown?
+  public var `items` : Object?
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct TargetPoolInstanceHealth : Codable {
@@ -2361,7 +2361,7 @@ public struct TargetPoolList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct TargetPoolsAddHealthCheckRequest : Codable {
@@ -2382,7 +2382,7 @@ public struct TargetPoolsRemoveInstanceRequest : Codable {
 
 public struct TargetPoolsScopedList : Codable {
   public var `targetPools` : [TargetPool]?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct TargetReference : Codable {
@@ -2420,7 +2420,7 @@ public struct TargetSslProxyList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct TargetTcpProxiesSetBackendServiceRequest : Codable {
@@ -2448,7 +2448,7 @@ public struct TargetTcpProxyList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct TargetVpnGateway : Codable {
@@ -2467,11 +2467,11 @@ public struct TargetVpnGateway : Codable {
 
 public struct TargetVpnGatewayAggregatedList : Codable {
   public var `id` : String?
-  public var `items` : Unknown?
+  public var `items` : Object?
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct TargetVpnGatewayList : Codable {
@@ -2480,12 +2480,12 @@ public struct TargetVpnGatewayList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct TargetVpnGatewaysScopedList : Codable {
   public var `targetVpnGateways` : [TargetVpnGateway]?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct TestFailure : Codable {
@@ -2523,7 +2523,7 @@ public struct UrlMapList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct UrlMapReference : Codable {
@@ -2570,7 +2570,7 @@ public struct UsableSubnetworksAggregatedList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct UsageExportLocation : Codable {
@@ -2596,7 +2596,7 @@ public struct VmEndpointNatMappingsList : Codable {
   public var `nextPageToken` : String?
   public var `result` : [VmEndpointNatMappings]?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct VpnTunnel : Codable {
@@ -2621,11 +2621,11 @@ public struct VpnTunnel : Codable {
 
 public struct VpnTunnelAggregatedList : Codable {
   public var `id` : String?
-  public var `items` : Unknown?
+  public var `items` : Object?
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct VpnTunnelList : Codable {
@@ -2634,12 +2634,12 @@ public struct VpnTunnelList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct VpnTunnelsScopedList : Codable {
   public var `vpnTunnels` : [VpnTunnel]?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct XpnHostList : Codable {
@@ -2648,7 +2648,7 @@ public struct XpnHostList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct XpnResourceId : Codable {
@@ -2675,12 +2675,12 @@ public struct ZoneList : Codable {
   public var `kind` : String?
   public var `nextPageToken` : String?
   public var `selfLink` : String?
-  public var `warning` : Unknown?
+  public var `warning` : Object?
 }
 
 public struct ZoneSetLabelsRequest : Codable {
   public var `labelFingerprint` : String?
-  public var `labels` : Unknown?
+  public var `labels` : Object?
 }
 
 public struct ZoneSetPolicyRequest : Codable {
@@ -2689,7 +2689,7 @@ public struct ZoneSetPolicyRequest : Codable {
   public var `policy` : Policy?
 }
 
-public struct Unknown : Codable {}
+public class Object : Codable {}
 
 public class Compute : Service {
 
@@ -13863,3 +13863,4 @@ public class Compute : Service {
                    completion: completion)
   }
 }
+

@@ -78,28 +78,28 @@ func main() throws {
   }
   
   if arguments[1] == "insert" {
-    var disk = AttachedDisk()
+    var disk = Compute.AttachedDisk()
     disk.kind = "compute#attachedDisk"
     disk.type = "PERSISTENT"
     disk.boot = true
     disk.mode = "READ_WRITE"
     disk.autoDelete = true
     disk.deviceName = INSTANCE
-    var initializeParams = AttachedDiskInitializeParams()
+    var initializeParams = Compute.AttachedDiskInitializeParams()
     initializeParams.sourceImage = "projects/debian-cloud/global/images/debian-9-stretch-v20190124"
     initializeParams.diskType = "projects/hello-87/zones/us-west1-b/diskTypes/pd-standard"
     initializeParams.diskSizeGb = "10"
     disk.initializeParams = initializeParams
-    var accessConfig = AccessConfig()
+    var accessConfig = Compute.AccessConfig()
     accessConfig.kind = "compute#accessConfig"
     accessConfig.name = "External NAT"
     accessConfig.type = "ONE_TO_ONE_NAT"
     accessConfig.networkTier = "PREMIUM"
-    var networkInterface = NetworkInterface()
+    var networkInterface = Compute.NetworkInterface()
     networkInterface.kind = "compute#networkInterface"
     networkInterface.subnetwork = "projects/hello-87/regions/us-west1/subnetworks/default"
     networkInterface.accessConfigs = [accessConfig]
-    var request = Instance()
+    var request = Compute.Instance()
     request.name = INSTANCE
     request.machineType = "zones/us-west1-b/machineTypes/f1-micro"
     request.networkInterfaces = [networkInterface]

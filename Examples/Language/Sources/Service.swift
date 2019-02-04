@@ -33,10 +33,19 @@ extension Parameterizable {
     for p in queryParameters() {
       for child in mirror.children {
         if child.label == p {
-          q[p] = String(describing:child.value)
+          switch child.value {
+          case let s as String:
+            q[p] = s
+          case Optional<Any>.none:
+            continue
+          default:
+            print("failed to handle \(p) \(child.value)")
+          }
+          
         }
       }
     }
+    print("query: \(q)")
     return q
   }
   public func path(pattern: String) -> String {
@@ -45,11 +54,18 @@ extension Parameterizable {
     for p in pathParameters() {
       for child in mirror.children {
         if child.label == p {
-          let value = String(describing:child.value)
-          pattern = pattern.replacingOccurrences(of: "{"+p+"}", with: value)
+          switch child.value {
+          case let s as String:
+            pattern = pattern.replacingOccurrences(of: "{"+p+"}", with: s)
+          case Optional<Any>.none:
+            continue
+          default:
+            print("failed to handle \(p) \(child.value)")
+          }
         }
       }
     }
+    print("path: \(pattern)")
     return pattern
   }
 }
@@ -113,6 +129,46 @@ public class Service {
     path : String,
     parameters : Y,
     completion : @escaping(Z?, Error?) -> ()) throws {
+    let postData : Data? = nil
+    try connection.performRequest(
+      method:method,
+      urlString:base + parameters.path(pattern:path),
+      parameters: parameters.query(),
+      body:postData) {(data, response, error) in
+        self.handleResponse(data, response, error, completion)
+    }
+  }
+  
+  func perform<X:Encodable,Y:Parameterizable,Z:Decodable>(
+    method : String,
+    path : String,
+    request : X,
+    parameters : Y,
+    completion : @escaping(Z?, Error?) -> ()) throws {
+    let encoder = JSONEncoder()
+    let postData = try encoder.encode(request)
+    try connection.performRequest(
+      method:method,
+      urlString:base + parameters.path(pattern:path),
+      parameters: parameters.query(),
+      body:postData) {(data, response, error) in
+        self.handleResponse(data, response, error, completion)
+    }
+  }
+  
+  func handleResponse(
+    _ data : Data?,
+    _ response : URLResponse?,
+    _ error : Error?,
+    _ completion : @escaping(Error?) -> ()) {
+    completion(error)
+  }
+  
+  func perform<Y:Parameterizable>(
+    method : String,
+    path : String,
+    parameters : Y,
+    completion : @escaping(Error?) -> ()) throws {
     let postData : Data? = nil
     try connection.performRequest(
       method:method,

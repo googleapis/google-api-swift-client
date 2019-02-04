@@ -63,7 +63,7 @@ func main() throws {
   }
   
   if arguments[1] == "translate" {
-    let request = TranslateTextRequest(format:"text",
+    let request = Translate.TranslateTextRequest(format:"text",
                                        model:nil,
                                        q:["hello", "goodbye"],
                                        source:nil,
@@ -78,7 +78,7 @@ func main() throws {
   }
   
   if arguments[1] == "detect" {
-    let request = DetectLanguageRequest(q:["hello", "goodbye"])
+    let request = Translate.DetectLanguageRequest(q:["hello", "goodbye"])
     let sem = DispatchSemaphore(value: 0)
     try translate.detections_detect(request: request) {response, error in
       print(String(describing:response))

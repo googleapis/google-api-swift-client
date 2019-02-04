@@ -1,2700 +1,2700 @@
 import Foundation
 import OAuth2
 
-public struct AcceleratorConfig : Codable {
-  public var `acceleratorCount` : Int?
-  public var `acceleratorType` : String?
-}
-
-public struct AcceleratorType : Codable {
-  public var `creationTimestamp` : String?
-  public var `deprecated` : DeprecationStatus?
-  public var `description` : String?
-  public var `id` : String?
-  public var `kind` : String?
-  public var `maximumCardsPerInstance` : Int?
-  public var `name` : String?
-  public var `selfLink` : String?
-  public var `zone` : String?
-}
-
-public struct AcceleratorTypeAggregatedList : Codable {
-  public var `id` : String?
-  public var `items` : Object?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct AcceleratorTypeList : Codable {
-  public var `id` : String?
-  public var `items` : [AcceleratorType]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct AcceleratorTypesScopedList : Codable {
-  public var `acceleratorTypes` : [AcceleratorType]?
-  public var `warning` : Object?
-}
-
-public struct AccessConfig : Codable {
-  public var `kind` : String?
-  public var `name` : String?
-  public var `natIP` : String?
-  public var `networkTier` : String?
-  public var `publicPtrDomainName` : String?
-  public var `setPublicPtr` : Bool?
-  public var `type` : String?
-}
-
-public struct Address : Codable {
-  public var `address` : String?
-  public var `addressType` : String?
-  public var `creationTimestamp` : String?
-  public var `description` : String?
-  public var `id` : String?
-  public var `ipVersion` : String?
-  public var `kind` : String?
-  public var `name` : String?
-  public var `network` : String?
-  public var `networkTier` : String?
-  public var `prefixLength` : Int?
-  public var `purpose` : String?
-  public var `region` : String?
-  public var `selfLink` : String?
-  public var `status` : String?
-  public var `subnetwork` : String?
-  public var `users` : [String]?
-}
-
-public struct AddressAggregatedList : Codable {
-  public var `id` : String?
-  public var `items` : Object?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct AddressList : Codable {
-  public var `id` : String?
-  public var `items` : [Address]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct AddressesScopedList : Codable {
-  public var `addresses` : [Address]?
-  public var `warning` : Object?
-}
-
-public struct AliasIpRange : Codable {
-  public var `ipCidrRange` : String?
-  public var `subnetworkRangeName` : String?
-}
-
-public struct AttachedDisk : Codable {
-  public var `autoDelete` : Bool?
-  public var `boot` : Bool?
-  public var `deviceName` : String?
-  public var `diskEncryptionKey` : CustomerEncryptionKey?
-  public var `guestOsFeatures` : [GuestOsFeature]?
-  public var `index` : Int?
-  public var `initializeParams` : AttachedDiskInitializeParams?
-  public var `interface` : String?
-  public var `kind` : String?
-  public var `licenses` : [String]?
-  public var `mode` : String?
-  public var `source` : String?
-  public var `type` : String?
-}
-
-public struct AttachedDiskInitializeParams : Codable {
-  public var `description` : String?
-  public var `diskName` : String?
-  public var `diskSizeGb` : String?
-  public var `diskType` : String?
-  public var `labels` : Object?
-  public var `sourceImage` : String?
-  public var `sourceImageEncryptionKey` : CustomerEncryptionKey?
-}
-
-public struct AuditConfig : Codable {
-  public var `auditLogConfigs` : [AuditLogConfig]?
-  public var `exemptedMembers` : [String]?
-  public var `service` : String?
-}
-
-public struct AuditLogConfig : Codable {
-  public var `exemptedMembers` : [String]?
-  public var `logType` : String?
-}
-
-public struct AuthorizationLoggingOptions : Codable {
-  public var `permissionType` : String?
-}
-
-public struct Autoscaler : Codable {
-  public var `autoscalingPolicy` : AutoscalingPolicy?
-  public var `creationTimestamp` : String?
-  public var `description` : String?
-  public var `id` : String?
-  public var `kind` : String?
-  public var `name` : String?
-  public var `region` : String?
-  public var `selfLink` : String?
-  public var `status` : String?
-  public var `statusDetails` : [AutoscalerStatusDetails]?
-  public var `target` : String?
-  public var `zone` : String?
-}
-
-public struct AutoscalerAggregatedList : Codable {
-  public var `id` : String?
-  public var `items` : Object?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct AutoscalerList : Codable {
-  public var `id` : String?
-  public var `items` : [Autoscaler]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct AutoscalerStatusDetails : Codable {
-  public var `message` : String?
-  public var `type` : String?
-}
-
-public struct AutoscalersScopedList : Codable {
-  public var `autoscalers` : [Autoscaler]?
-  public var `warning` : Object?
-}
-
-public struct AutoscalingPolicy : Codable {
-  public var `coolDownPeriodSec` : Int?
-  public var `cpuUtilization` : AutoscalingPolicyCpuUtilization?
-  public var `customMetricUtilizations` : [AutoscalingPolicyCustomMetricUtilization]?
-  public var `loadBalancingUtilization` : AutoscalingPolicyLoadBalancingUtilization?
-  public var `maxNumReplicas` : Int?
-  public var `minNumReplicas` : Int?
-}
-
-public struct AutoscalingPolicyCpuUtilization : Codable {
-  public var `utilizationTarget` : Float?
-}
-
-public struct AutoscalingPolicyCustomMetricUtilization : Codable {
-  public var `metric` : String?
-  public var `utilizationTarget` : Float?
-  public var `utilizationTargetType` : String?
-}
-
-public struct AutoscalingPolicyLoadBalancingUtilization : Codable {
-  public var `utilizationTarget` : Float?
-}
-
-public struct Backend : Codable {
-  public var `balancingMode` : String?
-  public var `capacityScaler` : Float?
-  public var `description` : String?
-  public var `group` : String?
-  public var `maxConnections` : Int?
-  public var `maxConnectionsPerInstance` : Int?
-  public var `maxRate` : Int?
-  public var `maxRatePerInstance` : Float?
-  public var `maxUtilization` : Float?
-}
-
-public struct BackendBucket : Codable {
-  public var `bucketName` : String?
-  public var `cdnPolicy` : BackendBucketCdnPolicy?
-  public var `creationTimestamp` : String?
-  public var `description` : String?
-  public var `enableCdn` : Bool?
-  public var `id` : String?
-  public var `kind` : String?
-  public var `name` : String?
-  public var `selfLink` : String?
-}
-
-public struct BackendBucketCdnPolicy : Codable {
-  public var `signedUrlCacheMaxAgeSec` : String?
-  public var `signedUrlKeyNames` : [String]?
-}
-
-public struct BackendBucketList : Codable {
-  public var `id` : String?
-  public var `items` : [BackendBucket]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct BackendService : Codable {
-  public var `affinityCookieTtlSec` : Int?
-  public var `backends` : [Backend]?
-  public var `cdnPolicy` : BackendServiceCdnPolicy?
-  public var `connectionDraining` : ConnectionDraining?
-  public var `creationTimestamp` : String?
-  public var `description` : String?
-  public var `enableCDN` : Bool?
-  public var `fingerprint` : String?
-  public var `healthChecks` : [String]?
-  public var `iap` : BackendServiceIAP?
-  public var `id` : String?
-  public var `kind` : String?
-  public var `loadBalancingScheme` : String?
-  public var `name` : String?
-  public var `port` : Int?
-  public var `portName` : String?
-  public var `protocol` : String?
-  public var `region` : String?
-  public var `securityPolicy` : String?
-  public var `selfLink` : String?
-  public var `sessionAffinity` : String?
-  public var `timeoutSec` : Int?
-}
-
-public struct BackendServiceAggregatedList : Codable {
-  public var `id` : String?
-  public var `items` : Object?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct BackendServiceCdnPolicy : Codable {
-  public var `cacheKeyPolicy` : CacheKeyPolicy?
-  public var `signedUrlCacheMaxAgeSec` : String?
-  public var `signedUrlKeyNames` : [String]?
-}
-
-public struct BackendServiceGroupHealth : Codable {
-  public var `healthStatus` : [HealthStatus]?
-  public var `kind` : String?
-}
-
-public struct BackendServiceIAP : Codable {
-  public var `enabled` : Bool?
-  public var `oauth2ClientId` : String?
-  public var `oauth2ClientSecret` : String?
-  public var `oauth2ClientSecretSha256` : String?
-}
-
-public struct BackendServiceList : Codable {
-  public var `id` : String?
-  public var `items` : [BackendService]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct BackendServicesScopedList : Codable {
-  public var `backendServices` : [BackendService]?
-  public var `warning` : Object?
-}
-
-public struct Binding : Codable {
-  public var `condition` : Expr?
-  public var `members` : [String]?
-  public var `role` : String?
-}
-
-public struct CacheInvalidationRule : Codable {
-  public var `host` : String?
-  public var `path` : String?
-}
-
-public struct CacheKeyPolicy : Codable {
-  public var `includeHost` : Bool?
-  public var `includeProtocol` : Bool?
-  public var `includeQueryString` : Bool?
-  public var `queryStringBlacklist` : [String]?
-  public var `queryStringWhitelist` : [String]?
-}
-
-public struct Commitment : Codable {
-  public var `creationTimestamp` : String?
-  public var `description` : String?
-  public var `endTimestamp` : String?
-  public var `id` : String?
-  public var `kind` : String?
-  public var `name` : String?
-  public var `plan` : String?
-  public var `region` : String?
-  public var `resources` : [ResourceCommitment]?
-  public var `selfLink` : String?
-  public var `startTimestamp` : String?
-  public var `status` : String?
-  public var `statusMessage` : String?
-}
-
-public struct CommitmentAggregatedList : Codable {
-  public var `id` : String?
-  public var `items` : Object?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct CommitmentList : Codable {
-  public var `id` : String?
-  public var `items` : [Commitment]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct CommitmentsScopedList : Codable {
-  public var `commitments` : [Commitment]?
-  public var `warning` : Object?
-}
-
-public struct Condition : Codable {
-  public var `iam` : String?
-  public var `op` : String?
-  public var `svc` : String?
-  public var `sys` : String?
-  public var `value` : String?
-  public var `values` : [String]?
-}
-
-public struct ConnectionDraining : Codable {
-  public var `drainingTimeoutSec` : Int?
-}
-
-public struct CustomerEncryptionKey : Codable {
-  public var `kmsKeyName` : String?
-  public var `rawKey` : String?
-  public var `sha256` : String?
-}
-
-public struct CustomerEncryptionKeyProtectedDisk : Codable {
-  public var `diskEncryptionKey` : CustomerEncryptionKey?
-  public var `source` : String?
-}
-
-public struct DeprecationStatus : Codable {
-  public var `deleted` : String?
-  public var `deprecated` : String?
-  public var `obsolete` : String?
-  public var `replacement` : String?
-  public var `state` : String?
-}
-
-public struct Disk : Codable {
-  public var `creationTimestamp` : String?
-  public var `description` : String?
-  public var `diskEncryptionKey` : CustomerEncryptionKey?
-  public var `guestOsFeatures` : [GuestOsFeature]?
-  public var `id` : String?
-  public var `kind` : String?
-  public var `labelFingerprint` : String?
-  public var `labels` : Object?
-  public var `lastAttachTimestamp` : String?
-  public var `lastDetachTimestamp` : String?
-  public var `licenseCodes` : [String]?
-  public var `licenses` : [String]?
-  public var `name` : String?
-  public var `options` : String?
-  public var `physicalBlockSizeBytes` : String?
-  public var `region` : String?
-  public var `replicaZones` : [String]?
-  public var `selfLink` : String?
-  public var `sizeGb` : String?
-  public var `sourceImage` : String?
-  public var `sourceImageEncryptionKey` : CustomerEncryptionKey?
-  public var `sourceImageId` : String?
-  public var `sourceSnapshot` : String?
-  public var `sourceSnapshotEncryptionKey` : CustomerEncryptionKey?
-  public var `sourceSnapshotId` : String?
-  public var `status` : String?
-  public var `type` : String?
-  public var `users` : [String]?
-  public var `zone` : String?
-}
-
-public struct DiskAggregatedList : Codable {
-  public var `id` : String?
-  public var `items` : Object?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct DiskInstantiationConfig : Codable {
-  public var `autoDelete` : Bool?
-  public var `customImage` : String?
-  public var `deviceName` : String?
-  public var `instantiateFrom` : String?
-}
-
-public struct DiskList : Codable {
-  public var `id` : String?
-  public var `items` : [Disk]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct DiskMoveRequest : Codable {
-  public var `destinationZone` : String?
-  public var `targetDisk` : String?
-}
-
-public struct DiskType : Codable {
-  public var `creationTimestamp` : String?
-  public var `defaultDiskSizeGb` : String?
-  public var `deprecated` : DeprecationStatus?
-  public var `description` : String?
-  public var `id` : String?
-  public var `kind` : String?
-  public var `name` : String?
-  public var `region` : String?
-  public var `selfLink` : String?
-  public var `validDiskSize` : String?
-  public var `zone` : String?
-}
-
-public struct DiskTypeAggregatedList : Codable {
-  public var `id` : String?
-  public var `items` : Object?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct DiskTypeList : Codable {
-  public var `id` : String?
-  public var `items` : [DiskType]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct DiskTypesScopedList : Codable {
-  public var `diskTypes` : [DiskType]?
-  public var `warning` : Object?
-}
-
-public struct DisksResizeRequest : Codable {
-  public var `sizeGb` : String?
-}
-
-public struct DisksScopedList : Codable {
-  public var `disks` : [Disk]?
-  public var `warning` : Object?
-}
-
-public struct DistributionPolicy : Codable {
-  public var `zones` : [DistributionPolicyZoneConfiguration]?
-}
-
-public struct DistributionPolicyZoneConfiguration : Codable {
-  public var `zone` : String?
-}
-
-public struct Expr : Codable {
-  public var `description` : String?
-  public var `expression` : String?
-  public var `location` : String?
-  public var `title` : String?
-}
-
-public struct Firewall : Codable {
-  public var `allowed` : [Object]?
-  public var `creationTimestamp` : String?
-  public var `denied` : [Object]?
-  public var `description` : String?
-  public var `destinationRanges` : [String]?
-  public var `direction` : String?
-  public var `disabled` : Bool?
-  public var `id` : String?
-  public var `kind` : String?
-  public var `logConfig` : FirewallLogConfig?
-  public var `name` : String?
-  public var `network` : String?
-  public var `priority` : Int?
-  public var `selfLink` : String?
-  public var `sourceRanges` : [String]?
-  public var `sourceServiceAccounts` : [String]?
-  public var `sourceTags` : [String]?
-  public var `targetServiceAccounts` : [String]?
-  public var `targetTags` : [String]?
-}
-
-public struct FirewallList : Codable {
-  public var `id` : String?
-  public var `items` : [Firewall]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct FirewallLogConfig : Codable {
-  public var `enable` : Bool?
-}
-
-public struct FixedOrPercent : Codable {
-  public var `calculated` : Int?
-  public var `fixed` : Int?
-  public var `percent` : Int?
-}
-
-public struct ForwardingRule : Codable {
-  public var `IPAddress` : String?
-  public var `IPProtocol` : String?
-  public var `backendService` : String?
-  public var `creationTimestamp` : String?
-  public var `description` : String?
-  public var `id` : String?
-  public var `ipVersion` : String?
-  public var `kind` : String?
-  public var `loadBalancingScheme` : String?
-  public var `name` : String?
-  public var `network` : String?
-  public var `networkTier` : String?
-  public var `portRange` : String?
-  public var `ports` : [String]?
-  public var `region` : String?
-  public var `selfLink` : String?
-  public var `serviceLabel` : String?
-  public var `serviceName` : String?
-  public var `subnetwork` : String?
-  public var `target` : String?
-}
-
-public struct ForwardingRuleAggregatedList : Codable {
-  public var `id` : String?
-  public var `items` : Object?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct ForwardingRuleList : Codable {
-  public var `id` : String?
-  public var `items` : [ForwardingRule]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct ForwardingRulesScopedList : Codable {
-  public var `forwardingRules` : [ForwardingRule]?
-  public var `warning` : Object?
-}
-
-public struct GlobalSetLabelsRequest : Codable {
-  public var `labelFingerprint` : String?
-  public var `labels` : Object?
-}
-
-public struct GlobalSetPolicyRequest : Codable {
-  public var `bindings` : [Binding]?
-  public var `etag` : String?
-  public var `policy` : Policy?
-}
-
-public struct GuestOsFeature : Codable {
-  public var `type` : String?
-}
-
-public struct HTTPHealthCheck : Codable {
-  public var `host` : String?
-  public var `port` : Int?
-  public var `portName` : String?
-  public var `proxyHeader` : String?
-  public var `requestPath` : String?
-  public var `response` : String?
-}
-
-public struct HTTPSHealthCheck : Codable {
-  public var `host` : String?
-  public var `port` : Int?
-  public var `portName` : String?
-  public var `proxyHeader` : String?
-  public var `requestPath` : String?
-  public var `response` : String?
-}
-
-public struct HealthCheck : Codable {
-  public var `checkIntervalSec` : Int?
-  public var `creationTimestamp` : String?
-  public var `description` : String?
-  public var `healthyThreshold` : Int?
-  public var `httpHealthCheck` : HTTPHealthCheck?
-  public var `httpsHealthCheck` : HTTPSHealthCheck?
-  public var `id` : String?
-  public var `kind` : String?
-  public var `name` : String?
-  public var `selfLink` : String?
-  public var `sslHealthCheck` : SSLHealthCheck?
-  public var `tcpHealthCheck` : TCPHealthCheck?
-  public var `timeoutSec` : Int?
-  public var `type` : String?
-  public var `unhealthyThreshold` : Int?
-}
-
-public struct HealthCheckList : Codable {
-  public var `id` : String?
-  public var `items` : [HealthCheck]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct HealthCheckReference : Codable {
-  public var `healthCheck` : String?
-}
-
-public struct HealthStatus : Codable {
-  public var `healthState` : String?
-  public var `instance` : String?
-  public var `ipAddress` : String?
-  public var `port` : Int?
-}
-
-public struct HostRule : Codable {
-  public var `description` : String?
-  public var `hosts` : [String]?
-  public var `pathMatcher` : String?
-}
-
-public struct HttpHealthCheck : Codable {
-  public var `checkIntervalSec` : Int?
-  public var `creationTimestamp` : String?
-  public var `description` : String?
-  public var `healthyThreshold` : Int?
-  public var `host` : String?
-  public var `id` : String?
-  public var `kind` : String?
-  public var `name` : String?
-  public var `port` : Int?
-  public var `requestPath` : String?
-  public var `selfLink` : String?
-  public var `timeoutSec` : Int?
-  public var `unhealthyThreshold` : Int?
-}
-
-public struct HttpHealthCheckList : Codable {
-  public var `id` : String?
-  public var `items` : [HttpHealthCheck]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct HttpsHealthCheck : Codable {
-  public var `checkIntervalSec` : Int?
-  public var `creationTimestamp` : String?
-  public var `description` : String?
-  public var `healthyThreshold` : Int?
-  public var `host` : String?
-  public var `id` : String?
-  public var `kind` : String?
-  public var `name` : String?
-  public var `port` : Int?
-  public var `requestPath` : String?
-  public var `selfLink` : String?
-  public var `timeoutSec` : Int?
-  public var `unhealthyThreshold` : Int?
-}
-
-public struct HttpsHealthCheckList : Codable {
-  public var `id` : String?
-  public var `items` : [HttpsHealthCheck]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct Image : Codable {
-  public var `archiveSizeBytes` : String?
-  public var `creationTimestamp` : String?
-  public var `deprecated` : DeprecationStatus?
-  public var `description` : String?
-  public var `diskSizeGb` : String?
-  public var `family` : String?
-  public var `guestOsFeatures` : [GuestOsFeature]?
-  public var `id` : String?
-  public var `imageEncryptionKey` : CustomerEncryptionKey?
-  public var `kind` : String?
-  public var `labelFingerprint` : String?
-  public var `labels` : Object?
-  public var `licenseCodes` : [String]?
-  public var `licenses` : [String]?
-  public var `name` : String?
-  public var `rawDisk` : Object?
-  public var `selfLink` : String?
-  public var `sourceDisk` : String?
-  public var `sourceDiskEncryptionKey` : CustomerEncryptionKey?
-  public var `sourceDiskId` : String?
-  public var `sourceImage` : String?
-  public var `sourceImageEncryptionKey` : CustomerEncryptionKey?
-  public var `sourceImageId` : String?
-  public var `sourceSnapshot` : String?
-  public var `sourceSnapshotEncryptionKey` : CustomerEncryptionKey?
-  public var `sourceSnapshotId` : String?
-  public var `sourceType` : String?
-  public var `status` : String?
-}
-
-public struct ImageList : Codable {
-  public var `id` : String?
-  public var `items` : [Image]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct Instance : Codable {
-  public var `canIpForward` : Bool?
-  public var `cpuPlatform` : String?
-  public var `creationTimestamp` : String?
-  public var `deletionProtection` : Bool?
-  public var `description` : String?
-  public var `disks` : [AttachedDisk]?
-  public var `guestAccelerators` : [AcceleratorConfig]?
-  public var `hostname` : String?
-  public var `id` : String?
-  public var `kind` : String?
-  public var `labelFingerprint` : String?
-  public var `labels` : Object?
-  public var `machineType` : String?
-  public var `metadata` : Metadata?
-  public var `minCpuPlatform` : String?
-  public var `name` : String?
-  public var `networkInterfaces` : [NetworkInterface]?
-  public var `scheduling` : Scheduling?
-  public var `selfLink` : String?
-  public var `serviceAccounts` : [ServiceAccount]?
-  public var `startRestricted` : Bool?
-  public var `status` : String?
-  public var `statusMessage` : String?
-  public var `tags` : Tags?
-  public var `zone` : String?
-}
-
-public struct InstanceAggregatedList : Codable {
-  public var `id` : String?
-  public var `items` : Object?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct InstanceGroup : Codable {
-  public var `creationTimestamp` : String?
-  public var `description` : String?
-  public var `fingerprint` : String?
-  public var `id` : String?
-  public var `kind` : String?
-  public var `name` : String?
-  public var `namedPorts` : [NamedPort]?
-  public var `network` : String?
-  public var `region` : String?
-  public var `selfLink` : String?
-  public var `size` : Int?
-  public var `subnetwork` : String?
-  public var `zone` : String?
-}
-
-public struct InstanceGroupAggregatedList : Codable {
-  public var `id` : String?
-  public var `items` : Object?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct InstanceGroupList : Codable {
-  public var `id` : String?
-  public var `items` : [InstanceGroup]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct InstanceGroupManager : Codable {
-  public var `autoHealingPolicies` : [InstanceGroupManagerAutoHealingPolicy]?
-  public var `baseInstanceName` : String?
-  public var `creationTimestamp` : String?
-  public var `currentActions` : InstanceGroupManagerActionsSummary?
-  public var `description` : String?
-  public var `distributionPolicy` : DistributionPolicy?
-  public var `fingerprint` : String?
-  public var `id` : String?
-  public var `instanceGroup` : String?
-  public var `instanceTemplate` : String?
-  public var `kind` : String?
-  public var `name` : String?
-  public var `namedPorts` : [NamedPort]?
-  public var `region` : String?
-  public var `selfLink` : String?
-  public var `status` : InstanceGroupManagerStatus?
-  public var `targetPools` : [String]?
-  public var `targetSize` : Int?
-  public var `updatePolicy` : InstanceGroupManagerUpdatePolicy?
-  public var `versions` : [InstanceGroupManagerVersion]?
-  public var `zone` : String?
-}
-
-public struct InstanceGroupManagerActionsSummary : Codable {
-  public var `abandoning` : Int?
-  public var `creating` : Int?
-  public var `creatingWithoutRetries` : Int?
-  public var `deleting` : Int?
-  public var `none` : Int?
-  public var `recreating` : Int?
-  public var `refreshing` : Int?
-  public var `restarting` : Int?
-  public var `verifying` : Int?
-}
-
-public struct InstanceGroupManagerAggregatedList : Codable {
-  public var `id` : String?
-  public var `items` : Object?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct InstanceGroupManagerAutoHealingPolicy : Codable {
-  public var `healthCheck` : String?
-  public var `initialDelaySec` : Int?
-}
-
-public struct InstanceGroupManagerList : Codable {
-  public var `id` : String?
-  public var `items` : [InstanceGroupManager]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct InstanceGroupManagerStatus : Codable {
-  public var `isStable` : Bool?
-}
-
-public struct InstanceGroupManagerUpdatePolicy : Codable {
-  public var `maxSurge` : FixedOrPercent?
-  public var `maxUnavailable` : FixedOrPercent?
-  public var `minimalAction` : String?
-  public var `type` : String?
-}
-
-public struct InstanceGroupManagerVersion : Codable {
-  public var `instanceTemplate` : String?
-  public var `name` : String?
-  public var `targetSize` : FixedOrPercent?
-}
-
-public struct InstanceGroupManagersAbandonInstancesRequest : Codable {
-  public var `instances` : [String]?
-}
-
-public struct InstanceGroupManagersDeleteInstancesRequest : Codable {
-  public var `instances` : [String]?
-}
-
-public struct InstanceGroupManagersListManagedInstancesResponse : Codable {
-  public var `managedInstances` : [ManagedInstance]?
-}
-
-public struct InstanceGroupManagersRecreateInstancesRequest : Codable {
-  public var `instances` : [String]?
-}
-
-public struct InstanceGroupManagersScopedList : Codable {
-  public var `instanceGroupManagers` : [InstanceGroupManager]?
-  public var `warning` : Object?
-}
-
-public struct InstanceGroupManagersSetInstanceTemplateRequest : Codable {
-  public var `instanceTemplate` : String?
-}
-
-public struct InstanceGroupManagersSetTargetPoolsRequest : Codable {
-  public var `fingerprint` : String?
-  public var `targetPools` : [String]?
-}
-
-public struct InstanceGroupsAddInstancesRequest : Codable {
-  public var `instances` : [InstanceReference]?
-}
-
-public struct InstanceGroupsListInstances : Codable {
-  public var `id` : String?
-  public var `items` : [InstanceWithNamedPorts]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct InstanceGroupsListInstancesRequest : Codable {
-  public var `instanceState` : String?
-}
-
-public struct InstanceGroupsRemoveInstancesRequest : Codable {
-  public var `instances` : [InstanceReference]?
-}
-
-public struct InstanceGroupsScopedList : Codable {
-  public var `instanceGroups` : [InstanceGroup]?
-  public var `warning` : Object?
-}
-
-public struct InstanceGroupsSetNamedPortsRequest : Codable {
-  public var `fingerprint` : String?
-  public var `namedPorts` : [NamedPort]?
-}
-
-public struct InstanceList : Codable {
-  public var `id` : String?
-  public var `items` : [Instance]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct InstanceListReferrers : Codable {
-  public var `id` : String?
-  public var `items` : [Reference]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct InstanceMoveRequest : Codable {
-  public var `destinationZone` : String?
-  public var `targetInstance` : String?
-}
-
-public struct InstanceProperties : Codable {
-  public var `canIpForward` : Bool?
-  public var `description` : String?
-  public var `disks` : [AttachedDisk]?
-  public var `guestAccelerators` : [AcceleratorConfig]?
-  public var `labels` : Object?
-  public var `machineType` : String?
-  public var `metadata` : Metadata?
-  public var `minCpuPlatform` : String?
-  public var `networkInterfaces` : [NetworkInterface]?
-  public var `scheduling` : Scheduling?
-  public var `serviceAccounts` : [ServiceAccount]?
-  public var `tags` : Tags?
-}
-
-public struct InstanceReference : Codable {
-  public var `instance` : String?
-}
-
-public struct InstanceTemplate : Codable {
-  public var `creationTimestamp` : String?
-  public var `description` : String?
-  public var `id` : String?
-  public var `kind` : String?
-  public var `name` : String?
-  public var `properties` : InstanceProperties?
-  public var `selfLink` : String?
-  public var `sourceInstance` : String?
-  public var `sourceInstanceParams` : SourceInstanceParams?
-}
-
-public struct InstanceTemplateList : Codable {
-  public var `id` : String?
-  public var `items` : [InstanceTemplate]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct InstanceWithNamedPorts : Codable {
-  public var `instance` : String?
-  public var `namedPorts` : [NamedPort]?
-  public var `status` : String?
-}
-
-public struct InstancesScopedList : Codable {
-  public var `instances` : [Instance]?
-  public var `warning` : Object?
-}
-
-public struct InstancesSetLabelsRequest : Codable {
-  public var `labelFingerprint` : String?
-  public var `labels` : Object?
-}
-
-public struct InstancesSetMachineResourcesRequest : Codable {
-  public var `guestAccelerators` : [AcceleratorConfig]?
-}
-
-public struct InstancesSetMachineTypeRequest : Codable {
-  public var `machineType` : String?
-}
-
-public struct InstancesSetMinCpuPlatformRequest : Codable {
-  public var `minCpuPlatform` : String?
-}
-
-public struct InstancesSetServiceAccountRequest : Codable {
-  public var `email` : String?
-  public var `scopes` : [String]?
-}
-
-public struct InstancesStartWithEncryptionKeyRequest : Codable {
-  public var `disks` : [CustomerEncryptionKeyProtectedDisk]?
-}
-
-public struct Interconnect : Codable {
-  public var `adminEnabled` : Bool?
-  public var `circuitInfos` : [InterconnectCircuitInfo]?
-  public var `creationTimestamp` : String?
-  public var `customerName` : String?
-  public var `description` : String?
-  public var `expectedOutages` : [InterconnectOutageNotification]?
-  public var `googleIpAddress` : String?
-  public var `googleReferenceId` : String?
-  public var `id` : String?
-  public var `interconnectAttachments` : [String]?
-  public var `interconnectType` : String?
-  public var `kind` : String?
-  public var `linkType` : String?
-  public var `location` : String?
-  public var `name` : String?
-  public var `nocContactEmail` : String?
-  public var `operationalStatus` : String?
-  public var `peerIpAddress` : String?
-  public var `provisionedLinkCount` : Int?
-  public var `requestedLinkCount` : Int?
-  public var `selfLink` : String?
-  public var `state` : String?
-}
-
-public struct InterconnectAttachment : Codable {
-  public var `adminEnabled` : Bool?
-  public var `bandwidth` : String?
-  public var `candidateSubnets` : [String]?
-  public var `cloudRouterIpAddress` : String?
-  public var `creationTimestamp` : String?
-  public var `customerRouterIpAddress` : String?
-  public var `description` : String?
-  public var `edgeAvailabilityDomain` : String?
-  public var `googleReferenceId` : String?
-  public var `id` : String?
-  public var `interconnect` : String?
-  public var `kind` : String?
-  public var `name` : String?
-  public var `operationalStatus` : String?
-  public var `pairingKey` : String?
-  public var `partnerAsn` : String?
-  public var `partnerMetadata` : InterconnectAttachmentPartnerMetadata?
-  public var `privateInterconnectInfo` : InterconnectAttachmentPrivateInfo?
-  public var `region` : String?
-  public var `router` : String?
-  public var `selfLink` : String?
-  public var `state` : String?
-  public var `type` : String?
-  public var `vlanTag8021q` : Int?
-}
-
-public struct InterconnectAttachmentAggregatedList : Codable {
-  public var `id` : String?
-  public var `items` : Object?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct InterconnectAttachmentList : Codable {
-  public var `id` : String?
-  public var `items` : [InterconnectAttachment]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct InterconnectAttachmentPartnerMetadata : Codable {
-  public var `interconnectName` : String?
-  public var `partnerName` : String?
-  public var `portalUrl` : String?
-}
-
-public struct InterconnectAttachmentPrivateInfo : Codable {
-  public var `tag8021q` : Int?
-}
-
-public struct InterconnectAttachmentsScopedList : Codable {
-  public var `interconnectAttachments` : [InterconnectAttachment]?
-  public var `warning` : Object?
-}
-
-public struct InterconnectCircuitInfo : Codable {
-  public var `customerDemarcId` : String?
-  public var `googleCircuitId` : String?
-  public var `googleDemarcId` : String?
-}
-
-public struct InterconnectDiagnostics : Codable {
-  public var `arpCaches` : [InterconnectDiagnosticsARPEntry]?
-  public var `links` : [InterconnectDiagnosticsLinkStatus]?
-  public var `macAddress` : String?
-}
-
-public struct InterconnectDiagnosticsARPEntry : Codable {
-  public var `ipAddress` : String?
-  public var `macAddress` : String?
-}
-
-public struct InterconnectDiagnosticsLinkLACPStatus : Codable {
-  public var `googleSystemId` : String?
-  public var `neighborSystemId` : String?
-  public var `state` : String?
-}
-
-public struct InterconnectDiagnosticsLinkOpticalPower : Codable {
-  public var `state` : String?
-  public var `value` : Float?
-}
-
-public struct InterconnectDiagnosticsLinkStatus : Codable {
-  public var `arpCaches` : [InterconnectDiagnosticsARPEntry]?
-  public var `circuitId` : String?
-  public var `googleDemarc` : String?
-  public var `lacpStatus` : InterconnectDiagnosticsLinkLACPStatus?
-  public var `receivingOpticalPower` : InterconnectDiagnosticsLinkOpticalPower?
-  public var `transmittingOpticalPower` : InterconnectDiagnosticsLinkOpticalPower?
-}
-
-public struct InterconnectList : Codable {
-  public var `id` : String?
-  public var `items` : [Interconnect]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct InterconnectLocation : Codable {
-  public var `address` : String?
-  public var `availabilityZone` : String?
-  public var `city` : String?
-  public var `continent` : String?
-  public var `creationTimestamp` : String?
-  public var `description` : String?
-  public var `facilityProvider` : String?
-  public var `facilityProviderFacilityId` : String?
-  public var `id` : String?
-  public var `kind` : String?
-  public var `name` : String?
-  public var `peeringdbFacilityId` : String?
-  public var `regionInfos` : [InterconnectLocationRegionInfo]?
-  public var `selfLink` : String?
-  public var `status` : String?
-}
-
-public struct InterconnectLocationList : Codable {
-  public var `id` : String?
-  public var `items` : [InterconnectLocation]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct InterconnectLocationRegionInfo : Codable {
-  public var `expectedRttMs` : String?
-  public var `locationPresence` : String?
-  public var `region` : String?
-}
-
-public struct InterconnectOutageNotification : Codable {
-  public var `affectedCircuits` : [String]?
-  public var `description` : String?
-  public var `endTime` : String?
-  public var `issueType` : String?
-  public var `name` : String?
-  public var `source` : String?
-  public var `startTime` : String?
-  public var `state` : String?
-}
-
-public struct InterconnectsGetDiagnosticsResponse : Codable {
-  public var `result` : InterconnectDiagnostics?
-}
-
-public struct License : Codable {
-  public var `chargesUseFee` : Bool?
-  public var `creationTimestamp` : String?
-  public var `description` : String?
-  public var `id` : String?
-  public var `kind` : String?
-  public var `licenseCode` : String?
-  public var `name` : String?
-  public var `resourceRequirements` : LicenseResourceRequirements?
-  public var `selfLink` : String?
-  public var `transferable` : Bool?
-}
-
-public struct LicenseCode : Codable {
-  public var `creationTimestamp` : String?
-  public var `description` : String?
-  public var `id` : String?
-  public var `kind` : String?
-  public var `licenseAlias` : [LicenseCodeLicenseAlias]?
-  public var `name` : String?
-  public var `selfLink` : String?
-  public var `state` : String?
-  public var `transferable` : Bool?
-}
-
-public struct LicenseCodeLicenseAlias : Codable {
-  public var `description` : String?
-  public var `selfLink` : String?
-}
-
-public struct LicenseResourceRequirements : Codable {
-  public var `minGuestCpuCount` : Int?
-  public var `minMemoryMb` : Int?
-}
-
-public struct LicensesListResponse : Codable {
-  public var `id` : String?
-  public var `items` : [License]?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct LogConfig : Codable {
-  public var `cloudAudit` : LogConfigCloudAuditOptions?
-  public var `counter` : LogConfigCounterOptions?
-  public var `dataAccess` : LogConfigDataAccessOptions?
-}
-
-public struct LogConfigCloudAuditOptions : Codable {
-  public var `authorizationLoggingOptions` : AuthorizationLoggingOptions?
-  public var `logName` : String?
-}
-
-public struct LogConfigCounterOptions : Codable {
-  public var `field` : String?
-  public var `metric` : String?
-}
-
-public struct LogConfigDataAccessOptions : Codable {
-  public var `logMode` : String?
-}
-
-public struct MachineType : Codable {
-  public var `creationTimestamp` : String?
-  public var `deprecated` : DeprecationStatus?
-  public var `description` : String?
-  public var `guestCpus` : Int?
-  public var `id` : String?
-  public var `imageSpaceGb` : Int?
-  public var `isSharedCpu` : Bool?
-  public var `kind` : String?
-  public var `maximumPersistentDisks` : Int?
-  public var `maximumPersistentDisksSizeGb` : String?
-  public var `memoryMb` : Int?
-  public var `name` : String?
-  public var `scratchDisks` : [Object]?
-  public var `selfLink` : String?
-  public var `zone` : String?
-}
-
-public struct MachineTypeAggregatedList : Codable {
-  public var `id` : String?
-  public var `items` : Object?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct MachineTypeList : Codable {
-  public var `id` : String?
-  public var `items` : [MachineType]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct MachineTypesScopedList : Codable {
-  public var `machineTypes` : [MachineType]?
-  public var `warning` : Object?
-}
-
-public struct ManagedInstance : Codable {
-  public var `currentAction` : String?
-  public var `id` : String?
-  public var `instance` : String?
-  public var `instanceStatus` : String?
-  public var `lastAttempt` : ManagedInstanceLastAttempt?
-}
-
-public struct ManagedInstanceLastAttempt : Codable {
-  public var `errors` : Object?
-}
-
-public struct Metadata : Codable {
-  public var `fingerprint` : String?
-  public var `items` : [Object]?
-  public var `kind` : String?
-}
-
-public struct NamedPort : Codable {
-  public var `name` : String?
-  public var `port` : Int?
-}
-
-public struct Network : Codable {
-  public var `IPv4Range` : String?
-  public var `autoCreateSubnetworks` : Bool?
-  public var `creationTimestamp` : String?
-  public var `description` : String?
-  public var `gatewayIPv4` : String?
-  public var `id` : String?
-  public var `kind` : String?
-  public var `name` : String?
-  public var `peerings` : [NetworkPeering]?
-  public var `routingConfig` : NetworkRoutingConfig?
-  public var `selfLink` : String?
-  public var `subnetworks` : [String]?
-}
-
-public struct NetworkInterface : Codable {
-  public var `accessConfigs` : [AccessConfig]?
-  public var `aliasIpRanges` : [AliasIpRange]?
-  public var `fingerprint` : String?
-  public var `kind` : String?
-  public var `name` : String?
-  public var `network` : String?
-  public var `networkIP` : String?
-  public var `subnetwork` : String?
-}
-
-public struct NetworkList : Codable {
-  public var `id` : String?
-  public var `items` : [Network]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct NetworkPeering : Codable {
-  public var `autoCreateRoutes` : Bool?
-  public var `name` : String?
-  public var `network` : String?
-  public var `state` : String?
-  public var `stateDetails` : String?
-}
-
-public struct NetworkRoutingConfig : Codable {
-  public var `routingMode` : String?
-}
-
-public struct NetworksAddPeeringRequest : Codable {
-  public var `autoCreateRoutes` : Bool?
-  public var `name` : String?
-  public var `peerNetwork` : String?
-}
-
-public struct NetworksRemovePeeringRequest : Codable {
-  public var `name` : String?
-}
-
-public struct NodeGroup : Codable {
-  public var `creationTimestamp` : String?
-  public var `description` : String?
-  public var `id` : String?
-  public var `kind` : String?
-  public var `name` : String?
-  public var `nodeTemplate` : String?
-  public var `selfLink` : String?
-  public var `size` : Int?
-  public var `status` : String?
-  public var `zone` : String?
-}
-
-public struct NodeGroupAggregatedList : Codable {
-  public var `id` : String?
-  public var `items` : Object?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct NodeGroupList : Codable {
-  public var `id` : String?
-  public var `items` : [NodeGroup]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct NodeGroupNode : Codable {
-  public var `instances` : [String]?
-  public var `name` : String?
-  public var `nodeType` : String?
-  public var `status` : String?
-}
-
-public struct NodeGroupsAddNodesRequest : Codable {
-  public var `additionalNodeCount` : Int?
-}
-
-public struct NodeGroupsDeleteNodesRequest : Codable {
-  public var `nodes` : [String]?
-}
-
-public struct NodeGroupsListNodes : Codable {
-  public var `id` : String?
-  public var `items` : [NodeGroupNode]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct NodeGroupsScopedList : Codable {
-  public var `nodeGroups` : [NodeGroup]?
-  public var `warning` : Object?
-}
-
-public struct NodeGroupsSetNodeTemplateRequest : Codable {
-  public var `nodeTemplate` : String?
-}
-
-public struct NodeTemplate : Codable {
-  public var `creationTimestamp` : String?
-  public var `description` : String?
-  public var `id` : String?
-  public var `kind` : String?
-  public var `name` : String?
-  public var `nodeAffinityLabels` : Object?
-  public var `nodeType` : String?
-  public var `nodeTypeFlexibility` : NodeTemplateNodeTypeFlexibility?
-  public var `region` : String?
-  public var `selfLink` : String?
-  public var `status` : String?
-  public var `statusMessage` : String?
-}
-
-public struct NodeTemplateAggregatedList : Codable {
-  public var `id` : String?
-  public var `items` : Object?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct NodeTemplateList : Codable {
-  public var `id` : String?
-  public var `items` : [NodeTemplate]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct NodeTemplateNodeTypeFlexibility : Codable {
-  public var `cpus` : String?
-  public var `localSsd` : String?
-  public var `memory` : String?
-}
-
-public struct NodeTemplatesScopedList : Codable {
-  public var `nodeTemplates` : [NodeTemplate]?
-  public var `warning` : Object?
-}
-
-public struct NodeType : Codable {
-  public var `cpuPlatform` : String?
-  public var `creationTimestamp` : String?
-  public var `deprecated` : DeprecationStatus?
-  public var `description` : String?
-  public var `guestCpus` : Int?
-  public var `id` : String?
-  public var `kind` : String?
-  public var `localSsdGb` : Int?
-  public var `memoryMb` : Int?
-  public var `name` : String?
-  public var `selfLink` : String?
-  public var `zone` : String?
-}
-
-public struct NodeTypeAggregatedList : Codable {
-  public var `id` : String?
-  public var `items` : Object?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct NodeTypeList : Codable {
-  public var `id` : String?
-  public var `items` : [NodeType]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct NodeTypesScopedList : Codable {
-  public var `nodeTypes` : [NodeType]?
-  public var `warning` : Object?
-}
-
-public struct Operation : Codable {
-  public var `clientOperationId` : String?
-  public var `creationTimestamp` : String?
-  public var `description` : String?
-  public var `endTime` : String?
-  public var `error` : Object?
-  public var `httpErrorMessage` : String?
-  public var `httpErrorStatusCode` : Int?
-  public var `id` : String?
-  public var `insertTime` : String?
-  public var `kind` : String?
-  public var `name` : String?
-  public var `operationType` : String?
-  public var `progress` : Int?
-  public var `region` : String?
-  public var `selfLink` : String?
-  public var `startTime` : String?
-  public var `status` : String?
-  public var `statusMessage` : String?
-  public var `targetId` : String?
-  public var `targetLink` : String?
-  public var `user` : String?
-  public var `warnings` : [Object]?
-  public var `zone` : String?
-}
-
-public struct OperationAggregatedList : Codable {
-  public var `id` : String?
-  public var `items` : Object?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct OperationList : Codable {
-  public var `id` : String?
-  public var `items` : [Operation]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct OperationsScopedList : Codable {
-  public var `operations` : [Operation]?
-  public var `warning` : Object?
-}
-
-public struct PathMatcher : Codable {
-  public var `defaultService` : String?
-  public var `description` : String?
-  public var `name` : String?
-  public var `pathRules` : [PathRule]?
-}
-
-public struct PathRule : Codable {
-  public var `paths` : [String]?
-  public var `service` : String?
-}
-
-public struct Policy : Codable {
-  public var `auditConfigs` : [AuditConfig]?
-  public var `bindings` : [Binding]?
-  public var `etag` : String?
-  public var `iamOwned` : Bool?
-  public var `rules` : [Rule]?
-  public var `version` : Int?
-}
-
-public struct Project : Codable {
-  public var `commonInstanceMetadata` : Metadata?
-  public var `creationTimestamp` : String?
-  public var `defaultNetworkTier` : String?
-  public var `defaultServiceAccount` : String?
-  public var `description` : String?
-  public var `enabledFeatures` : [String]?
-  public var `id` : String?
-  public var `kind` : String?
-  public var `name` : String?
-  public var `quotas` : [Quota]?
-  public var `selfLink` : String?
-  public var `usageExportLocation` : UsageExportLocation?
-  public var `xpnProjectStatus` : String?
-}
-
-public struct ProjectsDisableXpnResourceRequest : Codable {
-  public var `xpnResource` : XpnResourceId?
-}
-
-public struct ProjectsEnableXpnResourceRequest : Codable {
-  public var `xpnResource` : XpnResourceId?
-}
-
-public struct ProjectsGetXpnResources : Codable {
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `resources` : [XpnResourceId]?
-}
-
-public struct ProjectsListXpnHostsRequest : Codable {
-  public var `organization` : String?
-}
-
-public struct ProjectsSetDefaultNetworkTierRequest : Codable {
-  public var `networkTier` : String?
-}
-
-public struct Quota : Codable {
-  public var `limit` : Float?
-  public var `metric` : String?
-  public var `owner` : String?
-  public var `usage` : Float?
-}
-
-public struct Reference : Codable {
-  public var `kind` : String?
-  public var `referenceType` : String?
-  public var `referrer` : String?
-  public var `target` : String?
-}
-
-public struct Region : Codable {
-  public var `creationTimestamp` : String?
-  public var `deprecated` : DeprecationStatus?
-  public var `description` : String?
-  public var `id` : String?
-  public var `kind` : String?
-  public var `name` : String?
-  public var `quotas` : [Quota]?
-  public var `selfLink` : String?
-  public var `status` : String?
-  public var `zones` : [String]?
-}
-
-public struct RegionAutoscalerList : Codable {
-  public var `id` : String?
-  public var `items` : [Autoscaler]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct RegionDiskTypeList : Codable {
-  public var `id` : String?
-  public var `items` : [DiskType]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct RegionDisksResizeRequest : Codable {
-  public var `sizeGb` : String?
-}
-
-public struct RegionInstanceGroupList : Codable {
-  public var `id` : String?
-  public var `items` : [InstanceGroup]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct RegionInstanceGroupManagerList : Codable {
-  public var `id` : String?
-  public var `items` : [InstanceGroupManager]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct RegionInstanceGroupManagersAbandonInstancesRequest : Codable {
-  public var `instances` : [String]?
-}
-
-public struct RegionInstanceGroupManagersDeleteInstancesRequest : Codable {
-  public var `instances` : [String]?
-}
-
-public struct RegionInstanceGroupManagersListInstancesResponse : Codable {
-  public var `managedInstances` : [ManagedInstance]?
-}
-
-public struct RegionInstanceGroupManagersRecreateRequest : Codable {
-  public var `instances` : [String]?
-}
-
-public struct RegionInstanceGroupManagersSetTargetPoolsRequest : Codable {
-  public var `fingerprint` : String?
-  public var `targetPools` : [String]?
-}
-
-public struct RegionInstanceGroupManagersSetTemplateRequest : Codable {
-  public var `instanceTemplate` : String?
-}
-
-public struct RegionInstanceGroupsListInstances : Codable {
-  public var `id` : String?
-  public var `items` : [InstanceWithNamedPorts]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct RegionInstanceGroupsListInstancesRequest : Codable {
-  public var `instanceState` : String?
-  public var `portName` : String?
-}
-
-public struct RegionInstanceGroupsSetNamedPortsRequest : Codable {
-  public var `fingerprint` : String?
-  public var `namedPorts` : [NamedPort]?
-}
-
-public struct RegionList : Codable {
-  public var `id` : String?
-  public var `items` : [Region]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct RegionSetLabelsRequest : Codable {
-  public var `labelFingerprint` : String?
-  public var `labels` : Object?
-}
-
-public struct RegionSetPolicyRequest : Codable {
-  public var `bindings` : [Binding]?
-  public var `etag` : String?
-  public var `policy` : Policy?
-}
-
-public struct ResourceCommitment : Codable {
-  public var `amount` : String?
-  public var `type` : String?
-}
-
-public struct ResourceGroupReference : Codable {
-  public var `group` : String?
-}
-
-public struct Route : Codable {
-  public var `creationTimestamp` : String?
-  public var `description` : String?
-  public var `destRange` : String?
-  public var `id` : String?
-  public var `kind` : String?
-  public var `name` : String?
-  public var `network` : String?
-  public var `nextHopGateway` : String?
-  public var `nextHopInstance` : String?
-  public var `nextHopIp` : String?
-  public var `nextHopNetwork` : String?
-  public var `nextHopPeering` : String?
-  public var `nextHopVpnTunnel` : String?
-  public var `priority` : Int?
-  public var `selfLink` : String?
-  public var `tags` : [String]?
-  public var `warnings` : [Object]?
-}
-
-public struct RouteList : Codable {
-  public var `id` : String?
-  public var `items` : [Route]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct Router : Codable {
-  public var `bgp` : RouterBgp?
-  public var `bgpPeers` : [RouterBgpPeer]?
-  public var `creationTimestamp` : String?
-  public var `description` : String?
-  public var `id` : String?
-  public var `interfaces` : [RouterInterface]?
-  public var `kind` : String?
-  public var `name` : String?
-  public var `nats` : [RouterNat]?
-  public var `network` : String?
-  public var `region` : String?
-  public var `selfLink` : String?
-}
-
-public struct RouterAdvertisedIpRange : Codable {
-  public var `description` : String?
-  public var `range` : String?
-}
-
-public struct RouterAggregatedList : Codable {
-  public var `id` : String?
-  public var `items` : Object?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct RouterBgp : Codable {
-  public var `advertiseMode` : String?
-  public var `advertisedGroups` : [String]?
-  public var `advertisedIpRanges` : [RouterAdvertisedIpRange]?
-  public var `asn` : Int?
-}
-
-public struct RouterBgpPeer : Codable {
-  public var `advertiseMode` : String?
-  public var `advertisedGroups` : [String]?
-  public var `advertisedIpRanges` : [RouterAdvertisedIpRange]?
-  public var `advertisedRoutePriority` : Int?
-  public var `interfaceName` : String?
-  public var `ipAddress` : String?
-  public var `managementType` : String?
-  public var `name` : String?
-  public var `peerAsn` : Int?
-  public var `peerIpAddress` : String?
-}
-
-public struct RouterInterface : Codable {
-  public var `ipRange` : String?
-  public var `linkedInterconnectAttachment` : String?
-  public var `linkedVpnTunnel` : String?
-  public var `managementType` : String?
-  public var `name` : String?
-}
-
-public struct RouterList : Codable {
-  public var `id` : String?
-  public var `items` : [Router]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct RouterNat : Codable {
-  public var `icmpIdleTimeoutSec` : Int?
-  public var `minPortsPerVm` : Int?
-  public var `name` : String?
-  public var `natIpAllocateOption` : String?
-  public var `natIps` : [String]?
-  public var `sourceSubnetworkIpRangesToNat` : String?
-  public var `subnetworks` : [RouterNatSubnetworkToNat]?
-  public var `tcpEstablishedIdleTimeoutSec` : Int?
-  public var `tcpTransitoryIdleTimeoutSec` : Int?
-  public var `udpIdleTimeoutSec` : Int?
-}
-
-public struct RouterNatSubnetworkToNat : Codable {
-  public var `name` : String?
-  public var `secondaryIpRangeNames` : [String]?
-  public var `sourceIpRangesToNat` : [String]?
-}
-
-public struct RouterStatus : Codable {
-  public var `bestRoutes` : [Route]?
-  public var `bestRoutesForRouter` : [Route]?
-  public var `bgpPeerStatus` : [RouterStatusBgpPeerStatus]?
-  public var `natStatus` : [RouterStatusNatStatus]?
-  public var `network` : String?
-}
-
-public struct RouterStatusBgpPeerStatus : Codable {
-  public var `advertisedRoutes` : [Route]?
-  public var `ipAddress` : String?
-  public var `linkedVpnTunnel` : String?
-  public var `name` : String?
-  public var `numLearnedRoutes` : Int?
-  public var `peerIpAddress` : String?
-  public var `state` : String?
-  public var `status` : String?
-  public var `uptime` : String?
-  public var `uptimeSeconds` : String?
-}
-
-public struct RouterStatusNatStatus : Codable {
-  public var `autoAllocatedNatIps` : [String]?
-  public var `minExtraNatIpsNeeded` : Int?
-  public var `name` : String?
-  public var `numVmEndpointsWithNatMappings` : Int?
-  public var `userAllocatedNatIpResources` : [String]?
-  public var `userAllocatedNatIps` : [String]?
-}
-
-public struct RouterStatusResponse : Codable {
-  public var `kind` : String?
-  public var `result` : RouterStatus?
-}
-
-public struct RoutersPreviewResponse : Codable {
-  public var `resource` : Router?
-}
-
-public struct RoutersScopedList : Codable {
-  public var `routers` : [Router]?
-  public var `warning` : Object?
-}
-
-public struct Rule : Codable {
-  public var `action` : String?
-  public var `conditions` : [Condition]?
-  public var `description` : String?
-  public var `ins` : [String]?
-  public var `logConfigs` : [LogConfig]?
-  public var `notIns` : [String]?
-  public var `permissions` : [String]?
-}
-
-public struct SSLHealthCheck : Codable {
-  public var `port` : Int?
-  public var `portName` : String?
-  public var `proxyHeader` : String?
-  public var `request` : String?
-  public var `response` : String?
-}
-
-public struct Scheduling : Codable {
-  public var `automaticRestart` : Bool?
-  public var `nodeAffinities` : [SchedulingNodeAffinity]?
-  public var `onHostMaintenance` : String?
-  public var `preemptible` : Bool?
-}
-
-public struct SchedulingNodeAffinity : Codable {
-  public var `key` : String?
-  public var `operator` : String?
-  public var `values` : [String]?
-}
-
-public struct SecurityPolicy : Codable {
-  public var `creationTimestamp` : String?
-  public var `description` : String?
-  public var `fingerprint` : String?
-  public var `id` : String?
-  public var `kind` : String?
-  public var `name` : String?
-  public var `rules` : [SecurityPolicyRule]?
-  public var `selfLink` : String?
-}
-
-public struct SecurityPolicyList : Codable {
-  public var `id` : String?
-  public var `items` : [SecurityPolicy]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `warning` : Object?
-}
-
-public struct SecurityPolicyReference : Codable {
-  public var `securityPolicy` : String?
-}
-
-public struct SecurityPolicyRule : Codable {
-  public var `action` : String?
-  public var `description` : String?
-  public var `kind` : String?
-  public var `match` : SecurityPolicyRuleMatcher?
-  public var `preview` : Bool?
-  public var `priority` : Int?
-}
-
-public struct SecurityPolicyRuleMatcher : Codable {
-  public var `config` : SecurityPolicyRuleMatcherConfig?
-  public var `versionedExpr` : String?
-}
-
-public struct SecurityPolicyRuleMatcherConfig : Codable {
-  public var `srcIpRanges` : [String]?
-}
-
-public struct SerialPortOutput : Codable {
-  public var `contents` : String?
-  public var `kind` : String?
-  public var `next` : String?
-  public var `selfLink` : String?
-  public var `start` : String?
-}
-
-public struct ServiceAccount : Codable {
-  public var `email` : String?
-  public var `scopes` : [String]?
-}
-
-public struct SignedUrlKey : Codable {
-  public var `keyName` : String?
-  public var `keyValue` : String?
-}
-
-public struct Snapshot : Codable {
-  public var `creationTimestamp` : String?
-  public var `description` : String?
-  public var `diskSizeGb` : String?
-  public var `id` : String?
-  public var `kind` : String?
-  public var `labelFingerprint` : String?
-  public var `labels` : Object?
-  public var `licenseCodes` : [String]?
-  public var `licenses` : [String]?
-  public var `name` : String?
-  public var `selfLink` : String?
-  public var `snapshotEncryptionKey` : CustomerEncryptionKey?
-  public var `sourceDisk` : String?
-  public var `sourceDiskEncryptionKey` : CustomerEncryptionKey?
-  public var `sourceDiskId` : String?
-  public var `status` : String?
-  public var `storageBytes` : String?
-  public var `storageBytesStatus` : String?
-}
-
-public struct SnapshotList : Codable {
-  public var `id` : String?
-  public var `items` : [Snapshot]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct SourceInstanceParams : Codable {
-  public var `diskConfigs` : [DiskInstantiationConfig]?
-}
-
-public struct SslCertificate : Codable {
-  public var `certificate` : String?
-  public var `creationTimestamp` : String?
-  public var `description` : String?
-  public var `id` : String?
-  public var `kind` : String?
-  public var `name` : String?
-  public var `privateKey` : String?
-  public var `selfLink` : String?
-}
-
-public struct SslCertificateList : Codable {
-  public var `id` : String?
-  public var `items` : [SslCertificate]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct SslPoliciesList : Codable {
-  public var `id` : String?
-  public var `items` : [SslPolicy]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct SslPoliciesListAvailableFeaturesResponse : Codable {
-  public var `features` : [String]?
-}
-
-public struct SslPolicy : Codable {
-  public var `creationTimestamp` : String?
-  public var `customFeatures` : [String]?
-  public var `description` : String?
-  public var `enabledFeatures` : [String]?
-  public var `fingerprint` : String?
-  public var `id` : String?
-  public var `kind` : String?
-  public var `minTlsVersion` : String?
-  public var `name` : String?
-  public var `profile` : String?
-  public var `selfLink` : String?
-  public var `warnings` : [Object]?
-}
-
-public struct SslPolicyReference : Codable {
-  public var `sslPolicy` : String?
-}
-
-public struct Subnetwork : Codable {
-  public var `creationTimestamp` : String?
-  public var `description` : String?
-  public var `enableFlowLogs` : Bool?
-  public var `fingerprint` : String?
-  public var `gatewayAddress` : String?
-  public var `id` : String?
-  public var `ipCidrRange` : String?
-  public var `kind` : String?
-  public var `name` : String?
-  public var `network` : String?
-  public var `privateIpGoogleAccess` : Bool?
-  public var `region` : String?
-  public var `secondaryIpRanges` : [SubnetworkSecondaryRange]?
-  public var `selfLink` : String?
-}
-
-public struct SubnetworkAggregatedList : Codable {
-  public var `id` : String?
-  public var `items` : Object?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct SubnetworkList : Codable {
-  public var `id` : String?
-  public var `items` : [Subnetwork]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct SubnetworkSecondaryRange : Codable {
-  public var `ipCidrRange` : String?
-  public var `rangeName` : String?
-}
-
-public struct SubnetworksExpandIpCidrRangeRequest : Codable {
-  public var `ipCidrRange` : String?
-}
-
-public struct SubnetworksScopedList : Codable {
-  public var `subnetworks` : [Subnetwork]?
-  public var `warning` : Object?
-}
-
-public struct SubnetworksSetPrivateIpGoogleAccessRequest : Codable {
-  public var `privateIpGoogleAccess` : Bool?
-}
-
-public struct TCPHealthCheck : Codable {
-  public var `port` : Int?
-  public var `portName` : String?
-  public var `proxyHeader` : String?
-  public var `request` : String?
-  public var `response` : String?
-}
-
-public struct Tags : Codable {
-  public var `fingerprint` : String?
-  public var `items` : [String]?
-}
-
-public struct TargetHttpProxy : Codable {
-  public var `creationTimestamp` : String?
-  public var `description` : String?
-  public var `id` : String?
-  public var `kind` : String?
-  public var `name` : String?
-  public var `selfLink` : String?
-  public var `urlMap` : String?
-}
-
-public struct TargetHttpProxyList : Codable {
-  public var `id` : String?
-  public var `items` : [TargetHttpProxy]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct TargetHttpsProxiesSetQuicOverrideRequest : Codable {
-  public var `quicOverride` : String?
-}
-
-public struct TargetHttpsProxiesSetSslCertificatesRequest : Codable {
-  public var `sslCertificates` : [String]?
-}
-
-public struct TargetHttpsProxy : Codable {
-  public var `creationTimestamp` : String?
-  public var `description` : String?
-  public var `id` : String?
-  public var `kind` : String?
-  public var `name` : String?
-  public var `quicOverride` : String?
-  public var `selfLink` : String?
-  public var `sslCertificates` : [String]?
-  public var `sslPolicy` : String?
-  public var `urlMap` : String?
-}
-
-public struct TargetHttpsProxyList : Codable {
-  public var `id` : String?
-  public var `items` : [TargetHttpsProxy]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct TargetInstance : Codable {
-  public var `creationTimestamp` : String?
-  public var `description` : String?
-  public var `id` : String?
-  public var `instance` : String?
-  public var `kind` : String?
-  public var `name` : String?
-  public var `natPolicy` : String?
-  public var `selfLink` : String?
-  public var `zone` : String?
-}
-
-public struct TargetInstanceAggregatedList : Codable {
-  public var `id` : String?
-  public var `items` : Object?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct TargetInstanceList : Codable {
-  public var `id` : String?
-  public var `items` : [TargetInstance]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct TargetInstancesScopedList : Codable {
-  public var `targetInstances` : [TargetInstance]?
-  public var `warning` : Object?
-}
-
-public struct TargetPool : Codable {
-  public var `backupPool` : String?
-  public var `creationTimestamp` : String?
-  public var `description` : String?
-  public var `failoverRatio` : Float?
-  public var `healthChecks` : [String]?
-  public var `id` : String?
-  public var `instances` : [String]?
-  public var `kind` : String?
-  public var `name` : String?
-  public var `region` : String?
-  public var `selfLink` : String?
-  public var `sessionAffinity` : String?
-}
-
-public struct TargetPoolAggregatedList : Codable {
-  public var `id` : String?
-  public var `items` : Object?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct TargetPoolInstanceHealth : Codable {
-  public var `healthStatus` : [HealthStatus]?
-  public var `kind` : String?
-}
-
-public struct TargetPoolList : Codable {
-  public var `id` : String?
-  public var `items` : [TargetPool]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct TargetPoolsAddHealthCheckRequest : Codable {
-  public var `healthChecks` : [HealthCheckReference]?
-}
-
-public struct TargetPoolsAddInstanceRequest : Codable {
-  public var `instances` : [InstanceReference]?
-}
-
-public struct TargetPoolsRemoveHealthCheckRequest : Codable {
-  public var `healthChecks` : [HealthCheckReference]?
-}
-
-public struct TargetPoolsRemoveInstanceRequest : Codable {
-  public var `instances` : [InstanceReference]?
-}
-
-public struct TargetPoolsScopedList : Codable {
-  public var `targetPools` : [TargetPool]?
-  public var `warning` : Object?
-}
-
-public struct TargetReference : Codable {
-  public var `target` : String?
-}
-
-public struct TargetSslProxiesSetBackendServiceRequest : Codable {
-  public var `service` : String?
-}
-
-public struct TargetSslProxiesSetProxyHeaderRequest : Codable {
-  public var `proxyHeader` : String?
-}
-
-public struct TargetSslProxiesSetSslCertificatesRequest : Codable {
-  public var `sslCertificates` : [String]?
-}
-
-public struct TargetSslProxy : Codable {
-  public var `creationTimestamp` : String?
-  public var `description` : String?
-  public var `id` : String?
-  public var `kind` : String?
-  public var `name` : String?
-  public var `proxyHeader` : String?
-  public var `selfLink` : String?
-  public var `service` : String?
-  public var `sslCertificates` : [String]?
-  public var `sslPolicy` : String?
-}
-
-public struct TargetSslProxyList : Codable {
-  public var `id` : String?
-  public var `items` : [TargetSslProxy]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct TargetTcpProxiesSetBackendServiceRequest : Codable {
-  public var `service` : String?
-}
-
-public struct TargetTcpProxiesSetProxyHeaderRequest : Codable {
-  public var `proxyHeader` : String?
-}
-
-public struct TargetTcpProxy : Codable {
-  public var `creationTimestamp` : String?
-  public var `description` : String?
-  public var `id` : String?
-  public var `kind` : String?
-  public var `name` : String?
-  public var `proxyHeader` : String?
-  public var `selfLink` : String?
-  public var `service` : String?
-}
-
-public struct TargetTcpProxyList : Codable {
-  public var `id` : String?
-  public var `items` : [TargetTcpProxy]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct TargetVpnGateway : Codable {
-  public var `creationTimestamp` : String?
-  public var `description` : String?
-  public var `forwardingRules` : [String]?
-  public var `id` : String?
-  public var `kind` : String?
-  public var `name` : String?
-  public var `network` : String?
-  public var `region` : String?
-  public var `selfLink` : String?
-  public var `status` : String?
-  public var `tunnels` : [String]?
-}
-
-public struct TargetVpnGatewayAggregatedList : Codable {
-  public var `id` : String?
-  public var `items` : Object?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct TargetVpnGatewayList : Codable {
-  public var `id` : String?
-  public var `items` : [TargetVpnGateway]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct TargetVpnGatewaysScopedList : Codable {
-  public var `targetVpnGateways` : [TargetVpnGateway]?
-  public var `warning` : Object?
-}
-
-public struct TestFailure : Codable {
-  public var `actualService` : String?
-  public var `expectedService` : String?
-  public var `host` : String?
-  public var `path` : String?
-}
-
-public struct TestPermissionsRequest : Codable {
-  public var `permissions` : [String]?
-}
-
-public struct TestPermissionsResponse : Codable {
-  public var `permissions` : [String]?
-}
-
-public struct UrlMap : Codable {
-  public var `creationTimestamp` : String?
-  public var `defaultService` : String?
-  public var `description` : String?
-  public var `fingerprint` : String?
-  public var `hostRules` : [HostRule]?
-  public var `id` : String?
-  public var `kind` : String?
-  public var `name` : String?
-  public var `pathMatchers` : [PathMatcher]?
-  public var `selfLink` : String?
-  public var `tests` : [UrlMapTest]?
-}
-
-public struct UrlMapList : Codable {
-  public var `id` : String?
-  public var `items` : [UrlMap]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct UrlMapReference : Codable {
-  public var `urlMap` : String?
-}
-
-public struct UrlMapTest : Codable {
-  public var `description` : String?
-  public var `host` : String?
-  public var `path` : String?
-  public var `service` : String?
-}
-
-public struct UrlMapValidationResult : Codable {
-  public var `loadErrors` : [String]?
-  public var `loadSucceeded` : Bool?
-  public var `testFailures` : [TestFailure]?
-  public var `testPassed` : Bool?
-}
-
-public struct UrlMapsValidateRequest : Codable {
-  public var `resource` : UrlMap?
-}
-
-public struct UrlMapsValidateResponse : Codable {
-  public var `result` : UrlMapValidationResult?
-}
-
-public struct UsableSubnetwork : Codable {
-  public var `ipCidrRange` : String?
-  public var `network` : String?
-  public var `secondaryIpRanges` : [UsableSubnetworkSecondaryRange]?
-  public var `subnetwork` : String?
-}
-
-public struct UsableSubnetworkSecondaryRange : Codable {
-  public var `ipCidrRange` : String?
-  public var `rangeName` : String?
-}
-
-public struct UsableSubnetworksAggregatedList : Codable {
-  public var `id` : String?
-  public var `items` : [UsableSubnetwork]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct UsageExportLocation : Codable {
-  public var `bucketName` : String?
-  public var `reportNamePrefix` : String?
-}
-
-public struct VmEndpointNatMappings : Codable {
-  public var `instanceName` : String?
-  public var `interfaceNatMappings` : [VmEndpointNatMappingsInterfaceNatMappings]?
-}
-
-public struct VmEndpointNatMappingsInterfaceNatMappings : Codable {
-  public var `natIpPortRanges` : [String]?
-  public var `numTotalNatPorts` : Int?
-  public var `sourceAliasIpRange` : String?
-  public var `sourceVirtualIp` : String?
-}
-
-public struct VmEndpointNatMappingsList : Codable {
-  public var `id` : String?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `result` : [VmEndpointNatMappings]?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct VpnTunnel : Codable {
-  public var `creationTimestamp` : String?
-  public var `description` : String?
-  public var `detailedStatus` : String?
-  public var `id` : String?
-  public var `ikeVersion` : Int?
-  public var `kind` : String?
-  public var `localTrafficSelector` : [String]?
-  public var `name` : String?
-  public var `peerIp` : String?
-  public var `region` : String?
-  public var `remoteTrafficSelector` : [String]?
-  public var `router` : String?
-  public var `selfLink` : String?
-  public var `sharedSecret` : String?
-  public var `sharedSecretHash` : String?
-  public var `status` : String?
-  public var `targetVpnGateway` : String?
-}
-
-public struct VpnTunnelAggregatedList : Codable {
-  public var `id` : String?
-  public var `items` : Object?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct VpnTunnelList : Codable {
-  public var `id` : String?
-  public var `items` : [VpnTunnel]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct VpnTunnelsScopedList : Codable {
-  public var `vpnTunnels` : [VpnTunnel]?
-  public var `warning` : Object?
-}
-
-public struct XpnHostList : Codable {
-  public var `id` : String?
-  public var `items` : [Project]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct XpnResourceId : Codable {
-  public var `id` : String?
-  public var `type` : String?
-}
-
-public struct Zone : Codable {
-  public var `availableCpuPlatforms` : [String]?
-  public var `creationTimestamp` : String?
-  public var `deprecated` : DeprecationStatus?
-  public var `description` : String?
-  public var `id` : String?
-  public var `kind` : String?
-  public var `name` : String?
-  public var `region` : String?
-  public var `selfLink` : String?
-  public var `status` : String?
-}
-
-public struct ZoneList : Codable {
-  public var `id` : String?
-  public var `items` : [Zone]?
-  public var `kind` : String?
-  public var `nextPageToken` : String?
-  public var `selfLink` : String?
-  public var `warning` : Object?
-}
-
-public struct ZoneSetLabelsRequest : Codable {
-  public var `labelFingerprint` : String?
-  public var `labels` : Object?
-}
-
-public struct ZoneSetPolicyRequest : Codable {
-  public var `bindings` : [Binding]?
-  public var `etag` : String?
-  public var `policy` : Policy?
-}
-
-public class Object : Codable {}
-
 public class Compute : Service {
 
   init(tokenProvider: TokenProvider) throws {
     try super.init(tokenProvider, "https://www.googleapis.com/compute/v1/projects/")
+  }
+
+  public class Object : Codable {}
+
+  public struct AcceleratorConfig : Codable {
+    public var `acceleratorCount` : Int?
+    public var `acceleratorType` : String?
+  }
+
+  public struct AcceleratorType : Codable {
+    public var `creationTimestamp` : String?
+    public var `deprecated` : DeprecationStatus?
+    public var `description` : String?
+    public var `id` : String?
+    public var `kind` : String?
+    public var `maximumCardsPerInstance` : Int?
+    public var `name` : String?
+    public var `selfLink` : String?
+    public var `zone` : String?
+  }
+
+  public struct AcceleratorTypeAggregatedList : Codable {
+    public var `id` : String?
+    public var `items` : Object?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct AcceleratorTypeList : Codable {
+    public var `id` : String?
+    public var `items` : [AcceleratorType]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct AcceleratorTypesScopedList : Codable {
+    public var `acceleratorTypes` : [AcceleratorType]?
+    public var `warning` : Object?
+  }
+
+  public struct AccessConfig : Codable {
+    public var `kind` : String?
+    public var `name` : String?
+    public var `natIP` : String?
+    public var `networkTier` : String?
+    public var `publicPtrDomainName` : String?
+    public var `setPublicPtr` : Bool?
+    public var `type` : String?
+  }
+
+  public struct Address : Codable {
+    public var `address` : String?
+    public var `addressType` : String?
+    public var `creationTimestamp` : String?
+    public var `description` : String?
+    public var `id` : String?
+    public var `ipVersion` : String?
+    public var `kind` : String?
+    public var `name` : String?
+    public var `network` : String?
+    public var `networkTier` : String?
+    public var `prefixLength` : Int?
+    public var `purpose` : String?
+    public var `region` : String?
+    public var `selfLink` : String?
+    public var `status` : String?
+    public var `subnetwork` : String?
+    public var `users` : [String]?
+  }
+
+  public struct AddressAggregatedList : Codable {
+    public var `id` : String?
+    public var `items` : Object?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct AddressList : Codable {
+    public var `id` : String?
+    public var `items` : [Address]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct AddressesScopedList : Codable {
+    public var `addresses` : [Address]?
+    public var `warning` : Object?
+  }
+
+  public struct AliasIpRange : Codable {
+    public var `ipCidrRange` : String?
+    public var `subnetworkRangeName` : String?
+  }
+
+  public struct AttachedDisk : Codable {
+    public var `autoDelete` : Bool?
+    public var `boot` : Bool?
+    public var `deviceName` : String?
+    public var `diskEncryptionKey` : CustomerEncryptionKey?
+    public var `guestOsFeatures` : [GuestOsFeature]?
+    public var `index` : Int?
+    public var `initializeParams` : AttachedDiskInitializeParams?
+    public var `interface` : String?
+    public var `kind` : String?
+    public var `licenses` : [String]?
+    public var `mode` : String?
+    public var `source` : String?
+    public var `type` : String?
+  }
+
+  public struct AttachedDiskInitializeParams : Codable {
+    public var `description` : String?
+    public var `diskName` : String?
+    public var `diskSizeGb` : String?
+    public var `diskType` : String?
+    public var `labels` : Object?
+    public var `sourceImage` : String?
+    public var `sourceImageEncryptionKey` : CustomerEncryptionKey?
+  }
+
+  public struct AuditConfig : Codable {
+    public var `auditLogConfigs` : [AuditLogConfig]?
+    public var `exemptedMembers` : [String]?
+    public var `service` : String?
+  }
+
+  public struct AuditLogConfig : Codable {
+    public var `exemptedMembers` : [String]?
+    public var `logType` : String?
+  }
+
+  public struct AuthorizationLoggingOptions : Codable {
+    public var `permissionType` : String?
+  }
+
+  public struct Autoscaler : Codable {
+    public var `autoscalingPolicy` : AutoscalingPolicy?
+    public var `creationTimestamp` : String?
+    public var `description` : String?
+    public var `id` : String?
+    public var `kind` : String?
+    public var `name` : String?
+    public var `region` : String?
+    public var `selfLink` : String?
+    public var `status` : String?
+    public var `statusDetails` : [AutoscalerStatusDetails]?
+    public var `target` : String?
+    public var `zone` : String?
+  }
+
+  public struct AutoscalerAggregatedList : Codable {
+    public var `id` : String?
+    public var `items` : Object?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct AutoscalerList : Codable {
+    public var `id` : String?
+    public var `items` : [Autoscaler]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct AutoscalerStatusDetails : Codable {
+    public var `message` : String?
+    public var `type` : String?
+  }
+
+  public struct AutoscalersScopedList : Codable {
+    public var `autoscalers` : [Autoscaler]?
+    public var `warning` : Object?
+  }
+
+  public struct AutoscalingPolicy : Codable {
+    public var `coolDownPeriodSec` : Int?
+    public var `cpuUtilization` : AutoscalingPolicyCpuUtilization?
+    public var `customMetricUtilizations` : [AutoscalingPolicyCustomMetricUtilization]?
+    public var `loadBalancingUtilization` : AutoscalingPolicyLoadBalancingUtilization?
+    public var `maxNumReplicas` : Int?
+    public var `minNumReplicas` : Int?
+  }
+
+  public struct AutoscalingPolicyCpuUtilization : Codable {
+    public var `utilizationTarget` : Float?
+  }
+
+  public struct AutoscalingPolicyCustomMetricUtilization : Codable {
+    public var `metric` : String?
+    public var `utilizationTarget` : Float?
+    public var `utilizationTargetType` : String?
+  }
+
+  public struct AutoscalingPolicyLoadBalancingUtilization : Codable {
+    public var `utilizationTarget` : Float?
+  }
+
+  public struct Backend : Codable {
+    public var `balancingMode` : String?
+    public var `capacityScaler` : Float?
+    public var `description` : String?
+    public var `group` : String?
+    public var `maxConnections` : Int?
+    public var `maxConnectionsPerInstance` : Int?
+    public var `maxRate` : Int?
+    public var `maxRatePerInstance` : Float?
+    public var `maxUtilization` : Float?
+  }
+
+  public struct BackendBucket : Codable {
+    public var `bucketName` : String?
+    public var `cdnPolicy` : BackendBucketCdnPolicy?
+    public var `creationTimestamp` : String?
+    public var `description` : String?
+    public var `enableCdn` : Bool?
+    public var `id` : String?
+    public var `kind` : String?
+    public var `name` : String?
+    public var `selfLink` : String?
+  }
+
+  public struct BackendBucketCdnPolicy : Codable {
+    public var `signedUrlCacheMaxAgeSec` : String?
+    public var `signedUrlKeyNames` : [String]?
+  }
+
+  public struct BackendBucketList : Codable {
+    public var `id` : String?
+    public var `items` : [BackendBucket]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct BackendService : Codable {
+    public var `affinityCookieTtlSec` : Int?
+    public var `backends` : [Backend]?
+    public var `cdnPolicy` : BackendServiceCdnPolicy?
+    public var `connectionDraining` : ConnectionDraining?
+    public var `creationTimestamp` : String?
+    public var `description` : String?
+    public var `enableCDN` : Bool?
+    public var `fingerprint` : String?
+    public var `healthChecks` : [String]?
+    public var `iap` : BackendServiceIAP?
+    public var `id` : String?
+    public var `kind` : String?
+    public var `loadBalancingScheme` : String?
+    public var `name` : String?
+    public var `port` : Int?
+    public var `portName` : String?
+    public var `protocol` : String?
+    public var `region` : String?
+    public var `securityPolicy` : String?
+    public var `selfLink` : String?
+    public var `sessionAffinity` : String?
+    public var `timeoutSec` : Int?
+  }
+
+  public struct BackendServiceAggregatedList : Codable {
+    public var `id` : String?
+    public var `items` : Object?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct BackendServiceCdnPolicy : Codable {
+    public var `cacheKeyPolicy` : CacheKeyPolicy?
+    public var `signedUrlCacheMaxAgeSec` : String?
+    public var `signedUrlKeyNames` : [String]?
+  }
+
+  public struct BackendServiceGroupHealth : Codable {
+    public var `healthStatus` : [HealthStatus]?
+    public var `kind` : String?
+  }
+
+  public struct BackendServiceIAP : Codable {
+    public var `enabled` : Bool?
+    public var `oauth2ClientId` : String?
+    public var `oauth2ClientSecret` : String?
+    public var `oauth2ClientSecretSha256` : String?
+  }
+
+  public struct BackendServiceList : Codable {
+    public var `id` : String?
+    public var `items` : [BackendService]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct BackendServicesScopedList : Codable {
+    public var `backendServices` : [BackendService]?
+    public var `warning` : Object?
+  }
+
+  public struct Binding : Codable {
+    public var `condition` : Expr?
+    public var `members` : [String]?
+    public var `role` : String?
+  }
+
+  public struct CacheInvalidationRule : Codable {
+    public var `host` : String?
+    public var `path` : String?
+  }
+
+  public struct CacheKeyPolicy : Codable {
+    public var `includeHost` : Bool?
+    public var `includeProtocol` : Bool?
+    public var `includeQueryString` : Bool?
+    public var `queryStringBlacklist` : [String]?
+    public var `queryStringWhitelist` : [String]?
+  }
+
+  public struct Commitment : Codable {
+    public var `creationTimestamp` : String?
+    public var `description` : String?
+    public var `endTimestamp` : String?
+    public var `id` : String?
+    public var `kind` : String?
+    public var `name` : String?
+    public var `plan` : String?
+    public var `region` : String?
+    public var `resources` : [ResourceCommitment]?
+    public var `selfLink` : String?
+    public var `startTimestamp` : String?
+    public var `status` : String?
+    public var `statusMessage` : String?
+  }
+
+  public struct CommitmentAggregatedList : Codable {
+    public var `id` : String?
+    public var `items` : Object?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct CommitmentList : Codable {
+    public var `id` : String?
+    public var `items` : [Commitment]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct CommitmentsScopedList : Codable {
+    public var `commitments` : [Commitment]?
+    public var `warning` : Object?
+  }
+
+  public struct Condition : Codable {
+    public var `iam` : String?
+    public var `op` : String?
+    public var `svc` : String?
+    public var `sys` : String?
+    public var `value` : String?
+    public var `values` : [String]?
+  }
+
+  public struct ConnectionDraining : Codable {
+    public var `drainingTimeoutSec` : Int?
+  }
+
+  public struct CustomerEncryptionKey : Codable {
+    public var `kmsKeyName` : String?
+    public var `rawKey` : String?
+    public var `sha256` : String?
+  }
+
+  public struct CustomerEncryptionKeyProtectedDisk : Codable {
+    public var `diskEncryptionKey` : CustomerEncryptionKey?
+    public var `source` : String?
+  }
+
+  public struct DeprecationStatus : Codable {
+    public var `deleted` : String?
+    public var `deprecated` : String?
+    public var `obsolete` : String?
+    public var `replacement` : String?
+    public var `state` : String?
+  }
+
+  public struct Disk : Codable {
+    public var `creationTimestamp` : String?
+    public var `description` : String?
+    public var `diskEncryptionKey` : CustomerEncryptionKey?
+    public var `guestOsFeatures` : [GuestOsFeature]?
+    public var `id` : String?
+    public var `kind` : String?
+    public var `labelFingerprint` : String?
+    public var `labels` : Object?
+    public var `lastAttachTimestamp` : String?
+    public var `lastDetachTimestamp` : String?
+    public var `licenseCodes` : [String]?
+    public var `licenses` : [String]?
+    public var `name` : String?
+    public var `options` : String?
+    public var `physicalBlockSizeBytes` : String?
+    public var `region` : String?
+    public var `replicaZones` : [String]?
+    public var `selfLink` : String?
+    public var `sizeGb` : String?
+    public var `sourceImage` : String?
+    public var `sourceImageEncryptionKey` : CustomerEncryptionKey?
+    public var `sourceImageId` : String?
+    public var `sourceSnapshot` : String?
+    public var `sourceSnapshotEncryptionKey` : CustomerEncryptionKey?
+    public var `sourceSnapshotId` : String?
+    public var `status` : String?
+    public var `type` : String?
+    public var `users` : [String]?
+    public var `zone` : String?
+  }
+
+  public struct DiskAggregatedList : Codable {
+    public var `id` : String?
+    public var `items` : Object?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct DiskInstantiationConfig : Codable {
+    public var `autoDelete` : Bool?
+    public var `customImage` : String?
+    public var `deviceName` : String?
+    public var `instantiateFrom` : String?
+  }
+
+  public struct DiskList : Codable {
+    public var `id` : String?
+    public var `items` : [Disk]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct DiskMoveRequest : Codable {
+    public var `destinationZone` : String?
+    public var `targetDisk` : String?
+  }
+
+  public struct DiskType : Codable {
+    public var `creationTimestamp` : String?
+    public var `defaultDiskSizeGb` : String?
+    public var `deprecated` : DeprecationStatus?
+    public var `description` : String?
+    public var `id` : String?
+    public var `kind` : String?
+    public var `name` : String?
+    public var `region` : String?
+    public var `selfLink` : String?
+    public var `validDiskSize` : String?
+    public var `zone` : String?
+  }
+
+  public struct DiskTypeAggregatedList : Codable {
+    public var `id` : String?
+    public var `items` : Object?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct DiskTypeList : Codable {
+    public var `id` : String?
+    public var `items` : [DiskType]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct DiskTypesScopedList : Codable {
+    public var `diskTypes` : [DiskType]?
+    public var `warning` : Object?
+  }
+
+  public struct DisksResizeRequest : Codable {
+    public var `sizeGb` : String?
+  }
+
+  public struct DisksScopedList : Codable {
+    public var `disks` : [Disk]?
+    public var `warning` : Object?
+  }
+
+  public struct DistributionPolicy : Codable {
+    public var `zones` : [DistributionPolicyZoneConfiguration]?
+  }
+
+  public struct DistributionPolicyZoneConfiguration : Codable {
+    public var `zone` : String?
+  }
+
+  public struct Expr : Codable {
+    public var `description` : String?
+    public var `expression` : String?
+    public var `location` : String?
+    public var `title` : String?
+  }
+
+  public struct Firewall : Codable {
+    public var `allowed` : [Object]?
+    public var `creationTimestamp` : String?
+    public var `denied` : [Object]?
+    public var `description` : String?
+    public var `destinationRanges` : [String]?
+    public var `direction` : String?
+    public var `disabled` : Bool?
+    public var `id` : String?
+    public var `kind` : String?
+    public var `logConfig` : FirewallLogConfig?
+    public var `name` : String?
+    public var `network` : String?
+    public var `priority` : Int?
+    public var `selfLink` : String?
+    public var `sourceRanges` : [String]?
+    public var `sourceServiceAccounts` : [String]?
+    public var `sourceTags` : [String]?
+    public var `targetServiceAccounts` : [String]?
+    public var `targetTags` : [String]?
+  }
+
+  public struct FirewallList : Codable {
+    public var `id` : String?
+    public var `items` : [Firewall]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct FirewallLogConfig : Codable {
+    public var `enable` : Bool?
+  }
+
+  public struct FixedOrPercent : Codable {
+    public var `calculated` : Int?
+    public var `fixed` : Int?
+    public var `percent` : Int?
+  }
+
+  public struct ForwardingRule : Codable {
+    public var `IPAddress` : String?
+    public var `IPProtocol` : String?
+    public var `backendService` : String?
+    public var `creationTimestamp` : String?
+    public var `description` : String?
+    public var `id` : String?
+    public var `ipVersion` : String?
+    public var `kind` : String?
+    public var `loadBalancingScheme` : String?
+    public var `name` : String?
+    public var `network` : String?
+    public var `networkTier` : String?
+    public var `portRange` : String?
+    public var `ports` : [String]?
+    public var `region` : String?
+    public var `selfLink` : String?
+    public var `serviceLabel` : String?
+    public var `serviceName` : String?
+    public var `subnetwork` : String?
+    public var `target` : String?
+  }
+
+  public struct ForwardingRuleAggregatedList : Codable {
+    public var `id` : String?
+    public var `items` : Object?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct ForwardingRuleList : Codable {
+    public var `id` : String?
+    public var `items` : [ForwardingRule]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct ForwardingRulesScopedList : Codable {
+    public var `forwardingRules` : [ForwardingRule]?
+    public var `warning` : Object?
+  }
+
+  public struct GlobalSetLabelsRequest : Codable {
+    public var `labelFingerprint` : String?
+    public var `labels` : Object?
+  }
+
+  public struct GlobalSetPolicyRequest : Codable {
+    public var `bindings` : [Binding]?
+    public var `etag` : String?
+    public var `policy` : Policy?
+  }
+
+  public struct GuestOsFeature : Codable {
+    public var `type` : String?
+  }
+
+  public struct HTTPHealthCheck : Codable {
+    public var `host` : String?
+    public var `port` : Int?
+    public var `portName` : String?
+    public var `proxyHeader` : String?
+    public var `requestPath` : String?
+    public var `response` : String?
+  }
+
+  public struct HTTPSHealthCheck : Codable {
+    public var `host` : String?
+    public var `port` : Int?
+    public var `portName` : String?
+    public var `proxyHeader` : String?
+    public var `requestPath` : String?
+    public var `response` : String?
+  }
+
+  public struct HealthCheck : Codable {
+    public var `checkIntervalSec` : Int?
+    public var `creationTimestamp` : String?
+    public var `description` : String?
+    public var `healthyThreshold` : Int?
+    public var `httpHealthCheck` : HTTPHealthCheck?
+    public var `httpsHealthCheck` : HTTPSHealthCheck?
+    public var `id` : String?
+    public var `kind` : String?
+    public var `name` : String?
+    public var `selfLink` : String?
+    public var `sslHealthCheck` : SSLHealthCheck?
+    public var `tcpHealthCheck` : TCPHealthCheck?
+    public var `timeoutSec` : Int?
+    public var `type` : String?
+    public var `unhealthyThreshold` : Int?
+  }
+
+  public struct HealthCheckList : Codable {
+    public var `id` : String?
+    public var `items` : [HealthCheck]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct HealthCheckReference : Codable {
+    public var `healthCheck` : String?
+  }
+
+  public struct HealthStatus : Codable {
+    public var `healthState` : String?
+    public var `instance` : String?
+    public var `ipAddress` : String?
+    public var `port` : Int?
+  }
+
+  public struct HostRule : Codable {
+    public var `description` : String?
+    public var `hosts` : [String]?
+    public var `pathMatcher` : String?
+  }
+
+  public struct HttpHealthCheck : Codable {
+    public var `checkIntervalSec` : Int?
+    public var `creationTimestamp` : String?
+    public var `description` : String?
+    public var `healthyThreshold` : Int?
+    public var `host` : String?
+    public var `id` : String?
+    public var `kind` : String?
+    public var `name` : String?
+    public var `port` : Int?
+    public var `requestPath` : String?
+    public var `selfLink` : String?
+    public var `timeoutSec` : Int?
+    public var `unhealthyThreshold` : Int?
+  }
+
+  public struct HttpHealthCheckList : Codable {
+    public var `id` : String?
+    public var `items` : [HttpHealthCheck]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct HttpsHealthCheck : Codable {
+    public var `checkIntervalSec` : Int?
+    public var `creationTimestamp` : String?
+    public var `description` : String?
+    public var `healthyThreshold` : Int?
+    public var `host` : String?
+    public var `id` : String?
+    public var `kind` : String?
+    public var `name` : String?
+    public var `port` : Int?
+    public var `requestPath` : String?
+    public var `selfLink` : String?
+    public var `timeoutSec` : Int?
+    public var `unhealthyThreshold` : Int?
+  }
+
+  public struct HttpsHealthCheckList : Codable {
+    public var `id` : String?
+    public var `items` : [HttpsHealthCheck]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct Image : Codable {
+    public var `archiveSizeBytes` : String?
+    public var `creationTimestamp` : String?
+    public var `deprecated` : DeprecationStatus?
+    public var `description` : String?
+    public var `diskSizeGb` : String?
+    public var `family` : String?
+    public var `guestOsFeatures` : [GuestOsFeature]?
+    public var `id` : String?
+    public var `imageEncryptionKey` : CustomerEncryptionKey?
+    public var `kind` : String?
+    public var `labelFingerprint` : String?
+    public var `labels` : Object?
+    public var `licenseCodes` : [String]?
+    public var `licenses` : [String]?
+    public var `name` : String?
+    public var `rawDisk` : Object?
+    public var `selfLink` : String?
+    public var `sourceDisk` : String?
+    public var `sourceDiskEncryptionKey` : CustomerEncryptionKey?
+    public var `sourceDiskId` : String?
+    public var `sourceImage` : String?
+    public var `sourceImageEncryptionKey` : CustomerEncryptionKey?
+    public var `sourceImageId` : String?
+    public var `sourceSnapshot` : String?
+    public var `sourceSnapshotEncryptionKey` : CustomerEncryptionKey?
+    public var `sourceSnapshotId` : String?
+    public var `sourceType` : String?
+    public var `status` : String?
+  }
+
+  public struct ImageList : Codable {
+    public var `id` : String?
+    public var `items` : [Image]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct Instance : Codable {
+    public var `canIpForward` : Bool?
+    public var `cpuPlatform` : String?
+    public var `creationTimestamp` : String?
+    public var `deletionProtection` : Bool?
+    public var `description` : String?
+    public var `disks` : [AttachedDisk]?
+    public var `guestAccelerators` : [AcceleratorConfig]?
+    public var `hostname` : String?
+    public var `id` : String?
+    public var `kind` : String?
+    public var `labelFingerprint` : String?
+    public var `labels` : Object?
+    public var `machineType` : String?
+    public var `metadata` : Metadata?
+    public var `minCpuPlatform` : String?
+    public var `name` : String?
+    public var `networkInterfaces` : [NetworkInterface]?
+    public var `scheduling` : Scheduling?
+    public var `selfLink` : String?
+    public var `serviceAccounts` : [ServiceAccount]?
+    public var `startRestricted` : Bool?
+    public var `status` : String?
+    public var `statusMessage` : String?
+    public var `tags` : Tags?
+    public var `zone` : String?
+  }
+
+  public struct InstanceAggregatedList : Codable {
+    public var `id` : String?
+    public var `items` : Object?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct InstanceGroup : Codable {
+    public var `creationTimestamp` : String?
+    public var `description` : String?
+    public var `fingerprint` : String?
+    public var `id` : String?
+    public var `kind` : String?
+    public var `name` : String?
+    public var `namedPorts` : [NamedPort]?
+    public var `network` : String?
+    public var `region` : String?
+    public var `selfLink` : String?
+    public var `size` : Int?
+    public var `subnetwork` : String?
+    public var `zone` : String?
+  }
+
+  public struct InstanceGroupAggregatedList : Codable {
+    public var `id` : String?
+    public var `items` : Object?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct InstanceGroupList : Codable {
+    public var `id` : String?
+    public var `items` : [InstanceGroup]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct InstanceGroupManager : Codable {
+    public var `autoHealingPolicies` : [InstanceGroupManagerAutoHealingPolicy]?
+    public var `baseInstanceName` : String?
+    public var `creationTimestamp` : String?
+    public var `currentActions` : InstanceGroupManagerActionsSummary?
+    public var `description` : String?
+    public var `distributionPolicy` : DistributionPolicy?
+    public var `fingerprint` : String?
+    public var `id` : String?
+    public var `instanceGroup` : String?
+    public var `instanceTemplate` : String?
+    public var `kind` : String?
+    public var `name` : String?
+    public var `namedPorts` : [NamedPort]?
+    public var `region` : String?
+    public var `selfLink` : String?
+    public var `status` : InstanceGroupManagerStatus?
+    public var `targetPools` : [String]?
+    public var `targetSize` : Int?
+    public var `updatePolicy` : InstanceGroupManagerUpdatePolicy?
+    public var `versions` : [InstanceGroupManagerVersion]?
+    public var `zone` : String?
+  }
+
+  public struct InstanceGroupManagerActionsSummary : Codable {
+    public var `abandoning` : Int?
+    public var `creating` : Int?
+    public var `creatingWithoutRetries` : Int?
+    public var `deleting` : Int?
+    public var `none` : Int?
+    public var `recreating` : Int?
+    public var `refreshing` : Int?
+    public var `restarting` : Int?
+    public var `verifying` : Int?
+  }
+
+  public struct InstanceGroupManagerAggregatedList : Codable {
+    public var `id` : String?
+    public var `items` : Object?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct InstanceGroupManagerAutoHealingPolicy : Codable {
+    public var `healthCheck` : String?
+    public var `initialDelaySec` : Int?
+  }
+
+  public struct InstanceGroupManagerList : Codable {
+    public var `id` : String?
+    public var `items` : [InstanceGroupManager]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct InstanceGroupManagerStatus : Codable {
+    public var `isStable` : Bool?
+  }
+
+  public struct InstanceGroupManagerUpdatePolicy : Codable {
+    public var `maxSurge` : FixedOrPercent?
+    public var `maxUnavailable` : FixedOrPercent?
+    public var `minimalAction` : String?
+    public var `type` : String?
+  }
+
+  public struct InstanceGroupManagerVersion : Codable {
+    public var `instanceTemplate` : String?
+    public var `name` : String?
+    public var `targetSize` : FixedOrPercent?
+  }
+
+  public struct InstanceGroupManagersAbandonInstancesRequest : Codable {
+    public var `instances` : [String]?
+  }
+
+  public struct InstanceGroupManagersDeleteInstancesRequest : Codable {
+    public var `instances` : [String]?
+  }
+
+  public struct InstanceGroupManagersListManagedInstancesResponse : Codable {
+    public var `managedInstances` : [ManagedInstance]?
+  }
+
+  public struct InstanceGroupManagersRecreateInstancesRequest : Codable {
+    public var `instances` : [String]?
+  }
+
+  public struct InstanceGroupManagersScopedList : Codable {
+    public var `instanceGroupManagers` : [InstanceGroupManager]?
+    public var `warning` : Object?
+  }
+
+  public struct InstanceGroupManagersSetInstanceTemplateRequest : Codable {
+    public var `instanceTemplate` : String?
+  }
+
+  public struct InstanceGroupManagersSetTargetPoolsRequest : Codable {
+    public var `fingerprint` : String?
+    public var `targetPools` : [String]?
+  }
+
+  public struct InstanceGroupsAddInstancesRequest : Codable {
+    public var `instances` : [InstanceReference]?
+  }
+
+  public struct InstanceGroupsListInstances : Codable {
+    public var `id` : String?
+    public var `items` : [InstanceWithNamedPorts]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct InstanceGroupsListInstancesRequest : Codable {
+    public var `instanceState` : String?
+  }
+
+  public struct InstanceGroupsRemoveInstancesRequest : Codable {
+    public var `instances` : [InstanceReference]?
+  }
+
+  public struct InstanceGroupsScopedList : Codable {
+    public var `instanceGroups` : [InstanceGroup]?
+    public var `warning` : Object?
+  }
+
+  public struct InstanceGroupsSetNamedPortsRequest : Codable {
+    public var `fingerprint` : String?
+    public var `namedPorts` : [NamedPort]?
+  }
+
+  public struct InstanceList : Codable {
+    public var `id` : String?
+    public var `items` : [Instance]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct InstanceListReferrers : Codable {
+    public var `id` : String?
+    public var `items` : [Reference]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct InstanceMoveRequest : Codable {
+    public var `destinationZone` : String?
+    public var `targetInstance` : String?
+  }
+
+  public struct InstanceProperties : Codable {
+    public var `canIpForward` : Bool?
+    public var `description` : String?
+    public var `disks` : [AttachedDisk]?
+    public var `guestAccelerators` : [AcceleratorConfig]?
+    public var `labels` : Object?
+    public var `machineType` : String?
+    public var `metadata` : Metadata?
+    public var `minCpuPlatform` : String?
+    public var `networkInterfaces` : [NetworkInterface]?
+    public var `scheduling` : Scheduling?
+    public var `serviceAccounts` : [ServiceAccount]?
+    public var `tags` : Tags?
+  }
+
+  public struct InstanceReference : Codable {
+    public var `instance` : String?
+  }
+
+  public struct InstanceTemplate : Codable {
+    public var `creationTimestamp` : String?
+    public var `description` : String?
+    public var `id` : String?
+    public var `kind` : String?
+    public var `name` : String?
+    public var `properties` : InstanceProperties?
+    public var `selfLink` : String?
+    public var `sourceInstance` : String?
+    public var `sourceInstanceParams` : SourceInstanceParams?
+  }
+
+  public struct InstanceTemplateList : Codable {
+    public var `id` : String?
+    public var `items` : [InstanceTemplate]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct InstanceWithNamedPorts : Codable {
+    public var `instance` : String?
+    public var `namedPorts` : [NamedPort]?
+    public var `status` : String?
+  }
+
+  public struct InstancesScopedList : Codable {
+    public var `instances` : [Instance]?
+    public var `warning` : Object?
+  }
+
+  public struct InstancesSetLabelsRequest : Codable {
+    public var `labelFingerprint` : String?
+    public var `labels` : Object?
+  }
+
+  public struct InstancesSetMachineResourcesRequest : Codable {
+    public var `guestAccelerators` : [AcceleratorConfig]?
+  }
+
+  public struct InstancesSetMachineTypeRequest : Codable {
+    public var `machineType` : String?
+  }
+
+  public struct InstancesSetMinCpuPlatformRequest : Codable {
+    public var `minCpuPlatform` : String?
+  }
+
+  public struct InstancesSetServiceAccountRequest : Codable {
+    public var `email` : String?
+    public var `scopes` : [String]?
+  }
+
+  public struct InstancesStartWithEncryptionKeyRequest : Codable {
+    public var `disks` : [CustomerEncryptionKeyProtectedDisk]?
+  }
+
+  public struct Interconnect : Codable {
+    public var `adminEnabled` : Bool?
+    public var `circuitInfos` : [InterconnectCircuitInfo]?
+    public var `creationTimestamp` : String?
+    public var `customerName` : String?
+    public var `description` : String?
+    public var `expectedOutages` : [InterconnectOutageNotification]?
+    public var `googleIpAddress` : String?
+    public var `googleReferenceId` : String?
+    public var `id` : String?
+    public var `interconnectAttachments` : [String]?
+    public var `interconnectType` : String?
+    public var `kind` : String?
+    public var `linkType` : String?
+    public var `location` : String?
+    public var `name` : String?
+    public var `nocContactEmail` : String?
+    public var `operationalStatus` : String?
+    public var `peerIpAddress` : String?
+    public var `provisionedLinkCount` : Int?
+    public var `requestedLinkCount` : Int?
+    public var `selfLink` : String?
+    public var `state` : String?
+  }
+
+  public struct InterconnectAttachment : Codable {
+    public var `adminEnabled` : Bool?
+    public var `bandwidth` : String?
+    public var `candidateSubnets` : [String]?
+    public var `cloudRouterIpAddress` : String?
+    public var `creationTimestamp` : String?
+    public var `customerRouterIpAddress` : String?
+    public var `description` : String?
+    public var `edgeAvailabilityDomain` : String?
+    public var `googleReferenceId` : String?
+    public var `id` : String?
+    public var `interconnect` : String?
+    public var `kind` : String?
+    public var `name` : String?
+    public var `operationalStatus` : String?
+    public var `pairingKey` : String?
+    public var `partnerAsn` : String?
+    public var `partnerMetadata` : InterconnectAttachmentPartnerMetadata?
+    public var `privateInterconnectInfo` : InterconnectAttachmentPrivateInfo?
+    public var `region` : String?
+    public var `router` : String?
+    public var `selfLink` : String?
+    public var `state` : String?
+    public var `type` : String?
+    public var `vlanTag8021q` : Int?
+  }
+
+  public struct InterconnectAttachmentAggregatedList : Codable {
+    public var `id` : String?
+    public var `items` : Object?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct InterconnectAttachmentList : Codable {
+    public var `id` : String?
+    public var `items` : [InterconnectAttachment]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct InterconnectAttachmentPartnerMetadata : Codable {
+    public var `interconnectName` : String?
+    public var `partnerName` : String?
+    public var `portalUrl` : String?
+  }
+
+  public struct InterconnectAttachmentPrivateInfo : Codable {
+    public var `tag8021q` : Int?
+  }
+
+  public struct InterconnectAttachmentsScopedList : Codable {
+    public var `interconnectAttachments` : [InterconnectAttachment]?
+    public var `warning` : Object?
+  }
+
+  public struct InterconnectCircuitInfo : Codable {
+    public var `customerDemarcId` : String?
+    public var `googleCircuitId` : String?
+    public var `googleDemarcId` : String?
+  }
+
+  public struct InterconnectDiagnostics : Codable {
+    public var `arpCaches` : [InterconnectDiagnosticsARPEntry]?
+    public var `links` : [InterconnectDiagnosticsLinkStatus]?
+    public var `macAddress` : String?
+  }
+
+  public struct InterconnectDiagnosticsARPEntry : Codable {
+    public var `ipAddress` : String?
+    public var `macAddress` : String?
+  }
+
+  public struct InterconnectDiagnosticsLinkLACPStatus : Codable {
+    public var `googleSystemId` : String?
+    public var `neighborSystemId` : String?
+    public var `state` : String?
+  }
+
+  public struct InterconnectDiagnosticsLinkOpticalPower : Codable {
+    public var `state` : String?
+    public var `value` : Float?
+  }
+
+  public struct InterconnectDiagnosticsLinkStatus : Codable {
+    public var `arpCaches` : [InterconnectDiagnosticsARPEntry]?
+    public var `circuitId` : String?
+    public var `googleDemarc` : String?
+    public var `lacpStatus` : InterconnectDiagnosticsLinkLACPStatus?
+    public var `receivingOpticalPower` : InterconnectDiagnosticsLinkOpticalPower?
+    public var `transmittingOpticalPower` : InterconnectDiagnosticsLinkOpticalPower?
+  }
+
+  public struct InterconnectList : Codable {
+    public var `id` : String?
+    public var `items` : [Interconnect]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct InterconnectLocation : Codable {
+    public var `address` : String?
+    public var `availabilityZone` : String?
+    public var `city` : String?
+    public var `continent` : String?
+    public var `creationTimestamp` : String?
+    public var `description` : String?
+    public var `facilityProvider` : String?
+    public var `facilityProviderFacilityId` : String?
+    public var `id` : String?
+    public var `kind` : String?
+    public var `name` : String?
+    public var `peeringdbFacilityId` : String?
+    public var `regionInfos` : [InterconnectLocationRegionInfo]?
+    public var `selfLink` : String?
+    public var `status` : String?
+  }
+
+  public struct InterconnectLocationList : Codable {
+    public var `id` : String?
+    public var `items` : [InterconnectLocation]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct InterconnectLocationRegionInfo : Codable {
+    public var `expectedRttMs` : String?
+    public var `locationPresence` : String?
+    public var `region` : String?
+  }
+
+  public struct InterconnectOutageNotification : Codable {
+    public var `affectedCircuits` : [String]?
+    public var `description` : String?
+    public var `endTime` : String?
+    public var `issueType` : String?
+    public var `name` : String?
+    public var `source` : String?
+    public var `startTime` : String?
+    public var `state` : String?
+  }
+
+  public struct InterconnectsGetDiagnosticsResponse : Codable {
+    public var `result` : InterconnectDiagnostics?
+  }
+
+  public struct License : Codable {
+    public var `chargesUseFee` : Bool?
+    public var `creationTimestamp` : String?
+    public var `description` : String?
+    public var `id` : String?
+    public var `kind` : String?
+    public var `licenseCode` : String?
+    public var `name` : String?
+    public var `resourceRequirements` : LicenseResourceRequirements?
+    public var `selfLink` : String?
+    public var `transferable` : Bool?
+  }
+
+  public struct LicenseCode : Codable {
+    public var `creationTimestamp` : String?
+    public var `description` : String?
+    public var `id` : String?
+    public var `kind` : String?
+    public var `licenseAlias` : [LicenseCodeLicenseAlias]?
+    public var `name` : String?
+    public var `selfLink` : String?
+    public var `state` : String?
+    public var `transferable` : Bool?
+  }
+
+  public struct LicenseCodeLicenseAlias : Codable {
+    public var `description` : String?
+    public var `selfLink` : String?
+  }
+
+  public struct LicenseResourceRequirements : Codable {
+    public var `minGuestCpuCount` : Int?
+    public var `minMemoryMb` : Int?
+  }
+
+  public struct LicensesListResponse : Codable {
+    public var `id` : String?
+    public var `items` : [License]?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct LogConfig : Codable {
+    public var `cloudAudit` : LogConfigCloudAuditOptions?
+    public var `counter` : LogConfigCounterOptions?
+    public var `dataAccess` : LogConfigDataAccessOptions?
+  }
+
+  public struct LogConfigCloudAuditOptions : Codable {
+    public var `authorizationLoggingOptions` : AuthorizationLoggingOptions?
+    public var `logName` : String?
+  }
+
+  public struct LogConfigCounterOptions : Codable {
+    public var `field` : String?
+    public var `metric` : String?
+  }
+
+  public struct LogConfigDataAccessOptions : Codable {
+    public var `logMode` : String?
+  }
+
+  public struct MachineType : Codable {
+    public var `creationTimestamp` : String?
+    public var `deprecated` : DeprecationStatus?
+    public var `description` : String?
+    public var `guestCpus` : Int?
+    public var `id` : String?
+    public var `imageSpaceGb` : Int?
+    public var `isSharedCpu` : Bool?
+    public var `kind` : String?
+    public var `maximumPersistentDisks` : Int?
+    public var `maximumPersistentDisksSizeGb` : String?
+    public var `memoryMb` : Int?
+    public var `name` : String?
+    public var `scratchDisks` : [Object]?
+    public var `selfLink` : String?
+    public var `zone` : String?
+  }
+
+  public struct MachineTypeAggregatedList : Codable {
+    public var `id` : String?
+    public var `items` : Object?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct MachineTypeList : Codable {
+    public var `id` : String?
+    public var `items` : [MachineType]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct MachineTypesScopedList : Codable {
+    public var `machineTypes` : [MachineType]?
+    public var `warning` : Object?
+  }
+
+  public struct ManagedInstance : Codable {
+    public var `currentAction` : String?
+    public var `id` : String?
+    public var `instance` : String?
+    public var `instanceStatus` : String?
+    public var `lastAttempt` : ManagedInstanceLastAttempt?
+  }
+
+  public struct ManagedInstanceLastAttempt : Codable {
+    public var `errors` : Object?
+  }
+
+  public struct Metadata : Codable {
+    public var `fingerprint` : String?
+    public var `items` : [Object]?
+    public var `kind` : String?
+  }
+
+  public struct NamedPort : Codable {
+    public var `name` : String?
+    public var `port` : Int?
+  }
+
+  public struct Network : Codable {
+    public var `IPv4Range` : String?
+    public var `autoCreateSubnetworks` : Bool?
+    public var `creationTimestamp` : String?
+    public var `description` : String?
+    public var `gatewayIPv4` : String?
+    public var `id` : String?
+    public var `kind` : String?
+    public var `name` : String?
+    public var `peerings` : [NetworkPeering]?
+    public var `routingConfig` : NetworkRoutingConfig?
+    public var `selfLink` : String?
+    public var `subnetworks` : [String]?
+  }
+
+  public struct NetworkInterface : Codable {
+    public var `accessConfigs` : [AccessConfig]?
+    public var `aliasIpRanges` : [AliasIpRange]?
+    public var `fingerprint` : String?
+    public var `kind` : String?
+    public var `name` : String?
+    public var `network` : String?
+    public var `networkIP` : String?
+    public var `subnetwork` : String?
+  }
+
+  public struct NetworkList : Codable {
+    public var `id` : String?
+    public var `items` : [Network]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct NetworkPeering : Codable {
+    public var `autoCreateRoutes` : Bool?
+    public var `name` : String?
+    public var `network` : String?
+    public var `state` : String?
+    public var `stateDetails` : String?
+  }
+
+  public struct NetworkRoutingConfig : Codable {
+    public var `routingMode` : String?
+  }
+
+  public struct NetworksAddPeeringRequest : Codable {
+    public var `autoCreateRoutes` : Bool?
+    public var `name` : String?
+    public var `peerNetwork` : String?
+  }
+
+  public struct NetworksRemovePeeringRequest : Codable {
+    public var `name` : String?
+  }
+
+  public struct NodeGroup : Codable {
+    public var `creationTimestamp` : String?
+    public var `description` : String?
+    public var `id` : String?
+    public var `kind` : String?
+    public var `name` : String?
+    public var `nodeTemplate` : String?
+    public var `selfLink` : String?
+    public var `size` : Int?
+    public var `status` : String?
+    public var `zone` : String?
+  }
+
+  public struct NodeGroupAggregatedList : Codable {
+    public var `id` : String?
+    public var `items` : Object?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct NodeGroupList : Codable {
+    public var `id` : String?
+    public var `items` : [NodeGroup]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct NodeGroupNode : Codable {
+    public var `instances` : [String]?
+    public var `name` : String?
+    public var `nodeType` : String?
+    public var `status` : String?
+  }
+
+  public struct NodeGroupsAddNodesRequest : Codable {
+    public var `additionalNodeCount` : Int?
+  }
+
+  public struct NodeGroupsDeleteNodesRequest : Codable {
+    public var `nodes` : [String]?
+  }
+
+  public struct NodeGroupsListNodes : Codable {
+    public var `id` : String?
+    public var `items` : [NodeGroupNode]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct NodeGroupsScopedList : Codable {
+    public var `nodeGroups` : [NodeGroup]?
+    public var `warning` : Object?
+  }
+
+  public struct NodeGroupsSetNodeTemplateRequest : Codable {
+    public var `nodeTemplate` : String?
+  }
+
+  public struct NodeTemplate : Codable {
+    public var `creationTimestamp` : String?
+    public var `description` : String?
+    public var `id` : String?
+    public var `kind` : String?
+    public var `name` : String?
+    public var `nodeAffinityLabels` : Object?
+    public var `nodeType` : String?
+    public var `nodeTypeFlexibility` : NodeTemplateNodeTypeFlexibility?
+    public var `region` : String?
+    public var `selfLink` : String?
+    public var `status` : String?
+    public var `statusMessage` : String?
+  }
+
+  public struct NodeTemplateAggregatedList : Codable {
+    public var `id` : String?
+    public var `items` : Object?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct NodeTemplateList : Codable {
+    public var `id` : String?
+    public var `items` : [NodeTemplate]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct NodeTemplateNodeTypeFlexibility : Codable {
+    public var `cpus` : String?
+    public var `localSsd` : String?
+    public var `memory` : String?
+  }
+
+  public struct NodeTemplatesScopedList : Codable {
+    public var `nodeTemplates` : [NodeTemplate]?
+    public var `warning` : Object?
+  }
+
+  public struct NodeType : Codable {
+    public var `cpuPlatform` : String?
+    public var `creationTimestamp` : String?
+    public var `deprecated` : DeprecationStatus?
+    public var `description` : String?
+    public var `guestCpus` : Int?
+    public var `id` : String?
+    public var `kind` : String?
+    public var `localSsdGb` : Int?
+    public var `memoryMb` : Int?
+    public var `name` : String?
+    public var `selfLink` : String?
+    public var `zone` : String?
+  }
+
+  public struct NodeTypeAggregatedList : Codable {
+    public var `id` : String?
+    public var `items` : Object?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct NodeTypeList : Codable {
+    public var `id` : String?
+    public var `items` : [NodeType]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct NodeTypesScopedList : Codable {
+    public var `nodeTypes` : [NodeType]?
+    public var `warning` : Object?
+  }
+
+  public struct Operation : Codable {
+    public var `clientOperationId` : String?
+    public var `creationTimestamp` : String?
+    public var `description` : String?
+    public var `endTime` : String?
+    public var `error` : Object?
+    public var `httpErrorMessage` : String?
+    public var `httpErrorStatusCode` : Int?
+    public var `id` : String?
+    public var `insertTime` : String?
+    public var `kind` : String?
+    public var `name` : String?
+    public var `operationType` : String?
+    public var `progress` : Int?
+    public var `region` : String?
+    public var `selfLink` : String?
+    public var `startTime` : String?
+    public var `status` : String?
+    public var `statusMessage` : String?
+    public var `targetId` : String?
+    public var `targetLink` : String?
+    public var `user` : String?
+    public var `warnings` : [Object]?
+    public var `zone` : String?
+  }
+
+  public struct OperationAggregatedList : Codable {
+    public var `id` : String?
+    public var `items` : Object?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct OperationList : Codable {
+    public var `id` : String?
+    public var `items` : [Operation]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct OperationsScopedList : Codable {
+    public var `operations` : [Operation]?
+    public var `warning` : Object?
+  }
+
+  public struct PathMatcher : Codable {
+    public var `defaultService` : String?
+    public var `description` : String?
+    public var `name` : String?
+    public var `pathRules` : [PathRule]?
+  }
+
+  public struct PathRule : Codable {
+    public var `paths` : [String]?
+    public var `service` : String?
+  }
+
+  public struct Policy : Codable {
+    public var `auditConfigs` : [AuditConfig]?
+    public var `bindings` : [Binding]?
+    public var `etag` : String?
+    public var `iamOwned` : Bool?
+    public var `rules` : [Rule]?
+    public var `version` : Int?
+  }
+
+  public struct Project : Codable {
+    public var `commonInstanceMetadata` : Metadata?
+    public var `creationTimestamp` : String?
+    public var `defaultNetworkTier` : String?
+    public var `defaultServiceAccount` : String?
+    public var `description` : String?
+    public var `enabledFeatures` : [String]?
+    public var `id` : String?
+    public var `kind` : String?
+    public var `name` : String?
+    public var `quotas` : [Quota]?
+    public var `selfLink` : String?
+    public var `usageExportLocation` : UsageExportLocation?
+    public var `xpnProjectStatus` : String?
+  }
+
+  public struct ProjectsDisableXpnResourceRequest : Codable {
+    public var `xpnResource` : XpnResourceId?
+  }
+
+  public struct ProjectsEnableXpnResourceRequest : Codable {
+    public var `xpnResource` : XpnResourceId?
+  }
+
+  public struct ProjectsGetXpnResources : Codable {
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `resources` : [XpnResourceId]?
+  }
+
+  public struct ProjectsListXpnHostsRequest : Codable {
+    public var `organization` : String?
+  }
+
+  public struct ProjectsSetDefaultNetworkTierRequest : Codable {
+    public var `networkTier` : String?
+  }
+
+  public struct Quota : Codable {
+    public var `limit` : Float?
+    public var `metric` : String?
+    public var `owner` : String?
+    public var `usage` : Float?
+  }
+
+  public struct Reference : Codable {
+    public var `kind` : String?
+    public var `referenceType` : String?
+    public var `referrer` : String?
+    public var `target` : String?
+  }
+
+  public struct Region : Codable {
+    public var `creationTimestamp` : String?
+    public var `deprecated` : DeprecationStatus?
+    public var `description` : String?
+    public var `id` : String?
+    public var `kind` : String?
+    public var `name` : String?
+    public var `quotas` : [Quota]?
+    public var `selfLink` : String?
+    public var `status` : String?
+    public var `zones` : [String]?
+  }
+
+  public struct RegionAutoscalerList : Codable {
+    public var `id` : String?
+    public var `items` : [Autoscaler]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct RegionDiskTypeList : Codable {
+    public var `id` : String?
+    public var `items` : [DiskType]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct RegionDisksResizeRequest : Codable {
+    public var `sizeGb` : String?
+  }
+
+  public struct RegionInstanceGroupList : Codable {
+    public var `id` : String?
+    public var `items` : [InstanceGroup]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct RegionInstanceGroupManagerList : Codable {
+    public var `id` : String?
+    public var `items` : [InstanceGroupManager]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct RegionInstanceGroupManagersAbandonInstancesRequest : Codable {
+    public var `instances` : [String]?
+  }
+
+  public struct RegionInstanceGroupManagersDeleteInstancesRequest : Codable {
+    public var `instances` : [String]?
+  }
+
+  public struct RegionInstanceGroupManagersListInstancesResponse : Codable {
+    public var `managedInstances` : [ManagedInstance]?
+  }
+
+  public struct RegionInstanceGroupManagersRecreateRequest : Codable {
+    public var `instances` : [String]?
+  }
+
+  public struct RegionInstanceGroupManagersSetTargetPoolsRequest : Codable {
+    public var `fingerprint` : String?
+    public var `targetPools` : [String]?
+  }
+
+  public struct RegionInstanceGroupManagersSetTemplateRequest : Codable {
+    public var `instanceTemplate` : String?
+  }
+
+  public struct RegionInstanceGroupsListInstances : Codable {
+    public var `id` : String?
+    public var `items` : [InstanceWithNamedPorts]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct RegionInstanceGroupsListInstancesRequest : Codable {
+    public var `instanceState` : String?
+    public var `portName` : String?
+  }
+
+  public struct RegionInstanceGroupsSetNamedPortsRequest : Codable {
+    public var `fingerprint` : String?
+    public var `namedPorts` : [NamedPort]?
+  }
+
+  public struct RegionList : Codable {
+    public var `id` : String?
+    public var `items` : [Region]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct RegionSetLabelsRequest : Codable {
+    public var `labelFingerprint` : String?
+    public var `labels` : Object?
+  }
+
+  public struct RegionSetPolicyRequest : Codable {
+    public var `bindings` : [Binding]?
+    public var `etag` : String?
+    public var `policy` : Policy?
+  }
+
+  public struct ResourceCommitment : Codable {
+    public var `amount` : String?
+    public var `type` : String?
+  }
+
+  public struct ResourceGroupReference : Codable {
+    public var `group` : String?
+  }
+
+  public struct Route : Codable {
+    public var `creationTimestamp` : String?
+    public var `description` : String?
+    public var `destRange` : String?
+    public var `id` : String?
+    public var `kind` : String?
+    public var `name` : String?
+    public var `network` : String?
+    public var `nextHopGateway` : String?
+    public var `nextHopInstance` : String?
+    public var `nextHopIp` : String?
+    public var `nextHopNetwork` : String?
+    public var `nextHopPeering` : String?
+    public var `nextHopVpnTunnel` : String?
+    public var `priority` : Int?
+    public var `selfLink` : String?
+    public var `tags` : [String]?
+    public var `warnings` : [Object]?
+  }
+
+  public struct RouteList : Codable {
+    public var `id` : String?
+    public var `items` : [Route]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct Router : Codable {
+    public var `bgp` : RouterBgp?
+    public var `bgpPeers` : [RouterBgpPeer]?
+    public var `creationTimestamp` : String?
+    public var `description` : String?
+    public var `id` : String?
+    public var `interfaces` : [RouterInterface]?
+    public var `kind` : String?
+    public var `name` : String?
+    public var `nats` : [RouterNat]?
+    public var `network` : String?
+    public var `region` : String?
+    public var `selfLink` : String?
+  }
+
+  public struct RouterAdvertisedIpRange : Codable {
+    public var `description` : String?
+    public var `range` : String?
+  }
+
+  public struct RouterAggregatedList : Codable {
+    public var `id` : String?
+    public var `items` : Object?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct RouterBgp : Codable {
+    public var `advertiseMode` : String?
+    public var `advertisedGroups` : [String]?
+    public var `advertisedIpRanges` : [RouterAdvertisedIpRange]?
+    public var `asn` : Int?
+  }
+
+  public struct RouterBgpPeer : Codable {
+    public var `advertiseMode` : String?
+    public var `advertisedGroups` : [String]?
+    public var `advertisedIpRanges` : [RouterAdvertisedIpRange]?
+    public var `advertisedRoutePriority` : Int?
+    public var `interfaceName` : String?
+    public var `ipAddress` : String?
+    public var `managementType` : String?
+    public var `name` : String?
+    public var `peerAsn` : Int?
+    public var `peerIpAddress` : String?
+  }
+
+  public struct RouterInterface : Codable {
+    public var `ipRange` : String?
+    public var `linkedInterconnectAttachment` : String?
+    public var `linkedVpnTunnel` : String?
+    public var `managementType` : String?
+    public var `name` : String?
+  }
+
+  public struct RouterList : Codable {
+    public var `id` : String?
+    public var `items` : [Router]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct RouterNat : Codable {
+    public var `icmpIdleTimeoutSec` : Int?
+    public var `minPortsPerVm` : Int?
+    public var `name` : String?
+    public var `natIpAllocateOption` : String?
+    public var `natIps` : [String]?
+    public var `sourceSubnetworkIpRangesToNat` : String?
+    public var `subnetworks` : [RouterNatSubnetworkToNat]?
+    public var `tcpEstablishedIdleTimeoutSec` : Int?
+    public var `tcpTransitoryIdleTimeoutSec` : Int?
+    public var `udpIdleTimeoutSec` : Int?
+  }
+
+  public struct RouterNatSubnetworkToNat : Codable {
+    public var `name` : String?
+    public var `secondaryIpRangeNames` : [String]?
+    public var `sourceIpRangesToNat` : [String]?
+  }
+
+  public struct RouterStatus : Codable {
+    public var `bestRoutes` : [Route]?
+    public var `bestRoutesForRouter` : [Route]?
+    public var `bgpPeerStatus` : [RouterStatusBgpPeerStatus]?
+    public var `natStatus` : [RouterStatusNatStatus]?
+    public var `network` : String?
+  }
+
+  public struct RouterStatusBgpPeerStatus : Codable {
+    public var `advertisedRoutes` : [Route]?
+    public var `ipAddress` : String?
+    public var `linkedVpnTunnel` : String?
+    public var `name` : String?
+    public var `numLearnedRoutes` : Int?
+    public var `peerIpAddress` : String?
+    public var `state` : String?
+    public var `status` : String?
+    public var `uptime` : String?
+    public var `uptimeSeconds` : String?
+  }
+
+  public struct RouterStatusNatStatus : Codable {
+    public var `autoAllocatedNatIps` : [String]?
+    public var `minExtraNatIpsNeeded` : Int?
+    public var `name` : String?
+    public var `numVmEndpointsWithNatMappings` : Int?
+    public var `userAllocatedNatIpResources` : [String]?
+    public var `userAllocatedNatIps` : [String]?
+  }
+
+  public struct RouterStatusResponse : Codable {
+    public var `kind` : String?
+    public var `result` : RouterStatus?
+  }
+
+  public struct RoutersPreviewResponse : Codable {
+    public var `resource` : Router?
+  }
+
+  public struct RoutersScopedList : Codable {
+    public var `routers` : [Router]?
+    public var `warning` : Object?
+  }
+
+  public struct Rule : Codable {
+    public var `action` : String?
+    public var `conditions` : [Condition]?
+    public var `description` : String?
+    public var `ins` : [String]?
+    public var `logConfigs` : [LogConfig]?
+    public var `notIns` : [String]?
+    public var `permissions` : [String]?
+  }
+
+  public struct SSLHealthCheck : Codable {
+    public var `port` : Int?
+    public var `portName` : String?
+    public var `proxyHeader` : String?
+    public var `request` : String?
+    public var `response` : String?
+  }
+
+  public struct Scheduling : Codable {
+    public var `automaticRestart` : Bool?
+    public var `nodeAffinities` : [SchedulingNodeAffinity]?
+    public var `onHostMaintenance` : String?
+    public var `preemptible` : Bool?
+  }
+
+  public struct SchedulingNodeAffinity : Codable {
+    public var `key` : String?
+    public var `operator` : String?
+    public var `values` : [String]?
+  }
+
+  public struct SecurityPolicy : Codable {
+    public var `creationTimestamp` : String?
+    public var `description` : String?
+    public var `fingerprint` : String?
+    public var `id` : String?
+    public var `kind` : String?
+    public var `name` : String?
+    public var `rules` : [SecurityPolicyRule]?
+    public var `selfLink` : String?
+  }
+
+  public struct SecurityPolicyList : Codable {
+    public var `id` : String?
+    public var `items` : [SecurityPolicy]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `warning` : Object?
+  }
+
+  public struct SecurityPolicyReference : Codable {
+    public var `securityPolicy` : String?
+  }
+
+  public struct SecurityPolicyRule : Codable {
+    public var `action` : String?
+    public var `description` : String?
+    public var `kind` : String?
+    public var `match` : SecurityPolicyRuleMatcher?
+    public var `preview` : Bool?
+    public var `priority` : Int?
+  }
+
+  public struct SecurityPolicyRuleMatcher : Codable {
+    public var `config` : SecurityPolicyRuleMatcherConfig?
+    public var `versionedExpr` : String?
+  }
+
+  public struct SecurityPolicyRuleMatcherConfig : Codable {
+    public var `srcIpRanges` : [String]?
+  }
+
+  public struct SerialPortOutput : Codable {
+    public var `contents` : String?
+    public var `kind` : String?
+    public var `next` : String?
+    public var `selfLink` : String?
+    public var `start` : String?
+  }
+
+  public struct ServiceAccount : Codable {
+    public var `email` : String?
+    public var `scopes` : [String]?
+  }
+
+  public struct SignedUrlKey : Codable {
+    public var `keyName` : String?
+    public var `keyValue` : String?
+  }
+
+  public struct Snapshot : Codable {
+    public var `creationTimestamp` : String?
+    public var `description` : String?
+    public var `diskSizeGb` : String?
+    public var `id` : String?
+    public var `kind` : String?
+    public var `labelFingerprint` : String?
+    public var `labels` : Object?
+    public var `licenseCodes` : [String]?
+    public var `licenses` : [String]?
+    public var `name` : String?
+    public var `selfLink` : String?
+    public var `snapshotEncryptionKey` : CustomerEncryptionKey?
+    public var `sourceDisk` : String?
+    public var `sourceDiskEncryptionKey` : CustomerEncryptionKey?
+    public var `sourceDiskId` : String?
+    public var `status` : String?
+    public var `storageBytes` : String?
+    public var `storageBytesStatus` : String?
+  }
+
+  public struct SnapshotList : Codable {
+    public var `id` : String?
+    public var `items` : [Snapshot]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct SourceInstanceParams : Codable {
+    public var `diskConfigs` : [DiskInstantiationConfig]?
+  }
+
+  public struct SslCertificate : Codable {
+    public var `certificate` : String?
+    public var `creationTimestamp` : String?
+    public var `description` : String?
+    public var `id` : String?
+    public var `kind` : String?
+    public var `name` : String?
+    public var `privateKey` : String?
+    public var `selfLink` : String?
+  }
+
+  public struct SslCertificateList : Codable {
+    public var `id` : String?
+    public var `items` : [SslCertificate]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct SslPoliciesList : Codable {
+    public var `id` : String?
+    public var `items` : [SslPolicy]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct SslPoliciesListAvailableFeaturesResponse : Codable {
+    public var `features` : [String]?
+  }
+
+  public struct SslPolicy : Codable {
+    public var `creationTimestamp` : String?
+    public var `customFeatures` : [String]?
+    public var `description` : String?
+    public var `enabledFeatures` : [String]?
+    public var `fingerprint` : String?
+    public var `id` : String?
+    public var `kind` : String?
+    public var `minTlsVersion` : String?
+    public var `name` : String?
+    public var `profile` : String?
+    public var `selfLink` : String?
+    public var `warnings` : [Object]?
+  }
+
+  public struct SslPolicyReference : Codable {
+    public var `sslPolicy` : String?
+  }
+
+  public struct Subnetwork : Codable {
+    public var `creationTimestamp` : String?
+    public var `description` : String?
+    public var `enableFlowLogs` : Bool?
+    public var `fingerprint` : String?
+    public var `gatewayAddress` : String?
+    public var `id` : String?
+    public var `ipCidrRange` : String?
+    public var `kind` : String?
+    public var `name` : String?
+    public var `network` : String?
+    public var `privateIpGoogleAccess` : Bool?
+    public var `region` : String?
+    public var `secondaryIpRanges` : [SubnetworkSecondaryRange]?
+    public var `selfLink` : String?
+  }
+
+  public struct SubnetworkAggregatedList : Codable {
+    public var `id` : String?
+    public var `items` : Object?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct SubnetworkList : Codable {
+    public var `id` : String?
+    public var `items` : [Subnetwork]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct SubnetworkSecondaryRange : Codable {
+    public var `ipCidrRange` : String?
+    public var `rangeName` : String?
+  }
+
+  public struct SubnetworksExpandIpCidrRangeRequest : Codable {
+    public var `ipCidrRange` : String?
+  }
+
+  public struct SubnetworksScopedList : Codable {
+    public var `subnetworks` : [Subnetwork]?
+    public var `warning` : Object?
+  }
+
+  public struct SubnetworksSetPrivateIpGoogleAccessRequest : Codable {
+    public var `privateIpGoogleAccess` : Bool?
+  }
+
+  public struct TCPHealthCheck : Codable {
+    public var `port` : Int?
+    public var `portName` : String?
+    public var `proxyHeader` : String?
+    public var `request` : String?
+    public var `response` : String?
+  }
+
+  public struct Tags : Codable {
+    public var `fingerprint` : String?
+    public var `items` : [String]?
+  }
+
+  public struct TargetHttpProxy : Codable {
+    public var `creationTimestamp` : String?
+    public var `description` : String?
+    public var `id` : String?
+    public var `kind` : String?
+    public var `name` : String?
+    public var `selfLink` : String?
+    public var `urlMap` : String?
+  }
+
+  public struct TargetHttpProxyList : Codable {
+    public var `id` : String?
+    public var `items` : [TargetHttpProxy]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct TargetHttpsProxiesSetQuicOverrideRequest : Codable {
+    public var `quicOverride` : String?
+  }
+
+  public struct TargetHttpsProxiesSetSslCertificatesRequest : Codable {
+    public var `sslCertificates` : [String]?
+  }
+
+  public struct TargetHttpsProxy : Codable {
+    public var `creationTimestamp` : String?
+    public var `description` : String?
+    public var `id` : String?
+    public var `kind` : String?
+    public var `name` : String?
+    public var `quicOverride` : String?
+    public var `selfLink` : String?
+    public var `sslCertificates` : [String]?
+    public var `sslPolicy` : String?
+    public var `urlMap` : String?
+  }
+
+  public struct TargetHttpsProxyList : Codable {
+    public var `id` : String?
+    public var `items` : [TargetHttpsProxy]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct TargetInstance : Codable {
+    public var `creationTimestamp` : String?
+    public var `description` : String?
+    public var `id` : String?
+    public var `instance` : String?
+    public var `kind` : String?
+    public var `name` : String?
+    public var `natPolicy` : String?
+    public var `selfLink` : String?
+    public var `zone` : String?
+  }
+
+  public struct TargetInstanceAggregatedList : Codable {
+    public var `id` : String?
+    public var `items` : Object?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct TargetInstanceList : Codable {
+    public var `id` : String?
+    public var `items` : [TargetInstance]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct TargetInstancesScopedList : Codable {
+    public var `targetInstances` : [TargetInstance]?
+    public var `warning` : Object?
+  }
+
+  public struct TargetPool : Codable {
+    public var `backupPool` : String?
+    public var `creationTimestamp` : String?
+    public var `description` : String?
+    public var `failoverRatio` : Float?
+    public var `healthChecks` : [String]?
+    public var `id` : String?
+    public var `instances` : [String]?
+    public var `kind` : String?
+    public var `name` : String?
+    public var `region` : String?
+    public var `selfLink` : String?
+    public var `sessionAffinity` : String?
+  }
+
+  public struct TargetPoolAggregatedList : Codable {
+    public var `id` : String?
+    public var `items` : Object?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct TargetPoolInstanceHealth : Codable {
+    public var `healthStatus` : [HealthStatus]?
+    public var `kind` : String?
+  }
+
+  public struct TargetPoolList : Codable {
+    public var `id` : String?
+    public var `items` : [TargetPool]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct TargetPoolsAddHealthCheckRequest : Codable {
+    public var `healthChecks` : [HealthCheckReference]?
+  }
+
+  public struct TargetPoolsAddInstanceRequest : Codable {
+    public var `instances` : [InstanceReference]?
+  }
+
+  public struct TargetPoolsRemoveHealthCheckRequest : Codable {
+    public var `healthChecks` : [HealthCheckReference]?
+  }
+
+  public struct TargetPoolsRemoveInstanceRequest : Codable {
+    public var `instances` : [InstanceReference]?
+  }
+
+  public struct TargetPoolsScopedList : Codable {
+    public var `targetPools` : [TargetPool]?
+    public var `warning` : Object?
+  }
+
+  public struct TargetReference : Codable {
+    public var `target` : String?
+  }
+
+  public struct TargetSslProxiesSetBackendServiceRequest : Codable {
+    public var `service` : String?
+  }
+
+  public struct TargetSslProxiesSetProxyHeaderRequest : Codable {
+    public var `proxyHeader` : String?
+  }
+
+  public struct TargetSslProxiesSetSslCertificatesRequest : Codable {
+    public var `sslCertificates` : [String]?
+  }
+
+  public struct TargetSslProxy : Codable {
+    public var `creationTimestamp` : String?
+    public var `description` : String?
+    public var `id` : String?
+    public var `kind` : String?
+    public var `name` : String?
+    public var `proxyHeader` : String?
+    public var `selfLink` : String?
+    public var `service` : String?
+    public var `sslCertificates` : [String]?
+    public var `sslPolicy` : String?
+  }
+
+  public struct TargetSslProxyList : Codable {
+    public var `id` : String?
+    public var `items` : [TargetSslProxy]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct TargetTcpProxiesSetBackendServiceRequest : Codable {
+    public var `service` : String?
+  }
+
+  public struct TargetTcpProxiesSetProxyHeaderRequest : Codable {
+    public var `proxyHeader` : String?
+  }
+
+  public struct TargetTcpProxy : Codable {
+    public var `creationTimestamp` : String?
+    public var `description` : String?
+    public var `id` : String?
+    public var `kind` : String?
+    public var `name` : String?
+    public var `proxyHeader` : String?
+    public var `selfLink` : String?
+    public var `service` : String?
+  }
+
+  public struct TargetTcpProxyList : Codable {
+    public var `id` : String?
+    public var `items` : [TargetTcpProxy]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct TargetVpnGateway : Codable {
+    public var `creationTimestamp` : String?
+    public var `description` : String?
+    public var `forwardingRules` : [String]?
+    public var `id` : String?
+    public var `kind` : String?
+    public var `name` : String?
+    public var `network` : String?
+    public var `region` : String?
+    public var `selfLink` : String?
+    public var `status` : String?
+    public var `tunnels` : [String]?
+  }
+
+  public struct TargetVpnGatewayAggregatedList : Codable {
+    public var `id` : String?
+    public var `items` : Object?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct TargetVpnGatewayList : Codable {
+    public var `id` : String?
+    public var `items` : [TargetVpnGateway]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct TargetVpnGatewaysScopedList : Codable {
+    public var `targetVpnGateways` : [TargetVpnGateway]?
+    public var `warning` : Object?
+  }
+
+  public struct TestFailure : Codable {
+    public var `actualService` : String?
+    public var `expectedService` : String?
+    public var `host` : String?
+    public var `path` : String?
+  }
+
+  public struct TestPermissionsRequest : Codable {
+    public var `permissions` : [String]?
+  }
+
+  public struct TestPermissionsResponse : Codable {
+    public var `permissions` : [String]?
+  }
+
+  public struct UrlMap : Codable {
+    public var `creationTimestamp` : String?
+    public var `defaultService` : String?
+    public var `description` : String?
+    public var `fingerprint` : String?
+    public var `hostRules` : [HostRule]?
+    public var `id` : String?
+    public var `kind` : String?
+    public var `name` : String?
+    public var `pathMatchers` : [PathMatcher]?
+    public var `selfLink` : String?
+    public var `tests` : [UrlMapTest]?
+  }
+
+  public struct UrlMapList : Codable {
+    public var `id` : String?
+    public var `items` : [UrlMap]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct UrlMapReference : Codable {
+    public var `urlMap` : String?
+  }
+
+  public struct UrlMapTest : Codable {
+    public var `description` : String?
+    public var `host` : String?
+    public var `path` : String?
+    public var `service` : String?
+  }
+
+  public struct UrlMapValidationResult : Codable {
+    public var `loadErrors` : [String]?
+    public var `loadSucceeded` : Bool?
+    public var `testFailures` : [TestFailure]?
+    public var `testPassed` : Bool?
+  }
+
+  public struct UrlMapsValidateRequest : Codable {
+    public var `resource` : UrlMap?
+  }
+
+  public struct UrlMapsValidateResponse : Codable {
+    public var `result` : UrlMapValidationResult?
+  }
+
+  public struct UsableSubnetwork : Codable {
+    public var `ipCidrRange` : String?
+    public var `network` : String?
+    public var `secondaryIpRanges` : [UsableSubnetworkSecondaryRange]?
+    public var `subnetwork` : String?
+  }
+
+  public struct UsableSubnetworkSecondaryRange : Codable {
+    public var `ipCidrRange` : String?
+    public var `rangeName` : String?
+  }
+
+  public struct UsableSubnetworksAggregatedList : Codable {
+    public var `id` : String?
+    public var `items` : [UsableSubnetwork]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct UsageExportLocation : Codable {
+    public var `bucketName` : String?
+    public var `reportNamePrefix` : String?
+  }
+
+  public struct VmEndpointNatMappings : Codable {
+    public var `instanceName` : String?
+    public var `interfaceNatMappings` : [VmEndpointNatMappingsInterfaceNatMappings]?
+  }
+
+  public struct VmEndpointNatMappingsInterfaceNatMappings : Codable {
+    public var `natIpPortRanges` : [String]?
+    public var `numTotalNatPorts` : Int?
+    public var `sourceAliasIpRange` : String?
+    public var `sourceVirtualIp` : String?
+  }
+
+  public struct VmEndpointNatMappingsList : Codable {
+    public var `id` : String?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `result` : [VmEndpointNatMappings]?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct VpnTunnel : Codable {
+    public var `creationTimestamp` : String?
+    public var `description` : String?
+    public var `detailedStatus` : String?
+    public var `id` : String?
+    public var `ikeVersion` : Int?
+    public var `kind` : String?
+    public var `localTrafficSelector` : [String]?
+    public var `name` : String?
+    public var `peerIp` : String?
+    public var `region` : String?
+    public var `remoteTrafficSelector` : [String]?
+    public var `router` : String?
+    public var `selfLink` : String?
+    public var `sharedSecret` : String?
+    public var `sharedSecretHash` : String?
+    public var `status` : String?
+    public var `targetVpnGateway` : String?
+  }
+
+  public struct VpnTunnelAggregatedList : Codable {
+    public var `id` : String?
+    public var `items` : Object?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct VpnTunnelList : Codable {
+    public var `id` : String?
+    public var `items` : [VpnTunnel]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct VpnTunnelsScopedList : Codable {
+    public var `vpnTunnels` : [VpnTunnel]?
+    public var `warning` : Object?
+  }
+
+  public struct XpnHostList : Codable {
+    public var `id` : String?
+    public var `items` : [Project]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct XpnResourceId : Codable {
+    public var `id` : String?
+    public var `type` : String?
+  }
+
+  public struct Zone : Codable {
+    public var `availableCpuPlatforms` : [String]?
+    public var `creationTimestamp` : String?
+    public var `deprecated` : DeprecationStatus?
+    public var `description` : String?
+    public var `id` : String?
+    public var `kind` : String?
+    public var `name` : String?
+    public var `region` : String?
+    public var `selfLink` : String?
+    public var `status` : String?
+  }
+
+  public struct ZoneList : Codable {
+    public var `id` : String?
+    public var `items` : [Zone]?
+    public var `kind` : String?
+    public var `nextPageToken` : String?
+    public var `selfLink` : String?
+    public var `warning` : Object?
+  }
+
+  public struct ZoneSetLabelsRequest : Codable {
+    public var `labelFingerprint` : String?
+    public var `labels` : Object?
+  }
+
+  public struct ZoneSetPolicyRequest : Codable {
+    public var `bindings` : [Binding]?
+    public var `etag` : String?
+    public var `policy` : Policy?
   }
 
   public struct AcceleratorTypesAggregatedListParameters : Parameterizable {

@@ -259,29 +259,40 @@ class Service : Codable {
     var s = ""
     s += "import Foundation\n"
     s += "import OAuth2\n"
+
+    s += "\n"
+    s += "public class \(self.name.capitalized()) : Service {\n"
+    s += "\n"
+    s += "  init(tokenProvider: TokenProvider) throws {\n"
+    s += "    try super.init(tokenProvider, \"\(self.baseUrl)\")\n"
+    s += "  }\n"
+
+    s += "\n"
+    s += "  public class Object : Codable {}\n"
+
     for schema in schemas.sorted(by:  { $0.key < $1.key }) {
       switch schema.value.type {
       case "object":
         s += "\n"
-        s += "public struct \(schema.key) : Codable {\n"
+        s += "  public struct \(schema.key) : Codable {\n"
         if let properties = schema.value.properties {
           for p in properties.sorted(by: { $0.key < $1.key }) {
-            s += "  public var `\(p.key)` : \(p.value.Type())?\n"
+            s += "    public var `\(p.key)` : \(p.value.Type())?\n"
           }
         }
-        s += "}\n"
+        s += "  }\n"
       case "array":
         s += "\n"
         if let itemsSchema = schema.value.items {
           if let itemType = itemsSchema.type {
             switch itemType {
             case "object":
-              s += "public typealias \(schema.key) = [\(schema.key)Item]\n"
+              s += "  public typealias \(schema.key) = [\(schema.key)Item]\n"
               s += "\n"
-              s += "public struct \(schema.key)Item : Codable {\n"
+              s += "  public struct \(schema.key)Item : Codable {\n"
               if let properties = itemsSchema.properties {
                 for p in properties.sorted(by: { $0.key < $1.key }) {
-                  s += "  public var `\(p.key)` : \(p.value.Type())?\n"
+                  s += "    public var `\(p.key)` : \(p.value.Type())?\n"
                 }
               }
               s += "}\n"
@@ -294,14 +305,7 @@ class Service : Codable {
         s += "ERROR-UNHANDLED-SCHEMA-VALUE-TYPE \(schema.key) \(String(describing:schema.value.type))\n"
       }
     }
-    s += "\n"
-    s += "public class Object : Codable {}\n"
-    s += "\n"
-    s += "public class \(self.name.capitalized()) : Service {\n"
-    s += "\n"
-    s += "  init(tokenProvider: TokenProvider) throws {\n"
-    s += "    try super.init(tokenProvider, \"\(self.baseUrl)\")\n"
-    s += "  }\n"
+
     if let resources = resources {
       for r in resources.sorted(by:  { $0.key < $1.key }) {
         let methods = r.value.methods

@@ -1,59 +1,59 @@
 import Foundation
 import OAuth2
 
-public struct DetectLanguageRequest : Codable {
-  public var `q` : [String]?
-}
-
-public struct DetectionsListResponse : Codable {
-  public var `detections` : [DetectionsResource]?
-}
-
-public typealias DetectionsResource = [DetectionsResourceItem]
-
-public struct DetectionsResourceItem : Codable {
-  public var `confidence` : Float?
-  public var `isReliable` : Bool?
-  public var `language` : String?
-}
-
-public struct GetSupportedLanguagesRequest : Codable {
-  public var `target` : String?
-}
-
-public struct LanguagesListResponse : Codable {
-  public var `languages` : [LanguagesResource]?
-}
-
-public struct LanguagesResource : Codable {
-  public var `language` : String?
-  public var `name` : String?
-}
-
-public struct TranslateTextRequest : Codable {
-  public var `format` : String?
-  public var `model` : String?
-  public var `q` : [String]?
-  public var `source` : String?
-  public var `target` : String?
-}
-
-public struct TranslationsListResponse : Codable {
-  public var `translations` : [TranslationsResource]?
-}
-
-public struct TranslationsResource : Codable {
-  public var `detectedSourceLanguage` : String?
-  public var `model` : String?
-  public var `translatedText` : String?
-}
-
-public class Object : Codable {}
-
 public class Translate : Service {
 
   init(tokenProvider: TokenProvider) throws {
     try super.init(tokenProvider, "https://translation.googleapis.com/language/translate/")
+  }
+
+  public class Object : Codable {}
+
+  public struct DetectLanguageRequest : Codable {
+    public var `q` : [String]?
+  }
+
+  public struct DetectionsListResponse : Codable {
+    public var `detections` : [DetectionsResource]?
+  }
+
+  public typealias DetectionsResource = [DetectionsResourceItem]
+
+  public struct DetectionsResourceItem : Codable {
+    public var `confidence` : Float?
+    public var `isReliable` : Bool?
+    public var `language` : String?
+}
+
+  public struct GetSupportedLanguagesRequest : Codable {
+    public var `target` : String?
+  }
+
+  public struct LanguagesListResponse : Codable {
+    public var `languages` : [LanguagesResource]?
+  }
+
+  public struct LanguagesResource : Codable {
+    public var `language` : String?
+    public var `name` : String?
+  }
+
+  public struct TranslateTextRequest : Codable {
+    public var `format` : String?
+    public var `model` : String?
+    public var `q` : [String]?
+    public var `source` : String?
+    public var `target` : String?
+  }
+
+  public struct TranslationsListResponse : Codable {
+    public var `translations` : [TranslationsResource]?
+  }
+
+  public struct TranslationsResource : Codable {
+    public var `detectedSourceLanguage` : String?
+    public var `model` : String?
+    public var `translatedText` : String?
   }
 
   public func detections_detect (

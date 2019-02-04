@@ -62,20 +62,20 @@ func main() throws {
     #endif
   }
   
-  var document = Document(content: content,
-                          gcsContentUri: nil,
-                          language: "en",
-                          type: "PLAIN_TEXT")
+  var document = Language.Document(content: content,
+                                   gcsContentUri: nil,
+                                   language: "en",
+                                   type: "PLAIN_TEXT")
   
   if arguments.count > 2 {
     let path = arguments[2]
     let data = try Data(contentsOf: URL(fileURLWithPath: path))
     document.content = String(data:data, encoding:.utf8)
   }
-
+  
   if arguments[1] == "analyzeEntities" {
-    let request = AnalyzeEntitiesRequest(document: document,
-                                         encodingType: "UTF8")
+    let request = Language.AnalyzeEntitiesRequest(document: document,
+                                                  encodingType: "UTF8")
     let sem = DispatchSemaphore(value: 0)
     try language.documents_analyzeEntities(request: request) {response, error in
       print(String(describing:response))
@@ -86,8 +86,8 @@ func main() throws {
   }
   
   if arguments[1] == "analyzeEntitySentiment" {
-    let request = AnalyzeEntitySentimentRequest(document: document,
-                                                encodingType: "UTF8")
+    let request = Language.AnalyzeEntitySentimentRequest(document: document,
+                                                         encodingType: "UTF8")
     let sem = DispatchSemaphore(value: 0)
     try language.documents_analyzeEntitySentiment(request: request) {response, error in
       print(String(describing:response))
@@ -98,8 +98,8 @@ func main() throws {
   }
   
   if arguments[1] == "analyzeSentiment" {
-    let request = AnalyzeSentimentRequest(document: document,
-                                          encodingType: "UTF8")
+    let request = Language.AnalyzeSentimentRequest(document: document,
+                                                   encodingType: "UTF8")
     let sem = DispatchSemaphore(value: 0)
     try language.documents_analyzeSentiment(request: request) {response, error in
       print(String(describing:response))
@@ -110,8 +110,8 @@ func main() throws {
   }
   
   if arguments[1] == "analyzeSyntax" {
-    let request = AnalyzeSyntaxRequest(document: document,
-                                       encodingType: "UTF8")
+    let request = Language.AnalyzeSyntaxRequest(document: document,
+                                                encodingType: "UTF8")
     let sem = DispatchSemaphore(value: 0)
     try language.documents_analyzeSyntax(request: request) {response, error in
       print(String(describing:response))
@@ -122,14 +122,14 @@ func main() throws {
   }
   
   if arguments[1] == "annotateText" {
-    let features = Features(classifyText: true,
-                            extractDocumentSentiment:true,
-                            extractEntities:true,
-                            extractEntitySentiment:true,
-                            extractSyntax:true)
-    let request = AnnotateTextRequest(document: document,
-                                      encodingType: "UTF8",
-                                      features: features)
+    let features = Language.Features(classifyText: true,
+                                     extractDocumentSentiment:true,
+                                     extractEntities:true,
+                                     extractEntitySentiment:true,
+                                     extractSyntax:true)
+    let request = Language.AnnotateTextRequest(document: document,
+                                               encodingType: "UTF8",
+                                               features: features)
     let sem = DispatchSemaphore(value: 0)
     try language.documents_annotateText(request: request) {response, error in
       print(String(describing:response))
@@ -140,7 +140,7 @@ func main() throws {
   }
   
   if arguments[1] == "classifyText" {
-    let request = ClassifyTextRequest(document: document)
+    let request = Language.ClassifyTextRequest(document: document)
     let sem = DispatchSemaphore(value: 0)
     try language.documents_classifyText(request: request) {response, error in
       print(String(describing:response))

@@ -18,10 +18,15 @@
 import PackageDescription
 
 let package = Package(
-  name: "Swift Disco",
+  name: "google-api-swift-client",
+  products: [
+    .library(name: "GoogleAPIRuntime", targets: ["GoogleAPIRuntime"]),
+  ],
   dependencies: [
+    .package(url: "https://github.com/googleapis/auth-library-swift.git", from: "0.4.0"),
   ],
   targets: [
-    .target(name: "Disco",    dependencies: [], path: "Sources"),
+    .target(name: "google-api-swift-generator", dependencies: [], path: "Sources/google-api-swift-generator"),
+    .target(name: "GoogleAPIRuntime", dependencies: ["OAuth2"], path: "Sources/GoogleAPIRuntime"),
   ]
 )

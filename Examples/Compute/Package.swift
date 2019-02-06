@@ -21,8 +21,9 @@ let package = Package(
   name: "Cloud Compute",
   dependencies: [
     .package(url: "https://github.com/googleapis/auth-library-swift.git", from: "0.4.0"),
+    .package(path: "../.."),
   ],
   targets: [
-    .target(name: "Compute", dependencies: ["OAuth2"], path: "Sources"),
+    .target(name: "Compute", dependencies: ["OAuth2", "GoogleAPIRuntime"], path: "Sources"),
   ]
 )

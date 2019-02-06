@@ -15,6 +15,7 @@
 // NOTE: This file is automatically-generated!
 import Foundation
 import OAuth2
+import GoogleAPIRuntime
 
 public class Language : Service {
 

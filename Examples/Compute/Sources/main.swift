@@ -15,6 +15,7 @@
 import Foundation
 import Dispatch
 import OAuth2
+import GoogleAPIRuntime
 
 let USE_SERVICE_ACCOUNT = false
 let SERVICE_ACCOUNT_CREDENTIALS = ".credentials/service_account.json"

@@ -71,11 +71,11 @@ extension Parameterizable {
 }
 
 // general connection helper
-public class Service {
+open class Service {
   var connection : Connection
   var base : String
   
-  init(_ tokenProvider : TokenProvider, _ base : String) throws {
+  public init(_ tokenProvider : TokenProvider, _ base : String) throws {
     self.connection = try Connection(provider:tokenProvider)
     self.base = base
   }
@@ -108,7 +108,7 @@ public class Service {
     }
   }
   
-  func perform<X:Encodable,Z:Decodable>(
+  public func perform<X:Encodable,Z:Decodable>(
     method : String,
     path : String,
     request : X,
@@ -124,7 +124,7 @@ public class Service {
     }
   }
   
-  func perform<Y:Parameterizable,Z:Decodable>(
+  public func perform<Y:Parameterizable,Z:Decodable>(
     method : String,
     path : String,
     parameters : Y,
@@ -139,7 +139,7 @@ public class Service {
     }
   }
   
-  func perform<X:Encodable,Y:Parameterizable,Z:Decodable>(
+  public func perform<X:Encodable,Y:Parameterizable,Z:Decodable>(
     method : String,
     path : String,
     request : X,
@@ -164,7 +164,7 @@ public class Service {
     completion(error)
   }
   
-  func perform<Y:Parameterizable>(
+  public func perform<Y:Parameterizable>(
     method : String,
     path : String,
     parameters : Y,

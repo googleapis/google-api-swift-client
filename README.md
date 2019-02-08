@@ -1,16 +1,16 @@
-# Swift REST API Client Generator
+# Swift REST Client Generator for Google APIs
 
 This project contains Swift code that generates a API clients from Discovery Documents
 produced by the [Google API Discovery Service](https://developers.google.com/discovery/).
 
-It is currently experimental work-in-progress, but we believe it provides a good start
+It is experimental work-in-progress, but provides a good start
 at calling many Google APIs from Swift.
 
 ## Usage
 
-Currently API clients must be produced by running the generator directly using Discovery
-Documents downloaded from the Discovery Service. Running the following writes a client to 
-standard output:
+API clients are be produced by running the generator with Discovery
+Documents downloaded from the Discovery Service. 
+Running the following writes a client to standard output:
 
 ```
 % google-api-go-generator <filename>

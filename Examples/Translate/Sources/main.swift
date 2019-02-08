@@ -66,7 +66,7 @@ func main() throws {
   if arguments[1] == "translate" {
     let request = Translate.TranslateTextRequest(format:"text",
                                        model:nil,
-                                       q:["hello", "goodbye"],
+                                       q:["hello", "goodbye", content],
                                        source:nil,
                                        target:"es")
     let sem = DispatchSemaphore(value: 0)

@@ -84,13 +84,10 @@ public class Translate : Service {
   public struct DetectionsListParameters : Parameterizable {
     public var q : String?
     public func queryParameters() -> [String] {
-      return [
-        "q",
-        ]
+      return ["q"]
     }
     public func pathParameters() -> [String] {
-      return [
-        ]
+      return []
     }
   }
 
@@ -107,14 +104,10 @@ public class Translate : Service {
     public var model : String?
     public var target : String?
     public func queryParameters() -> [String] {
-      return [
-        "model",
-        "target",
-        ]
+      return ["model","target"]
     }
     public func pathParameters() -> [String] {
-      return [
-        ]
+      return []
     }
   }
 
@@ -135,18 +128,10 @@ public class Translate : Service {
     public var source : String?
     public var target : String?
     public func queryParameters() -> [String] {
-      return [
-        "cid",
-        "format",
-        "model",
-        "q",
-        "source",
-        "target",
-        ]
+      return ["cid","format","model","q","source","target"]
     }
     public func pathParameters() -> [String] {
-      return [
-        ]
+      return []
     }
   }
 

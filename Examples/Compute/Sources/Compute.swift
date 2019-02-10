@@ -2720,17 +2720,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -2748,15 +2741,10 @@ public class Compute : Service {
     public var project : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "acceleratorType",
-        "project",
-        "zone",
-        ]
+      return ["acceleratorType","project","zone"]
     }
   }
 
@@ -2777,18 +2765,10 @@ public class Compute : Service {
     public var project : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "zone",
-        ]
+      return ["project","zone"]
     }
   }
 
@@ -2808,17 +2788,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -2837,16 +2810,10 @@ public class Compute : Service {
     public var region : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "address",
-        "project",
-        "region",
-        ]
+      return ["address","project","region"]
     }
   }
 
@@ -2864,15 +2831,10 @@ public class Compute : Service {
     public var project : String?
     public var region : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "address",
-        "project",
-        "region",
-        ]
+      return ["address","project","region"]
     }
   }
 
@@ -2890,15 +2852,10 @@ public class Compute : Service {
     public var region : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        ]
+      return ["project","region"]
     }
   }
 
@@ -2921,18 +2878,10 @@ public class Compute : Service {
     public var project : String?
     public var region : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        ]
+      return ["project","region"]
     }
   }
 
@@ -2952,17 +2901,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -2981,16 +2923,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "autoscaler",
-        "project",
-        "zone",
-        ]
+      return ["autoscaler","project","zone"]
     }
   }
 
@@ -3008,15 +2944,10 @@ public class Compute : Service {
     public var project : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "autoscaler",
-        "project",
-        "zone",
-        ]
+      return ["autoscaler","project","zone"]
     }
   }
 
@@ -3034,15 +2965,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "zone",
-        ]
+      return ["project","zone"]
     }
   }
 
@@ -3065,18 +2991,10 @@ public class Compute : Service {
     public var project : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "zone",
-        ]
+      return ["project","zone"]
     }
   }
 
@@ -3095,16 +3013,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "autoscaler",
-        "requestId",
-        ]
+      return ["autoscaler","requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "zone",
-        ]
+      return ["project","zone"]
     }
   }
 
@@ -3125,16 +3037,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "autoscaler",
-        "requestId",
-        ]
+      return ["autoscaler","requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "zone",
-        ]
+      return ["project","zone"]
     }
   }
 
@@ -3154,15 +3060,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "backendBucket",
-        "project",
-        ]
+      return ["backendBucket","project"]
     }
   }
 
@@ -3182,15 +3083,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "backendBucket",
-        "project",
-        ]
+      return ["backendBucket","project"]
     }
   }
 
@@ -3209,16 +3105,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "keyName",
-        "requestId",
-        ]
+      return ["keyName","requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "backendBucket",
-        "project",
-        ]
+      return ["backendBucket","project"]
     }
   }
 
@@ -3235,14 +3125,10 @@ public class Compute : Service {
     public var backendBucket : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "backendBucket",
-        "project",
-        ]
+      return ["backendBucket","project"]
     }
   }
 
@@ -3259,14 +3145,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -3288,17 +3170,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -3316,15 +3191,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "backendBucket",
-        "project",
-        ]
+      return ["backendBucket","project"]
     }
   }
 
@@ -3344,15 +3214,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "backendBucket",
-        "project",
-        ]
+      return ["backendBucket","project"]
     }
   }
 
@@ -3372,15 +3237,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "backendService",
-        "project",
-        ]
+      return ["backendService","project"]
     }
   }
 
@@ -3402,17 +3262,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -3430,15 +3283,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "backendService",
-        "project",
-        ]
+      return ["backendService","project"]
     }
   }
 
@@ -3457,16 +3305,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "keyName",
-        "requestId",
-        ]
+      return ["keyName","requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "backendService",
-        "project",
-        ]
+      return ["backendService","project"]
     }
   }
 
@@ -3483,14 +3325,10 @@ public class Compute : Service {
     public var backendService : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "backendService",
-        "project",
-        ]
+      return ["backendService","project"]
     }
   }
 
@@ -3507,14 +3345,10 @@ public class Compute : Service {
     public var backendService : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "backendService",
-        "project",
-        ]
+      return ["backendService","project"]
     }
   }
 
@@ -3533,14 +3367,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -3562,17 +3392,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -3590,15 +3413,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "backendService",
-        "project",
-        ]
+      return ["backendService","project"]
     }
   }
 
@@ -3618,15 +3436,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "backendService",
-        "project",
-        ]
+      return ["backendService","project"]
     }
   }
 
@@ -3646,15 +3459,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "backendService",
-        "project",
-        ]
+      return ["backendService","project"]
     }
   }
 
@@ -3676,17 +3484,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -3704,15 +3505,10 @@ public class Compute : Service {
     public var project : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "diskType",
-        "project",
-        "zone",
-        ]
+      return ["diskType","project","zone"]
     }
   }
 
@@ -3733,18 +3529,10 @@ public class Compute : Service {
     public var project : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "zone",
-        ]
+      return ["project","zone"]
     }
   }
 
@@ -3764,17 +3552,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -3794,17 +3575,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "guestFlush",
-        "requestId",
-        ]
+      return ["guestFlush","requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "disk",
-        "project",
-        "zone",
-        ]
+      return ["disk","project","zone"]
     }
   }
 
@@ -3825,16 +3599,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "disk",
-        "project",
-        "zone",
-        ]
+      return ["disk","project","zone"]
     }
   }
 
@@ -3852,15 +3620,10 @@ public class Compute : Service {
     public var project : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "disk",
-        "project",
-        "zone",
-        ]
+      return ["disk","project","zone"]
     }
   }
 
@@ -3878,15 +3641,10 @@ public class Compute : Service {
     public var resource : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "resource",
-        "zone",
-        ]
+      return ["project","resource","zone"]
     }
   }
 
@@ -3905,16 +3663,10 @@ public class Compute : Service {
     public var sourceImage : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        "sourceImage",
-        ]
+      return ["requestId","sourceImage"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "zone",
-        ]
+      return ["project","zone"]
     }
   }
 
@@ -3937,18 +3689,10 @@ public class Compute : Service {
     public var project : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "zone",
-        ]
+      return ["project","zone"]
     }
   }
 
@@ -3967,16 +3711,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "disk",
-        "project",
-        "zone",
-        ]
+      return ["disk","project","zone"]
     }
   }
 
@@ -3996,15 +3734,10 @@ public class Compute : Service {
     public var resource : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "resource",
-        "zone",
-        ]
+      return ["project","resource","zone"]
     }
   }
 
@@ -4025,16 +3758,10 @@ public class Compute : Service {
     public var resource : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "resource",
-        "zone",
-        ]
+      return ["project","resource","zone"]
     }
   }
 
@@ -4054,15 +3781,10 @@ public class Compute : Service {
     public var resource : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "resource",
-        "zone",
-        ]
+      return ["project","resource","zone"]
     }
   }
 
@@ -4082,15 +3804,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "firewall",
-        "project",
-        ]
+      return ["firewall","project"]
     }
   }
 
@@ -4107,14 +3824,10 @@ public class Compute : Service {
     public var firewall : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "firewall",
-        "project",
-        ]
+      return ["firewall","project"]
     }
   }
 
@@ -4131,14 +3844,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -4160,17 +3869,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -4188,15 +3890,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "firewall",
-        "project",
-        ]
+      return ["firewall","project"]
     }
   }
 
@@ -4216,15 +3913,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "firewall",
-        "project",
-        ]
+      return ["firewall","project"]
     }
   }
 
@@ -4246,17 +3938,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -4275,16 +3960,10 @@ public class Compute : Service {
     public var region : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "forwardingRule",
-        "project",
-        "region",
-        ]
+      return ["forwardingRule","project","region"]
     }
   }
 
@@ -4302,15 +3981,10 @@ public class Compute : Service {
     public var project : String?
     public var region : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "forwardingRule",
-        "project",
-        "region",
-        ]
+      return ["forwardingRule","project","region"]
     }
   }
 
@@ -4328,15 +4002,10 @@ public class Compute : Service {
     public var region : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        ]
+      return ["project","region"]
     }
   }
 
@@ -4359,18 +4028,10 @@ public class Compute : Service {
     public var project : String?
     public var region : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        ]
+      return ["project","region"]
     }
   }
 
@@ -4389,16 +4050,10 @@ public class Compute : Service {
     public var region : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "forwardingRule",
-        "project",
-        "region",
-        ]
+      return ["forwardingRule","project","region"]
     }
   }
 
@@ -4418,15 +4073,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "address",
-        "project",
-        ]
+      return ["address","project"]
     }
   }
 
@@ -4443,14 +4093,10 @@ public class Compute : Service {
     public var address : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "address",
-        "project",
-        ]
+      return ["address","project"]
     }
   }
 
@@ -4467,14 +4113,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -4496,17 +4138,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -4524,15 +4159,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "forwardingRule",
-        "project",
-        ]
+      return ["forwardingRule","project"]
     }
   }
 
@@ -4549,14 +4179,10 @@ public class Compute : Service {
     public var forwardingRule : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "forwardingRule",
-        "project",
-        ]
+      return ["forwardingRule","project"]
     }
   }
 
@@ -4573,14 +4199,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -4602,17 +4224,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -4630,15 +4245,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "forwardingRule",
-        "project",
-        ]
+      return ["forwardingRule","project"]
     }
   }
 
@@ -4660,17 +4270,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -4687,14 +4290,10 @@ public class Compute : Service {
     public var operation : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "operation",
-        "project",
-        ]
+      return ["operation","project"]
     }
   }
 
@@ -4711,14 +4310,10 @@ public class Compute : Service {
     public var operation : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "operation",
-        "project",
-        ]
+      return ["operation","project"]
     }
   }
 
@@ -4738,17 +4333,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -4766,15 +4354,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "healthCheck",
-        "project",
-        ]
+      return ["healthCheck","project"]
     }
   }
 
@@ -4791,14 +4374,10 @@ public class Compute : Service {
     public var healthCheck : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "healthCheck",
-        "project",
-        ]
+      return ["healthCheck","project"]
     }
   }
 
@@ -4815,14 +4394,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -4844,17 +4419,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -4872,15 +4440,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "healthCheck",
-        "project",
-        ]
+      return ["healthCheck","project"]
     }
   }
 
@@ -4900,15 +4463,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "healthCheck",
-        "project",
-        ]
+      return ["healthCheck","project"]
     }
   }
 
@@ -4928,15 +4486,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "httpHealthCheck",
-        "project",
-        ]
+      return ["httpHealthCheck","project"]
     }
   }
 
@@ -4953,14 +4506,10 @@ public class Compute : Service {
     public var httpHealthCheck : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "httpHealthCheck",
-        "project",
-        ]
+      return ["httpHealthCheck","project"]
     }
   }
 
@@ -4977,14 +4526,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -5006,17 +4551,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -5034,15 +4572,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "httpHealthCheck",
-        "project",
-        ]
+      return ["httpHealthCheck","project"]
     }
   }
 
@@ -5062,15 +4595,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "httpHealthCheck",
-        "project",
-        ]
+      return ["httpHealthCheck","project"]
     }
   }
 
@@ -5090,15 +4618,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "httpsHealthCheck",
-        "project",
-        ]
+      return ["httpsHealthCheck","project"]
     }
   }
 
@@ -5115,14 +4638,10 @@ public class Compute : Service {
     public var httpsHealthCheck : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "httpsHealthCheck",
-        "project",
-        ]
+      return ["httpsHealthCheck","project"]
     }
   }
 
@@ -5139,14 +4658,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -5168,17 +4683,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -5196,15 +4704,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "httpsHealthCheck",
-        "project",
-        ]
+      return ["httpsHealthCheck","project"]
     }
   }
 
@@ -5224,15 +4727,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "httpsHealthCheck",
-        "project",
-        ]
+      return ["httpsHealthCheck","project"]
     }
   }
 
@@ -5252,15 +4750,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "image",
-        "project",
-        ]
+      return ["image","project"]
     }
   }
 
@@ -5278,15 +4771,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "image",
-        "project",
-        ]
+      return ["image","project"]
     }
   }
 
@@ -5305,14 +4793,10 @@ public class Compute : Service {
     public var image : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "image",
-        "project",
-        ]
+      return ["image","project"]
     }
   }
 
@@ -5329,14 +4813,10 @@ public class Compute : Service {
     public var family : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "family",
-        "project",
-        ]
+      return ["family","project"]
     }
   }
 
@@ -5353,14 +4833,10 @@ public class Compute : Service {
     public var project : String?
     public var resource : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "resource",
-        ]
+      return ["project","resource"]
     }
   }
 
@@ -5378,15 +4854,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "forceCreate",
-        "requestId",
-        ]
+      return ["forceCreate","requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -5408,17 +4879,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -5435,14 +4899,10 @@ public class Compute : Service {
     public var project : String?
     public var resource : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "resource",
-        ]
+      return ["project","resource"]
     }
   }
 
@@ -5461,14 +4921,10 @@ public class Compute : Service {
     public var project : String?
     public var resource : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "resource",
-        ]
+      return ["project","resource"]
     }
   }
 
@@ -5487,14 +4943,10 @@ public class Compute : Service {
     public var project : String?
     public var resource : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "resource",
-        ]
+      return ["project","resource"]
     }
   }
 
@@ -5515,16 +4967,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instanceGroupManager",
-        "project",
-        "zone",
-        ]
+      return ["instanceGroupManager","project","zone"]
     }
   }
 
@@ -5546,17 +4992,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -5575,16 +5014,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instanceGroupManager",
-        "project",
-        "zone",
-        ]
+      return ["instanceGroupManager","project","zone"]
     }
   }
 
@@ -5603,16 +5036,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instanceGroupManager",
-        "project",
-        "zone",
-        ]
+      return ["instanceGroupManager","project","zone"]
     }
   }
 
@@ -5632,15 +5059,10 @@ public class Compute : Service {
     public var project : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "instanceGroupManager",
-        "project",
-        "zone",
-        ]
+      return ["instanceGroupManager","project","zone"]
     }
   }
 
@@ -5658,15 +5080,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "zone",
-        ]
+      return ["project","zone"]
     }
   }
 
@@ -5689,18 +5106,10 @@ public class Compute : Service {
     public var project : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "zone",
-        ]
+      return ["project","zone"]
     }
   }
 
@@ -5722,19 +5131,10 @@ public class Compute : Service {
     public var project : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "order_by",
-        "pageToken",
-        ]
+      return ["filter","maxResults","order_by","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instanceGroupManager",
-        "project",
-        "zone",
-        ]
+      return ["instanceGroupManager","project","zone"]
     }
   }
 
@@ -5753,16 +5153,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instanceGroupManager",
-        "project",
-        "zone",
-        ]
+      return ["instanceGroupManager","project","zone"]
     }
   }
 
@@ -5783,16 +5177,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instanceGroupManager",
-        "project",
-        "zone",
-        ]
+      return ["instanceGroupManager","project","zone"]
     }
   }
 
@@ -5814,17 +5202,10 @@ public class Compute : Service {
     public var size : Int?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        "size",
-        ]
+      return ["requestId","size"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instanceGroupManager",
-        "project",
-        "zone",
-        ]
+      return ["instanceGroupManager","project","zone"]
     }
   }
 
@@ -5843,16 +5224,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instanceGroupManager",
-        "project",
-        "zone",
-        ]
+      return ["instanceGroupManager","project","zone"]
     }
   }
 
@@ -5873,16 +5248,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instanceGroupManager",
-        "project",
-        "zone",
-        ]
+      return ["instanceGroupManager","project","zone"]
     }
   }
 
@@ -5903,16 +5272,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instanceGroup",
-        "project",
-        "zone",
-        ]
+      return ["instanceGroup","project","zone"]
     }
   }
 
@@ -5934,17 +5297,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -5963,16 +5319,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instanceGroup",
-        "project",
-        "zone",
-        ]
+      return ["instanceGroup","project","zone"]
     }
   }
 
@@ -5990,15 +5340,10 @@ public class Compute : Service {
     public var project : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "instanceGroup",
-        "project",
-        "zone",
-        ]
+      return ["instanceGroup","project","zone"]
     }
   }
 
@@ -6016,15 +5361,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "zone",
-        ]
+      return ["project","zone"]
     }
   }
 
@@ -6047,18 +5387,10 @@ public class Compute : Service {
     public var project : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "zone",
-        ]
+      return ["project","zone"]
     }
   }
 
@@ -6080,19 +5412,10 @@ public class Compute : Service {
     public var project : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instanceGroup",
-        "project",
-        "zone",
-        ]
+      return ["instanceGroup","project","zone"]
     }
   }
 
@@ -6113,16 +5436,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instanceGroup",
-        "project",
-        "zone",
-        ]
+      return ["instanceGroup","project","zone"]
     }
   }
 
@@ -6143,16 +5460,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instanceGroup",
-        "project",
-        "zone",
-        ]
+      return ["instanceGroup","project","zone"]
     }
   }
 
@@ -6172,15 +5483,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instanceTemplate",
-        "project",
-        ]
+      return ["instanceTemplate","project"]
     }
   }
 
@@ -6197,14 +5503,10 @@ public class Compute : Service {
     public var instanceTemplate : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "instanceTemplate",
-        "project",
-        ]
+      return ["instanceTemplate","project"]
     }
   }
 
@@ -6221,14 +5523,10 @@ public class Compute : Service {
     public var project : String?
     public var resource : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "resource",
-        ]
+      return ["project","resource"]
     }
   }
 
@@ -6245,14 +5543,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -6274,17 +5568,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -6301,14 +5588,10 @@ public class Compute : Service {
     public var project : String?
     public var resource : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "resource",
-        ]
+      return ["project","resource"]
     }
   }
 
@@ -6327,14 +5610,10 @@ public class Compute : Service {
     public var project : String?
     public var resource : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "resource",
-        ]
+      return ["project","resource"]
     }
   }
 
@@ -6356,17 +5635,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "networkInterface",
-        "requestId",
-        ]
+      return ["networkInterface","requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instance",
-        "project",
-        "zone",
-        ]
+      return ["instance","project","zone"]
     }
   }
 
@@ -6388,17 +5660,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -6418,17 +5683,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "forceAttach",
-        "requestId",
-        ]
+      return ["forceAttach","requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instance",
-        "project",
-        "zone",
-        ]
+      return ["instance","project","zone"]
     }
   }
 
@@ -6449,16 +5707,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instance",
-        "project",
-        "zone",
-        ]
+      return ["instance","project","zone"]
     }
   }
 
@@ -6479,18 +5731,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "accessConfig",
-        "networkInterface",
-        "requestId",
-        ]
+      return ["accessConfig","networkInterface","requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instance",
-        "project",
-        "zone",
-        ]
+      return ["instance","project","zone"]
     }
   }
 
@@ -6510,17 +5754,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "deviceName",
-        "requestId",
-        ]
+      return ["deviceName","requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instance",
-        "project",
-        "zone",
-        ]
+      return ["instance","project","zone"]
     }
   }
 
@@ -6538,15 +5775,10 @@ public class Compute : Service {
     public var project : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "instance",
-        "project",
-        "zone",
-        ]
+      return ["instance","project","zone"]
     }
   }
 
@@ -6564,15 +5796,10 @@ public class Compute : Service {
     public var resource : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "resource",
-        "zone",
-        ]
+      return ["project","resource","zone"]
     }
   }
 
@@ -6592,17 +5819,10 @@ public class Compute : Service {
     public var start : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "port",
-        "start",
-        ]
+      return ["port","start"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instance",
-        "project",
-        "zone",
-        ]
+      return ["instance","project","zone"]
     }
   }
 
@@ -6621,16 +5841,10 @@ public class Compute : Service {
     public var sourceInstanceTemplate : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        "sourceInstanceTemplate",
-        ]
+      return ["requestId","sourceInstanceTemplate"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "zone",
-        ]
+      return ["project","zone"]
     }
   }
 
@@ -6653,18 +5867,10 @@ public class Compute : Service {
     public var project : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "zone",
-        ]
+      return ["project","zone"]
     }
   }
 
@@ -6686,19 +5892,10 @@ public class Compute : Service {
     public var project : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instance",
-        "project",
-        "zone",
-        ]
+      return ["instance","project","zone"]
     }
   }
 
@@ -6717,16 +5914,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instance",
-        "project",
-        "zone",
-        ]
+      return ["instance","project","zone"]
     }
   }
 
@@ -6746,17 +5937,10 @@ public class Compute : Service {
     public var resource : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "deletionProtection",
-        "requestId",
-        ]
+      return ["deletionProtection","requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "resource",
-        "zone",
-        ]
+      return ["project","resource","zone"]
     }
   }
 
@@ -6777,18 +5961,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "autoDelete",
-        "deviceName",
-        "requestId",
-        ]
+      return ["autoDelete","deviceName","requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instance",
-        "project",
-        "zone",
-        ]
+      return ["instance","project","zone"]
     }
   }
 
@@ -6806,15 +5982,10 @@ public class Compute : Service {
     public var resource : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "resource",
-        "zone",
-        ]
+      return ["project","resource","zone"]
     }
   }
 
@@ -6835,16 +6006,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instance",
-        "project",
-        "zone",
-        ]
+      return ["instance","project","zone"]
     }
   }
 
@@ -6865,16 +6030,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instance",
-        "project",
-        "zone",
-        ]
+      return ["instance","project","zone"]
     }
   }
 
@@ -6895,16 +6054,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instance",
-        "project",
-        "zone",
-        ]
+      return ["instance","project","zone"]
     }
   }
 
@@ -6925,16 +6078,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instance",
-        "project",
-        "zone",
-        ]
+      return ["instance","project","zone"]
     }
   }
 
@@ -6955,16 +6102,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instance",
-        "project",
-        "zone",
-        ]
+      return ["instance","project","zone"]
     }
   }
 
@@ -6985,16 +6126,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instance",
-        "project",
-        "zone",
-        ]
+      return ["instance","project","zone"]
     }
   }
 
@@ -7015,16 +6150,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instance",
-        "project",
-        "zone",
-        ]
+      return ["instance","project","zone"]
     }
   }
 
@@ -7045,16 +6174,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instance",
-        "project",
-        "zone",
-        ]
+      return ["instance","project","zone"]
     }
   }
 
@@ -7074,15 +6197,10 @@ public class Compute : Service {
     public var project : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "instance",
-        "project",
-        "zone",
-        ]
+      return ["instance","project","zone"]
     }
   }
 
@@ -7101,16 +6219,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instance",
-        "project",
-        "zone",
-        ]
+      return ["instance","project","zone"]
     }
   }
 
@@ -7129,16 +6241,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instance",
-        "project",
-        "zone",
-        ]
+      return ["instance","project","zone"]
     }
   }
 
@@ -7159,16 +6265,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instance",
-        "project",
-        "zone",
-        ]
+      return ["instance","project","zone"]
     }
   }
 
@@ -7186,15 +6286,10 @@ public class Compute : Service {
     public var resource : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "resource",
-        "zone",
-        ]
+      return ["project","resource","zone"]
     }
   }
 
@@ -7216,17 +6311,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "networkInterface",
-        "requestId",
-        ]
+      return ["networkInterface","requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instance",
-        "project",
-        "zone",
-        ]
+      return ["instance","project","zone"]
     }
   }
 
@@ -7248,17 +6336,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "networkInterface",
-        "requestId",
-        ]
+      return ["networkInterface","requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instance",
-        "project",
-        "zone",
-        ]
+      return ["instance","project","zone"]
     }
   }
 
@@ -7280,17 +6361,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -7309,16 +6383,10 @@ public class Compute : Service {
     public var region : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "interconnectAttachment",
-        "project",
-        "region",
-        ]
+      return ["interconnectAttachment","project","region"]
     }
   }
 
@@ -7336,15 +6404,10 @@ public class Compute : Service {
     public var project : String?
     public var region : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "interconnectAttachment",
-        "project",
-        "region",
-        ]
+      return ["interconnectAttachment","project","region"]
     }
   }
 
@@ -7362,15 +6425,10 @@ public class Compute : Service {
     public var region : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        ]
+      return ["project","region"]
     }
   }
 
@@ -7393,18 +6451,10 @@ public class Compute : Service {
     public var project : String?
     public var region : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        ]
+      return ["project","region"]
     }
   }
 
@@ -7423,16 +6473,10 @@ public class Compute : Service {
     public var region : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "interconnectAttachment",
-        "project",
-        "region",
-        ]
+      return ["interconnectAttachment","project","region"]
     }
   }
 
@@ -7451,14 +6495,10 @@ public class Compute : Service {
     public var interconnectLocation : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "interconnectLocation",
-        "project",
-        ]
+      return ["interconnectLocation","project"]
     }
   }
 
@@ -7478,17 +6518,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -7506,15 +6539,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "interconnect",
-        "project",
-        ]
+      return ["interconnect","project"]
     }
   }
 
@@ -7531,14 +6559,10 @@ public class Compute : Service {
     public var interconnect : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "interconnect",
-        "project",
-        ]
+      return ["interconnect","project"]
     }
   }
 
@@ -7555,14 +6579,10 @@ public class Compute : Service {
     public var interconnect : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "interconnect",
-        "project",
-        ]
+      return ["interconnect","project"]
     }
   }
 
@@ -7579,14 +6599,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -7608,17 +6624,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -7636,15 +6645,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "interconnect",
-        "project",
-        ]
+      return ["interconnect","project"]
     }
   }
 
@@ -7663,14 +6667,10 @@ public class Compute : Service {
     public var licenseCode : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "licenseCode",
-        "project",
-        ]
+      return ["licenseCode","project"]
     }
   }
 
@@ -7687,14 +6687,10 @@ public class Compute : Service {
     public var project : String?
     public var resource : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "resource",
-        ]
+      return ["project","resource"]
     }
   }
 
@@ -7714,15 +6710,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "license",
-        "project",
-        ]
+      return ["license","project"]
     }
   }
 
@@ -7739,14 +6730,10 @@ public class Compute : Service {
     public var license : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "license",
-        "project",
-        ]
+      return ["license","project"]
     }
   }
 
@@ -7763,14 +6750,10 @@ public class Compute : Service {
     public var project : String?
     public var resource : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "resource",
-        ]
+      return ["project","resource"]
     }
   }
 
@@ -7787,14 +6770,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -7816,17 +6795,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -7843,14 +6815,10 @@ public class Compute : Service {
     public var project : String?
     public var resource : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "resource",
-        ]
+      return ["project","resource"]
     }
   }
 
@@ -7869,14 +6837,10 @@ public class Compute : Service {
     public var project : String?
     public var resource : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "resource",
-        ]
+      return ["project","resource"]
     }
   }
 
@@ -7898,17 +6862,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -7926,15 +6883,10 @@ public class Compute : Service {
     public var project : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "machineType",
-        "project",
-        "zone",
-        ]
+      return ["machineType","project","zone"]
     }
   }
 
@@ -7955,18 +6907,10 @@ public class Compute : Service {
     public var project : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "zone",
-        ]
+      return ["project","zone"]
     }
   }
 
@@ -7984,15 +6928,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "network",
-        "project",
-        ]
+      return ["network","project"]
     }
   }
 
@@ -8012,15 +6951,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "network",
-        "project",
-        ]
+      return ["network","project"]
     }
   }
 
@@ -8037,14 +6971,10 @@ public class Compute : Service {
     public var network : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "network",
-        "project",
-        ]
+      return ["network","project"]
     }
   }
 
@@ -8061,14 +6991,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -8090,17 +7016,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -8118,15 +7037,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "network",
-        "project",
-        ]
+      return ["network","project"]
     }
   }
 
@@ -8146,15 +7060,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "network",
-        "project",
-        ]
+      return ["network","project"]
     }
   }
 
@@ -8174,15 +7083,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "network",
-        "project",
-        ]
+      return ["network","project"]
     }
   }
 
@@ -8201,16 +7105,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "nodeGroup",
-        "project",
-        "zone",
-        ]
+      return ["nodeGroup","project","zone"]
     }
   }
 
@@ -8232,17 +7130,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -8261,16 +7152,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "nodeGroup",
-        "project",
-        "zone",
-        ]
+      return ["nodeGroup","project","zone"]
     }
   }
 
@@ -8289,16 +7174,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "nodeGroup",
-        "project",
-        "zone",
-        ]
+      return ["nodeGroup","project","zone"]
     }
   }
 
@@ -8318,15 +7197,10 @@ public class Compute : Service {
     public var project : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "nodeGroup",
-        "project",
-        "zone",
-        ]
+      return ["nodeGroup","project","zone"]
     }
   }
 
@@ -8344,15 +7218,10 @@ public class Compute : Service {
     public var resource : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "resource",
-        "zone",
-        ]
+      return ["project","resource","zone"]
     }
   }
 
@@ -8371,16 +7240,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "initialNodeCount",
-        "requestId",
-        ]
+      return ["initialNodeCount","requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "zone",
-        ]
+      return ["project","zone"]
     }
   }
 
@@ -8403,18 +7266,10 @@ public class Compute : Service {
     public var project : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "zone",
-        ]
+      return ["project","zone"]
     }
   }
 
@@ -8436,19 +7291,10 @@ public class Compute : Service {
     public var project : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "nodeGroup",
-        "project",
-        "zone",
-        ]
+      return ["nodeGroup","project","zone"]
     }
   }
 
@@ -8466,15 +7312,10 @@ public class Compute : Service {
     public var resource : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "resource",
-        "zone",
-        ]
+      return ["project","resource","zone"]
     }
   }
 
@@ -8495,16 +7336,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "nodeGroup",
-        "project",
-        "zone",
-        ]
+      return ["nodeGroup","project","zone"]
     }
   }
 
@@ -8524,15 +7359,10 @@ public class Compute : Service {
     public var resource : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "resource",
-        "zone",
-        ]
+      return ["project","resource","zone"]
     }
   }
 
@@ -8554,17 +7384,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -8583,16 +7406,10 @@ public class Compute : Service {
     public var region : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "nodeTemplate",
-        "project",
-        "region",
-        ]
+      return ["nodeTemplate","project","region"]
     }
   }
 
@@ -8610,15 +7427,10 @@ public class Compute : Service {
     public var project : String?
     public var region : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "nodeTemplate",
-        "project",
-        "region",
-        ]
+      return ["nodeTemplate","project","region"]
     }
   }
 
@@ -8636,15 +7448,10 @@ public class Compute : Service {
     public var region : String?
     public var resource : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        "resource",
-        ]
+      return ["project","region","resource"]
     }
   }
 
@@ -8662,15 +7469,10 @@ public class Compute : Service {
     public var region : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        ]
+      return ["project","region"]
     }
   }
 
@@ -8693,18 +7495,10 @@ public class Compute : Service {
     public var project : String?
     public var region : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        ]
+      return ["project","region"]
     }
   }
 
@@ -8722,15 +7516,10 @@ public class Compute : Service {
     public var region : String?
     public var resource : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        "resource",
-        ]
+      return ["project","region","resource"]
     }
   }
 
@@ -8750,15 +7539,10 @@ public class Compute : Service {
     public var region : String?
     public var resource : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        "resource",
-        ]
+      return ["project","region","resource"]
     }
   }
 
@@ -8780,17 +7564,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -8808,15 +7585,10 @@ public class Compute : Service {
     public var project : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "nodeType",
-        "project",
-        "zone",
-        ]
+      return ["nodeType","project","zone"]
     }
   }
 
@@ -8837,18 +7609,10 @@ public class Compute : Service {
     public var project : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "zone",
-        ]
+      return ["project","zone"]
     }
   }
 
@@ -8865,14 +7629,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -8889,14 +7649,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -8915,14 +7671,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -8939,14 +7691,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -8964,13 +7712,10 @@ public class Compute : Service {
   public struct ProjectsGetParameters : Parameterizable {
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -8986,13 +7731,10 @@ public class Compute : Service {
   public struct ProjectsGetXpnHostParameters : Parameterizable {
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -9012,17 +7754,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "order_by",
-        "pageToken",
-        ]
+      return ["filter","maxResults","order_by","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -9042,17 +7777,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "order_by",
-        "pageToken",
-        ]
+      return ["filter","maxResults","order_by","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -9071,14 +7799,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -9097,14 +7821,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -9123,14 +7843,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -9149,14 +7865,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -9175,14 +7887,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -9203,16 +7911,10 @@ public class Compute : Service {
     public var region : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "autoscaler",
-        "project",
-        "region",
-        ]
+      return ["autoscaler","project","region"]
     }
   }
 
@@ -9230,15 +7932,10 @@ public class Compute : Service {
     public var project : String?
     public var region : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "autoscaler",
-        "project",
-        "region",
-        ]
+      return ["autoscaler","project","region"]
     }
   }
 
@@ -9256,15 +7953,10 @@ public class Compute : Service {
     public var region : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        ]
+      return ["project","region"]
     }
   }
 
@@ -9287,18 +7979,10 @@ public class Compute : Service {
     public var project : String?
     public var region : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        ]
+      return ["project","region"]
     }
   }
 
@@ -9317,16 +8001,10 @@ public class Compute : Service {
     public var region : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "autoscaler",
-        "requestId",
-        ]
+      return ["autoscaler","requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        ]
+      return ["project","region"]
     }
   }
 
@@ -9347,16 +8025,10 @@ public class Compute : Service {
     public var region : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "autoscaler",
-        "requestId",
-        ]
+      return ["autoscaler","requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        ]
+      return ["project","region"]
     }
   }
 
@@ -9377,16 +8049,10 @@ public class Compute : Service {
     public var region : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "backendService",
-        "project",
-        "region",
-        ]
+      return ["backendService","project","region"]
     }
   }
 
@@ -9404,15 +8070,10 @@ public class Compute : Service {
     public var project : String?
     public var region : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "backendService",
-        "project",
-        "region",
-        ]
+      return ["backendService","project","region"]
     }
   }
 
@@ -9430,15 +8091,10 @@ public class Compute : Service {
     public var project : String?
     public var region : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "backendService",
-        "project",
-        "region",
-        ]
+      return ["backendService","project","region"]
     }
   }
 
@@ -9458,15 +8114,10 @@ public class Compute : Service {
     public var region : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        ]
+      return ["project","region"]
     }
   }
 
@@ -9489,18 +8140,10 @@ public class Compute : Service {
     public var project : String?
     public var region : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        ]
+      return ["project","region"]
     }
   }
 
@@ -9519,16 +8162,10 @@ public class Compute : Service {
     public var region : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "backendService",
-        "project",
-        "region",
-        ]
+      return ["backendService","project","region"]
     }
   }
 
@@ -9549,16 +8186,10 @@ public class Compute : Service {
     public var region : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "backendService",
-        "project",
-        "region",
-        ]
+      return ["backendService","project","region"]
     }
   }
 
@@ -9580,17 +8211,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -9608,15 +8232,10 @@ public class Compute : Service {
     public var project : String?
     public var region : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "commitment",
-        "project",
-        "region",
-        ]
+      return ["commitment","project","region"]
     }
   }
 
@@ -9634,15 +8253,10 @@ public class Compute : Service {
     public var region : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        ]
+      return ["project","region"]
     }
   }
 
@@ -9665,18 +8279,10 @@ public class Compute : Service {
     public var project : String?
     public var region : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        ]
+      return ["project","region"]
     }
   }
 
@@ -9694,15 +8300,10 @@ public class Compute : Service {
     public var project : String?
     public var region : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "diskType",
-        "project",
-        "region",
-        ]
+      return ["diskType","project","region"]
     }
   }
 
@@ -9723,18 +8324,10 @@ public class Compute : Service {
     public var project : String?
     public var region : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        ]
+      return ["project","region"]
     }
   }
 
@@ -9753,16 +8346,10 @@ public class Compute : Service {
     public var region : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "disk",
-        "project",
-        "region",
-        ]
+      return ["disk","project","region"]
     }
   }
 
@@ -9783,16 +8370,10 @@ public class Compute : Service {
     public var region : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "disk",
-        "project",
-        "region",
-        ]
+      return ["disk","project","region"]
     }
   }
 
@@ -9810,15 +8391,10 @@ public class Compute : Service {
     public var project : String?
     public var region : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "disk",
-        "project",
-        "region",
-        ]
+      return ["disk","project","region"]
     }
   }
 
@@ -9837,16 +8413,10 @@ public class Compute : Service {
     public var requestId : String?
     public var sourceImage : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        "sourceImage",
-        ]
+      return ["requestId","sourceImage"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        ]
+      return ["project","region"]
     }
   }
 
@@ -9869,18 +8439,10 @@ public class Compute : Service {
     public var project : String?
     public var region : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        ]
+      return ["project","region"]
     }
   }
 
@@ -9899,16 +8461,10 @@ public class Compute : Service {
     public var region : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "disk",
-        "project",
-        "region",
-        ]
+      return ["disk","project","region"]
     }
   }
 
@@ -9929,16 +8485,10 @@ public class Compute : Service {
     public var requestId : String?
     public var resource : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        "resource",
-        ]
+      return ["project","region","resource"]
     }
   }
 
@@ -9958,15 +8508,10 @@ public class Compute : Service {
     public var region : String?
     public var resource : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        "resource",
-        ]
+      return ["project","region","resource"]
     }
   }
 
@@ -9987,16 +8532,10 @@ public class Compute : Service {
     public var region : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instanceGroupManager",
-        "project",
-        "region",
-        ]
+      return ["instanceGroupManager","project","region"]
     }
   }
 
@@ -10017,16 +8556,10 @@ public class Compute : Service {
     public var region : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instanceGroupManager",
-        "project",
-        "region",
-        ]
+      return ["instanceGroupManager","project","region"]
     }
   }
 
@@ -10045,16 +8578,10 @@ public class Compute : Service {
     public var region : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instanceGroupManager",
-        "project",
-        "region",
-        ]
+      return ["instanceGroupManager","project","region"]
     }
   }
 
@@ -10074,15 +8601,10 @@ public class Compute : Service {
     public var project : String?
     public var region : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "instanceGroupManager",
-        "project",
-        "region",
-        ]
+      return ["instanceGroupManager","project","region"]
     }
   }
 
@@ -10100,15 +8622,10 @@ public class Compute : Service {
     public var region : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        ]
+      return ["project","region"]
     }
   }
 
@@ -10131,18 +8648,10 @@ public class Compute : Service {
     public var project : String?
     public var region : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        ]
+      return ["project","region"]
     }
   }
 
@@ -10164,19 +8673,10 @@ public class Compute : Service {
     public var project : String?
     public var region : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "order_by",
-        "pageToken",
-        ]
+      return ["filter","maxResults","order_by","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instanceGroupManager",
-        "project",
-        "region",
-        ]
+      return ["instanceGroupManager","project","region"]
     }
   }
 
@@ -10195,16 +8695,10 @@ public class Compute : Service {
     public var region : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instanceGroupManager",
-        "project",
-        "region",
-        ]
+      return ["instanceGroupManager","project","region"]
     }
   }
 
@@ -10225,16 +8719,10 @@ public class Compute : Service {
     public var region : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instanceGroupManager",
-        "project",
-        "region",
-        ]
+      return ["instanceGroupManager","project","region"]
     }
   }
 
@@ -10256,17 +8744,10 @@ public class Compute : Service {
     public var requestId : String?
     public var size : Int?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        "size",
-        ]
+      return ["requestId","size"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instanceGroupManager",
-        "project",
-        "region",
-        ]
+      return ["instanceGroupManager","project","region"]
     }
   }
 
@@ -10285,16 +8766,10 @@ public class Compute : Service {
     public var region : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instanceGroupManager",
-        "project",
-        "region",
-        ]
+      return ["instanceGroupManager","project","region"]
     }
   }
 
@@ -10315,16 +8790,10 @@ public class Compute : Service {
     public var region : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instanceGroupManager",
-        "project",
-        "region",
-        ]
+      return ["instanceGroupManager","project","region"]
     }
   }
 
@@ -10344,15 +8813,10 @@ public class Compute : Service {
     public var project : String?
     public var region : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "instanceGroup",
-        "project",
-        "region",
-        ]
+      return ["instanceGroup","project","region"]
     }
   }
 
@@ -10373,18 +8837,10 @@ public class Compute : Service {
     public var project : String?
     public var region : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        ]
+      return ["project","region"]
     }
   }
 
@@ -10406,19 +8862,10 @@ public class Compute : Service {
     public var project : String?
     public var region : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instanceGroup",
-        "project",
-        "region",
-        ]
+      return ["instanceGroup","project","region"]
     }
   }
 
@@ -10439,16 +8886,10 @@ public class Compute : Service {
     public var region : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "instanceGroup",
-        "project",
-        "region",
-        ]
+      return ["instanceGroup","project","region"]
     }
   }
 
@@ -10468,15 +8909,10 @@ public class Compute : Service {
     public var project : String?
     public var region : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "operation",
-        "project",
-        "region",
-        ]
+      return ["operation","project","region"]
     }
   }
 
@@ -10494,15 +8930,10 @@ public class Compute : Service {
     public var project : String?
     public var region : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "operation",
-        "project",
-        "region",
-        ]
+      return ["operation","project","region"]
     }
   }
 
@@ -10523,18 +8954,10 @@ public class Compute : Service {
     public var project : String?
     public var region : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        ]
+      return ["project","region"]
     }
   }
 
@@ -10551,14 +8974,10 @@ public class Compute : Service {
     public var project : String?
     public var region : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        ]
+      return ["project","region"]
     }
   }
 
@@ -10578,17 +8997,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -10608,17 +9020,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -10637,16 +9042,10 @@ public class Compute : Service {
     public var requestId : String?
     public var router : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        "router",
-        ]
+      return ["project","region","router"]
     }
   }
 
@@ -10664,15 +9063,10 @@ public class Compute : Service {
     public var region : String?
     public var router : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        "router",
-        ]
+      return ["project","region","router"]
     }
   }
 
@@ -10694,19 +9088,10 @@ public class Compute : Service {
     public var region : String?
     public var router : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        "router",
-        ]
+      return ["project","region","router"]
     }
   }
 
@@ -10724,15 +9109,10 @@ public class Compute : Service {
     public var region : String?
     public var router : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        "router",
-        ]
+      return ["project","region","router"]
     }
   }
 
@@ -10750,15 +9130,10 @@ public class Compute : Service {
     public var region : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        ]
+      return ["project","region"]
     }
   }
 
@@ -10781,18 +9156,10 @@ public class Compute : Service {
     public var project : String?
     public var region : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        ]
+      return ["project","region"]
     }
   }
 
@@ -10811,16 +9178,10 @@ public class Compute : Service {
     public var requestId : String?
     public var router : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        "router",
-        ]
+      return ["project","region","router"]
     }
   }
 
@@ -10840,15 +9201,10 @@ public class Compute : Service {
     public var region : String?
     public var router : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        "router",
-        ]
+      return ["project","region","router"]
     }
   }
 
@@ -10869,16 +9225,10 @@ public class Compute : Service {
     public var requestId : String?
     public var router : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        "router",
-        ]
+      return ["project","region","router"]
     }
   }
 
@@ -10898,15 +9248,10 @@ public class Compute : Service {
     public var requestId : String?
     public var route : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "route",
-        ]
+      return ["project","route"]
     }
   }
 
@@ -10923,14 +9268,10 @@ public class Compute : Service {
     public var project : String?
     public var route : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "route",
-        ]
+      return ["project","route"]
     }
   }
 
@@ -10947,14 +9288,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -10976,17 +9313,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -11003,14 +9333,10 @@ public class Compute : Service {
     public var project : String?
     public var securityPolicy : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "securityPolicy",
-        ]
+      return ["project","securityPolicy"]
     }
   }
 
@@ -11030,15 +9356,10 @@ public class Compute : Service {
     public var requestId : String?
     public var securityPolicy : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "securityPolicy",
-        ]
+      return ["project","securityPolicy"]
     }
   }
 
@@ -11055,14 +9376,10 @@ public class Compute : Service {
     public var project : String?
     public var securityPolicy : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "securityPolicy",
-        ]
+      return ["project","securityPolicy"]
     }
   }
 
@@ -11080,15 +9397,10 @@ public class Compute : Service {
     public var project : String?
     public var securityPolicy : String?
     public func queryParameters() -> [String] {
-      return [
-        "priority",
-        ]
+      return ["priority"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "securityPolicy",
-        ]
+      return ["project","securityPolicy"]
     }
   }
 
@@ -11105,14 +9417,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -11134,17 +9442,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -11162,15 +9463,10 @@ public class Compute : Service {
     public var requestId : String?
     public var securityPolicy : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "securityPolicy",
-        ]
+      return ["project","securityPolicy"]
     }
   }
 
@@ -11190,15 +9486,10 @@ public class Compute : Service {
     public var project : String?
     public var securityPolicy : String?
     public func queryParameters() -> [String] {
-      return [
-        "priority",
-        ]
+      return ["priority"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "securityPolicy",
-        ]
+      return ["project","securityPolicy"]
     }
   }
 
@@ -11218,15 +9509,10 @@ public class Compute : Service {
     public var project : String?
     public var securityPolicy : String?
     public func queryParameters() -> [String] {
-      return [
-        "priority",
-        ]
+      return ["priority"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "securityPolicy",
-        ]
+      return ["project","securityPolicy"]
     }
   }
 
@@ -11244,15 +9530,10 @@ public class Compute : Service {
     public var requestId : String?
     public var snapshot : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "snapshot",
-        ]
+      return ["project","snapshot"]
     }
   }
 
@@ -11269,14 +9550,10 @@ public class Compute : Service {
     public var project : String?
     public var snapshot : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "snapshot",
-        ]
+      return ["project","snapshot"]
     }
   }
 
@@ -11293,14 +9570,10 @@ public class Compute : Service {
     public var project : String?
     public var resource : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "resource",
-        ]
+      return ["project","resource"]
     }
   }
 
@@ -11320,17 +9593,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -11347,14 +9613,10 @@ public class Compute : Service {
     public var project : String?
     public var resource : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "resource",
-        ]
+      return ["project","resource"]
     }
   }
 
@@ -11373,14 +9635,10 @@ public class Compute : Service {
     public var project : String?
     public var resource : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "resource",
-        ]
+      return ["project","resource"]
     }
   }
 
@@ -11399,14 +9657,10 @@ public class Compute : Service {
     public var project : String?
     public var resource : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "resource",
-        ]
+      return ["project","resource"]
     }
   }
 
@@ -11426,15 +9680,10 @@ public class Compute : Service {
     public var requestId : String?
     public var sslCertificate : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "sslCertificate",
-        ]
+      return ["project","sslCertificate"]
     }
   }
 
@@ -11451,14 +9700,10 @@ public class Compute : Service {
     public var project : String?
     public var sslCertificate : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "sslCertificate",
-        ]
+      return ["project","sslCertificate"]
     }
   }
 
@@ -11475,14 +9720,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -11504,17 +9745,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -11532,15 +9766,10 @@ public class Compute : Service {
     public var requestId : String?
     public var sslPolicy : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "sslPolicy",
-        ]
+      return ["project","sslPolicy"]
     }
   }
 
@@ -11557,14 +9786,10 @@ public class Compute : Service {
     public var project : String?
     public var sslPolicy : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "sslPolicy",
-        ]
+      return ["project","sslPolicy"]
     }
   }
 
@@ -11581,14 +9806,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -11610,17 +9831,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -11640,17 +9854,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -11668,15 +9875,10 @@ public class Compute : Service {
     public var requestId : String?
     public var sslPolicy : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "sslPolicy",
-        ]
+      return ["project","sslPolicy"]
     }
   }
 
@@ -11698,17 +9900,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -11727,16 +9922,10 @@ public class Compute : Service {
     public var requestId : String?
     public var subnetwork : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        "subnetwork",
-        ]
+      return ["project","region","subnetwork"]
     }
   }
 
@@ -11755,16 +9944,10 @@ public class Compute : Service {
     public var requestId : String?
     public var subnetwork : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        "subnetwork",
-        ]
+      return ["project","region","subnetwork"]
     }
   }
 
@@ -11784,15 +9967,10 @@ public class Compute : Service {
     public var region : String?
     public var subnetwork : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        "subnetwork",
-        ]
+      return ["project","region","subnetwork"]
     }
   }
 
@@ -11810,15 +9988,10 @@ public class Compute : Service {
     public var region : String?
     public var resource : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        "resource",
-        ]
+      return ["project","region","resource"]
     }
   }
 
@@ -11836,15 +10009,10 @@ public class Compute : Service {
     public var region : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        ]
+      return ["project","region"]
     }
   }
 
@@ -11867,18 +10035,10 @@ public class Compute : Service {
     public var project : String?
     public var region : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        ]
+      return ["project","region"]
     }
   }
 
@@ -11898,17 +10058,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -11927,16 +10080,10 @@ public class Compute : Service {
     public var requestId : String?
     public var subnetwork : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        "subnetwork",
-        ]
+      return ["project","region","subnetwork"]
     }
   }
 
@@ -11956,15 +10103,10 @@ public class Compute : Service {
     public var region : String?
     public var resource : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        "resource",
-        ]
+      return ["project","region","resource"]
     }
   }
 
@@ -11985,16 +10127,10 @@ public class Compute : Service {
     public var requestId : String?
     public var subnetwork : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        "subnetwork",
-        ]
+      return ["project","region","subnetwork"]
     }
   }
 
@@ -12014,15 +10150,10 @@ public class Compute : Service {
     public var region : String?
     public var resource : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        "resource",
-        ]
+      return ["project","region","resource"]
     }
   }
 
@@ -12042,15 +10173,10 @@ public class Compute : Service {
     public var requestId : String?
     public var targetHttpProxy : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "targetHttpProxy",
-        ]
+      return ["project","targetHttpProxy"]
     }
   }
 
@@ -12067,14 +10193,10 @@ public class Compute : Service {
     public var project : String?
     public var targetHttpProxy : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "targetHttpProxy",
-        ]
+      return ["project","targetHttpProxy"]
     }
   }
 
@@ -12091,14 +10213,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -12120,17 +10238,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -12148,15 +10259,10 @@ public class Compute : Service {
     public var requestId : String?
     public var targetHttpProxy : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "targetHttpProxy",
-        ]
+      return ["project","targetHttpProxy"]
     }
   }
 
@@ -12176,15 +10282,10 @@ public class Compute : Service {
     public var requestId : String?
     public var targetHttpsProxy : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "targetHttpsProxy",
-        ]
+      return ["project","targetHttpsProxy"]
     }
   }
 
@@ -12201,14 +10302,10 @@ public class Compute : Service {
     public var project : String?
     public var targetHttpsProxy : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "targetHttpsProxy",
-        ]
+      return ["project","targetHttpsProxy"]
     }
   }
 
@@ -12225,14 +10322,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -12254,17 +10347,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -12282,15 +10368,10 @@ public class Compute : Service {
     public var requestId : String?
     public var targetHttpsProxy : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "targetHttpsProxy",
-        ]
+      return ["project","targetHttpsProxy"]
     }
   }
 
@@ -12310,15 +10391,10 @@ public class Compute : Service {
     public var requestId : String?
     public var targetHttpsProxy : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "targetHttpsProxy",
-        ]
+      return ["project","targetHttpsProxy"]
     }
   }
 
@@ -12338,15 +10414,10 @@ public class Compute : Service {
     public var requestId : String?
     public var targetHttpsProxy : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "targetHttpsProxy",
-        ]
+      return ["project","targetHttpsProxy"]
     }
   }
 
@@ -12366,15 +10437,10 @@ public class Compute : Service {
     public var requestId : String?
     public var targetHttpsProxy : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "targetHttpsProxy",
-        ]
+      return ["project","targetHttpsProxy"]
     }
   }
 
@@ -12396,17 +10462,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -12425,16 +10484,10 @@ public class Compute : Service {
     public var targetInstance : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "targetInstance",
-        "zone",
-        ]
+      return ["project","targetInstance","zone"]
     }
   }
 
@@ -12452,15 +10505,10 @@ public class Compute : Service {
     public var targetInstance : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "targetInstance",
-        "zone",
-        ]
+      return ["project","targetInstance","zone"]
     }
   }
 
@@ -12478,15 +10526,10 @@ public class Compute : Service {
     public var requestId : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "zone",
-        ]
+      return ["project","zone"]
     }
   }
 
@@ -12509,18 +10552,10 @@ public class Compute : Service {
     public var project : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "zone",
-        ]
+      return ["project","zone"]
     }
   }
 
@@ -12539,16 +10574,10 @@ public class Compute : Service {
     public var requestId : String?
     public var targetPool : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        "targetPool",
-        ]
+      return ["project","region","targetPool"]
     }
   }
 
@@ -12569,16 +10598,10 @@ public class Compute : Service {
     public var requestId : String?
     public var targetPool : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        "targetPool",
-        ]
+      return ["project","region","targetPool"]
     }
   }
 
@@ -12600,17 +10623,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -12629,16 +10645,10 @@ public class Compute : Service {
     public var requestId : String?
     public var targetPool : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        "targetPool",
-        ]
+      return ["project","region","targetPool"]
     }
   }
 
@@ -12656,15 +10666,10 @@ public class Compute : Service {
     public var region : String?
     public var targetPool : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        "targetPool",
-        ]
+      return ["project","region","targetPool"]
     }
   }
 
@@ -12682,15 +10687,10 @@ public class Compute : Service {
     public var region : String?
     public var targetPool : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        "targetPool",
-        ]
+      return ["project","region","targetPool"]
     }
   }
 
@@ -12710,15 +10710,10 @@ public class Compute : Service {
     public var region : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        ]
+      return ["project","region"]
     }
   }
 
@@ -12741,18 +10736,10 @@ public class Compute : Service {
     public var project : String?
     public var region : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        ]
+      return ["project","region"]
     }
   }
 
@@ -12771,16 +10758,10 @@ public class Compute : Service {
     public var requestId : String?
     public var targetPool : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        "targetPool",
-        ]
+      return ["project","region","targetPool"]
     }
   }
 
@@ -12801,16 +10782,10 @@ public class Compute : Service {
     public var requestId : String?
     public var targetPool : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        "targetPool",
-        ]
+      return ["project","region","targetPool"]
     }
   }
 
@@ -12832,17 +10807,10 @@ public class Compute : Service {
     public var requestId : String?
     public var targetPool : String?
     public func queryParameters() -> [String] {
-      return [
-        "failoverRatio",
-        "requestId",
-        ]
+      return ["failoverRatio","requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        "targetPool",
-        ]
+      return ["project","region","targetPool"]
     }
   }
 
@@ -12862,15 +10830,10 @@ public class Compute : Service {
     public var requestId : String?
     public var targetSslProxy : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "targetSslProxy",
-        ]
+      return ["project","targetSslProxy"]
     }
   }
 
@@ -12887,14 +10850,10 @@ public class Compute : Service {
     public var project : String?
     public var targetSslProxy : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "targetSslProxy",
-        ]
+      return ["project","targetSslProxy"]
     }
   }
 
@@ -12911,14 +10870,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -12940,17 +10895,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -12968,15 +10916,10 @@ public class Compute : Service {
     public var requestId : String?
     public var targetSslProxy : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "targetSslProxy",
-        ]
+      return ["project","targetSslProxy"]
     }
   }
 
@@ -12996,15 +10939,10 @@ public class Compute : Service {
     public var requestId : String?
     public var targetSslProxy : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "targetSslProxy",
-        ]
+      return ["project","targetSslProxy"]
     }
   }
 
@@ -13024,15 +10962,10 @@ public class Compute : Service {
     public var requestId : String?
     public var targetSslProxy : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "targetSslProxy",
-        ]
+      return ["project","targetSslProxy"]
     }
   }
 
@@ -13052,15 +10985,10 @@ public class Compute : Service {
     public var requestId : String?
     public var targetSslProxy : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "targetSslProxy",
-        ]
+      return ["project","targetSslProxy"]
     }
   }
 
@@ -13080,15 +11008,10 @@ public class Compute : Service {
     public var requestId : String?
     public var targetTcpProxy : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "targetTcpProxy",
-        ]
+      return ["project","targetTcpProxy"]
     }
   }
 
@@ -13105,14 +11028,10 @@ public class Compute : Service {
     public var project : String?
     public var targetTcpProxy : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "targetTcpProxy",
-        ]
+      return ["project","targetTcpProxy"]
     }
   }
 
@@ -13129,14 +11048,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -13158,17 +11073,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -13186,15 +11094,10 @@ public class Compute : Service {
     public var requestId : String?
     public var targetTcpProxy : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "targetTcpProxy",
-        ]
+      return ["project","targetTcpProxy"]
     }
   }
 
@@ -13214,15 +11117,10 @@ public class Compute : Service {
     public var requestId : String?
     public var targetTcpProxy : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "targetTcpProxy",
-        ]
+      return ["project","targetTcpProxy"]
     }
   }
 
@@ -13244,17 +11142,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -13273,16 +11164,10 @@ public class Compute : Service {
     public var requestId : String?
     public var targetVpnGateway : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        "targetVpnGateway",
-        ]
+      return ["project","region","targetVpnGateway"]
     }
   }
 
@@ -13300,15 +11185,10 @@ public class Compute : Service {
     public var region : String?
     public var targetVpnGateway : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        "targetVpnGateway",
-        ]
+      return ["project","region","targetVpnGateway"]
     }
   }
 
@@ -13326,15 +11206,10 @@ public class Compute : Service {
     public var region : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        ]
+      return ["project","region"]
     }
   }
 
@@ -13357,18 +11232,10 @@ public class Compute : Service {
     public var project : String?
     public var region : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        ]
+      return ["project","region"]
     }
   }
 
@@ -13386,15 +11253,10 @@ public class Compute : Service {
     public var requestId : String?
     public var urlMap : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "urlMap",
-        ]
+      return ["project","urlMap"]
     }
   }
 
@@ -13411,14 +11273,10 @@ public class Compute : Service {
     public var project : String?
     public var urlMap : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "urlMap",
-        ]
+      return ["project","urlMap"]
     }
   }
 
@@ -13435,14 +11293,10 @@ public class Compute : Service {
     public var project : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -13462,15 +11316,10 @@ public class Compute : Service {
     public var requestId : String?
     public var urlMap : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "urlMap",
-        ]
+      return ["project","urlMap"]
     }
   }
 
@@ -13492,17 +11341,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -13520,15 +11362,10 @@ public class Compute : Service {
     public var requestId : String?
     public var urlMap : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "urlMap",
-        ]
+      return ["project","urlMap"]
     }
   }
 
@@ -13548,15 +11385,10 @@ public class Compute : Service {
     public var requestId : String?
     public var urlMap : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "urlMap",
-        ]
+      return ["project","urlMap"]
     }
   }
 
@@ -13575,14 +11407,10 @@ public class Compute : Service {
     public var project : String?
     public var urlMap : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "urlMap",
-        ]
+      return ["project","urlMap"]
     }
   }
 
@@ -13604,17 +11432,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 
@@ -13633,16 +11454,10 @@ public class Compute : Service {
     public var requestId : String?
     public var vpnTunnel : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        "vpnTunnel",
-        ]
+      return ["project","region","vpnTunnel"]
     }
   }
 
@@ -13660,15 +11475,10 @@ public class Compute : Service {
     public var region : String?
     public var vpnTunnel : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        "vpnTunnel",
-        ]
+      return ["project","region","vpnTunnel"]
     }
   }
 
@@ -13686,15 +11496,10 @@ public class Compute : Service {
     public var region : String?
     public var requestId : String?
     public func queryParameters() -> [String] {
-      return [
-        "requestId",
-        ]
+      return ["requestId"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        ]
+      return ["project","region"]
     }
   }
 
@@ -13717,18 +11522,10 @@ public class Compute : Service {
     public var project : String?
     public var region : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "region",
-        ]
+      return ["project","region"]
     }
   }
 
@@ -13746,15 +11543,10 @@ public class Compute : Service {
     public var project : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "operation",
-        "project",
-        "zone",
-        ]
+      return ["operation","project","zone"]
     }
   }
 
@@ -13772,15 +11564,10 @@ public class Compute : Service {
     public var project : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "operation",
-        "project",
-        "zone",
-        ]
+      return ["operation","project","zone"]
     }
   }
 
@@ -13801,18 +11588,10 @@ public class Compute : Service {
     public var project : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "zone",
-        ]
+      return ["project","zone"]
     }
   }
 
@@ -13829,14 +11608,10 @@ public class Compute : Service {
     public var project : String?
     public var zone : String?
     public func queryParameters() -> [String] {
-      return [
-        ]
+      return []
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        "zone",
-        ]
+      return ["project","zone"]
     }
   }
 
@@ -13856,17 +11631,10 @@ public class Compute : Service {
     public var pageToken : String?
     public var project : String?
     public func queryParameters() -> [String] {
-      return [
-        "filter",
-        "maxResults",
-        "orderBy",
-        "pageToken",
-        ]
+      return ["filter","maxResults","orderBy","pageToken"]
     }
     public func pathParameters() -> [String] {
-      return [
-        "project",
-        ]
+      return ["project"]
     }
   }
 

@@ -178,4 +178,20 @@ open class Service {
         self.handleResponse(data, response, error, completion)
     }
   }
+  
+  public func perform<X:Encodable>(
+    method : String,
+    path : String,
+    request : X,
+    completion : @escaping(Error?) -> ()) throws {
+    let encoder = JSONEncoder()
+    let postData = try encoder.encode(request)
+    try connection.performRequest(
+      method:method,
+      urlString:base + path,
+      parameters: [:],
+      body:postData) {(data, response, error) in
+        self.handleResponse(data, response, error, completion)
+    }
+  }
 }

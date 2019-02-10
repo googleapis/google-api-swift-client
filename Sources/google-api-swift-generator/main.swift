@@ -38,6 +38,14 @@ extension String {
   func capitalized() -> String {
     return prefix(1).capitalized + dropFirst()
   }
+  
+  func camelCased() -> String {
+    return self.components(separatedBy: "-").map {$0.capitalized()}.joined(separator: "")
+  }
+  
+  func snakeCased() -> String {
+    return self.components(separatedBy: "-").joined(separator: "_")
+  }
 }
 
 class Auth : Codable {
@@ -109,7 +117,7 @@ class Schema : Codable {
     }
     return "UNKNOWN SCHEMA TYPE"
   }
-
+  
   public func ItemsType() -> String {
     if let items = items {
       return items.Type()
@@ -156,42 +164,42 @@ class Method : Codable {
     }
     return false
   }
-
+  
   func ResponseTypeName() -> String {
     if let response = response {
       return response.ref
     }
     return "ERROR-UNKNOWN-RESPONSE-TYPE"
   }
-
+  
   func HasRequest() -> Bool {
     if request != nil {
       return true
     }
     return false
   }
-
+  
   func RequestTypeName() -> String {
     if let request = request {
       return request.ref
     }
     return "ERROR-UNKNOWN-REQUEST-TYPE"
   }
-
+  
   func HasParameters() -> Bool {
     if let parameters = parameters {
       return parameters.count > 0
     }
     return false
   }
-
+  
   func ParametersTypeName(resource : String, method : String) -> String {
     if parameters != nil {
-      return resource.capitalized() + method.capitalized() + "Parameters"
+      return resource.capitalized() + method.camelCased() + "Parameters"
     }
     return "ERROR-UNKNOWN-PARAMETERS-TYPE"
   }
-
+  
   func ParametersTypeDeclaration(resource : String, method : String) -> String {
     var s = "\n"
     if let parameters = parameters {
@@ -200,26 +208,20 @@ class Method : Codable {
         s += "    public var " + p.key + " : " + p.value.Type() + "?\n"
       }
       s += "    public func queryParameters() -> [String] {\n"
-      s += "      return [\n"
-      for p in parameters.sorted(by:  { $0.key < $1.key }) {
-        if let location = p.value.location {
-          if location == "query" {
-            s += "        \"" + p.key + "\",\n"
-          }
-        }
-      }
-      s += "        ]\n"
+      s += "      return ["
+      s += parameters.sorted(by: { $0.key < $1.key })
+        .filter { if let location = $0.value.location { return location == "query" } else {return false}}
+        .map { return "\"" + $0.key + "\"" }
+        .joined(separator: ",")
+      s += "]\n"
       s += "    }\n"
       s += "    public func pathParameters() -> [String] {\n"
-      s += "      return [\n"
-      for p in parameters.sorted(by:  { $0.key < $1.key }) {
-        if let location = p.value.location {
-          if location == "path" {
-            s += "        \"" + p.key + "\",\n"
-          }
-        }
-      }
-      s += "        ]\n"
+      s += "      return ["
+      s += parameters.sorted(by: { $0.key < $1.key })
+        .filter { if let location = $0.value.location { return location == "path" } else {return false}}
+        .map { return "\"" + $0.key + "\"" }
+        .joined(separator: ",")
+      s += "]\n"
       s += "    }\n"
       s += "  }"
     }
@@ -280,17 +282,18 @@ class Service : Codable {
     s += "\n"
     s += "import Foundation\n"
     s += "import OAuth2\n"
-
+    s += "import GoogleAPIRuntime\n"
+    
     s += "\n"
     s += "public class \(self.name.capitalized()) : Service {\n"
     s += "\n"
     s += "  init(tokenProvider: TokenProvider) throws {\n"
     s += "    try super.init(tokenProvider, \"\(self.baseUrl)\")\n"
     s += "  }\n"
-
+    
     s += "\n"
     s += "  public class Object : Codable {}\n"
-
+    
     for schema in schemas.sorted(by:  { $0.key < $1.key }) {
       switch schema.value.type {
       case "object":
@@ -326,7 +329,7 @@ class Service : Codable {
         s += "ERROR-UNHANDLED-SCHEMA-VALUE-TYPE \(schema.key) \(String(describing:schema.value.type))\n"
       }
     }
-
+    
     if let resources = resources {
       for r in resources.sorted(by:  { $0.key < $1.key }) {
         let methods = r.value.methods
@@ -336,7 +339,7 @@ class Service : Codable {
           }
           let methodName = r.key + "_" + m.key
           s += "\n"
-          s += "  public func \(methodName) (\n"
+          s += "  public func \(methodName.snakeCased()) (\n"
           if m.value.HasRequest() {
             s += "    request: \(m.value.RequestTypeName()),\n"
           }

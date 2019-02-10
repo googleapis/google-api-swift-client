@@ -1,0 +1,585 @@
+{
+  "kind": "discovery#restDescription",
+  "etag": "",
+  "discoveryVersion": "v1",
+  "id": "spotify:v1",
+  "name": "spotify",
+  "version": "v1",
+  "revision": "20190210",
+  "title": "Spotify Web API",
+  "description": "Based on simple REST principles, the Spotify Web API endpoints return JSON metadata about music artists, albums, and tracks, directly from the Spotify Data Catalogue.",
+  "ownerDomain": "spotify.com",
+  "ownerName": "Spotify",
+  "icons": {
+    "x16": "https://www.gstatic.com/images/branding/product/1x/googleg_16dp.png",
+    "x32": "https://www.gstatic.com/images/branding/product/1x/googleg_32dp.png"
+  },
+  "documentationLink": "https://developer.spotify.com/documentation/web-api/",
+  "protocol": "rest",
+  "baseUrl": "https://api.spotify.com/v1/",
+  "basePath": "/v1/",
+  "rootUrl": "https://api.spotify.com/",
+  "servicePath": "v1/",
+  "batchPath": "",
+  "auth": {
+  },
+  "parameters": {
+  },
+  "schemas": {
+    "AlbumFull": {
+      "id": "AlbumFull",
+      "type": "object",
+      "properties": {
+        "album_group": {
+          "type": "string"
+        },
+        "album_type": {
+          "type": "string"
+        },
+        "artists": {
+          "type": "array",
+          "items": {
+            "type": "ArtistSimplified"
+          }
+        },
+        "available_markets": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "copyrights": {
+          "type": "array",
+          "items": {
+            "type": "Copyright"
+          }
+        },
+        "external_ids": {
+          "type": "ExternalIds"
+        },
+        "external_urls": {
+          "type": "ExternalUrls"
+        },
+        "genres": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "href": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "images": {
+          "type": "array",
+          "items": {
+            "type": "Image"
+          }
+        },
+        "label": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "popularity": {
+          "type": "integer"
+        },
+        "release_date": {
+          "type": "string"
+        },
+        "release_date_precision": {
+          "type": "string"
+        },
+        "restrictions": {
+          "type": "Restrictions"
+        },
+        "tracks": {
+          "type": "array",
+          "items": {
+            "type": "TrackSimplified"
+          }
+        },
+        "type": {
+          "type": "string"
+        },
+        "uri": {
+          "type": "string"
+        }
+      }
+    },
+    "AlbumSimplified": {
+      "id": "AlbumSimplified",
+      "type": "object",
+      "properties": {
+        "album_group": {
+          "type": "string"
+        },
+        "album_type": {
+          "type": "string"
+        },
+        "artists": {
+          "type": "array",
+          "items": {
+            "type": "ArtistSimplified"
+          }
+        },
+        "available_markets": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "external_urls": {
+          "type": "ExternalUrls"
+        },
+        "href": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "images": {
+          "type": "array",
+          "items": {
+            "type": "Image"
+          }
+        },
+        "name": {
+          "type": "string"
+        },
+        "release_date": {
+          "type": "string"
+        },
+        "release_date_precision": {
+          "type": "string"
+        },
+        "restrictions": {
+          "type": "Restrictions"
+        },
+        "type": {
+          "type": "string"
+        },
+        "uri": {
+          "type": "string"
+        }
+      }
+    },
+    "ArtistFull": {
+      "id": "ArtistFull",
+      "type": "object",
+      "properties": {
+        "external_urls": {
+          "type": "ExternalUrls"
+        },
+        "followers": {
+          "type": "Followers"
+        },
+        "genres": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "href": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "images": {
+          "type": "array",
+          "items": {
+            "type": "Image"
+          }
+        },
+        "name": {
+          "type": "string"
+        },
+        "popularity": {
+          "type": "integer"
+        },
+        "type": {
+          "type": "string"
+        },
+        "uri": {
+          "type": "string"
+        }
+      }
+    },
+    "ArtistSimplified": {
+      "id": "ArtistSimplified",
+      "type": "object",
+      "properties": {
+        "external_urls": {
+          "type": "ExternalUrls"
+        },
+        "href": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "uri": {
+          "type": "string"
+        }
+      }
+    },
+    "Context": {
+      "id": "Context",
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "href": {
+          "type": "string"
+        },
+        "external_urls": {
+          "type": "ExternalUrls"
+        },
+        "uri": {
+          "type": "string"
+        }
+      }
+    },
+    "Copyright": {
+      "id": "Copyright",
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    },
+    "CurrentlyPlaying": {
+      "id": "CurrentlyPlaying",
+      "type": "object",
+      "properties": {
+        "context": {
+          "type": "Context"
+        },
+        "timestamp": {
+          "type": "integer"
+        },
+        "progress_ms": {
+          "type": "integer"
+        },
+        "is_playing": {
+          "type": "boolean"
+        },
+        "item": {
+          "type": "TrackFull"
+        },
+        "currently_playing_type": {
+          "type": "string"
+        }
+      }
+    },
+    "ExternalIds": {
+      "id": "ExternalIds",
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "ExternalUrls": {
+      "id": "ExternalUrls",
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "Followers": {
+      "id": "Followers",
+      "type": "object",
+      "properties": {
+        "href": {
+          "type": "string"
+        },
+        "total": {
+          "type": "integer"
+        }
+      }
+    },
+    "Image": {
+      "id": "Image",
+      "type": "object",
+      "properties": {
+        "height": {
+          "type": "integer"
+        },
+        "url": {
+          "type": "string"
+        },
+        "width": {
+          "type": "integer"
+        }
+      }
+    },
+    "Restrictions": {
+      "id": "Restrictions",
+      "type": "object"
+    },
+    "TrackFull": {
+      "id": "TrackFull",
+      "type": "object",
+      "properties": {
+        "album": {
+          "type": "AlbumSimplified"
+        },
+        "artists": {
+          "type": "array",
+          "items": {
+            "type": "ArtistSimplified"
+          }
+        },
+        "available_markets": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "disc_number": {
+          "type": "integer"
+        },
+        "duration_ms": {
+          "type": "integer"
+        },
+        "explicit": {
+          "type": "boolean"
+        },
+        "external_ids": {
+          "type": "ExternalIds"
+        },
+        "external_urls": {
+          "type": "ExternalUrls"
+        },
+        "href": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "is_playable": {
+          "type": "boolean"
+        },
+        "linked_from": {
+          "type": "TrackLink"
+        },
+        "restriction": {
+          "type": "Restrictions"
+        },
+        "name": {
+          "type": "string"
+        },
+        "popularity": {
+          "type": "integer"
+        },
+        "preview_url": {
+          "type": "string"
+        },
+        "track_number": {
+          "type": "integer"
+        },
+        "type": {
+          "type": "string"
+        },
+        "uri": {
+          "type": "string"
+        },
+        "is_local": {
+          "type": "boolean"
+        }
+      }
+    },
+    "TrackSimplified": {
+      "id": "TrackSimplified",
+      "type": "object",
+      "properties": {
+        "artists": {
+          "type": "array",
+          "items": {
+            "type": "ArtistSimplified"
+          }
+        },
+        "available_markets": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "disc_number": {
+          "type": "integer"
+        },
+        "duration_ms": {
+          "type": "integer"
+        },
+        "explicit": {
+          "type": "boolean"
+        },
+        "external_urls": {
+          "type": "ExternalUrls"
+        },
+        "href": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "is_playable": {
+          "type": "boolean"
+        },
+        "linked_from": {
+          "type": "TrackLink"
+        },
+        "restriction": {
+          "type": "Restrictions"
+        },
+        "name": {
+          "type": "string"
+        },
+        "preview_url": {
+          "type": "string"
+        },
+        "track_number": {
+          "type": "integer"
+        },
+        "type": {
+          "type": "string"
+        },
+        "uri": {
+          "type": "string"
+        },
+        "is_local": {
+          "type": "boolean"
+        }
+      }
+    },
+    "TrackLink": {
+      "id": "TrackLink",
+      "type": "object",
+      "properties": {
+        "external_urls": {
+          "type": "ExternalUrls"
+        },
+        "href": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "uri": {
+          "type": "string"
+        }
+      }
+    },
+    "Offset": {
+      "id": "Offset",
+      "type": "object",
+      "properties": {
+        "position": {
+          "type": "integer"
+        },
+        "uri": {
+          "type": "string"
+        }
+      }
+    },
+    "PlayRequest": {
+      "id": "PlayRequest",
+      "type": "object",
+      "properties": {
+        "context_uri": {
+          "type": "string"
+        },
+        "uris": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "offset": {
+          "type": "Offset"
+        },
+        "position_ms": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "resources": {
+    "artists": {
+      "methods": {
+        "get": {
+          "id": "artists.get",
+          "path": "artists/{id}",
+          "httpMethod": "GET",
+          "description": "Get an artist.",
+          "parameters": {
+            "id": {
+              "type": "string",
+              "description": "The Spotify ID of the artist.",
+              "required": true,
+              "location": "path"
+            }
+          },
+          "response": {
+            "$ref": "ArtistFull"
+          }
+        }
+      }
+    },
+    "player": {
+      "methods": {
+        "currently-playing": {
+          "id": "player.currently-playing",
+          "path": "me/player/currently-playing",
+          "httpMethod": "GET",
+          "description": "Get the user's currently playing track.",
+          "parameters": {
+            "market": {
+              "type": "string",
+              "description": "An ISO 3166-1 alpha-2 country code or the string from_token. Provide this parameter if you want to apply Track Relinking.",
+              "required": true,
+              "location": "query"
+            }
+          },
+          "parameterOrder": [
+            "market"
+          ],
+          "response": {
+            "$ref": "CurrentlyPlaying"
+          },
+          "scopes": [
+            "user-read-currently-playing",
+            "user-read-playback-state"
+          ]
+        },
+        "play": {
+          "id": "player.play",
+          "path": "me/player/play",
+          "httpMethod": "PUT",
+          "description": "Start/resume a user's playback.",
+          "request": {
+            "$ref": "PlayRequest"
+          }
+        }
+      }
+    }
+  }
+}

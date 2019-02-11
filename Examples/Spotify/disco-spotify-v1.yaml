@@ -333,6 +333,36 @@ schemas:
         type: string
       uri:
         type: string
+  User:
+    id: User
+    type: object
+    properties:
+      birthdate:
+        type: string
+      country:
+        type: string
+      display_name:
+        type: string
+      email:
+        type: string
+      external_urls:
+        type: ExternalUrls
+      followers:
+        type: Followers
+      href:
+        type: string
+      id:
+        type: string
+      images:
+        type: array
+        items:
+          type: Image
+      product:
+        type: string  
+      type:
+        type: string         
+      uri:
+        type: string                       
   Offset:
     id: Offset
     type: object
@@ -355,6 +385,34 @@ schemas:
         type: Offset
       position_ms:
         type: integer
+  ArrayOfArtistFull:
+    id: ArrayOfArtistFull
+    type: object
+    properties:
+      artists: 
+        type: array
+        items:
+          type: ArtistFull
+  PageOfAlbumSimplified:
+    id: PageOfAlbumSimplified
+    type: object
+    properties:
+      href:
+        type: string
+      items:
+        type: array
+        items: 
+          type: AlbumSimplified
+      limit:
+        type: integer
+      next:
+        type: string
+      offset:
+        type: integer
+      previous:
+        type: string
+      total:
+        type: integer                        
 resources:
   artists:
     methods:
@@ -371,6 +429,44 @@ resources:
             location: path
         response:
           $ref: ArtistFull
+      getArtistAlbums:
+        id: artists.getArtistAlbums
+        path: artists/{id}/albums
+        httpMethod: GET
+        description: Get an artist's albums.
+        parameters:
+          id:
+            type: string
+            description: The Spotify ID of the artist.
+            required: true
+            location: path
+          include_groups:
+            type: string
+            location: query
+          market:
+            type: string
+            location: query
+          limit:
+            type: integer
+            location: query
+          offset:
+            type: integer
+            location: query               
+        response:
+          $ref: PageOfAlbumSimplified
+      getMultiple:
+        id: artists.getMultiple
+        path: artists
+        httpMethod: GET
+        description: Get multiple artists.
+        parameters:
+          ids:
+            type: string
+            description: A comma-separated list of artist IDs.
+            required: true
+            location: query
+        response:
+          $ref: ArrayOfArtistFull
   player:
     methods:
       currently-playing:
@@ -399,3 +495,25 @@ resources:
         description: Start/resume a user's playback.
         request:
           $ref: PlayRequest
+  users:
+    methods:
+      me:
+        id: users.me
+        path: me
+        httpMethod: GET
+        description: Get the user's profile.
+        response:
+          $ref: User
+      profile:
+        id: users.profile
+        path: users/{user_id}
+        httpMethod: GET
+        description: Get a user's profile.
+        parameters:
+          user_id:
+            type: string
+            description: The user's Spotify user id.
+            required: true
+            location: path
+        response:
+          $ref: User        

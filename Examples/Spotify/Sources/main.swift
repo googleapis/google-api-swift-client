@@ -58,11 +58,37 @@ func main() throws {
     _ = sem.wait()
   }
   
-  if arguments[1] == "get" {
+  if arguments[1] == "get-artist" {
     var parameters = Spotify.ArtistsGetParameters()
     parameters.id = "5TOosZsVbwb5O1BOFdcLmw"
     let sem = DispatchSemaphore(value: 0)
     try spotify.artists_get(parameters: parameters) {response, error in
+      if let response = response { print ("RESPONSE: \(response)") }
+      if let error = error { print ("ERROR: \(error)") }
+      sem.signal()
+    }
+    _ = sem.wait()
+  }
+  
+  if arguments[1] == "get-artist-albums" {
+    var parameters = Spotify.ArtistsGetArtistAlbumsParameters()
+    parameters.id = "5TOosZsVbwb5O1BOFdcLmw"
+    parameters.limit = 2
+    parameters.offset = 2
+    let sem = DispatchSemaphore(value: 0)
+    try spotify.artists_getArtistAlbums(parameters: parameters) {response, error in
+      if let response = response { print ("RESPONSE: \(response)") }
+      if let error = error { print ("ERROR: \(error)") }
+      sem.signal()
+    }
+    _ = sem.wait()
+  }
+  
+  if arguments[1] == "get-artists" {
+    var parameters = Spotify.ArtistsGetMultipleParameters()
+    parameters.ids = "5TOosZsVbwb5O1BOFdcLmw"
+    let sem = DispatchSemaphore(value: 0)
+    try spotify.artists_getMultiple(parameters: parameters) {response, error in
       if let response = response { print ("RESPONSE: \(response)") }
       if let error = error { print ("ERROR: \(error)") }
       sem.signal()
@@ -75,6 +101,28 @@ func main() throws {
     request.uris = ["spotify:track:1ZB2qWsheGabSEYvBYxjKn"]
     let sem = DispatchSemaphore(value: 0)
     try spotify.player_play(request: request) {error in
+      if let error = error { print ("ERROR: \(error)") }
+      sem.signal()
+    }
+    _ = sem.wait()
+  }
+  
+  if arguments[1] == "me" {
+    let sem = DispatchSemaphore(value: 0)
+    try spotify.users_me() {response, error in
+      if let response = response { print ("RESPONSE: \(response)") }
+      if let error = error { print ("ERROR: \(error)") }
+      sem.signal()
+    }
+    _ = sem.wait()
+  }
+  
+  if arguments[1] == "profile" {
+    var parameters = Spotify.UsersProfileParameters()
+    parameters.user_id = "timburks"    
+    let sem = DispatchSemaphore(value: 0)
+    try spotify.users_profile(parameters: parameters) {response, error in
+      if let response = response { print ("RESPONSE: \(response)") }
       if let error = error { print ("ERROR: \(error)") }
       sem.signal()
     }

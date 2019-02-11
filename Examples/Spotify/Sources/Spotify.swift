@@ -65,6 +65,10 @@ public class Spotify : Service {
     public var `uri` : String?
   }
 
+  public struct ArrayOfArtistFull : Codable {
+    public var `artists` : [ArtistFull]?
+  }
+
   public struct ArtistFull : Codable {
     public var `external_urls` : ExternalUrls?
     public var `followers` : Followers?
@@ -130,6 +134,16 @@ public class Spotify : Service {
     public var `uri` : String?
   }
 
+  public struct PageOfAlbumSimplified : Codable {
+    public var `href` : String?
+    public var `items` : [AlbumSimplified]?
+    public var `limit` : Int?
+    public var `next` : String?
+    public var `offset` : Int?
+    public var `previous` : String?
+    public var `total` : Int?
+  }
+
   public struct PlayRequest : Codable {
     public var `context_uri` : String?
     public var `offset` : Offset?
@@ -191,6 +205,21 @@ public class Spotify : Service {
     public var `uri` : String?
   }
 
+  public struct User : Codable {
+    public var `birthdate` : String?
+    public var `country` : String?
+    public var `display_name` : String?
+    public var `email` : String?
+    public var `external_urls` : ExternalUrls?
+    public var `followers` : Followers?
+    public var `href` : String?
+    public var `id` : String?
+    public var `images` : [Image]?
+    public var `product` : String?
+    public var `type` : String?
+    public var `uri` : String?
+  }
+
   public struct ArtistsGetParameters : Parameterizable {
     public var id : String?
     public func queryParameters() -> [String] {
@@ -206,6 +235,48 @@ public class Spotify : Service {
     completion: @escaping (ArtistFull?, Error?) -> ()) throws {
        try perform(method: "GET",
                    path: "artists/{id}",
+                   parameters: parameters,
+                   completion: completion)
+  }
+
+  public struct ArtistsGetArtistAlbumsParameters : Parameterizable {
+    public var id : String?
+    public var include_groups : String?
+    public var limit : Int?
+    public var market : String?
+    public var offset : Int?
+    public func queryParameters() -> [String] {
+      return ["include_groups","limit","market","offset"]
+    }
+    public func pathParameters() -> [String] {
+      return ["id"]
+    }
+  }
+
+  public func artists_getArtistAlbums (
+    parameters: ArtistsGetArtistAlbumsParameters,
+    completion: @escaping (PageOfAlbumSimplified?, Error?) -> ()) throws {
+       try perform(method: "GET",
+                   path: "artists/{id}/albums",
+                   parameters: parameters,
+                   completion: completion)
+  }
+
+  public struct ArtistsGetMultipleParameters : Parameterizable {
+    public var ids : String?
+    public func queryParameters() -> [String] {
+      return ["ids"]
+    }
+    public func pathParameters() -> [String] {
+      return []
+    }
+  }
+
+  public func artists_getMultiple (
+    parameters: ArtistsGetMultipleParameters,
+    completion: @escaping (ArrayOfArtistFull?, Error?) -> ()) throws {
+       try perform(method: "GET",
+                   path: "artists",
                    parameters: parameters,
                    completion: completion)
   }
@@ -235,6 +306,32 @@ public class Spotify : Service {
        try perform(method: "PUT",
                    path: "me/player/play",
                    request: request,
+                   completion: completion)
+  }
+
+  public func users_me (
+    completion: @escaping (User?, Error?) -> ()) throws {
+       try perform(method: "GET",
+                   path: "me",
+                   completion: completion)
+  }
+
+  public struct UsersProfileParameters : Parameterizable {
+    public var user_id : String?
+    public func queryParameters() -> [String] {
+      return []
+    }
+    public func pathParameters() -> [String] {
+      return ["user_id"]
+    }
+  }
+
+  public func users_profile (
+    parameters: UsersProfileParameters,
+    completion: @escaping (User?, Error?) -> ()) throws {
+       try perform(method: "GET",
+                   path: "users/{user_id}",
+                   parameters: parameters,
                    completion: completion)
   }
 }

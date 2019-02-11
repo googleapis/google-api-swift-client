@@ -36,6 +36,8 @@ extension Parameterizable {
           switch child.value {
           case let s as String:
             q[p] = s
+          case let i as Int:
+            q[p] = "\(i)"
           case Optional<Any>.none:
             continue
           default:
@@ -108,6 +110,20 @@ open class Service {
     }
   }
   
+  public func perform<Z:Decodable>(
+    method : String,
+    path : String,
+    completion : @escaping(Z?, Error?) -> ()) throws {
+    let postData : Data? = nil
+    try connection.performRequest(
+      method:method,
+      urlString:base + path,
+      parameters: [:],
+      body:postData) {(data, response, error) in
+        self.handleResponse(data, response, error, completion)
+    }
+  }
+  
   public func perform<X:Encodable,Z:Decodable>(
     method : String,
     path : String,
@@ -164,21 +180,20 @@ open class Service {
     completion(error)
   }
   
-  public func perform<Y:Parameterizable>(
+  public func perform(
     method : String,
     path : String,
-    parameters : Y,
     completion : @escaping(Error?) -> ()) throws {
     let postData : Data? = nil
     try connection.performRequest(
       method:method,
-      urlString:base + parameters.path(pattern:path),
-      parameters: parameters.query(),
+      urlString:base + path,
+      parameters: [:],
       body:postData) {(data, response, error) in
         self.handleResponse(data, response, error, completion)
     }
   }
-  
+
   public func perform<X:Encodable>(
     method : String,
     path : String,
@@ -190,6 +205,21 @@ open class Service {
       method:method,
       urlString:base + path,
       parameters: [:],
+      body:postData) {(data, response, error) in
+        self.handleResponse(data, response, error, completion)
+    }
+  }
+  
+  public func perform<Y:Parameterizable>(
+    method : String,
+    path : String,
+    parameters : Y,
+    completion : @escaping(Error?) -> ()) throws {
+    let postData : Data? = nil
+    try connection.performRequest(
+      method:method,
+      urlString:base + parameters.path(pattern:path),
+      parameters: parameters.query(),
       body:postData) {(data, response, error) in
         self.handleResponse(data, response, error, completion)
     }

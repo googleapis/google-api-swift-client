@@ -291,7 +291,7 @@ public class Spotify : Service {
     }
   }
 
-  public func player_currently_playing (
+  public func player_currentlyPlaying (
     parameters: PlayerCurrentlyPlayingParameters,
     completion: @escaping (CurrentlyPlaying?, Error?) -> ()) throws {
        try perform(method: "GET",

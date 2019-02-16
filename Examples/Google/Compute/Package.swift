@@ -18,12 +18,12 @@
 import PackageDescription
 
 let package = Package(
-  name: "Cloud Translation",
+  name: "Cloud Compute",
   dependencies: [
-    .package(url: "https://github.com/googleapis/auth-library-swift.git", from: "0.4.0"),
-    .package(path: "../.."),
+    .package(url: "https://github.com/googleapis/google-auth-library-swift.git", from: "0.4.2"),
+    .package(path: "../../.."),
   ],
   targets: [
-    .target(name: "Translate", dependencies: ["OAuth2", "GoogleAPIRuntime"], path: "Sources"),
+    .target(name: "Compute", dependencies: ["OAuth2", "GoogleAPIRuntime"], path: "Sources"),
   ]
 )

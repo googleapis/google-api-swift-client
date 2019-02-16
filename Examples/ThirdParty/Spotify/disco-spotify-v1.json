@@ -683,8 +683,8 @@
     },
     "player": {
       "methods": {
-        "currently-playing": {
-          "id": "player.currently-playing",
+        "currentlyPlaying": {
+          "id": "player.currentlyPlaying",
           "path": "me/player/currently-playing",
           "httpMethod": "GET",
           "description": "Get the user's currently playing track.",
@@ -714,7 +714,10 @@
           "description": "Start/resume a user's playback.",
           "request": {
             "$ref": "PlayRequest"
-          }
+          },
+          "scopes": [
+            "user-modify-playback-state"
+          ]
         }
       }
     },
@@ -727,7 +730,12 @@
           "description": "Get the user's profile.",
           "response": {
             "$ref": "User"
-          }
+          },
+          "scopes": [
+            "user-read-email",
+            "user-read-private",
+            "user-read-birthdate"
+          ]
         },
         "profile": {
           "id": "users.profile",

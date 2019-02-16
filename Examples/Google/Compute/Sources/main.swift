@@ -23,7 +23,7 @@ let SERVICE_ACCOUNT_CREDENTIALS = ".credentials/service_account.json"
 let CLIENT_CREDENTIALS = "google.json"
 let TOKEN = "google.json"
 
-let PROJECT = "hello-87"
+let PROJECT = "your-project-identifier"
 let ZONE = "us-west1-b"
 let INSTANCE = "sample"
 

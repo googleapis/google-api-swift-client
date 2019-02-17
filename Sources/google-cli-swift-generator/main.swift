@@ -15,50 +15,108 @@
 import Foundation
 import Discovery
 
-extension Discovery.Method {
+func optionDeclaration(_ name: String, _ schema: Schema) -> String {
+  if schema.type == "string" {
+    var s = "Option(\""
+    s += name
+    s += "\", default: \""
+    s += "\""
+    s += ", description: \""
+    if let d = schema.description {
+      s += d
+    }
+    s += "\"),"
+    return s
+  } else {
+    return ""
+  }
+}
 
-  func Invocation(service: String, resource: String, method: String) -> String {
+extension Discovery.Method {
+  func parametersString() -> String {
+    var s = ""
+    if let parameters = parameters {
+      for p in parameters.sorted(by: { $0.key < $1.key }) {
+        if p.value.type == "string" {
+          if s != "" {
+            s += ", "
+          }
+          s += p.key
+        }
+      }
+    }
+    return s
+  }
+
+  func Invocation(serviceName: String,
+                  resourceName : String,
+                  resource: Discovery.Resource,
+                  methodName : String,
+                  method: Discovery.Method) -> String {
     var s = "\n"
-    s += "    $0.command(\"" + resource + "." + method + "\") {\n"
+    s.addLine(indent:4, "$0.command(")
+    s.addLine(indent:6, "\"" + resourceName + "." + methodName + "\",")
+    if let parameters = parameters {
+      for p in parameters.sorted(by: { $0.key < $1.key }) {
+        let d = optionDeclaration(p.key, p.value)
+        if d.count > 0 {
+          s.addLine(indent:6, d)
+        }
+      }
+    }
+    s.addLine(indent:6, "description: \"" + method.description! + "\") {")
+    let p = self.parametersString()
+    if p != "" {
+      s.addLine(indent:6, p + " in")
+    }
     if self.HasParameters() {
-      s += "      let parameters = " + service.capitalized() + "."
-        + self.ParametersTypeName(resource:resource, method:method) + "()\n"
+      s.addLine(indent:6, "var parameters = " + serviceName.capitalized() + "."
+        + self.ParametersTypeName(resource:resourceName, method:methodName) + "()")
+      if let parameters = parameters {
+        for p in parameters.sorted(by: { $0.key < $1.key }) {
+          if p.value.type == "string" {
+            s.addLine(indent:6, "parameters." + p.key + " = " + p.key)
+          }
+        }
+      }
+
     }
     if self.HasRequest() {
-      s += "      let request = " + service.capitalized() + "."
-        + self.RequestTypeName() + "()\n"
+      s.addLine(indent:6, "var request = " + serviceName.capitalized() + "."
+        + self.RequestTypeName() + "()")
     }
-    s += "      let sem = DispatchSemaphore(value: 0)\n"
-    let methodName = (resource + "_" + method)
-    s += "      try " + service + "." + methodName + "("
+    s.addLine(indent:6, "let sem = DispatchSemaphore(value: 0)")
+    let fullMethodName = (resourceName + "_" + methodName)
+
+    var invocation = "try " + serviceName + "." + fullMethodName + "("
     if self.HasRequest() {
       if self.HasParameters() {
-        s += "request: request, parameters:parameters"
+        invocation += "request: request, parameters:parameters"
       } else {
-        s += "request:request"
+        invocation += "request:request"
       }
     } else {
       if self.HasParameters() {
-        s += "parameters:parameters"
+        invocation += "parameters:parameters"
       }
     }
-    s += ") {\n"
-    s += "        "
-    if self.HasResponse() {
-      s += "response, "
-    }
-    s += "error in\n"
-    if self.HasResponse() {
-        s += "        if let response = response { print (\"RESPONSE: \\(response)\") }\n"
-    }
-    s += "        if let error = error { print (\"ERROR: \\(error)\") }"
-    s += """
+    invocation += ") {"
+    s.addLine(indent:6, invocation)
 
-        sem.signal()
-      }
-      _ = sem.wait()
+    var arguments = ""
+    if self.HasResponse() {
+      arguments += "response, "
     }
-"""
+    arguments += "error in"
+    s.addLine(indent:8, arguments)
+    if self.HasResponse() {
+      s.addLine(indent:8, "if let response = response { print (\"RESPONSE: \\(response)\") }")
+    }
+    s.addLine(indent:8, "if let error = error { print (\"ERROR: \\(error)\") }")
+    s.addLine(indent:8, "sem.signal()")
+    s.addLine(indent:6, "}")
+    s.addLine(indent:6, "_ = sem.wait()")
+    s.addLine(indent:4, "}")
     return s
   }
 }
@@ -88,53 +146,51 @@ extension Discovery.Service {
   }
   func generate() -> String {
     var s = Discovery.License
-    s += "\n"
-    s += "import Foundation\n"
-    s += "import Dispatch\n"
-    s += "import OAuth2\n"
-    s += "import GoogleAPIRuntime\n"
-    s += "import Commander\n"
-
-    s += "\n"
-
-    s += "let CLIENT_CREDENTIALS = \"" + serviceName() + ".json\"\n"
-    s += "let TOKEN = \"" + serviceName() + ".json\"\n"
-    s += "\n"
-
-    s += """
-    func main() throws {
-      let scopes = \(scopes())
-
-      let tokenProvider = BrowserTokenProvider(credentials:CLIENT_CREDENTIALS, token:TOKEN)!
-      let \(self.serviceName()) = try \(self.serviceTitle())(tokenProvider:tokenProvider)
-
-      let group = Group {
-        $0.command("login") {
-          try tokenProvider.signIn(scopes:scopes)
-          try tokenProvider.saveToken(TOKEN)
-        }
-    """
-
+    s.addLine()
+    for i in
+      ["Foundation",
+       "Dispatch",
+       "OAuth2",
+       "GoogleAPIRuntime",
+       "Commander"] {
+        s.addLine("import " + i)
+    }
+    s.addLine()
+    s.addLine("let CLIENT_CREDENTIALS = \"" + serviceName() + ".json\"")
+    s.addLine("let TOKEN = \"" + serviceName() + ".json\"")
+    s.addLine()
+    s.addLine("func main() throws {")
+    s.addLine(indent:2, "let scopes = \(scopes())")
+    s.addLine()
+    s.addLine(indent:2, "let tokenProvider = BrowserTokenProvider(credentials:CLIENT_CREDENTIALS, token:TOKEN)!")
+    s.addLine(indent:2, "let \(self.serviceName()) = try \(self.serviceTitle())(tokenProvider:tokenProvider)")
+    s.addLine()
+    s.addLine(indent:2, "let group = Group {")
+    s.addLine(indent:4, "$0.command(\"login\") {")
+    s.addLine(indent:6, "try tokenProvider.signIn(scopes:scopes)")
+    s.addLine(indent:6, "try tokenProvider.saveToken(TOKEN)")
+    s.addLine(indent:4, "}")
     if let resources = resources {
       for r in resources.sorted(by:  { $0.key < $1.key }) {
         let methods = r.value.methods
         for m in methods.sorted(by:  { $0.key < $1.key }) {
-          s += m.value.Invocation(service:self.serviceName(), resource:r.key, method:m.key)
+          s += m.value.Invocation(serviceName:self.serviceName(),
+                                  resourceName:r.key,
+                                  resource:r.value,
+                                  methodName:m.key,
+                                  method:m.value)
         }
       }
     }
-    s += """
-
-      }
-      group.run()
-    }
-
-    do {
-      try main()
-    } catch (let error) {
-      print("ERROR: \\(error)")
-    }
-    """
+    s.addLine(indent:2, "}")
+    s.addLine(indent:2, "group.run()")
+    s.addLine(indent:0, "}")
+    s.addLine()
+    s.addLine(indent:0, "do {")
+    s.addLine(indent:2, "try main()")
+    s.addLine(indent:0, "} catch (let error) {")
+    s.addLine(indent:2, "print(\"ERROR: \\(error)\")")
+    s.addLine(indent:0, "}")
     return s
   }
 }

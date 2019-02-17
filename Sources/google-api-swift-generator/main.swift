@@ -17,29 +17,30 @@ import Discovery
 
 extension Discovery.Method {
   func ParametersTypeDeclaration(resource : String, method : String) -> String {
-    var s = "\n"
+    var s = ""
+    s.addLine()
     if let parameters = parameters {
-      s += "  public struct " + ParametersTypeName(resource:resource, method:method) + " : Parameterizable {\n"
+      s.addLine(indent:2, "public struct " + ParametersTypeName(resource:resource, method:method) + " : Parameterizable {")
       for p in parameters.sorted(by:  { $0.key < $1.key }) {
-        s += "    public var " + p.key + " : " + p.value.Type() + "?\n"
+        s.addLine(indent:4, "public var " + p.key + " : " + p.value.Type() + "?")
       }
-      s += "    public func queryParameters() -> [String] {\n"
-      s += "      return ["
-      s += parameters.sorted(by: { $0.key < $1.key })
-        .filter { if let location = $0.value.location { return location == "query" } else {return false}}
-        .map { return "\"" + $0.key + "\"" }
-        .joined(separator: ",")
-      s += "]\n"
-      s += "    }\n"
-      s += "    public func pathParameters() -> [String] {\n"
-      s += "      return ["
-      s += parameters.sorted(by: { $0.key < $1.key })
-        .filter { if let location = $0.value.location { return location == "path" } else {return false}}
-        .map { return "\"" + $0.key + "\"" }
-        .joined(separator: ",")
-      s += "]\n"
-      s += "    }\n"
-      s += "  }"
+      s.addLine(indent:4, "public func queryParameters() -> [String] {")
+      s.addLine(indent:6, "return [" +
+        parameters.sorted(by: { $0.key < $1.key })
+          .filter { if let location = $0.value.location { return location == "query" } else {return false}}
+          .map { return "\"" + $0.key + "\"" }
+          .joined(separator: ",")
+        + "]")
+      s.addLine(indent:4, "}")
+      s.addLine(indent:4, "public func pathParameters() -> [String] {")
+      s.addLine(indent:6, "return [" +
+        parameters.sorted(by: { $0.key < $1.key })
+          .filter { if let location = $0.value.location { return location == "path" } else {return false}}
+          .map { return "\"" + $0.key + "\"" }
+          .joined(separator: ",")
+        + "]")
+      s.addLine(indent:4, "}")
+      s.addLine(indent:2, "}")
     }
     return s
   }
@@ -51,96 +52,97 @@ extension Discovery.Service {
       return ""
     }
     var s = Discovery.License
-    s += "\n"
-    s += "import Foundation\n"
-    s += "import OAuth2\n"
-    s += "import GoogleAPIRuntime\n"
-
-    s += "\n"
-    s += "public class \(self.name.capitalized()) : Service {\n"
-    s += "\n"
-    s += "  init(tokenProvider: TokenProvider) throws {\n"
-    s += "    try super.init(tokenProvider, \"\(self.baseUrl)\")\n"
-    s += "  }\n"
-
-    s += "\n"
-    s += "  public class Object : Codable {}\n"
-
+    s.addLine()
+    for i in
+      ["Foundation",
+       "OAuth2",
+       "GoogleAPIRuntime"] {
+        s.addLine("import " + i)
+    }
+    s.addLine()
+    s.addLine("public class \(self.name.capitalized()) : Service {")
+    s.addLine()
+    s.addLine(indent:2, "init(tokenProvider: TokenProvider) throws {")
+    s.addLine(indent:4, "try super.init(tokenProvider, \"\(self.baseUrl)\")")
+    s.addLine(indent:2, "}")
+    s.addLine()
+    s.addLine(indent:2, "public class Object : Codable {}")
     for schema in schemas.sorted(by:  { $0.key < $1.key }) {
       switch schema.value.type {
       case "object":
-        s += "\n"
-        s += "  public struct \(schema.key) : Codable {\n"
+        s.addLine()
+        s.addLine(indent:2, "public struct \(schema.key) : Codable {")
         if let properties = schema.value.properties {
           for p in properties.sorted(by: { $0.key < $1.key }) {
-            s += "    public var `\(p.key)` : \(p.value.Type())?\n"
+            s.addLine(indent:4, "public var `\(p.key)` : \(p.value.Type())?")
           }
         }
-        s += "  }\n"
+        s.addLine(indent:2, "}")
       case "array":
-        s += "\n"
+        s.addLine()
         if let itemsSchema = schema.value.items {
           if let itemType = itemsSchema.type {
             switch itemType {
             case "object":
-              s += "  public typealias \(schema.key) = [\(schema.key)Item]\n"
-              s += "\n"
-              s += "  public struct \(schema.key)Item : Codable {\n"
+              s.addLine(indent:2, "public typealias \(schema.key) = [\(schema.key)Item]")
+              s.addLine()
+              s.addLine(indent:2, "public struct \(schema.key)Item : Codable {")
               if let properties = itemsSchema.properties {
                 for p in properties.sorted(by: { $0.key < $1.key }) {
-                  s += "    public var `\(p.key)` : \(p.value.Type())?\n"
+                  s.addLine(indent:4, "public var `\(p.key)` : \(p.value.Type())?")
                 }
               }
-              s += "}\n"
+              s.addLine("}")
             default:
-              s += "ERROR-UNHANDLED-ARRAY-TYPE \(itemType)\n"
+              s.addLine("ERROR-UNHANDLED-ARRAY-TYPE \(itemType)")
             }
           }
         }
       default:
-        s += "ERROR-UNHANDLED-SCHEMA-VALUE-TYPE \(schema.key) \(String(describing:schema.value.type))\n"
+        s.addLine("ERROR-UNHANDLED-SCHEMA-VALUE-TYPE \(schema.key) \(String(describing:schema.value.type))")
       }
     }
-
+    
     if let resources = resources {
       for r in resources.sorted(by:  { $0.key < $1.key }) {
         let methods = r.value.methods
         for m in methods.sorted(by:  { $0.key < $1.key }) {
           if m.value.HasParameters() {
-            s += m.value.ParametersTypeDeclaration(resource:r.key, method:m.key) + "\n"
+            s += m.value.ParametersTypeDeclaration(resource:r.key, method:m.key)
           }
           let methodName = r.key + "_" + m.key
-          s += "\n"
-          s += "  public func \(methodName) (\n"
+          s.addLine()
+          s.addLine(indent:2, "public func \(methodName) (")
           if m.value.HasRequest() {
-            s += "    request: \(m.value.RequestTypeName()),\n"
+            s.addLine(indent:4, "request: \(m.value.RequestTypeName()),")
           }
           if m.value.HasParameters() {
-            s += "    parameters: \(m.value.ParametersTypeName(resource:r.key, method:m.key)),\n"
+            s.addLine(indent:4, "parameters: \(m.value.ParametersTypeName(resource:r.key, method:m.key)),")
           }
           if m.value.HasResponse() {
-            s += "    completion: @escaping (\(m.value.ResponseTypeName())?, Error?) -> ()) throws {\n"
+            s.addLine(indent:4, "completion: @escaping (\(m.value.ResponseTypeName())?, Error?) -> ()) throws {")
           } else {
-            s += "    completion: @escaping (Error?) -> ()) throws {\n"
+            s.addLine(indent:4, "completion: @escaping (Error?) -> ()) throws {")
           }
-          s += "       try perform(method: \"\(m.value.httpMethod!)\",\n"
+          s.addLine(indent:6, "try perform(")
+          s.addLine(indent:8, "method: \"\(m.value.httpMethod!)\",")
           var path = ""
           if m.value.path != nil {
             path = m.value.path!
           }
-          s += "                   path: \"\(path)\",\n"
+          s.addLine(indent:8, "path: \"\(path)\",")
           if m.value.HasRequest() {
-            s += "                   request: request,\n"
+            s.addLine(indent:8, "request: request,")
           }
           if m.value.HasParameters() {
-            s += "                   parameters: parameters,\n"
+            s.addLine(indent:8, "parameters: parameters,")
           }
-          s += "                   completion: completion)\n"
-          s += "  }\n"
+          s.addLine(indent:8, "completion: completion)")
+          s.addLine(indent:2, "}")
         }
       }
     }
-    s += "}\n"
+    s.addLine("}")
     return s
   }
 }

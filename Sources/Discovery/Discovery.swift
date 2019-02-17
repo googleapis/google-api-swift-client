@@ -46,6 +46,18 @@ extension String {
   public func snakeCased() -> String {
     return self.components(separatedBy: "-").joined(separator: "_")
   }
+
+  public mutating func addLine() {
+    self += "\n"
+  }
+
+  public mutating func addLine(_ line: String) {
+    self += line + "\n"
+  }
+
+  public mutating func addLine(indent: Int, _ line: String) {
+    self += String(repeating: " ", count: indent) + line + "\n"
+  }
 }
 
 public class Auth : Codable {

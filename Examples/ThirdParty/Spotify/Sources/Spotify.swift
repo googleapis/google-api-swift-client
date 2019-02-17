@@ -233,10 +233,11 @@ public class Spotify : Service {
   public func artists_get (
     parameters: ArtistsGetParameters,
     completion: @escaping (ArtistFull?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "artists/{id}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "artists/{id}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct ArtistsGetArtistAlbumsParameters : Parameterizable {
@@ -256,10 +257,11 @@ public class Spotify : Service {
   public func artists_getArtistAlbums (
     parameters: ArtistsGetArtistAlbumsParameters,
     completion: @escaping (PageOfAlbumSimplified?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "artists/{id}/albums",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "artists/{id}/albums",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct ArtistsGetMultipleParameters : Parameterizable {
@@ -275,10 +277,11 @@ public class Spotify : Service {
   public func artists_getMultiple (
     parameters: ArtistsGetMultipleParameters,
     completion: @escaping (ArrayOfArtistFull?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "artists",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "artists",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct PlayerCurrentlyPlayingParameters : Parameterizable {
@@ -294,26 +297,29 @@ public class Spotify : Service {
   public func player_currentlyPlaying (
     parameters: PlayerCurrentlyPlayingParameters,
     completion: @escaping (CurrentlyPlaying?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "me/player/currently-playing",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "me/player/currently-playing",
+        parameters: parameters,
+        completion: completion)
   }
 
   public func player_play (
     request: PlayRequest,
     completion: @escaping (Error?) -> ()) throws {
-       try perform(method: "PUT",
-                   path: "me/player/play",
-                   request: request,
-                   completion: completion)
+      try perform(
+        method: "PUT",
+        path: "me/player/play",
+        request: request,
+        completion: completion)
   }
 
   public func users_me (
     completion: @escaping (User?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "me",
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "me",
+        completion: completion)
   }
 
   public struct UsersProfileParameters : Parameterizable {
@@ -329,10 +335,11 @@ public class Spotify : Service {
   public func users_profile (
     parameters: UsersProfileParameters,
     completion: @escaping (User?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "users/{user_id}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "users/{user_id}",
+        parameters: parameters,
+        completion: completion)
   }
 }
 

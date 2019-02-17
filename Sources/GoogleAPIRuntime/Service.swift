@@ -15,15 +15,16 @@
 import Foundation
 import OAuth2
 
-enum ServiceError: Error {
-  case invalidResponse
+enum GoogleAPIRuntimeError: Error {
+  case missingPathParameter(String)
+  case invalidResponseFromServer
 }
 
 public protocol Parameterizable {
   func queryParameters() -> [String]
   func pathParameters() -> [String]
   func query() -> [String:String]
-  func path(pattern: String) -> String
+  func path(pattern: String) throws -> String
 }
 
 extension Parameterizable {
@@ -50,7 +51,7 @@ extension Parameterizable {
     print("query: \(q)")
     return q
   }
-  public func path(pattern: String) -> String {
+  public func path(pattern: String) throws -> String {
     var pattern = pattern
     let mirror = Mirror(reflecting:self)
     for p in pathParameters() {
@@ -60,7 +61,7 @@ extension Parameterizable {
           case let s as String:
             pattern = pattern.replacingOccurrences(of: "{"+p+"}", with: s)
           case Optional<Any>.none:
-            continue
+            throw GoogleAPIRuntimeError.missingPathParameter(p)            
           default:
             print("failed to handle \(p) \(child.value)")
           }
@@ -106,7 +107,7 @@ open class Service {
         completion(nil, error)
       }
     } else {
-      completion(nil, ServiceError.invalidResponse)
+      completion(nil, GoogleAPIRuntimeError.invalidResponseFromServer)
     }
   }
   

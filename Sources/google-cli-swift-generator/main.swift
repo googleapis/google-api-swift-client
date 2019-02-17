@@ -17,11 +17,10 @@ import Discovery
 
 func optionDeclaration(_ name: String, _ schema: Schema) -> String {
   if schema.type == "string" {
-    var s = "Option(\""
+    // https://github.com/kylef/Commander/issues/49
+    var s = "Options<String>(\""
     s += name
-    s += "\", default: \""
-    s += "\""
-    s += ", description: \""
+    s += "\", default: [], count: 1, description: \""
     if let d = schema.description {
       s += d
     }
@@ -69,23 +68,25 @@ extension Discovery.Method {
     if p != "" {
       s.addLine(indent:6, p + " in")
     }
+    s.addLine(indent:6, "do {")
     if self.HasParameters() {
-      s.addLine(indent:6, "var parameters = " + serviceName.capitalized() + "."
+      s.addLine(indent:8, "var parameters = " + serviceName.capitalized() + "."
         + self.ParametersTypeName(resource:resourceName, method:methodName) + "()")
       if let parameters = parameters {
         for p in parameters.sorted(by: { $0.key < $1.key }) {
           if p.value.type == "string" {
-            s.addLine(indent:6, "parameters." + p.key + " = " + p.key)
+            s.addLine(indent:8, "if let " + p.key + " = " + p.key + ".first {")
+            s.addLine(indent:10, "parameters." + p.key + " = " + p.key)
+            s.addLine(indent:8, "}")
           }
         }
       }
-
     }
     if self.HasRequest() {
-      s.addLine(indent:6, "var request = " + serviceName.capitalized() + "."
+      s.addLine(indent:8, "var request = " + serviceName.capitalized() + "."
         + self.RequestTypeName() + "()")
     }
-    s.addLine(indent:6, "let sem = DispatchSemaphore(value: 0)")
+    s.addLine(indent:8, "let sem = DispatchSemaphore(value: 0)")
     let fullMethodName = (resourceName + "_" + methodName)
 
     var invocation = "try " + serviceName + "." + fullMethodName + "("
@@ -101,21 +102,24 @@ extension Discovery.Method {
       }
     }
     invocation += ") {"
-    s.addLine(indent:6, invocation)
+    s.addLine(indent:8, invocation)
 
     var arguments = ""
     if self.HasResponse() {
       arguments += "response, "
     }
     arguments += "error in"
-    s.addLine(indent:8, arguments)
+    s.addLine(indent:10, arguments)
     if self.HasResponse() {
-      s.addLine(indent:8, "if let response = response { print (\"RESPONSE: \\(response)\") }")
+      s.addLine(indent:10, "if let response = response { print (\"RESPONSE: \\(response)\") }")
     }
-    s.addLine(indent:8, "if let error = error { print (\"ERROR: \\(error)\") }")
-    s.addLine(indent:8, "sem.signal()")
+    s.addLine(indent:10, "if let error = error { print (\"ERROR: \\(error)\") }")
+    s.addLine(indent:10, "sem.signal()")
+    s.addLine(indent:8, "}")
+    s.addLine(indent:8, "_ = sem.wait()")
+    s.addLine(indent:6, "} catch let error {")
+    s.addLine(indent:8, "print (\"Client error: \\(error)\")")
     s.addLine(indent:6, "}")
-    s.addLine(indent:6, "_ = sem.wait()")
     s.addLine(indent:4, "}")
     return s
   }
@@ -189,7 +193,7 @@ extension Discovery.Service {
     s.addLine(indent:0, "do {")
     s.addLine(indent:2, "try main()")
     s.addLine(indent:0, "} catch (let error) {")
-    s.addLine(indent:2, "print(\"ERROR: \\(error)\")")
+    s.addLine(indent:2, "print(\"Application error: \\(error)\")")
     s.addLine(indent:0, "}")
     return s
   }

@@ -36,117 +36,159 @@ func main() throws {
 
     $0.command(
       "artists.get",
-      Option("id", default: "", description: "The Spotify ID of the artist."),
+      Options<String>("id", default: [], count: 1, description: "The Spotify ID of the artist."),
       description: "Get an artist.") {
       id in
-      var parameters = Spotify.ArtistsGetParameters()
-      parameters.id = id
-      let sem = DispatchSemaphore(value: 0)
-      try spotify.artists_get(parameters:parameters) {
-        response, error in
-        if let response = response { print ("RESPONSE: \(response)") }
-        if let error = error { print ("ERROR: \(error)") }
-        sem.signal()
+      do {
+        var parameters = Spotify.ArtistsGetParameters()
+        if let id = id.first {
+          parameters.id = id
+        }
+        let sem = DispatchSemaphore(value: 0)
+        try spotify.artists_get(parameters:parameters) {
+          response, error in
+          if let response = response { print ("RESPONSE: \(response)") }
+          if let error = error { print ("ERROR: \(error)") }
+          sem.signal()
+        }
+        _ = sem.wait()
+      } catch let error {
+        print ("Client error: \(error)")
       }
-      _ = sem.wait()
     }
 
     $0.command(
       "artists.getArtistAlbums",
-      Option("id", default: "", description: "The Spotify ID of the artist."),
-      Option("include_groups", default: "", description: ""),
-      Option("market", default: "", description: ""),
+      Options<String>("id", default: [], count: 1, description: "The Spotify ID of the artist."),
+      Options<String>("include_groups", default: [], count: 1, description: ""),
+      Options<String>("market", default: [], count: 1, description: ""),
       description: "Get an artist's albums.") {
       id, include_groups, market in
-      var parameters = Spotify.ArtistsGetArtistAlbumsParameters()
-      parameters.id = id
-      parameters.include_groups = include_groups
-      parameters.market = market
-      let sem = DispatchSemaphore(value: 0)
-      try spotify.artists_getArtistAlbums(parameters:parameters) {
-        response, error in
-        if let response = response { print ("RESPONSE: \(response)") }
-        if let error = error { print ("ERROR: \(error)") }
-        sem.signal()
+      do {
+        var parameters = Spotify.ArtistsGetArtistAlbumsParameters()
+        if let id = id.first {
+          parameters.id = id
+        }
+        if let include_groups = include_groups.first {
+          parameters.include_groups = include_groups
+        }
+        if let market = market.first {
+          parameters.market = market
+        }
+        let sem = DispatchSemaphore(value: 0)
+        try spotify.artists_getArtistAlbums(parameters:parameters) {
+          response, error in
+          if let response = response { print ("RESPONSE: \(response)") }
+          if let error = error { print ("ERROR: \(error)") }
+          sem.signal()
+        }
+        _ = sem.wait()
+      } catch let error {
+        print ("Client error: \(error)")
       }
-      _ = sem.wait()
     }
 
     $0.command(
       "artists.getMultiple",
-      Option("ids", default: "", description: "A comma-separated list of artist IDs."),
+      Options<String>("ids", default: [], count: 1, description: "A comma-separated list of artist IDs."),
       description: "Get multiple artists.") {
       ids in
-      var parameters = Spotify.ArtistsGetMultipleParameters()
-      parameters.ids = ids
-      let sem = DispatchSemaphore(value: 0)
-      try spotify.artists_getMultiple(parameters:parameters) {
-        response, error in
-        if let response = response { print ("RESPONSE: \(response)") }
-        if let error = error { print ("ERROR: \(error)") }
-        sem.signal()
+      do {
+        var parameters = Spotify.ArtistsGetMultipleParameters()
+        if let ids = ids.first {
+          parameters.ids = ids
+        }
+        let sem = DispatchSemaphore(value: 0)
+        try spotify.artists_getMultiple(parameters:parameters) {
+          response, error in
+          if let response = response { print ("RESPONSE: \(response)") }
+          if let error = error { print ("ERROR: \(error)") }
+          sem.signal()
+        }
+        _ = sem.wait()
+      } catch let error {
+        print ("Client error: \(error)")
       }
-      _ = sem.wait()
     }
 
     $0.command(
       "player.currentlyPlaying",
-      Option("market", default: "", description: "An ISO 3166-1 alpha-2 country code or the string from_token. Provide this parameter if you want to apply Track Relinking."),
+      Options<String>("market", default: [], count: 1, description: "An ISO 3166-1 alpha-2 country code or the string from_token. Provide this parameter if you want to apply Track Relinking."),
       description: "Get the user's currently playing track.") {
       market in
-      var parameters = Spotify.PlayerCurrentlyPlayingParameters()
-      parameters.market = market
-      let sem = DispatchSemaphore(value: 0)
-      try spotify.player_currentlyPlaying(parameters:parameters) {
-        response, error in
-        if let response = response { print ("RESPONSE: \(response)") }
-        if let error = error { print ("ERROR: \(error)") }
-        sem.signal()
+      do {
+        var parameters = Spotify.PlayerCurrentlyPlayingParameters()
+        if let market = market.first {
+          parameters.market = market
+        }
+        let sem = DispatchSemaphore(value: 0)
+        try spotify.player_currentlyPlaying(parameters:parameters) {
+          response, error in
+          if let response = response { print ("RESPONSE: \(response)") }
+          if let error = error { print ("ERROR: \(error)") }
+          sem.signal()
+        }
+        _ = sem.wait()
+      } catch let error {
+        print ("Client error: \(error)")
       }
-      _ = sem.wait()
     }
 
     $0.command(
       "player.play",
       description: "Start/resume a user's playback.") {
-      var request = Spotify.PlayRequest()
-      let sem = DispatchSemaphore(value: 0)
-      try spotify.player_play(request:request) {
-        error in
-        if let error = error { print ("ERROR: \(error)") }
-        sem.signal()
+      do {
+        var request = Spotify.PlayRequest()
+        let sem = DispatchSemaphore(value: 0)
+        try spotify.player_play(request:request) {
+          error in
+          if let error = error { print ("ERROR: \(error)") }
+          sem.signal()
+        }
+        _ = sem.wait()
+      } catch let error {
+        print ("Client error: \(error)")
       }
-      _ = sem.wait()
     }
 
     $0.command(
       "users.me",
       description: "Get the user's profile.") {
-      let sem = DispatchSemaphore(value: 0)
-      try spotify.users_me() {
-        response, error in
-        if let response = response { print ("RESPONSE: \(response)") }
-        if let error = error { print ("ERROR: \(error)") }
-        sem.signal()
+      do {
+        let sem = DispatchSemaphore(value: 0)
+        try spotify.users_me() {
+          response, error in
+          if let response = response { print ("RESPONSE: \(response)") }
+          if let error = error { print ("ERROR: \(error)") }
+          sem.signal()
+        }
+        _ = sem.wait()
+      } catch let error {
+        print ("Client error: \(error)")
       }
-      _ = sem.wait()
     }
 
     $0.command(
       "users.profile",
-      Option("user_id", default: "", description: "The user's Spotify user id."),
+      Options<String>("user_id", default: [], count: 1, description: "The user's Spotify user id."),
       description: "Get a user's profile.") {
       user_id in
-      var parameters = Spotify.UsersProfileParameters()
-      parameters.user_id = user_id
-      let sem = DispatchSemaphore(value: 0)
-      try spotify.users_profile(parameters:parameters) {
-        response, error in
-        if let response = response { print ("RESPONSE: \(response)") }
-        if let error = error { print ("ERROR: \(error)") }
-        sem.signal()
+      do {
+        var parameters = Spotify.UsersProfileParameters()
+        if let user_id = user_id.first {
+          parameters.user_id = user_id
+        }
+        let sem = DispatchSemaphore(value: 0)
+        try spotify.users_profile(parameters:parameters) {
+          response, error in
+          if let response = response { print ("RESPONSE: \(response)") }
+          if let error = error { print ("ERROR: \(error)") }
+          sem.signal()
+        }
+        _ = sem.wait()
+      } catch let error {
+        print ("Client error: \(error)")
       }
-      _ = sem.wait()
     }
   }
   group.run()
@@ -155,6 +197,6 @@ func main() throws {
 do {
   try main()
 } catch (let error) {
-  print("ERROR: \(error)")
+  print("Application error: \(error)")
 }
 

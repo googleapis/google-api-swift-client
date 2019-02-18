@@ -40,13 +40,13 @@ func main() throws {
 
     $0.command(
       "detections.detect",
-      VariadicOption<String>("q", default: [], description: "The input text upon which to perform language detection. Repeat this parameter to perform language detection on multiple text inputs."),
+      VariadicOption<String>("r_q", default: [], description: "The input text upon which to perform language detection. Repeat this parameter to perform language detection on multiple text inputs."),
       description: "Detects the language of text within a request.") {
-      q in
+      r_q in
       do {
         var request = Translate.DetectLanguageRequest()
-        if q.count > 0 {
-          request.q = q
+        if r_q.count > 0 {
+          request.q = r_q
         }
         let sem = DispatchSemaphore(value: 0)
         try translate.detections_detect(request:request) {
@@ -63,13 +63,13 @@ func main() throws {
 
     $0.command(
       "detections.list",
-      Options<String>("q", default: [], count: 1, description: "The input text upon which to perform language detection. Repeat this parameter to perform language detection on multiple text inputs."),
+      Options<String>("p_q", default: [], count: 1, description: "The input text upon which to perform language detection. Repeat this parameter to perform language detection on multiple text inputs."),
       description: "Detects the language of text within a request.") {
-      q in
+      p_q in
       do {
         var parameters = Translate.DetectionsListParameters()
-        if let q = q.first {
-          parameters.q = q
+        if let p_q = p_q.first {
+          parameters.q = p_q
         }
         let sem = DispatchSemaphore(value: 0)
         try translate.detections_list(parameters:parameters) {
@@ -86,17 +86,17 @@ func main() throws {
 
     $0.command(
       "languages.list",
-      Options<String>("model", default: [], count: 1, description: "The model type for which supported languages should be returned."),
-      Options<String>("target", default: [], count: 1, description: "The language to use to return localized, human readable names of supported languages."),
+      Options<String>("p_model", default: [], count: 1, description: "The model type for which supported languages should be returned."),
+      Options<String>("p_target", default: [], count: 1, description: "The language to use to return localized, human readable names of supported languages."),
       description: "Returns a list of supported languages for translation.") {
-      model, target in
+      p_model, p_target in
       do {
         var parameters = Translate.LanguagesListParameters()
-        if let model = model.first {
-          parameters.model = model
+        if let p_model = p_model.first {
+          parameters.model = p_model
         }
-        if let target = target.first {
-          parameters.target = target
+        if let p_target = p_target.first {
+          parameters.target = p_target
         }
         let sem = DispatchSemaphore(value: 0)
         try translate.languages_list(parameters:parameters) {
@@ -113,33 +113,33 @@ func main() throws {
 
     $0.command(
       "translations.list",
-      Options<String>("cid", default: [], count: 1, description: "The customization id for translate"),
-      Options<String>("format", default: [], count: 1, description: "The format of the source text, in either HTML (default) or plain-text. A value of 'html' indicates HTML and a value of 'text' indicates plain-text."),
-      Options<String>("model", default: [], count: 1, description: "The `model` type requested for this translation. Valid values are listed in public documentation."),
-      Options<String>("q", default: [], count: 1, description: "The input text to translate. Repeat this parameter to perform translation operations on multiple text inputs."),
-      Options<String>("source", default: [], count: 1, description: "The language of the source text, set to one of the language codes listed in Language Support. If the source language is not specified, the API will attempt to identify the source language automatically and return it within the response."),
-      Options<String>("target", default: [], count: 1, description: "The language to use for translation of the input text, set to one of the language codes listed in Language Support."),
+      Options<String>("p_cid", default: [], count: 1, description: "The customization id for translate"),
+      Options<String>("p_format", default: [], count: 1, description: "The format of the source text, in either HTML (default) or plain-text. A value of 'html' indicates HTML and a value of 'text' indicates plain-text."),
+      Options<String>("p_model", default: [], count: 1, description: "The `model` type requested for this translation. Valid values are listed in public documentation."),
+      Options<String>("p_q", default: [], count: 1, description: "The input text to translate. Repeat this parameter to perform translation operations on multiple text inputs."),
+      Options<String>("p_source", default: [], count: 1, description: "The language of the source text, set to one of the language codes listed in Language Support. If the source language is not specified, the API will attempt to identify the source language automatically and return it within the response."),
+      Options<String>("p_target", default: [], count: 1, description: "The language to use for translation of the input text, set to one of the language codes listed in Language Support."),
       description: "Translates input text, returning translated text.") {
-      cid, format, model, q, source, target in
+      p_cid, p_format, p_model, p_q, p_source, p_target in
       do {
         var parameters = Translate.TranslationsListParameters()
-        if let cid = cid.first {
-          parameters.cid = cid
+        if let p_cid = p_cid.first {
+          parameters.cid = p_cid
         }
-        if let format = format.first {
-          parameters.format = format
+        if let p_format = p_format.first {
+          parameters.format = p_format
         }
-        if let model = model.first {
-          parameters.model = model
+        if let p_model = p_model.first {
+          parameters.model = p_model
         }
-        if let q = q.first {
-          parameters.q = q
+        if let p_q = p_q.first {
+          parameters.q = p_q
         }
-        if let source = source.first {
-          parameters.source = source
+        if let p_source = p_source.first {
+          parameters.source = p_source
         }
-        if let target = target.first {
-          parameters.target = target
+        if let p_target = p_target.first {
+          parameters.target = p_target
         }
         let sem = DispatchSemaphore(value: 0)
         try translate.translations_list(parameters:parameters) {
@@ -156,29 +156,29 @@ func main() throws {
 
     $0.command(
       "translations.translate",
-      Options<String>("format", default: [], count: 1, description: "The format of the source text, in either HTML (default) or plain-text. A value of 'html' indicates HTML and a value of 'text' indicates plain-text."),
-      Options<String>("model", default: [], count: 1, description: "The `model` type requested for this translation. Valid values are listed in public documentation."),
-      VariadicOption<String>("q", default: [], description: "The input text to translate. Repeat this parameter to perform translation operations on multiple text inputs."),
-      Options<String>("source", default: [], count: 1, description: "The language of the source text, set to one of the language codes listed in Language Support. If the source language is not specified, the API will attempt to identify the source language automatically and return it within the response."),
-      Options<String>("target", default: [], count: 1, description: "The language to use for translation of the input text, set to one of the language codes listed in Language Support."),
+      Options<String>("r_format", default: [], count: 1, description: "The format of the source text, in either HTML (default) or plain-text. A value of 'html' indicates HTML and a value of 'text' indicates plain-text."),
+      Options<String>("r_model", default: [], count: 1, description: "The `model` type requested for this translation. Valid values are listed in public documentation."),
+      VariadicOption<String>("r_q", default: [], description: "The input text to translate. Repeat this parameter to perform translation operations on multiple text inputs."),
+      Options<String>("r_source", default: [], count: 1, description: "The language of the source text, set to one of the language codes listed in Language Support. If the source language is not specified, the API will attempt to identify the source language automatically and return it within the response."),
+      Options<String>("r_target", default: [], count: 1, description: "The language to use for translation of the input text, set to one of the language codes listed in Language Support."),
       description: "Translates input text, returning translated text.") {
-      format, model, q, source, target in
+      r_format, r_model, r_q, r_source, r_target in
       do {
         var request = Translate.TranslateTextRequest()
-        if let format = format.first {
-          request.format = format
+        if let r_format = r_format.first {
+          request.format = r_format
         }
-        if let model = model.first {
-          request.model = model
+        if let r_model = r_model.first {
+          request.model = r_model
         }
-        if q.count > 0 {
-          request.q = q
+        if r_q.count > 0 {
+          request.q = r_q
         }
-        if let source = source.first {
-          request.source = source
+        if let r_source = r_source.first {
+          request.source = r_source
         }
-        if let target = target.first {
-          request.target = target
+        if let r_target = r_target.first {
+          request.target = r_target
         }
         let sem = DispatchSemaphore(value: 0)
         try translate.translations_translate(request:request) {

@@ -44,13 +44,13 @@ func main() throws {
 
     $0.command(
       "artists.get",
-      Options<String>("id", default: [], count: 1, description: "The Spotify ID of the artist."),
+      Options<String>("p_id", default: [], count: 1, description: "The Spotify ID of the artist."),
       description: "Get an artist.") {
-      id in
+      p_id in
       do {
         var parameters = Spotify.ArtistsGetParameters()
-        if let id = id.first {
-          parameters.id = id
+        if let p_id = p_id.first {
+          parameters.id = p_id
         }
         let sem = DispatchSemaphore(value: 0)
         try spotify.artists_get(parameters:parameters) {
@@ -67,29 +67,29 @@ func main() throws {
 
     $0.command(
       "artists.getArtistAlbums",
-      Options<String>("id", default: [], count: 1, description: "The Spotify ID of the artist."),
-      Options<String>("include_groups", default: [], count: 1, description: "A comma-separated list of keywords that will be used to filter the response. If not supplied, all album types will be returned. Valid values are album, single, appears_on, compilation"),
-      Options<Int>("limit", default: [], count: 1, description: "The number of album objects to return. Default 20. Minimum 1. Maximum 50."),
-      Options<String>("market", default: [], count: 1, description: "An ISO 3166-1 alpha-2 country code or the string from_token. Supply this parameter to limit the response to one particular geographical market."),
-      Options<Int>("offset", default: [], count: 1, description: "The index of the first album to return. Default 0 (i.e., the first album). Use with limit to get the next set of albums."),
+      Options<String>("p_id", default: [], count: 1, description: "The Spotify ID of the artist."),
+      Options<String>("p_include_groups", default: [], count: 1, description: "A comma-separated list of keywords that will be used to filter the response. If not supplied, all album types will be returned. Valid values are album, single, appears_on, compilation"),
+      Options<Int>("p_limit", default: [], count: 1, description: "The number of album objects to return. Default 20. Minimum 1. Maximum 50."),
+      Options<String>("p_market", default: [], count: 1, description: "An ISO 3166-1 alpha-2 country code or the string from_token. Supply this parameter to limit the response to one particular geographical market."),
+      Options<Int>("p_offset", default: [], count: 1, description: "The index of the first album to return. Default 0 (i.e., the first album). Use with limit to get the next set of albums."),
       description: "Get an artist's albums.") {
-      id, include_groups, limit, market, offset in
+      p_id, p_include_groups, p_limit, p_market, p_offset in
       do {
         var parameters = Spotify.ArtistsGetArtistAlbumsParameters()
-        if let id = id.first {
-          parameters.id = id
+        if let p_id = p_id.first {
+          parameters.id = p_id
         }
-        if let include_groups = include_groups.first {
-          parameters.include_groups = include_groups
+        if let p_include_groups = p_include_groups.first {
+          parameters.include_groups = p_include_groups
         }
-        if let limit = limit.first {
-          parameters.limit = limit
+        if let p_limit = p_limit.first {
+          parameters.limit = p_limit
         }
-        if let market = market.first {
-          parameters.market = market
+        if let p_market = p_market.first {
+          parameters.market = p_market
         }
-        if let offset = offset.first {
-          parameters.offset = offset
+        if let p_offset = p_offset.first {
+          parameters.offset = p_offset
         }
         let sem = DispatchSemaphore(value: 0)
         try spotify.artists_getArtistAlbums(parameters:parameters) {
@@ -106,13 +106,13 @@ func main() throws {
 
     $0.command(
       "artists.getMultiple",
-      Options<String>("ids", default: [], count: 1, description: "A comma-separated list of artist IDs."),
+      Options<String>("p_ids", default: [], count: 1, description: "A comma-separated list of artist IDs."),
       description: "Get multiple artists.") {
-      ids in
+      p_ids in
       do {
         var parameters = Spotify.ArtistsGetMultipleParameters()
-        if let ids = ids.first {
-          parameters.ids = ids
+        if let p_ids = p_ids.first {
+          parameters.ids = p_ids
         }
         let sem = DispatchSemaphore(value: 0)
         try spotify.artists_getMultiple(parameters:parameters) {
@@ -129,13 +129,13 @@ func main() throws {
 
     $0.command(
       "player.currentlyPlaying",
-      Options<String>("market", default: [], count: 1, description: "An ISO 3166-1 alpha-2 country code or the string from_token. Provide this parameter if you want to apply Track Relinking."),
+      Options<String>("p_market", default: [], count: 1, description: "An ISO 3166-1 alpha-2 country code or the string from_token. Provide this parameter if you want to apply Track Relinking."),
       description: "Get the user's currently playing track.") {
-      market in
+      p_market in
       do {
         var parameters = Spotify.PlayerCurrentlyPlayingParameters()
-        if let market = market.first {
-          parameters.market = market
+        if let p_market = p_market.first {
+          parameters.market = p_market
         }
         let sem = DispatchSemaphore(value: 0)
         try spotify.player_currentlyPlaying(parameters:parameters) {
@@ -152,21 +152,21 @@ func main() throws {
 
     $0.command(
       "player.play",
-      Options<String>("context_uri", default: [], count: 1, description: ""),
-      Options<Int>("position_ms", default: [], count: 1, description: ""),
-      VariadicOption<String>("uris", default: [], description: "The URI to play. May be repeated."),
+      Options<String>("r_context_uri", default: [], count: 1, description: ""),
+      Options<Int>("r_position_ms", default: [], count: 1, description: ""),
+      VariadicOption<String>("r_uris", default: [], description: "The URI to play. May be repeated."),
       description: "Start/resume a user's playback.") {
-      context_uri, position_ms, uris in
+      r_context_uri, r_position_ms, r_uris in
       do {
         var request = Spotify.PlayRequest()
-        if let context_uri = context_uri.first {
-          request.context_uri = context_uri
+        if let r_context_uri = r_context_uri.first {
+          request.context_uri = r_context_uri
         }
-        if let position_ms = position_ms.first {
-          request.position_ms = position_ms
+        if let r_position_ms = r_position_ms.first {
+          request.position_ms = r_position_ms
         }
-        if uris.count > 0 {
-          request.uris = uris
+        if r_uris.count > 0 {
+          request.uris = r_uris
         }
         let sem = DispatchSemaphore(value: 0)
         try spotify.player_play(request:request) {
@@ -199,13 +199,13 @@ func main() throws {
 
     $0.command(
       "users.profile",
-      Options<String>("user_id", default: [], count: 1, description: "The user's Spotify user id."),
+      Options<String>("p_user_id", default: [], count: 1, description: "The user's Spotify user id."),
       description: "Get a user's profile.") {
-      user_id in
+      p_user_id in
       do {
         var parameters = Spotify.UsersProfileParameters()
-        if let user_id = user_id.first {
-          parameters.user_id = user_id
+        if let p_user_id = p_user_id.first {
+          parameters.user_id = p_user_id
         }
         let sem = DispatchSemaphore(value: 0)
         try spotify.users_profile(parameters:parameters) {

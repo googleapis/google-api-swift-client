@@ -53,6 +53,14 @@ extension String {
       .replacingOccurrences(of:"\"", with:"'")
   }
   
+  public func escaped() -> String {
+    if self == "protocol" { // add other reserved words as needed
+      return "`" + self + "`"
+    } else {
+      return self
+    }
+  }
+  
   public mutating func addLine() {
     self += "\n"
   }

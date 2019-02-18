@@ -40,13 +40,13 @@ func main() throws {
 
     $0.command(
       "documents.analyzeEntities",
-      Options<String>("encodingType", default: [], count: 1, description: "The encoding type used by the API to calculate offsets."),
+      Options<String>("r_encodingType", default: [], count: 1, description: "The encoding type used by the API to calculate offsets."),
       description: "Finds named entities (currently proper names and common nouns) in the text along with entity types, salience, mentions for each entity, and other properties.") {
-      encodingType in
+      r_encodingType in
       do {
         var request = Language.AnalyzeEntitiesRequest()
-        if let encodingType = encodingType.first {
-          request.encodingType = encodingType
+        if let r_encodingType = r_encodingType.first {
+          request.encodingType = r_encodingType
         }
         let sem = DispatchSemaphore(value: 0)
         try language.documents_analyzeEntities(request:request) {
@@ -63,13 +63,13 @@ func main() throws {
 
     $0.command(
       "documents.analyzeEntitySentiment",
-      Options<String>("encodingType", default: [], count: 1, description: "The encoding type used by the API to calculate offsets."),
+      Options<String>("r_encodingType", default: [], count: 1, description: "The encoding type used by the API to calculate offsets."),
       description: "Finds entities, similar to AnalyzeEntities in the text and analyzes sentiment associated with each entity and its mentions.") {
-      encodingType in
+      r_encodingType in
       do {
         var request = Language.AnalyzeEntitySentimentRequest()
-        if let encodingType = encodingType.first {
-          request.encodingType = encodingType
+        if let r_encodingType = r_encodingType.first {
+          request.encodingType = r_encodingType
         }
         let sem = DispatchSemaphore(value: 0)
         try language.documents_analyzeEntitySentiment(request:request) {
@@ -86,13 +86,13 @@ func main() throws {
 
     $0.command(
       "documents.analyzeSentiment",
-      Options<String>("encodingType", default: [], count: 1, description: "The encoding type used by the API to calculate sentence offsets."),
+      Options<String>("r_encodingType", default: [], count: 1, description: "The encoding type used by the API to calculate sentence offsets."),
       description: "Analyzes the sentiment of the provided text.") {
-      encodingType in
+      r_encodingType in
       do {
         var request = Language.AnalyzeSentimentRequest()
-        if let encodingType = encodingType.first {
-          request.encodingType = encodingType
+        if let r_encodingType = r_encodingType.first {
+          request.encodingType = r_encodingType
         }
         let sem = DispatchSemaphore(value: 0)
         try language.documents_analyzeSentiment(request:request) {
@@ -109,13 +109,13 @@ func main() throws {
 
     $0.command(
       "documents.analyzeSyntax",
-      Options<String>("encodingType", default: [], count: 1, description: "The encoding type used by the API to calculate offsets."),
+      Options<String>("r_encodingType", default: [], count: 1, description: "The encoding type used by the API to calculate offsets."),
       description: "Analyzes the syntax of the text and provides sentence boundaries and tokenization along with part of speech tags, dependency trees, and other properties.") {
-      encodingType in
+      r_encodingType in
       do {
         var request = Language.AnalyzeSyntaxRequest()
-        if let encodingType = encodingType.first {
-          request.encodingType = encodingType
+        if let r_encodingType = r_encodingType.first {
+          request.encodingType = r_encodingType
         }
         let sem = DispatchSemaphore(value: 0)
         try language.documents_analyzeSyntax(request:request) {
@@ -132,13 +132,13 @@ func main() throws {
 
     $0.command(
       "documents.annotateText",
-      Options<String>("encodingType", default: [], count: 1, description: "The encoding type used by the API to calculate offsets."),
+      Options<String>("r_encodingType", default: [], count: 1, description: "The encoding type used by the API to calculate offsets."),
       description: "A convenience method that provides all the features that analyzeSentiment, analyzeEntities, and analyzeSyntax provide in one call.") {
-      encodingType in
+      r_encodingType in
       do {
         var request = Language.AnnotateTextRequest()
-        if let encodingType = encodingType.first {
-          request.encodingType = encodingType
+        if let r_encodingType = r_encodingType.first {
+          request.encodingType = r_encodingType
         }
         let sem = DispatchSemaphore(value: 0)
         try language.documents_annotateText(request:request) {

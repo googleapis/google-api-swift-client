@@ -15,11 +15,11 @@
 import Foundation
 import Discovery
 
-func optionDeclaration(_ name: String, _ schema: Schema) -> String {
+func optionDeclaration(_ prefix: String, _ name: String, _ schema: Schema) -> String {
   if schema.type == "string" {
     // https://github.com/kylef/Commander/issues/49
     var s = "Options<String>(\""
-    s += name
+    s += prefix + name
     s += "\", default: [], count: 1, description: \""
     if let d = schema.description {
       s += d.oneLine()
@@ -28,7 +28,7 @@ func optionDeclaration(_ name: String, _ schema: Schema) -> String {
     return s
   } else if schema.type == "integer" {
     var s = "Options<Int>(\""
-    s += name
+    s += prefix + name
     s += "\", default: [], count: 1, description: \""
     if let d = schema.description {
       s += d.oneLine()
@@ -39,7 +39,7 @@ func optionDeclaration(_ name: String, _ schema: Schema) -> String {
     schema.type == "array",
     items.type == "string" {
     var s = "VariadicOption<String>(\""
-    s += name
+    s += prefix + name
     s += "\", default: [], description: \""
     if let d = schema.description {
       s += d.oneLine()
@@ -60,7 +60,7 @@ extension Discovery.Method {
           if s != "" {
             s += ", "
           }
-          s += p.key
+          s += "p_" + p.key
         }
       }
     }
@@ -71,18 +71,18 @@ extension Discovery.Method {
     if let requestSchema = requestSchema,
       let properties = requestSchema.properties {
       for p in properties.sorted(by: { $0.key < $1.key }) {
-        if p.value.type == "string" || p.value.type == "integer" {
+       if p.value.type == "string" || p.value.type == "integer" {
           if s != "" {
             s += ", "
           }
-          s += p.key
+          s += "r_" + p.key
         } else if let items = p.value.items,
           p.value.type == "array",
           items.type == "string" {
           if s != "" {
             s += ", "
           }
-          s += p.key
+          s += "r_" + p.key
         }
       }
     }
@@ -100,7 +100,7 @@ extension Discovery.Method {
     s.addLine(indent:6, "\"" + resourceName + "." + methodName + "\",")
     if let parameters = parameters {
       for p in parameters.sorted(by: { $0.key < $1.key }) {
-        let d = optionDeclaration(p.key, p.value)
+        let d = optionDeclaration("p_", p.key, p.value)
         if d.count > 0 {
           s.addLine(indent:6, d)
         }
@@ -109,10 +109,10 @@ extension Discovery.Method {
     if let requestSchema = requestSchema,
       let properties = requestSchema.properties {
       for p in properties.sorted(by: { $0.key < $1.key }) {
-        let d = optionDeclaration(p.key, p.value)
-        if d.count > 0 {
-          s.addLine(indent:6, d)
-        }
+          let d = optionDeclaration("r_", p.key, p.value)
+          if d.count > 0 {
+            s.addLine(indent:6, d)
+          }
       }
     }
     if let description = method.description {
@@ -136,8 +136,8 @@ extension Discovery.Method {
       if let parameters = parameters {
         for p in parameters.sorted(by: { $0.key < $1.key }) {
           if p.value.type == "string" || p.value.type == "integer" {
-            s.addLine(indent:8, "if let " + p.key + " = " + p.key + ".first {")
-            s.addLine(indent:10, "parameters." + p.key + " = " + p.key)
+            s.addLine(indent:8, "if let p_" + p.key + " = p_" + p.key + ".first {")
+            s.addLine(indent:10, "parameters." + p.key + " = p_" + p.key)
             s.addLine(indent:8, "}")
           } 
         }
@@ -150,14 +150,14 @@ extension Discovery.Method {
         let properties = requestSchema.properties {
         for p in properties.sorted(by: { $0.key < $1.key }) {
           if p.value.type == "string" || p.value.type == "integer" {
-            s.addLine(indent:8, "if let " + p.key + " = " + p.key + ".first {")
-            s.addLine(indent:10, "request." + p.key + " = " + p.key)
+            s.addLine(indent:8, "if let r_" + p.key + " = r_" + p.key + ".first {")
+            s.addLine(indent:10, "request." + p.key + " = r_" + p.key)
             s.addLine(indent:8, "}")
           } else if let items = p.value.items,
             p.value.type == "array",
             items.type == "string" {
-            s.addLine(indent:8, "if " + p.key + ".count > 0 {")
-            s.addLine(indent:10, "request." + p.key + " = " + p.key)
+            s.addLine(indent:8, "if r_" + p.key + ".count > 0 {")
+            s.addLine(indent:10, "request." + p.key + " = r_" + p.key)
             s.addLine(indent:8, "}")
           }
         }

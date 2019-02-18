@@ -26,6 +26,26 @@ func optionDeclaration(_ name: String, _ schema: Schema) -> String {
     }
     s += "\"),"
     return s
+  } else if schema.type == "integer" {
+    var s = "Options<Int>(\""
+    s += name
+    s += "\", default: [], count: 1, description: \""
+    if let d = schema.description {
+      s += d
+    }
+    s += "\"),"
+    return s
+  } else if let items = schema.items,
+    schema.type == "array",
+    items.type == "string" {
+    var s = "VariadicOption<String>(\""
+    s += name
+    s += "\", default: [], description: \""
+    if let d = schema.description {
+      s += d
+    }
+    s += "\"),"
+    return s
   } else {
     return ""
   }
@@ -36,7 +56,7 @@ extension Discovery.Method {
     var s = ""
     if let parameters = parameters {
       for p in parameters.sorted(by: { $0.key < $1.key }) {
-        if p.value.type == "string" {
+        if p.value.type == "string" || p.value.type == "integer" {
           if s != "" {
             s += ", "
           }
@@ -46,12 +66,35 @@ extension Discovery.Method {
     }
     return s
   }
-
+  func requestPropertiesString(requestSchema: Schema?) -> String {
+    var s = ""
+    if let requestSchema = requestSchema,
+      let properties = requestSchema.properties {
+      for p in properties.sorted(by: { $0.key < $1.key }) {
+        if p.value.type == "string" || p.value.type == "integer" {
+          if s != "" {
+            s += ", "
+          }
+          s += p.key
+        } else if let items = p.value.items,
+          p.value.type == "array",
+          items.type == "string" {
+          if s != "" {
+            s += ", "
+          }
+          s += p.key
+        }
+      }
+    }
+    return s
+  }
+  
   func Invocation(serviceName: String,
                   resourceName : String,
                   resource: Discovery.Resource,
                   methodName : String,
-                  method: Discovery.Method) -> String {
+                  method: Discovery.Method,
+                  requestSchema: Schema?) -> String {
     var s = "\n"
     s.addLine(indent:4, "$0.command(")
     s.addLine(indent:6, "\"" + resourceName + "." + methodName + "\",")
@@ -63,10 +106,24 @@ extension Discovery.Method {
         }
       }
     }
+    if let requestSchema = requestSchema,
+      let properties = requestSchema.properties {
+      for p in properties.sorted(by: { $0.key < $1.key }) {
+        let d = optionDeclaration(p.key, p.value)
+        if d.count > 0 {
+          s.addLine(indent:6, d)
+        }
+      }
+    }
     s.addLine(indent:6, "description: \"" + method.description! + "\") {")
     let p = self.parametersString()
-    if p != "" {
+    let r = self.requestPropertiesString(requestSchema: requestSchema)
+    if p != "" && r != "" {
+      s.addLine(indent:6, p + "," + r + " in")
+    } else if p != "" {
       s.addLine(indent:6, p + " in")
+    } else if r != "" {
+      s.addLine(indent:6, r + " in")
     }
     s.addLine(indent:6, "do {")
     if self.HasParameters() {
@@ -74,21 +131,37 @@ extension Discovery.Method {
         + self.ParametersTypeName(resource:resourceName, method:methodName) + "()")
       if let parameters = parameters {
         for p in parameters.sorted(by: { $0.key < $1.key }) {
-          if p.value.type == "string" {
+          if p.value.type == "string" || p.value.type == "integer" {
             s.addLine(indent:8, "if let " + p.key + " = " + p.key + ".first {")
             s.addLine(indent:10, "parameters." + p.key + " = " + p.key)
             s.addLine(indent:8, "}")
-          }
+          } 
         }
       }
     }
     if self.HasRequest() {
       s.addLine(indent:8, "var request = " + serviceName.capitalized() + "."
         + self.RequestTypeName() + "()")
+      if let requestSchema = requestSchema,
+        let properties = requestSchema.properties {
+        for p in properties.sorted(by: { $0.key < $1.key }) {
+          if p.value.type == "string" || p.value.type == "integer" {
+            s.addLine(indent:8, "if let " + p.key + " = " + p.key + ".first {")
+            s.addLine(indent:10, "request." + p.key + " = " + p.key)
+            s.addLine(indent:8, "}")
+          } else if let items = p.value.items,
+            p.value.type == "array",
+            items.type == "string" {
+            s.addLine(indent:8, "if " + p.key + ".count > 0 {")
+            s.addLine(indent:10, "request." + p.key + " = " + p.key)
+            s.addLine(indent:8, "}")
+          }
+        }
+      }
     }
     s.addLine(indent:8, "let sem = DispatchSemaphore(value: 0)")
     let fullMethodName = (resourceName + "_" + methodName)
-
+    
     var invocation = "try " + serviceName + "." + fullMethodName + "("
     if self.HasRequest() {
       if self.HasParameters() {
@@ -103,7 +176,7 @@ extension Discovery.Method {
     }
     invocation += ") {"
     s.addLine(indent:8, invocation)
-
+    
     var arguments = ""
     if self.HasResponse() {
       arguments += "response, "
@@ -170,7 +243,7 @@ extension Discovery.Service {
     s.addLine(indent:2, "let \(self.serviceName()) = try \(self.serviceTitle())(tokenProvider:tokenProvider)")
     s.addLine()
     s.addLine(indent:2, "let group = Group {")
-    s.addLine(indent:4, "$0.command(\"login\") {")
+    s.addLine(indent:4, "$0.command(\"login\", description:\"Log in with browser-based authentication.\") {")
     s.addLine(indent:6, "try tokenProvider.signIn(scopes:scopes)")
     s.addLine(indent:6, "try tokenProvider.saveToken(TOKEN)")
     s.addLine(indent:4, "}")
@@ -178,11 +251,14 @@ extension Discovery.Service {
       for r in resources.sorted(by:  { $0.key < $1.key }) {
         let methods = r.value.methods
         for m in methods.sorted(by:  { $0.key < $1.key }) {
+          let requestSchema = self.schema(name: m.value.RequestTypeName())
           s += m.value.Invocation(serviceName:self.serviceName(),
                                   resourceName:r.key,
                                   resource:r.value,
                                   methodName:m.key,
-                                  method:m.value)
+                                  method:m.value,
+                                  requestSchema:requestSchema
+          )
         }
       }
     }
@@ -201,7 +277,7 @@ extension Discovery.Service {
 
 func main() throws {
   let arguments = CommandLine.arguments
-
+  
   let path = arguments[1]
   let data = try Data(contentsOf: URL(fileURLWithPath: path))
   let decoder = JSONDecoder()

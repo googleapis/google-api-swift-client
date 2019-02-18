@@ -257,4 +257,12 @@ public class Service : Codable {
   func BaseURLWithVersion() -> String {
     return self.baseUrl + self.version + "/"
   }
+
+  public func schema(name: String) -> Schema? {
+    if let schemas = schemas {
+      return schemas[name]
+    } else {
+      return nil
+    }
+  }
 }

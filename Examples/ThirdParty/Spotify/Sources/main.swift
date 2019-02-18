@@ -29,7 +29,7 @@ func main() throws {
   let spotify = try Spotify(tokenProvider:tokenProvider)
 
   let group = Group {
-    $0.command("login") {
+    $0.command("login", description:"Log in with browser-based authentication.") {
       try tokenProvider.signIn(scopes:scopes)
       try tokenProvider.saveToken(TOKEN)
     }
@@ -60,10 +60,12 @@ func main() throws {
     $0.command(
       "artists.getArtistAlbums",
       Options<String>("id", default: [], count: 1, description: "The Spotify ID of the artist."),
-      Options<String>("include_groups", default: [], count: 1, description: ""),
-      Options<String>("market", default: [], count: 1, description: ""),
+      Options<String>("include_groups", default: [], count: 1, description: "A comma-separated list of keywords that will be used to filter the response. If not supplied, all album types will be returned. Valid values are album, single, appears_on, compilation"),
+      Options<Int>("limit", default: [], count: 1, description: "The number of album objects to return. Default 20. Minimum 1. Maximum 50."),
+      Options<String>("market", default: [], count: 1, description: "An ISO 3166-1 alpha-2 country code or the string from_token. Supply this parameter to limit the response to one particular geographical market."),
+      Options<Int>("offset", default: [], count: 1, description: "The index of the first album to return. Default 0 (i.e., the first album). Use with limit to get the next set of albums."),
       description: "Get an artist's albums.") {
-      id, include_groups, market in
+      id, include_groups, limit, market, offset in
       do {
         var parameters = Spotify.ArtistsGetArtistAlbumsParameters()
         if let id = id.first {
@@ -72,8 +74,14 @@ func main() throws {
         if let include_groups = include_groups.first {
           parameters.include_groups = include_groups
         }
+        if let limit = limit.first {
+          parameters.limit = limit
+        }
         if let market = market.first {
           parameters.market = market
+        }
+        if let offset = offset.first {
+          parameters.offset = offset
         }
         let sem = DispatchSemaphore(value: 0)
         try spotify.artists_getArtistAlbums(parameters:parameters) {
@@ -136,9 +144,22 @@ func main() throws {
 
     $0.command(
       "player.play",
+      Options<String>("context_uri", default: [], count: 1, description: ""),
+      Options<Int>("position_ms", default: [], count: 1, description: ""),
+      VariadicOption<String>("uris", default: [], description: "The URI to play. May be repeated."),
       description: "Start/resume a user's playback.") {
+      context_uri, position_ms, uris in
       do {
         var request = Spotify.PlayRequest()
+        if let context_uri = context_uri.first {
+          request.context_uri = context_uri
+        }
+        if let position_ms = position_ms.first {
+          request.position_ms = position_ms
+        }
+        if uris.count > 0 {
+          request.uris = uris
+        }
         let sem = DispatchSemaphore(value: 0)
         try spotify.player_play(request:request) {
           error in

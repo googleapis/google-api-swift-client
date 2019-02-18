@@ -23,9 +23,17 @@ let CLIENT_CREDENTIALS = "spotify.json"
 let TOKEN = "spotify.json"
 
 func main() throws {
-  let scopes = ["user-modify-playback-state", "user-read-birthdate", "user-read-currently-playing", "user-read-email", "user-read-playback-state", "user-read-private"]
+  let scopes = [
+    "user-modify-playback-state",
+    "user-read-birthdate",
+    "user-read-currently-playing",
+    "user-read-email",
+    "user-read-playback-state",
+    "user-read-private"]
 
-  let tokenProvider = BrowserTokenProvider(credentials:CLIENT_CREDENTIALS, token:TOKEN)!
+  guard let tokenProvider = BrowserTokenProvider(credentials:CLIENT_CREDENTIALS, token:TOKEN) else {
+    return
+  }
   let spotify = try Spotify(tokenProvider:tokenProvider)
 
   let group = Group {

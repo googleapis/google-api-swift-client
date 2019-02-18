@@ -22,7 +22,7 @@ func optionDeclaration(_ name: String, _ schema: Schema) -> String {
     s += name
     s += "\", default: [], count: 1, description: \""
     if let d = schema.description {
-      s += d
+      s += d.oneLine()
     }
     s += "\"),"
     return s
@@ -31,7 +31,7 @@ func optionDeclaration(_ name: String, _ schema: Schema) -> String {
     s += name
     s += "\", default: [], count: 1, description: \""
     if let d = schema.description {
-      s += d
+      s += d.oneLine()
     }
     s += "\"),"
     return s
@@ -42,7 +42,7 @@ func optionDeclaration(_ name: String, _ schema: Schema) -> String {
     s += name
     s += "\", default: [], description: \""
     if let d = schema.description {
-      s += d
+      s += d.oneLine()
     }
     s += "\"),"
     return s
@@ -115,7 +115,11 @@ extension Discovery.Method {
         }
       }
     }
-    s.addLine(indent:6, "description: \"" + method.description! + "\") {")
+    if let description = method.description {
+      s.addLine(indent:6, "description: \"" + description.oneLine() + "\") {")
+    } else {
+      s.addLine(indent:6, "description: \"\") {")
+    }
     let p = self.parametersString()
     let r = self.requestPropertiesString(requestSchema: requestSchema)
     if p != "" && r != "" {
@@ -237,9 +241,17 @@ extension Discovery.Service {
     s.addLine("let TOKEN = \"" + serviceName() + ".json\"")
     s.addLine()
     s.addLine("func main() throws {")
-    s.addLine(indent:2, "let scopes = \(scopes())")
+    let scopes = self.scopes()
+    if scopes.count == 1 {
+      s.addLine(indent:2, "let scopes = \(scopes)")
+    } else {
+      s.addLine(indent:2, "let scopes = [")
+      s += "    \"" + scopes.joined(separator:"\",\n    \"") + "\"]\n"
+    }
     s.addLine()
-    s.addLine(indent:2, "let tokenProvider = BrowserTokenProvider(credentials:CLIENT_CREDENTIALS, token:TOKEN)!")
+    s.addLine(indent:2, "guard let tokenProvider = BrowserTokenProvider(credentials:CLIENT_CREDENTIALS, token:TOKEN) else {")
+    s.addLine(indent:4, "return")
+    s.addLine(indent:2, "}")
     s.addLine(indent:2, "let \(self.serviceName()) = try \(self.serviceTitle())(tokenProvider:tokenProvider)")
     s.addLine()
     s.addLine(indent:2, "let group = Group {")

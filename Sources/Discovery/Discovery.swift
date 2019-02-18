@@ -38,23 +38,29 @@ extension String {
   public func capitalized() -> String {
     return prefix(1).capitalized + dropFirst()
   }
-
+  
   public func camelCased() -> String {
     return self.components(separatedBy: "-").map {$0.capitalized()}.joined(separator: "")
   }
-
+  
   public func snakeCased() -> String {
     return self.components(separatedBy: "-").joined(separator: "_")
   }
-
+  
+  public func oneLine() -> String {
+    return self
+      .replacingOccurrences(of:"\n", with:" ")
+      .replacingOccurrences(of:"\"", with:"'")
+  }
+  
   public mutating func addLine() {
     self += "\n"
   }
-
+  
   public mutating func addLine(_ line: String) {
     self += line + "\n"
   }
-
+  
   public mutating func addLine(indent: Int, _ line: String) {
     self += String(repeating: " ", count: indent) + line + "\n"
   }
@@ -87,7 +93,7 @@ public class Schema : Codable {
   public var additionalProperties : Schema?
   public var items : Schema?
   public var annotations: [String : [String]]?
-
+  
   enum CodingKeys : String, CodingKey {
     case id
     case type
@@ -108,7 +114,7 @@ public class Schema : Codable {
     case items
     case annotations
   }
-
+  
   public func Type() -> String {
     if let type = type {
       switch type {
@@ -129,7 +135,7 @@ public class Schema : Codable {
     }
     return "UNKNOWN SCHEMA TYPE"
   }
-
+  
   public func ItemsType() -> String {
     if let items = items {
       return items.Type()
@@ -137,7 +143,7 @@ public class Schema : Codable {
       return "UNKNOWN ITEM TYPE"
     }
   }
-
+  
   public func Comment() -> String {
     if let description = description {
       return " // " + description
@@ -169,42 +175,42 @@ public class Method : Codable {
   public var mediaUpload : MediaUpload?
   public var supportsSubscription: Bool?
   public var flatPath : String?
-
+  
   public func HasResponse() -> Bool {
     if response != nil {
       return true
     }
     return false
   }
-
+  
   public func ResponseTypeName() -> String {
     if let response = response {
       return response.ref
     }
     return "ERROR-UNKNOWN-RESPONSE-TYPE"
   }
-
+  
   public func HasRequest() -> Bool {
     if request != nil {
       return true
     }
     return false
   }
-
+  
   public func RequestTypeName() -> String {
     if let request = request {
       return request.ref
     }
     return "ERROR-UNKNOWN-REQUEST-TYPE"
   }
-
+  
   public func HasParameters() -> Bool {
     if let parameters = parameters {
       return parameters.count > 0
     }
     return false
   }
-
+  
   public func ParametersTypeName(resource : String, method : String) -> String {
     if parameters != nil {
       return resource.capitalized() + method.camelCased() + "Parameters"
@@ -253,11 +259,11 @@ public class Service : Codable {
   public var schemas : [String : Schema]?
   public var methods : [String : Method]?
   public var resources : [String : Resource]?
-
+  
   func BaseURLWithVersion() -> String {
     return self.baseUrl + self.version + "/"
   }
-
+  
   public func schema(name: String) -> Schema? {
     if let schemas = schemas {
       return schemas[name]

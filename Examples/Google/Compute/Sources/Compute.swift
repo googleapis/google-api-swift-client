@@ -2730,10 +2730,11 @@ public class Compute : Service {
   public func acceleratorTypes_aggregatedList (
     parameters: AcceleratorTypesAggregatedListParameters,
     completion: @escaping (AcceleratorTypeAggregatedList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/aggregated/acceleratorTypes",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/aggregated/acceleratorTypes",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct AcceleratorTypesGetParameters : Parameterizable {
@@ -2751,10 +2752,11 @@ public class Compute : Service {
   public func acceleratorTypes_get (
     parameters: AcceleratorTypesGetParameters,
     completion: @escaping (AcceleratorType?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/zones/{zone}/acceleratorTypes/{acceleratorType}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/zones/{zone}/acceleratorTypes/{acceleratorType}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct AcceleratorTypesListParameters : Parameterizable {
@@ -2775,10 +2777,11 @@ public class Compute : Service {
   public func acceleratorTypes_list (
     parameters: AcceleratorTypesListParameters,
     completion: @escaping (AcceleratorTypeList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/zones/{zone}/acceleratorTypes",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/zones/{zone}/acceleratorTypes",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct AddressesAggregatedListParameters : Parameterizable {
@@ -2798,10 +2801,11 @@ public class Compute : Service {
   public func addresses_aggregatedList (
     parameters: AddressesAggregatedListParameters,
     completion: @escaping (AddressAggregatedList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/aggregated/addresses",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/aggregated/addresses",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct AddressesDeleteParameters : Parameterizable {
@@ -2820,10 +2824,11 @@ public class Compute : Service {
   public func addresses_delete (
     parameters: AddressesDeleteParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/regions/{region}/addresses/{address}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/regions/{region}/addresses/{address}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct AddressesGetParameters : Parameterizable {
@@ -2841,10 +2846,11 @@ public class Compute : Service {
   public func addresses_get (
     parameters: AddressesGetParameters,
     completion: @escaping (Address?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/regions/{region}/addresses/{address}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/regions/{region}/addresses/{address}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct AddressesInsertParameters : Parameterizable {
@@ -2863,11 +2869,12 @@ public class Compute : Service {
     request: Address,
     parameters: AddressesInsertParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/regions/{region}/addresses",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/regions/{region}/addresses",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct AddressesListParameters : Parameterizable {
@@ -2888,10 +2895,11 @@ public class Compute : Service {
   public func addresses_list (
     parameters: AddressesListParameters,
     completion: @escaping (AddressList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/regions/{region}/addresses",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/regions/{region}/addresses",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct AutoscalersAggregatedListParameters : Parameterizable {
@@ -2911,10 +2919,11 @@ public class Compute : Service {
   public func autoscalers_aggregatedList (
     parameters: AutoscalersAggregatedListParameters,
     completion: @escaping (AutoscalerAggregatedList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/aggregated/autoscalers",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/aggregated/autoscalers",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct AutoscalersDeleteParameters : Parameterizable {
@@ -2933,10 +2942,11 @@ public class Compute : Service {
   public func autoscalers_delete (
     parameters: AutoscalersDeleteParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/zones/{zone}/autoscalers/{autoscaler}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/zones/{zone}/autoscalers/{autoscaler}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct AutoscalersGetParameters : Parameterizable {
@@ -2954,10 +2964,11 @@ public class Compute : Service {
   public func autoscalers_get (
     parameters: AutoscalersGetParameters,
     completion: @escaping (Autoscaler?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/zones/{zone}/autoscalers/{autoscaler}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/zones/{zone}/autoscalers/{autoscaler}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct AutoscalersInsertParameters : Parameterizable {
@@ -2976,11 +2987,12 @@ public class Compute : Service {
     request: Autoscaler,
     parameters: AutoscalersInsertParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/autoscalers",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/autoscalers",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct AutoscalersListParameters : Parameterizable {
@@ -3001,10 +3013,11 @@ public class Compute : Service {
   public func autoscalers_list (
     parameters: AutoscalersListParameters,
     completion: @escaping (AutoscalerList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/zones/{zone}/autoscalers",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/zones/{zone}/autoscalers",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct AutoscalersPatchParameters : Parameterizable {
@@ -3024,11 +3037,12 @@ public class Compute : Service {
     request: Autoscaler,
     parameters: AutoscalersPatchParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "PATCH",
-                   path: "{project}/zones/{zone}/autoscalers",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "PATCH",
+        path: "{project}/zones/{zone}/autoscalers",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct AutoscalersUpdateParameters : Parameterizable {
@@ -3048,11 +3062,12 @@ public class Compute : Service {
     request: Autoscaler,
     parameters: AutoscalersUpdateParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "PUT",
-                   path: "{project}/zones/{zone}/autoscalers",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "PUT",
+        path: "{project}/zones/{zone}/autoscalers",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct BackendBucketsAddSignedUrlKeyParameters : Parameterizable {
@@ -3071,11 +3086,12 @@ public class Compute : Service {
     request: SignedUrlKey,
     parameters: BackendBucketsAddSignedUrlKeyParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/backendBuckets/{backendBucket}/addSignedUrlKey",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/backendBuckets/{backendBucket}/addSignedUrlKey",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct BackendBucketsDeleteParameters : Parameterizable {
@@ -3093,10 +3109,11 @@ public class Compute : Service {
   public func backendBuckets_delete (
     parameters: BackendBucketsDeleteParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/global/backendBuckets/{backendBucket}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/global/backendBuckets/{backendBucket}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct BackendBucketsDeleteSignedUrlKeyParameters : Parameterizable {
@@ -3115,10 +3132,11 @@ public class Compute : Service {
   public func backendBuckets_deleteSignedUrlKey (
     parameters: BackendBucketsDeleteSignedUrlKeyParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/backendBuckets/{backendBucket}/deleteSignedUrlKey",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/backendBuckets/{backendBucket}/deleteSignedUrlKey",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct BackendBucketsGetParameters : Parameterizable {
@@ -3135,10 +3153,11 @@ public class Compute : Service {
   public func backendBuckets_get (
     parameters: BackendBucketsGetParameters,
     completion: @escaping (BackendBucket?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/backendBuckets/{backendBucket}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/backendBuckets/{backendBucket}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct BackendBucketsInsertParameters : Parameterizable {
@@ -3156,11 +3175,12 @@ public class Compute : Service {
     request: BackendBucket,
     parameters: BackendBucketsInsertParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/backendBuckets",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/backendBuckets",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct BackendBucketsListParameters : Parameterizable {
@@ -3180,10 +3200,11 @@ public class Compute : Service {
   public func backendBuckets_list (
     parameters: BackendBucketsListParameters,
     completion: @escaping (BackendBucketList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/backendBuckets",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/backendBuckets",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct BackendBucketsPatchParameters : Parameterizable {
@@ -3202,11 +3223,12 @@ public class Compute : Service {
     request: BackendBucket,
     parameters: BackendBucketsPatchParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "PATCH",
-                   path: "{project}/global/backendBuckets/{backendBucket}",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "PATCH",
+        path: "{project}/global/backendBuckets/{backendBucket}",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct BackendBucketsUpdateParameters : Parameterizable {
@@ -3225,11 +3247,12 @@ public class Compute : Service {
     request: BackendBucket,
     parameters: BackendBucketsUpdateParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "PUT",
-                   path: "{project}/global/backendBuckets/{backendBucket}",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "PUT",
+        path: "{project}/global/backendBuckets/{backendBucket}",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct BackendServicesAddSignedUrlKeyParameters : Parameterizable {
@@ -3248,11 +3271,12 @@ public class Compute : Service {
     request: SignedUrlKey,
     parameters: BackendServicesAddSignedUrlKeyParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/backendServices/{backendService}/addSignedUrlKey",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/backendServices/{backendService}/addSignedUrlKey",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct BackendServicesAggregatedListParameters : Parameterizable {
@@ -3272,10 +3296,11 @@ public class Compute : Service {
   public func backendServices_aggregatedList (
     parameters: BackendServicesAggregatedListParameters,
     completion: @escaping (BackendServiceAggregatedList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/aggregated/backendServices",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/aggregated/backendServices",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct BackendServicesDeleteParameters : Parameterizable {
@@ -3293,10 +3318,11 @@ public class Compute : Service {
   public func backendServices_delete (
     parameters: BackendServicesDeleteParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/global/backendServices/{backendService}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/global/backendServices/{backendService}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct BackendServicesDeleteSignedUrlKeyParameters : Parameterizable {
@@ -3315,10 +3341,11 @@ public class Compute : Service {
   public func backendServices_deleteSignedUrlKey (
     parameters: BackendServicesDeleteSignedUrlKeyParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/backendServices/{backendService}/deleteSignedUrlKey",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/backendServices/{backendService}/deleteSignedUrlKey",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct BackendServicesGetParameters : Parameterizable {
@@ -3335,10 +3362,11 @@ public class Compute : Service {
   public func backendServices_get (
     parameters: BackendServicesGetParameters,
     completion: @escaping (BackendService?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/backendServices/{backendService}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/backendServices/{backendService}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct BackendServicesGetHealthParameters : Parameterizable {
@@ -3356,11 +3384,12 @@ public class Compute : Service {
     request: ResourceGroupReference,
     parameters: BackendServicesGetHealthParameters,
     completion: @escaping (BackendServiceGroupHealth?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/backendServices/{backendService}/getHealth",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/backendServices/{backendService}/getHealth",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct BackendServicesInsertParameters : Parameterizable {
@@ -3378,11 +3407,12 @@ public class Compute : Service {
     request: BackendService,
     parameters: BackendServicesInsertParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/backendServices",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/backendServices",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct BackendServicesListParameters : Parameterizable {
@@ -3402,10 +3432,11 @@ public class Compute : Service {
   public func backendServices_list (
     parameters: BackendServicesListParameters,
     completion: @escaping (BackendServiceList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/backendServices",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/backendServices",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct BackendServicesPatchParameters : Parameterizable {
@@ -3424,11 +3455,12 @@ public class Compute : Service {
     request: BackendService,
     parameters: BackendServicesPatchParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "PATCH",
-                   path: "{project}/global/backendServices/{backendService}",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "PATCH",
+        path: "{project}/global/backendServices/{backendService}",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct BackendServicesSetSecurityPolicyParameters : Parameterizable {
@@ -3447,11 +3479,12 @@ public class Compute : Service {
     request: SecurityPolicyReference,
     parameters: BackendServicesSetSecurityPolicyParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/backendServices/{backendService}/setSecurityPolicy",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/backendServices/{backendService}/setSecurityPolicy",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct BackendServicesUpdateParameters : Parameterizable {
@@ -3470,11 +3503,12 @@ public class Compute : Service {
     request: BackendService,
     parameters: BackendServicesUpdateParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "PUT",
-                   path: "{project}/global/backendServices/{backendService}",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "PUT",
+        path: "{project}/global/backendServices/{backendService}",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct DiskTypesAggregatedListParameters : Parameterizable {
@@ -3494,10 +3528,11 @@ public class Compute : Service {
   public func diskTypes_aggregatedList (
     parameters: DiskTypesAggregatedListParameters,
     completion: @escaping (DiskTypeAggregatedList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/aggregated/diskTypes",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/aggregated/diskTypes",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct DiskTypesGetParameters : Parameterizable {
@@ -3515,10 +3550,11 @@ public class Compute : Service {
   public func diskTypes_get (
     parameters: DiskTypesGetParameters,
     completion: @escaping (DiskType?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/zones/{zone}/diskTypes/{diskType}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/zones/{zone}/diskTypes/{diskType}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct DiskTypesListParameters : Parameterizable {
@@ -3539,10 +3575,11 @@ public class Compute : Service {
   public func diskTypes_list (
     parameters: DiskTypesListParameters,
     completion: @escaping (DiskTypeList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/zones/{zone}/diskTypes",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/zones/{zone}/diskTypes",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct DisksAggregatedListParameters : Parameterizable {
@@ -3562,10 +3599,11 @@ public class Compute : Service {
   public func disks_aggregatedList (
     parameters: DisksAggregatedListParameters,
     completion: @escaping (DiskAggregatedList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/aggregated/disks",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/aggregated/disks",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct DisksCreateSnapshotParameters : Parameterizable {
@@ -3586,11 +3624,12 @@ public class Compute : Service {
     request: Snapshot,
     parameters: DisksCreateSnapshotParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/disks/{disk}/createSnapshot",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/disks/{disk}/createSnapshot",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct DisksDeleteParameters : Parameterizable {
@@ -3609,10 +3648,11 @@ public class Compute : Service {
   public func disks_delete (
     parameters: DisksDeleteParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/zones/{zone}/disks/{disk}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/zones/{zone}/disks/{disk}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct DisksGetParameters : Parameterizable {
@@ -3630,10 +3670,11 @@ public class Compute : Service {
   public func disks_get (
     parameters: DisksGetParameters,
     completion: @escaping (Disk?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/zones/{zone}/disks/{disk}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/zones/{zone}/disks/{disk}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct DisksGetIamPolicyParameters : Parameterizable {
@@ -3651,10 +3692,11 @@ public class Compute : Service {
   public func disks_getIamPolicy (
     parameters: DisksGetIamPolicyParameters,
     completion: @escaping (Policy?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/zones/{zone}/disks/{resource}/getIamPolicy",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/zones/{zone}/disks/{resource}/getIamPolicy",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct DisksInsertParameters : Parameterizable {
@@ -3674,11 +3716,12 @@ public class Compute : Service {
     request: Disk,
     parameters: DisksInsertParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/disks",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/disks",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct DisksListParameters : Parameterizable {
@@ -3699,10 +3742,11 @@ public class Compute : Service {
   public func disks_list (
     parameters: DisksListParameters,
     completion: @escaping (DiskList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/zones/{zone}/disks",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/zones/{zone}/disks",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct DisksResizeParameters : Parameterizable {
@@ -3722,11 +3766,12 @@ public class Compute : Service {
     request: DisksResizeRequest,
     parameters: DisksResizeParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/disks/{disk}/resize",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/disks/{disk}/resize",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct DisksSetIamPolicyParameters : Parameterizable {
@@ -3745,11 +3790,12 @@ public class Compute : Service {
     request: ZoneSetPolicyRequest,
     parameters: DisksSetIamPolicyParameters,
     completion: @escaping (Policy?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/disks/{resource}/setIamPolicy",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/disks/{resource}/setIamPolicy",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct DisksSetLabelsParameters : Parameterizable {
@@ -3769,11 +3815,12 @@ public class Compute : Service {
     request: ZoneSetLabelsRequest,
     parameters: DisksSetLabelsParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/disks/{resource}/setLabels",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/disks/{resource}/setLabels",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct DisksTestIamPermissionsParameters : Parameterizable {
@@ -3792,11 +3839,12 @@ public class Compute : Service {
     request: TestPermissionsRequest,
     parameters: DisksTestIamPermissionsParameters,
     completion: @escaping (TestPermissionsResponse?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/disks/{resource}/testIamPermissions",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/disks/{resource}/testIamPermissions",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct FirewallsDeleteParameters : Parameterizable {
@@ -3814,10 +3862,11 @@ public class Compute : Service {
   public func firewalls_delete (
     parameters: FirewallsDeleteParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/global/firewalls/{firewall}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/global/firewalls/{firewall}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct FirewallsGetParameters : Parameterizable {
@@ -3834,10 +3883,11 @@ public class Compute : Service {
   public func firewalls_get (
     parameters: FirewallsGetParameters,
     completion: @escaping (Firewall?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/firewalls/{firewall}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/firewalls/{firewall}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct FirewallsInsertParameters : Parameterizable {
@@ -3855,11 +3905,12 @@ public class Compute : Service {
     request: Firewall,
     parameters: FirewallsInsertParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/firewalls",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/firewalls",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct FirewallsListParameters : Parameterizable {
@@ -3879,10 +3930,11 @@ public class Compute : Service {
   public func firewalls_list (
     parameters: FirewallsListParameters,
     completion: @escaping (FirewallList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/firewalls",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/firewalls",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct FirewallsPatchParameters : Parameterizable {
@@ -3901,11 +3953,12 @@ public class Compute : Service {
     request: Firewall,
     parameters: FirewallsPatchParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "PATCH",
-                   path: "{project}/global/firewalls/{firewall}",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "PATCH",
+        path: "{project}/global/firewalls/{firewall}",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct FirewallsUpdateParameters : Parameterizable {
@@ -3924,11 +3977,12 @@ public class Compute : Service {
     request: Firewall,
     parameters: FirewallsUpdateParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "PUT",
-                   path: "{project}/global/firewalls/{firewall}",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "PUT",
+        path: "{project}/global/firewalls/{firewall}",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct ForwardingRulesAggregatedListParameters : Parameterizable {
@@ -3948,10 +4002,11 @@ public class Compute : Service {
   public func forwardingRules_aggregatedList (
     parameters: ForwardingRulesAggregatedListParameters,
     completion: @escaping (ForwardingRuleAggregatedList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/aggregated/forwardingRules",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/aggregated/forwardingRules",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct ForwardingRulesDeleteParameters : Parameterizable {
@@ -3970,10 +4025,11 @@ public class Compute : Service {
   public func forwardingRules_delete (
     parameters: ForwardingRulesDeleteParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/regions/{region}/forwardingRules/{forwardingRule}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/regions/{region}/forwardingRules/{forwardingRule}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct ForwardingRulesGetParameters : Parameterizable {
@@ -3991,10 +4047,11 @@ public class Compute : Service {
   public func forwardingRules_get (
     parameters: ForwardingRulesGetParameters,
     completion: @escaping (ForwardingRule?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/regions/{region}/forwardingRules/{forwardingRule}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/regions/{region}/forwardingRules/{forwardingRule}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct ForwardingRulesInsertParameters : Parameterizable {
@@ -4013,11 +4070,12 @@ public class Compute : Service {
     request: ForwardingRule,
     parameters: ForwardingRulesInsertParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/regions/{region}/forwardingRules",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/regions/{region}/forwardingRules",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct ForwardingRulesListParameters : Parameterizable {
@@ -4038,10 +4096,11 @@ public class Compute : Service {
   public func forwardingRules_list (
     parameters: ForwardingRulesListParameters,
     completion: @escaping (ForwardingRuleList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/regions/{region}/forwardingRules",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/regions/{region}/forwardingRules",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct ForwardingRulesSetTargetParameters : Parameterizable {
@@ -4061,11 +4120,12 @@ public class Compute : Service {
     request: TargetReference,
     parameters: ForwardingRulesSetTargetParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/regions/{region}/forwardingRules/{forwardingRule}/setTarget",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/regions/{region}/forwardingRules/{forwardingRule}/setTarget",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct GlobalAddressesDeleteParameters : Parameterizable {
@@ -4083,10 +4143,11 @@ public class Compute : Service {
   public func globalAddresses_delete (
     parameters: GlobalAddressesDeleteParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/global/addresses/{address}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/global/addresses/{address}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct GlobalAddressesGetParameters : Parameterizable {
@@ -4103,10 +4164,11 @@ public class Compute : Service {
   public func globalAddresses_get (
     parameters: GlobalAddressesGetParameters,
     completion: @escaping (Address?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/addresses/{address}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/addresses/{address}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct GlobalAddressesInsertParameters : Parameterizable {
@@ -4124,11 +4186,12 @@ public class Compute : Service {
     request: Address,
     parameters: GlobalAddressesInsertParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/addresses",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/addresses",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct GlobalAddressesListParameters : Parameterizable {
@@ -4148,10 +4211,11 @@ public class Compute : Service {
   public func globalAddresses_list (
     parameters: GlobalAddressesListParameters,
     completion: @escaping (AddressList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/addresses",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/addresses",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct GlobalForwardingRulesDeleteParameters : Parameterizable {
@@ -4169,10 +4233,11 @@ public class Compute : Service {
   public func globalForwardingRules_delete (
     parameters: GlobalForwardingRulesDeleteParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/global/forwardingRules/{forwardingRule}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/global/forwardingRules/{forwardingRule}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct GlobalForwardingRulesGetParameters : Parameterizable {
@@ -4189,10 +4254,11 @@ public class Compute : Service {
   public func globalForwardingRules_get (
     parameters: GlobalForwardingRulesGetParameters,
     completion: @escaping (ForwardingRule?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/forwardingRules/{forwardingRule}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/forwardingRules/{forwardingRule}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct GlobalForwardingRulesInsertParameters : Parameterizable {
@@ -4210,11 +4276,12 @@ public class Compute : Service {
     request: ForwardingRule,
     parameters: GlobalForwardingRulesInsertParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/forwardingRules",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/forwardingRules",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct GlobalForwardingRulesListParameters : Parameterizable {
@@ -4234,10 +4301,11 @@ public class Compute : Service {
   public func globalForwardingRules_list (
     parameters: GlobalForwardingRulesListParameters,
     completion: @escaping (ForwardingRuleList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/forwardingRules",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/forwardingRules",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct GlobalForwardingRulesSetTargetParameters : Parameterizable {
@@ -4256,11 +4324,12 @@ public class Compute : Service {
     request: TargetReference,
     parameters: GlobalForwardingRulesSetTargetParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/forwardingRules/{forwardingRule}/setTarget",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/forwardingRules/{forwardingRule}/setTarget",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct GlobalOperationsAggregatedListParameters : Parameterizable {
@@ -4280,10 +4349,11 @@ public class Compute : Service {
   public func globalOperations_aggregatedList (
     parameters: GlobalOperationsAggregatedListParameters,
     completion: @escaping (OperationAggregatedList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/aggregated/operations",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/aggregated/operations",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct GlobalOperationsDeleteParameters : Parameterizable {
@@ -4300,10 +4370,11 @@ public class Compute : Service {
   public func globalOperations_delete (
     parameters: GlobalOperationsDeleteParameters,
     completion: @escaping (Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/global/operations/{operation}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/global/operations/{operation}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct GlobalOperationsGetParameters : Parameterizable {
@@ -4320,10 +4391,11 @@ public class Compute : Service {
   public func globalOperations_get (
     parameters: GlobalOperationsGetParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/operations/{operation}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/operations/{operation}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct GlobalOperationsListParameters : Parameterizable {
@@ -4343,10 +4415,11 @@ public class Compute : Service {
   public func globalOperations_list (
     parameters: GlobalOperationsListParameters,
     completion: @escaping (OperationList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/operations",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/operations",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct HealthChecksDeleteParameters : Parameterizable {
@@ -4364,10 +4437,11 @@ public class Compute : Service {
   public func healthChecks_delete (
     parameters: HealthChecksDeleteParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/global/healthChecks/{healthCheck}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/global/healthChecks/{healthCheck}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct HealthChecksGetParameters : Parameterizable {
@@ -4384,10 +4458,11 @@ public class Compute : Service {
   public func healthChecks_get (
     parameters: HealthChecksGetParameters,
     completion: @escaping (HealthCheck?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/healthChecks/{healthCheck}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/healthChecks/{healthCheck}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct HealthChecksInsertParameters : Parameterizable {
@@ -4405,11 +4480,12 @@ public class Compute : Service {
     request: HealthCheck,
     parameters: HealthChecksInsertParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/healthChecks",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/healthChecks",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct HealthChecksListParameters : Parameterizable {
@@ -4429,10 +4505,11 @@ public class Compute : Service {
   public func healthChecks_list (
     parameters: HealthChecksListParameters,
     completion: @escaping (HealthCheckList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/healthChecks",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/healthChecks",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct HealthChecksPatchParameters : Parameterizable {
@@ -4451,11 +4528,12 @@ public class Compute : Service {
     request: HealthCheck,
     parameters: HealthChecksPatchParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "PATCH",
-                   path: "{project}/global/healthChecks/{healthCheck}",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "PATCH",
+        path: "{project}/global/healthChecks/{healthCheck}",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct HealthChecksUpdateParameters : Parameterizable {
@@ -4474,11 +4552,12 @@ public class Compute : Service {
     request: HealthCheck,
     parameters: HealthChecksUpdateParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "PUT",
-                   path: "{project}/global/healthChecks/{healthCheck}",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "PUT",
+        path: "{project}/global/healthChecks/{healthCheck}",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct HttpHealthChecksDeleteParameters : Parameterizable {
@@ -4496,10 +4575,11 @@ public class Compute : Service {
   public func httpHealthChecks_delete (
     parameters: HttpHealthChecksDeleteParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/global/httpHealthChecks/{httpHealthCheck}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/global/httpHealthChecks/{httpHealthCheck}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct HttpHealthChecksGetParameters : Parameterizable {
@@ -4516,10 +4596,11 @@ public class Compute : Service {
   public func httpHealthChecks_get (
     parameters: HttpHealthChecksGetParameters,
     completion: @escaping (HttpHealthCheck?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/httpHealthChecks/{httpHealthCheck}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/httpHealthChecks/{httpHealthCheck}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct HttpHealthChecksInsertParameters : Parameterizable {
@@ -4537,11 +4618,12 @@ public class Compute : Service {
     request: HttpHealthCheck,
     parameters: HttpHealthChecksInsertParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/httpHealthChecks",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/httpHealthChecks",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct HttpHealthChecksListParameters : Parameterizable {
@@ -4561,10 +4643,11 @@ public class Compute : Service {
   public func httpHealthChecks_list (
     parameters: HttpHealthChecksListParameters,
     completion: @escaping (HttpHealthCheckList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/httpHealthChecks",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/httpHealthChecks",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct HttpHealthChecksPatchParameters : Parameterizable {
@@ -4583,11 +4666,12 @@ public class Compute : Service {
     request: HttpHealthCheck,
     parameters: HttpHealthChecksPatchParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "PATCH",
-                   path: "{project}/global/httpHealthChecks/{httpHealthCheck}",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "PATCH",
+        path: "{project}/global/httpHealthChecks/{httpHealthCheck}",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct HttpHealthChecksUpdateParameters : Parameterizable {
@@ -4606,11 +4690,12 @@ public class Compute : Service {
     request: HttpHealthCheck,
     parameters: HttpHealthChecksUpdateParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "PUT",
-                   path: "{project}/global/httpHealthChecks/{httpHealthCheck}",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "PUT",
+        path: "{project}/global/httpHealthChecks/{httpHealthCheck}",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct HttpsHealthChecksDeleteParameters : Parameterizable {
@@ -4628,10 +4713,11 @@ public class Compute : Service {
   public func httpsHealthChecks_delete (
     parameters: HttpsHealthChecksDeleteParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/global/httpsHealthChecks/{httpsHealthCheck}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/global/httpsHealthChecks/{httpsHealthCheck}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct HttpsHealthChecksGetParameters : Parameterizable {
@@ -4648,10 +4734,11 @@ public class Compute : Service {
   public func httpsHealthChecks_get (
     parameters: HttpsHealthChecksGetParameters,
     completion: @escaping (HttpsHealthCheck?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/httpsHealthChecks/{httpsHealthCheck}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/httpsHealthChecks/{httpsHealthCheck}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct HttpsHealthChecksInsertParameters : Parameterizable {
@@ -4669,11 +4756,12 @@ public class Compute : Service {
     request: HttpsHealthCheck,
     parameters: HttpsHealthChecksInsertParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/httpsHealthChecks",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/httpsHealthChecks",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct HttpsHealthChecksListParameters : Parameterizable {
@@ -4693,10 +4781,11 @@ public class Compute : Service {
   public func httpsHealthChecks_list (
     parameters: HttpsHealthChecksListParameters,
     completion: @escaping (HttpsHealthCheckList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/httpsHealthChecks",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/httpsHealthChecks",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct HttpsHealthChecksPatchParameters : Parameterizable {
@@ -4715,11 +4804,12 @@ public class Compute : Service {
     request: HttpsHealthCheck,
     parameters: HttpsHealthChecksPatchParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "PATCH",
-                   path: "{project}/global/httpsHealthChecks/{httpsHealthCheck}",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "PATCH",
+        path: "{project}/global/httpsHealthChecks/{httpsHealthCheck}",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct HttpsHealthChecksUpdateParameters : Parameterizable {
@@ -4738,11 +4828,12 @@ public class Compute : Service {
     request: HttpsHealthCheck,
     parameters: HttpsHealthChecksUpdateParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "PUT",
-                   path: "{project}/global/httpsHealthChecks/{httpsHealthCheck}",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "PUT",
+        path: "{project}/global/httpsHealthChecks/{httpsHealthCheck}",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct ImagesDeleteParameters : Parameterizable {
@@ -4760,10 +4851,11 @@ public class Compute : Service {
   public func images_delete (
     parameters: ImagesDeleteParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/global/images/{image}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/global/images/{image}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct ImagesDeprecateParameters : Parameterizable {
@@ -4782,11 +4874,12 @@ public class Compute : Service {
     request: DeprecationStatus,
     parameters: ImagesDeprecateParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/images/{image}/deprecate",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/images/{image}/deprecate",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct ImagesGetParameters : Parameterizable {
@@ -4803,10 +4896,11 @@ public class Compute : Service {
   public func images_get (
     parameters: ImagesGetParameters,
     completion: @escaping (Image?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/images/{image}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/images/{image}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct ImagesGetFromFamilyParameters : Parameterizable {
@@ -4823,10 +4917,11 @@ public class Compute : Service {
   public func images_getFromFamily (
     parameters: ImagesGetFromFamilyParameters,
     completion: @escaping (Image?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/images/family/{family}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/images/family/{family}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct ImagesGetIamPolicyParameters : Parameterizable {
@@ -4843,10 +4938,11 @@ public class Compute : Service {
   public func images_getIamPolicy (
     parameters: ImagesGetIamPolicyParameters,
     completion: @escaping (Policy?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/images/{resource}/getIamPolicy",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/images/{resource}/getIamPolicy",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct ImagesInsertParameters : Parameterizable {
@@ -4865,11 +4961,12 @@ public class Compute : Service {
     request: Image,
     parameters: ImagesInsertParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/images",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/images",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct ImagesListParameters : Parameterizable {
@@ -4889,10 +4986,11 @@ public class Compute : Service {
   public func images_list (
     parameters: ImagesListParameters,
     completion: @escaping (ImageList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/images",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/images",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct ImagesSetIamPolicyParameters : Parameterizable {
@@ -4910,11 +5008,12 @@ public class Compute : Service {
     request: GlobalSetPolicyRequest,
     parameters: ImagesSetIamPolicyParameters,
     completion: @escaping (Policy?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/images/{resource}/setIamPolicy",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/images/{resource}/setIamPolicy",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct ImagesSetLabelsParameters : Parameterizable {
@@ -4932,11 +5031,12 @@ public class Compute : Service {
     request: GlobalSetLabelsRequest,
     parameters: ImagesSetLabelsParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/images/{resource}/setLabels",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/images/{resource}/setLabels",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct ImagesTestIamPermissionsParameters : Parameterizable {
@@ -4954,11 +5054,12 @@ public class Compute : Service {
     request: TestPermissionsRequest,
     parameters: ImagesTestIamPermissionsParameters,
     completion: @escaping (TestPermissionsResponse?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/images/{resource}/testIamPermissions",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/images/{resource}/testIamPermissions",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstanceGroupManagersAbandonInstancesParameters : Parameterizable {
@@ -4978,11 +5079,12 @@ public class Compute : Service {
     request: InstanceGroupManagersAbandonInstancesRequest,
     parameters: InstanceGroupManagersAbandonInstancesParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/abandonInstances",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/abandonInstances",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstanceGroupManagersAggregatedListParameters : Parameterizable {
@@ -5002,10 +5104,11 @@ public class Compute : Service {
   public func instanceGroupManagers_aggregatedList (
     parameters: InstanceGroupManagersAggregatedListParameters,
     completion: @escaping (InstanceGroupManagerAggregatedList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/aggregated/instanceGroupManagers",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/aggregated/instanceGroupManagers",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstanceGroupManagersDeleteParameters : Parameterizable {
@@ -5024,10 +5127,11 @@ public class Compute : Service {
   public func instanceGroupManagers_delete (
     parameters: InstanceGroupManagersDeleteParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstanceGroupManagersDeleteInstancesParameters : Parameterizable {
@@ -5047,11 +5151,12 @@ public class Compute : Service {
     request: InstanceGroupManagersDeleteInstancesRequest,
     parameters: InstanceGroupManagersDeleteInstancesParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/deleteInstances",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/deleteInstances",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstanceGroupManagersGetParameters : Parameterizable {
@@ -5069,10 +5174,11 @@ public class Compute : Service {
   public func instanceGroupManagers_get (
     parameters: InstanceGroupManagersGetParameters,
     completion: @escaping (InstanceGroupManager?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstanceGroupManagersInsertParameters : Parameterizable {
@@ -5091,11 +5197,12 @@ public class Compute : Service {
     request: InstanceGroupManager,
     parameters: InstanceGroupManagersInsertParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/instanceGroupManagers",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/instanceGroupManagers",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstanceGroupManagersListParameters : Parameterizable {
@@ -5116,10 +5223,11 @@ public class Compute : Service {
   public func instanceGroupManagers_list (
     parameters: InstanceGroupManagersListParameters,
     completion: @escaping (InstanceGroupManagerList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/zones/{zone}/instanceGroupManagers",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/zones/{zone}/instanceGroupManagers",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstanceGroupManagersListManagedInstancesParameters : Parameterizable {
@@ -5141,10 +5249,11 @@ public class Compute : Service {
   public func instanceGroupManagers_listManagedInstances (
     parameters: InstanceGroupManagersListManagedInstancesParameters,
     completion: @escaping (InstanceGroupManagersListManagedInstancesResponse?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/listManagedInstances",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/listManagedInstances",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstanceGroupManagersPatchParameters : Parameterizable {
@@ -5164,11 +5273,12 @@ public class Compute : Service {
     request: InstanceGroupManager,
     parameters: InstanceGroupManagersPatchParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "PATCH",
-                   path: "{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "PATCH",
+        path: "{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstanceGroupManagersRecreateInstancesParameters : Parameterizable {
@@ -5188,11 +5298,12 @@ public class Compute : Service {
     request: InstanceGroupManagersRecreateInstancesRequest,
     parameters: InstanceGroupManagersRecreateInstancesParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/recreateInstances",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/recreateInstances",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstanceGroupManagersResizeParameters : Parameterizable {
@@ -5212,10 +5323,11 @@ public class Compute : Service {
   public func instanceGroupManagers_resize (
     parameters: InstanceGroupManagersResizeParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/resize",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/resize",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstanceGroupManagersSetInstanceTemplateParameters : Parameterizable {
@@ -5235,11 +5347,12 @@ public class Compute : Service {
     request: InstanceGroupManagersSetInstanceTemplateRequest,
     parameters: InstanceGroupManagersSetInstanceTemplateParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/setInstanceTemplate",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/setInstanceTemplate",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstanceGroupManagersSetTargetPoolsParameters : Parameterizable {
@@ -5259,11 +5372,12 @@ public class Compute : Service {
     request: InstanceGroupManagersSetTargetPoolsRequest,
     parameters: InstanceGroupManagersSetTargetPoolsParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/setTargetPools",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/setTargetPools",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstanceGroupsAddInstancesParameters : Parameterizable {
@@ -5283,11 +5397,12 @@ public class Compute : Service {
     request: InstanceGroupsAddInstancesRequest,
     parameters: InstanceGroupsAddInstancesParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/instanceGroups/{instanceGroup}/addInstances",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/instanceGroups/{instanceGroup}/addInstances",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstanceGroupsAggregatedListParameters : Parameterizable {
@@ -5307,10 +5422,11 @@ public class Compute : Service {
   public func instanceGroups_aggregatedList (
     parameters: InstanceGroupsAggregatedListParameters,
     completion: @escaping (InstanceGroupAggregatedList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/aggregated/instanceGroups",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/aggregated/instanceGroups",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstanceGroupsDeleteParameters : Parameterizable {
@@ -5329,10 +5445,11 @@ public class Compute : Service {
   public func instanceGroups_delete (
     parameters: InstanceGroupsDeleteParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/zones/{zone}/instanceGroups/{instanceGroup}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/zones/{zone}/instanceGroups/{instanceGroup}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstanceGroupsGetParameters : Parameterizable {
@@ -5350,10 +5467,11 @@ public class Compute : Service {
   public func instanceGroups_get (
     parameters: InstanceGroupsGetParameters,
     completion: @escaping (InstanceGroup?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/zones/{zone}/instanceGroups/{instanceGroup}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/zones/{zone}/instanceGroups/{instanceGroup}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstanceGroupsInsertParameters : Parameterizable {
@@ -5372,11 +5490,12 @@ public class Compute : Service {
     request: InstanceGroup,
     parameters: InstanceGroupsInsertParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/instanceGroups",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/instanceGroups",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstanceGroupsListParameters : Parameterizable {
@@ -5397,10 +5516,11 @@ public class Compute : Service {
   public func instanceGroups_list (
     parameters: InstanceGroupsListParameters,
     completion: @escaping (InstanceGroupList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/zones/{zone}/instanceGroups",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/zones/{zone}/instanceGroups",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstanceGroupsListInstancesParameters : Parameterizable {
@@ -5423,11 +5543,12 @@ public class Compute : Service {
     request: InstanceGroupsListInstancesRequest,
     parameters: InstanceGroupsListInstancesParameters,
     completion: @escaping (InstanceGroupsListInstances?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/instanceGroups/{instanceGroup}/listInstances",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/instanceGroups/{instanceGroup}/listInstances",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstanceGroupsRemoveInstancesParameters : Parameterizable {
@@ -5447,11 +5568,12 @@ public class Compute : Service {
     request: InstanceGroupsRemoveInstancesRequest,
     parameters: InstanceGroupsRemoveInstancesParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/instanceGroups/{instanceGroup}/removeInstances",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/instanceGroups/{instanceGroup}/removeInstances",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstanceGroupsSetNamedPortsParameters : Parameterizable {
@@ -5471,11 +5593,12 @@ public class Compute : Service {
     request: InstanceGroupsSetNamedPortsRequest,
     parameters: InstanceGroupsSetNamedPortsParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/instanceGroups/{instanceGroup}/setNamedPorts",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/instanceGroups/{instanceGroup}/setNamedPorts",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstanceTemplatesDeleteParameters : Parameterizable {
@@ -5493,10 +5616,11 @@ public class Compute : Service {
   public func instanceTemplates_delete (
     parameters: InstanceTemplatesDeleteParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/global/instanceTemplates/{instanceTemplate}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/global/instanceTemplates/{instanceTemplate}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstanceTemplatesGetParameters : Parameterizable {
@@ -5513,10 +5637,11 @@ public class Compute : Service {
   public func instanceTemplates_get (
     parameters: InstanceTemplatesGetParameters,
     completion: @escaping (InstanceTemplate?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/instanceTemplates/{instanceTemplate}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/instanceTemplates/{instanceTemplate}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstanceTemplatesGetIamPolicyParameters : Parameterizable {
@@ -5533,10 +5658,11 @@ public class Compute : Service {
   public func instanceTemplates_getIamPolicy (
     parameters: InstanceTemplatesGetIamPolicyParameters,
     completion: @escaping (Policy?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/instanceTemplates/{resource}/getIamPolicy",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/instanceTemplates/{resource}/getIamPolicy",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstanceTemplatesInsertParameters : Parameterizable {
@@ -5554,11 +5680,12 @@ public class Compute : Service {
     request: InstanceTemplate,
     parameters: InstanceTemplatesInsertParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/instanceTemplates",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/instanceTemplates",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstanceTemplatesListParameters : Parameterizable {
@@ -5578,10 +5705,11 @@ public class Compute : Service {
   public func instanceTemplates_list (
     parameters: InstanceTemplatesListParameters,
     completion: @escaping (InstanceTemplateList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/instanceTemplates",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/instanceTemplates",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstanceTemplatesSetIamPolicyParameters : Parameterizable {
@@ -5599,11 +5727,12 @@ public class Compute : Service {
     request: GlobalSetPolicyRequest,
     parameters: InstanceTemplatesSetIamPolicyParameters,
     completion: @escaping (Policy?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/instanceTemplates/{resource}/setIamPolicy",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/instanceTemplates/{resource}/setIamPolicy",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstanceTemplatesTestIamPermissionsParameters : Parameterizable {
@@ -5621,11 +5750,12 @@ public class Compute : Service {
     request: TestPermissionsRequest,
     parameters: InstanceTemplatesTestIamPermissionsParameters,
     completion: @escaping (TestPermissionsResponse?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/instanceTemplates/{resource}/testIamPermissions",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/instanceTemplates/{resource}/testIamPermissions",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstancesAddAccessConfigParameters : Parameterizable {
@@ -5646,11 +5776,12 @@ public class Compute : Service {
     request: AccessConfig,
     parameters: InstancesAddAccessConfigParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/instances/{instance}/addAccessConfig",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/instances/{instance}/addAccessConfig",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstancesAggregatedListParameters : Parameterizable {
@@ -5670,10 +5801,11 @@ public class Compute : Service {
   public func instances_aggregatedList (
     parameters: InstancesAggregatedListParameters,
     completion: @escaping (InstanceAggregatedList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/aggregated/instances",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/aggregated/instances",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstancesAttachDiskParameters : Parameterizable {
@@ -5694,11 +5826,12 @@ public class Compute : Service {
     request: AttachedDisk,
     parameters: InstancesAttachDiskParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/instances/{instance}/attachDisk",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/instances/{instance}/attachDisk",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstancesDeleteParameters : Parameterizable {
@@ -5717,10 +5850,11 @@ public class Compute : Service {
   public func instances_delete (
     parameters: InstancesDeleteParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/zones/{zone}/instances/{instance}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/zones/{zone}/instances/{instance}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstancesDeleteAccessConfigParameters : Parameterizable {
@@ -5741,10 +5875,11 @@ public class Compute : Service {
   public func instances_deleteAccessConfig (
     parameters: InstancesDeleteAccessConfigParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/instances/{instance}/deleteAccessConfig",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/instances/{instance}/deleteAccessConfig",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstancesDetachDiskParameters : Parameterizable {
@@ -5764,10 +5899,11 @@ public class Compute : Service {
   public func instances_detachDisk (
     parameters: InstancesDetachDiskParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/instances/{instance}/detachDisk",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/instances/{instance}/detachDisk",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstancesGetParameters : Parameterizable {
@@ -5785,10 +5921,11 @@ public class Compute : Service {
   public func instances_get (
     parameters: InstancesGetParameters,
     completion: @escaping (Instance?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/zones/{zone}/instances/{instance}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/zones/{zone}/instances/{instance}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstancesGetIamPolicyParameters : Parameterizable {
@@ -5806,10 +5943,11 @@ public class Compute : Service {
   public func instances_getIamPolicy (
     parameters: InstancesGetIamPolicyParameters,
     completion: @escaping (Policy?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/zones/{zone}/instances/{resource}/getIamPolicy",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/zones/{zone}/instances/{resource}/getIamPolicy",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstancesGetSerialPortOutputParameters : Parameterizable {
@@ -5829,10 +5967,11 @@ public class Compute : Service {
   public func instances_getSerialPortOutput (
     parameters: InstancesGetSerialPortOutputParameters,
     completion: @escaping (SerialPortOutput?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/zones/{zone}/instances/{instance}/serialPort",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/zones/{zone}/instances/{instance}/serialPort",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstancesInsertParameters : Parameterizable {
@@ -5852,11 +5991,12 @@ public class Compute : Service {
     request: Instance,
     parameters: InstancesInsertParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/instances",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/instances",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstancesListParameters : Parameterizable {
@@ -5877,10 +6017,11 @@ public class Compute : Service {
   public func instances_list (
     parameters: InstancesListParameters,
     completion: @escaping (InstanceList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/zones/{zone}/instances",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/zones/{zone}/instances",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstancesListReferrersParameters : Parameterizable {
@@ -5902,10 +6043,11 @@ public class Compute : Service {
   public func instances_listReferrers (
     parameters: InstancesListReferrersParameters,
     completion: @escaping (InstanceListReferrers?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/zones/{zone}/instances/{instance}/referrers",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/zones/{zone}/instances/{instance}/referrers",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstancesResetParameters : Parameterizable {
@@ -5924,10 +6066,11 @@ public class Compute : Service {
   public func instances_reset (
     parameters: InstancesResetParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/instances/{instance}/reset",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/instances/{instance}/reset",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstancesSetDeletionProtectionParameters : Parameterizable {
@@ -5947,10 +6090,11 @@ public class Compute : Service {
   public func instances_setDeletionProtection (
     parameters: InstancesSetDeletionProtectionParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/instances/{resource}/setDeletionProtection",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/instances/{resource}/setDeletionProtection",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstancesSetDiskAutoDeleteParameters : Parameterizable {
@@ -5971,10 +6115,11 @@ public class Compute : Service {
   public func instances_setDiskAutoDelete (
     parameters: InstancesSetDiskAutoDeleteParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/instances/{instance}/setDiskAutoDelete",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/instances/{instance}/setDiskAutoDelete",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstancesSetIamPolicyParameters : Parameterizable {
@@ -5993,11 +6138,12 @@ public class Compute : Service {
     request: ZoneSetPolicyRequest,
     parameters: InstancesSetIamPolicyParameters,
     completion: @escaping (Policy?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/instances/{resource}/setIamPolicy",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/instances/{resource}/setIamPolicy",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstancesSetLabelsParameters : Parameterizable {
@@ -6017,11 +6163,12 @@ public class Compute : Service {
     request: InstancesSetLabelsRequest,
     parameters: InstancesSetLabelsParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/instances/{instance}/setLabels",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/instances/{instance}/setLabels",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstancesSetMachineResourcesParameters : Parameterizable {
@@ -6041,11 +6188,12 @@ public class Compute : Service {
     request: InstancesSetMachineResourcesRequest,
     parameters: InstancesSetMachineResourcesParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/instances/{instance}/setMachineResources",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/instances/{instance}/setMachineResources",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstancesSetMachineTypeParameters : Parameterizable {
@@ -6065,11 +6213,12 @@ public class Compute : Service {
     request: InstancesSetMachineTypeRequest,
     parameters: InstancesSetMachineTypeParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/instances/{instance}/setMachineType",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/instances/{instance}/setMachineType",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstancesSetMetadataParameters : Parameterizable {
@@ -6089,11 +6238,12 @@ public class Compute : Service {
     request: Metadata,
     parameters: InstancesSetMetadataParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/instances/{instance}/setMetadata",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/instances/{instance}/setMetadata",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstancesSetMinCpuPlatformParameters : Parameterizable {
@@ -6113,11 +6263,12 @@ public class Compute : Service {
     request: InstancesSetMinCpuPlatformRequest,
     parameters: InstancesSetMinCpuPlatformParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/instances/{instance}/setMinCpuPlatform",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/instances/{instance}/setMinCpuPlatform",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstancesSetSchedulingParameters : Parameterizable {
@@ -6137,11 +6288,12 @@ public class Compute : Service {
     request: Scheduling,
     parameters: InstancesSetSchedulingParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/instances/{instance}/setScheduling",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/instances/{instance}/setScheduling",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstancesSetServiceAccountParameters : Parameterizable {
@@ -6161,11 +6313,12 @@ public class Compute : Service {
     request: InstancesSetServiceAccountRequest,
     parameters: InstancesSetServiceAccountParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/instances/{instance}/setServiceAccount",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/instances/{instance}/setServiceAccount",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstancesSetTagsParameters : Parameterizable {
@@ -6185,11 +6338,12 @@ public class Compute : Service {
     request: Tags,
     parameters: InstancesSetTagsParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/instances/{instance}/setTags",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/instances/{instance}/setTags",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstancesSimulateMaintenanceEventParameters : Parameterizable {
@@ -6207,10 +6361,11 @@ public class Compute : Service {
   public func instances_simulateMaintenanceEvent (
     parameters: InstancesSimulateMaintenanceEventParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/instances/{instance}/simulateMaintenanceEvent",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/instances/{instance}/simulateMaintenanceEvent",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstancesStartParameters : Parameterizable {
@@ -6229,10 +6384,11 @@ public class Compute : Service {
   public func instances_start (
     parameters: InstancesStartParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/instances/{instance}/start",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/instances/{instance}/start",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstancesStartWithEncryptionKeyParameters : Parameterizable {
@@ -6252,11 +6408,12 @@ public class Compute : Service {
     request: InstancesStartWithEncryptionKeyRequest,
     parameters: InstancesStartWithEncryptionKeyParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/instances/{instance}/startWithEncryptionKey",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/instances/{instance}/startWithEncryptionKey",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstancesStopParameters : Parameterizable {
@@ -6275,10 +6432,11 @@ public class Compute : Service {
   public func instances_stop (
     parameters: InstancesStopParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/instances/{instance}/stop",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/instances/{instance}/stop",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstancesTestIamPermissionsParameters : Parameterizable {
@@ -6297,11 +6455,12 @@ public class Compute : Service {
     request: TestPermissionsRequest,
     parameters: InstancesTestIamPermissionsParameters,
     completion: @escaping (TestPermissionsResponse?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/instances/{resource}/testIamPermissions",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/instances/{resource}/testIamPermissions",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstancesUpdateAccessConfigParameters : Parameterizable {
@@ -6322,11 +6481,12 @@ public class Compute : Service {
     request: AccessConfig,
     parameters: InstancesUpdateAccessConfigParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/instances/{instance}/updateAccessConfig",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/instances/{instance}/updateAccessConfig",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InstancesUpdateNetworkInterfaceParameters : Parameterizable {
@@ -6347,11 +6507,12 @@ public class Compute : Service {
     request: NetworkInterface,
     parameters: InstancesUpdateNetworkInterfaceParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "PATCH",
-                   path: "{project}/zones/{zone}/instances/{instance}/updateNetworkInterface",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "PATCH",
+        path: "{project}/zones/{zone}/instances/{instance}/updateNetworkInterface",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InterconnectAttachmentsAggregatedListParameters : Parameterizable {
@@ -6371,10 +6532,11 @@ public class Compute : Service {
   public func interconnectAttachments_aggregatedList (
     parameters: InterconnectAttachmentsAggregatedListParameters,
     completion: @escaping (InterconnectAttachmentAggregatedList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/aggregated/interconnectAttachments",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/aggregated/interconnectAttachments",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InterconnectAttachmentsDeleteParameters : Parameterizable {
@@ -6393,10 +6555,11 @@ public class Compute : Service {
   public func interconnectAttachments_delete (
     parameters: InterconnectAttachmentsDeleteParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/regions/{region}/interconnectAttachments/{interconnectAttachment}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/regions/{region}/interconnectAttachments/{interconnectAttachment}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InterconnectAttachmentsGetParameters : Parameterizable {
@@ -6414,10 +6577,11 @@ public class Compute : Service {
   public func interconnectAttachments_get (
     parameters: InterconnectAttachmentsGetParameters,
     completion: @escaping (InterconnectAttachment?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/regions/{region}/interconnectAttachments/{interconnectAttachment}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/regions/{region}/interconnectAttachments/{interconnectAttachment}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InterconnectAttachmentsInsertParameters : Parameterizable {
@@ -6436,11 +6600,12 @@ public class Compute : Service {
     request: InterconnectAttachment,
     parameters: InterconnectAttachmentsInsertParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/regions/{region}/interconnectAttachments",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/regions/{region}/interconnectAttachments",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InterconnectAttachmentsListParameters : Parameterizable {
@@ -6461,10 +6626,11 @@ public class Compute : Service {
   public func interconnectAttachments_list (
     parameters: InterconnectAttachmentsListParameters,
     completion: @escaping (InterconnectAttachmentList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/regions/{region}/interconnectAttachments",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/regions/{region}/interconnectAttachments",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InterconnectAttachmentsPatchParameters : Parameterizable {
@@ -6484,11 +6650,12 @@ public class Compute : Service {
     request: InterconnectAttachment,
     parameters: InterconnectAttachmentsPatchParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "PATCH",
-                   path: "{project}/regions/{region}/interconnectAttachments/{interconnectAttachment}",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "PATCH",
+        path: "{project}/regions/{region}/interconnectAttachments/{interconnectAttachment}",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InterconnectLocationsGetParameters : Parameterizable {
@@ -6505,10 +6672,11 @@ public class Compute : Service {
   public func interconnectLocations_get (
     parameters: InterconnectLocationsGetParameters,
     completion: @escaping (InterconnectLocation?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/interconnectLocations/{interconnectLocation}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/interconnectLocations/{interconnectLocation}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InterconnectLocationsListParameters : Parameterizable {
@@ -6528,10 +6696,11 @@ public class Compute : Service {
   public func interconnectLocations_list (
     parameters: InterconnectLocationsListParameters,
     completion: @escaping (InterconnectLocationList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/interconnectLocations",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/interconnectLocations",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InterconnectsDeleteParameters : Parameterizable {
@@ -6549,10 +6718,11 @@ public class Compute : Service {
   public func interconnects_delete (
     parameters: InterconnectsDeleteParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/global/interconnects/{interconnect}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/global/interconnects/{interconnect}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InterconnectsGetParameters : Parameterizable {
@@ -6569,10 +6739,11 @@ public class Compute : Service {
   public func interconnects_get (
     parameters: InterconnectsGetParameters,
     completion: @escaping (Interconnect?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/interconnects/{interconnect}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/interconnects/{interconnect}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InterconnectsGetDiagnosticsParameters : Parameterizable {
@@ -6589,10 +6760,11 @@ public class Compute : Service {
   public func interconnects_getDiagnostics (
     parameters: InterconnectsGetDiagnosticsParameters,
     completion: @escaping (InterconnectsGetDiagnosticsResponse?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/interconnects/{interconnect}/getDiagnostics",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/interconnects/{interconnect}/getDiagnostics",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InterconnectsInsertParameters : Parameterizable {
@@ -6610,11 +6782,12 @@ public class Compute : Service {
     request: Interconnect,
     parameters: InterconnectsInsertParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/interconnects",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/interconnects",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InterconnectsListParameters : Parameterizable {
@@ -6634,10 +6807,11 @@ public class Compute : Service {
   public func interconnects_list (
     parameters: InterconnectsListParameters,
     completion: @escaping (InterconnectList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/interconnects",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/interconnects",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct InterconnectsPatchParameters : Parameterizable {
@@ -6656,11 +6830,12 @@ public class Compute : Service {
     request: Interconnect,
     parameters: InterconnectsPatchParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "PATCH",
-                   path: "{project}/global/interconnects/{interconnect}",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "PATCH",
+        path: "{project}/global/interconnects/{interconnect}",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct LicenseCodesGetParameters : Parameterizable {
@@ -6677,10 +6852,11 @@ public class Compute : Service {
   public func licenseCodes_get (
     parameters: LicenseCodesGetParameters,
     completion: @escaping (LicenseCode?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/licenseCodes/{licenseCode}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/licenseCodes/{licenseCode}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct LicenseCodesTestIamPermissionsParameters : Parameterizable {
@@ -6698,11 +6874,12 @@ public class Compute : Service {
     request: TestPermissionsRequest,
     parameters: LicenseCodesTestIamPermissionsParameters,
     completion: @escaping (TestPermissionsResponse?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/licenseCodes/{resource}/testIamPermissions",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/licenseCodes/{resource}/testIamPermissions",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct LicensesDeleteParameters : Parameterizable {
@@ -6720,10 +6897,11 @@ public class Compute : Service {
   public func licenses_delete (
     parameters: LicensesDeleteParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/global/licenses/{license}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/global/licenses/{license}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct LicensesGetParameters : Parameterizable {
@@ -6740,10 +6918,11 @@ public class Compute : Service {
   public func licenses_get (
     parameters: LicensesGetParameters,
     completion: @escaping (License?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/licenses/{license}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/licenses/{license}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct LicensesGetIamPolicyParameters : Parameterizable {
@@ -6760,10 +6939,11 @@ public class Compute : Service {
   public func licenses_getIamPolicy (
     parameters: LicensesGetIamPolicyParameters,
     completion: @escaping (Policy?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/licenses/{resource}/getIamPolicy",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/licenses/{resource}/getIamPolicy",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct LicensesInsertParameters : Parameterizable {
@@ -6781,11 +6961,12 @@ public class Compute : Service {
     request: License,
     parameters: LicensesInsertParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/licenses",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/licenses",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct LicensesListParameters : Parameterizable {
@@ -6805,10 +6986,11 @@ public class Compute : Service {
   public func licenses_list (
     parameters: LicensesListParameters,
     completion: @escaping (LicensesListResponse?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/licenses",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/licenses",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct LicensesSetIamPolicyParameters : Parameterizable {
@@ -6826,11 +7008,12 @@ public class Compute : Service {
     request: GlobalSetPolicyRequest,
     parameters: LicensesSetIamPolicyParameters,
     completion: @escaping (Policy?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/licenses/{resource}/setIamPolicy",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/licenses/{resource}/setIamPolicy",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct LicensesTestIamPermissionsParameters : Parameterizable {
@@ -6848,11 +7031,12 @@ public class Compute : Service {
     request: TestPermissionsRequest,
     parameters: LicensesTestIamPermissionsParameters,
     completion: @escaping (TestPermissionsResponse?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/licenses/{resource}/testIamPermissions",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/licenses/{resource}/testIamPermissions",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct MachineTypesAggregatedListParameters : Parameterizable {
@@ -6872,10 +7056,11 @@ public class Compute : Service {
   public func machineTypes_aggregatedList (
     parameters: MachineTypesAggregatedListParameters,
     completion: @escaping (MachineTypeAggregatedList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/aggregated/machineTypes",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/aggregated/machineTypes",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct MachineTypesGetParameters : Parameterizable {
@@ -6893,10 +7078,11 @@ public class Compute : Service {
   public func machineTypes_get (
     parameters: MachineTypesGetParameters,
     completion: @escaping (MachineType?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/zones/{zone}/machineTypes/{machineType}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/zones/{zone}/machineTypes/{machineType}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct MachineTypesListParameters : Parameterizable {
@@ -6917,10 +7103,11 @@ public class Compute : Service {
   public func machineTypes_list (
     parameters: MachineTypesListParameters,
     completion: @escaping (MachineTypeList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/zones/{zone}/machineTypes",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/zones/{zone}/machineTypes",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct NetworksAddPeeringParameters : Parameterizable {
@@ -6939,11 +7126,12 @@ public class Compute : Service {
     request: NetworksAddPeeringRequest,
     parameters: NetworksAddPeeringParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/networks/{network}/addPeering",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/networks/{network}/addPeering",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct NetworksDeleteParameters : Parameterizable {
@@ -6961,10 +7149,11 @@ public class Compute : Service {
   public func networks_delete (
     parameters: NetworksDeleteParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/global/networks/{network}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/global/networks/{network}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct NetworksGetParameters : Parameterizable {
@@ -6981,10 +7170,11 @@ public class Compute : Service {
   public func networks_get (
     parameters: NetworksGetParameters,
     completion: @escaping (Network?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/networks/{network}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/networks/{network}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct NetworksInsertParameters : Parameterizable {
@@ -7002,11 +7192,12 @@ public class Compute : Service {
     request: Network,
     parameters: NetworksInsertParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/networks",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/networks",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct NetworksListParameters : Parameterizable {
@@ -7026,10 +7217,11 @@ public class Compute : Service {
   public func networks_list (
     parameters: NetworksListParameters,
     completion: @escaping (NetworkList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/networks",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/networks",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct NetworksPatchParameters : Parameterizable {
@@ -7048,11 +7240,12 @@ public class Compute : Service {
     request: Network,
     parameters: NetworksPatchParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "PATCH",
-                   path: "{project}/global/networks/{network}",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "PATCH",
+        path: "{project}/global/networks/{network}",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct NetworksRemovePeeringParameters : Parameterizable {
@@ -7071,11 +7264,12 @@ public class Compute : Service {
     request: NetworksRemovePeeringRequest,
     parameters: NetworksRemovePeeringParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/networks/{network}/removePeering",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/networks/{network}/removePeering",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct NetworksSwitchToCustomModeParameters : Parameterizable {
@@ -7093,10 +7287,11 @@ public class Compute : Service {
   public func networks_switchToCustomMode (
     parameters: NetworksSwitchToCustomModeParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/networks/{network}/switchToCustomMode",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/networks/{network}/switchToCustomMode",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct NodeGroupsAddNodesParameters : Parameterizable {
@@ -7116,11 +7311,12 @@ public class Compute : Service {
     request: NodeGroupsAddNodesRequest,
     parameters: NodeGroupsAddNodesParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/nodeGroups/{nodeGroup}/addNodes",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/nodeGroups/{nodeGroup}/addNodes",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct NodeGroupsAggregatedListParameters : Parameterizable {
@@ -7140,10 +7336,11 @@ public class Compute : Service {
   public func nodeGroups_aggregatedList (
     parameters: NodeGroupsAggregatedListParameters,
     completion: @escaping (NodeGroupAggregatedList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/aggregated/nodeGroups",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/aggregated/nodeGroups",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct NodeGroupsDeleteParameters : Parameterizable {
@@ -7162,10 +7359,11 @@ public class Compute : Service {
   public func nodeGroups_delete (
     parameters: NodeGroupsDeleteParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/zones/{zone}/nodeGroups/{nodeGroup}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/zones/{zone}/nodeGroups/{nodeGroup}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct NodeGroupsDeleteNodesParameters : Parameterizable {
@@ -7185,11 +7383,12 @@ public class Compute : Service {
     request: NodeGroupsDeleteNodesRequest,
     parameters: NodeGroupsDeleteNodesParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/nodeGroups/{nodeGroup}/deleteNodes",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/nodeGroups/{nodeGroup}/deleteNodes",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct NodeGroupsGetParameters : Parameterizable {
@@ -7207,10 +7406,11 @@ public class Compute : Service {
   public func nodeGroups_get (
     parameters: NodeGroupsGetParameters,
     completion: @escaping (NodeGroup?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/zones/{zone}/nodeGroups/{nodeGroup}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/zones/{zone}/nodeGroups/{nodeGroup}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct NodeGroupsGetIamPolicyParameters : Parameterizable {
@@ -7228,10 +7428,11 @@ public class Compute : Service {
   public func nodeGroups_getIamPolicy (
     parameters: NodeGroupsGetIamPolicyParameters,
     completion: @escaping (Policy?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/zones/{zone}/nodeGroups/{resource}/getIamPolicy",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/zones/{zone}/nodeGroups/{resource}/getIamPolicy",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct NodeGroupsInsertParameters : Parameterizable {
@@ -7251,11 +7452,12 @@ public class Compute : Service {
     request: NodeGroup,
     parameters: NodeGroupsInsertParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/nodeGroups",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/nodeGroups",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct NodeGroupsListParameters : Parameterizable {
@@ -7276,10 +7478,11 @@ public class Compute : Service {
   public func nodeGroups_list (
     parameters: NodeGroupsListParameters,
     completion: @escaping (NodeGroupList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/zones/{zone}/nodeGroups",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/zones/{zone}/nodeGroups",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct NodeGroupsListNodesParameters : Parameterizable {
@@ -7301,10 +7504,11 @@ public class Compute : Service {
   public func nodeGroups_listNodes (
     parameters: NodeGroupsListNodesParameters,
     completion: @escaping (NodeGroupsListNodes?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/nodeGroups/{nodeGroup}/listNodes",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/nodeGroups/{nodeGroup}/listNodes",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct NodeGroupsSetIamPolicyParameters : Parameterizable {
@@ -7323,11 +7527,12 @@ public class Compute : Service {
     request: ZoneSetPolicyRequest,
     parameters: NodeGroupsSetIamPolicyParameters,
     completion: @escaping (Policy?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/nodeGroups/{resource}/setIamPolicy",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/nodeGroups/{resource}/setIamPolicy",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct NodeGroupsSetNodeTemplateParameters : Parameterizable {
@@ -7347,11 +7552,12 @@ public class Compute : Service {
     request: NodeGroupsSetNodeTemplateRequest,
     parameters: NodeGroupsSetNodeTemplateParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/nodeGroups/{nodeGroup}/setNodeTemplate",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/nodeGroups/{nodeGroup}/setNodeTemplate",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct NodeGroupsTestIamPermissionsParameters : Parameterizable {
@@ -7370,11 +7576,12 @@ public class Compute : Service {
     request: TestPermissionsRequest,
     parameters: NodeGroupsTestIamPermissionsParameters,
     completion: @escaping (TestPermissionsResponse?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/nodeGroups/{resource}/testIamPermissions",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/nodeGroups/{resource}/testIamPermissions",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct NodeTemplatesAggregatedListParameters : Parameterizable {
@@ -7394,10 +7601,11 @@ public class Compute : Service {
   public func nodeTemplates_aggregatedList (
     parameters: NodeTemplatesAggregatedListParameters,
     completion: @escaping (NodeTemplateAggregatedList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/aggregated/nodeTemplates",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/aggregated/nodeTemplates",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct NodeTemplatesDeleteParameters : Parameterizable {
@@ -7416,10 +7624,11 @@ public class Compute : Service {
   public func nodeTemplates_delete (
     parameters: NodeTemplatesDeleteParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/regions/{region}/nodeTemplates/{nodeTemplate}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/regions/{region}/nodeTemplates/{nodeTemplate}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct NodeTemplatesGetParameters : Parameterizable {
@@ -7437,10 +7646,11 @@ public class Compute : Service {
   public func nodeTemplates_get (
     parameters: NodeTemplatesGetParameters,
     completion: @escaping (NodeTemplate?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/regions/{region}/nodeTemplates/{nodeTemplate}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/regions/{region}/nodeTemplates/{nodeTemplate}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct NodeTemplatesGetIamPolicyParameters : Parameterizable {
@@ -7458,10 +7668,11 @@ public class Compute : Service {
   public func nodeTemplates_getIamPolicy (
     parameters: NodeTemplatesGetIamPolicyParameters,
     completion: @escaping (Policy?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/regions/{region}/nodeTemplates/{resource}/getIamPolicy",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/regions/{region}/nodeTemplates/{resource}/getIamPolicy",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct NodeTemplatesInsertParameters : Parameterizable {
@@ -7480,11 +7691,12 @@ public class Compute : Service {
     request: NodeTemplate,
     parameters: NodeTemplatesInsertParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/regions/{region}/nodeTemplates",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/regions/{region}/nodeTemplates",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct NodeTemplatesListParameters : Parameterizable {
@@ -7505,10 +7717,11 @@ public class Compute : Service {
   public func nodeTemplates_list (
     parameters: NodeTemplatesListParameters,
     completion: @escaping (NodeTemplateList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/regions/{region}/nodeTemplates",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/regions/{region}/nodeTemplates",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct NodeTemplatesSetIamPolicyParameters : Parameterizable {
@@ -7527,11 +7740,12 @@ public class Compute : Service {
     request: RegionSetPolicyRequest,
     parameters: NodeTemplatesSetIamPolicyParameters,
     completion: @escaping (Policy?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/regions/{region}/nodeTemplates/{resource}/setIamPolicy",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/regions/{region}/nodeTemplates/{resource}/setIamPolicy",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct NodeTemplatesTestIamPermissionsParameters : Parameterizable {
@@ -7550,11 +7764,12 @@ public class Compute : Service {
     request: TestPermissionsRequest,
     parameters: NodeTemplatesTestIamPermissionsParameters,
     completion: @escaping (TestPermissionsResponse?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/regions/{region}/nodeTemplates/{resource}/testIamPermissions",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/regions/{region}/nodeTemplates/{resource}/testIamPermissions",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct NodeTypesAggregatedListParameters : Parameterizable {
@@ -7574,10 +7789,11 @@ public class Compute : Service {
   public func nodeTypes_aggregatedList (
     parameters: NodeTypesAggregatedListParameters,
     completion: @escaping (NodeTypeAggregatedList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/aggregated/nodeTypes",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/aggregated/nodeTypes",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct NodeTypesGetParameters : Parameterizable {
@@ -7595,10 +7811,11 @@ public class Compute : Service {
   public func nodeTypes_get (
     parameters: NodeTypesGetParameters,
     completion: @escaping (NodeType?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/zones/{zone}/nodeTypes/{nodeType}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/zones/{zone}/nodeTypes/{nodeType}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct NodeTypesListParameters : Parameterizable {
@@ -7619,10 +7836,11 @@ public class Compute : Service {
   public func nodeTypes_list (
     parameters: NodeTypesListParameters,
     completion: @escaping (NodeTypeList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/zones/{zone}/nodeTypes",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/zones/{zone}/nodeTypes",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct ProjectsDisableXpnHostParameters : Parameterizable {
@@ -7639,10 +7857,11 @@ public class Compute : Service {
   public func projects_disableXpnHost (
     parameters: ProjectsDisableXpnHostParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/disableXpnHost",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/disableXpnHost",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct ProjectsDisableXpnResourceParameters : Parameterizable {
@@ -7660,11 +7879,12 @@ public class Compute : Service {
     request: ProjectsDisableXpnResourceRequest,
     parameters: ProjectsDisableXpnResourceParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/disableXpnResource",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/disableXpnResource",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct ProjectsEnableXpnHostParameters : Parameterizable {
@@ -7681,10 +7901,11 @@ public class Compute : Service {
   public func projects_enableXpnHost (
     parameters: ProjectsEnableXpnHostParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/enableXpnHost",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/enableXpnHost",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct ProjectsEnableXpnResourceParameters : Parameterizable {
@@ -7702,11 +7923,12 @@ public class Compute : Service {
     request: ProjectsEnableXpnResourceRequest,
     parameters: ProjectsEnableXpnResourceParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/enableXpnResource",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/enableXpnResource",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct ProjectsGetParameters : Parameterizable {
@@ -7722,10 +7944,11 @@ public class Compute : Service {
   public func projects_get (
     parameters: ProjectsGetParameters,
     completion: @escaping (Project?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct ProjectsGetXpnHostParameters : Parameterizable {
@@ -7741,10 +7964,11 @@ public class Compute : Service {
   public func projects_getXpnHost (
     parameters: ProjectsGetXpnHostParameters,
     completion: @escaping (Project?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/getXpnHost",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/getXpnHost",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct ProjectsGetXpnResourcesParameters : Parameterizable {
@@ -7764,10 +7988,11 @@ public class Compute : Service {
   public func projects_getXpnResources (
     parameters: ProjectsGetXpnResourcesParameters,
     completion: @escaping (ProjectsGetXpnResources?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/getXpnResources",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/getXpnResources",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct ProjectsListXpnHostsParameters : Parameterizable {
@@ -7788,11 +8013,12 @@ public class Compute : Service {
     request: ProjectsListXpnHostsRequest,
     parameters: ProjectsListXpnHostsParameters,
     completion: @escaping (XpnHostList?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/listXpnHosts",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/listXpnHosts",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct ProjectsMoveDiskParameters : Parameterizable {
@@ -7810,11 +8036,12 @@ public class Compute : Service {
     request: DiskMoveRequest,
     parameters: ProjectsMoveDiskParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/moveDisk",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/moveDisk",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct ProjectsMoveInstanceParameters : Parameterizable {
@@ -7832,11 +8059,12 @@ public class Compute : Service {
     request: InstanceMoveRequest,
     parameters: ProjectsMoveInstanceParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/moveInstance",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/moveInstance",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct ProjectsSetCommonInstanceMetadataParameters : Parameterizable {
@@ -7854,11 +8082,12 @@ public class Compute : Service {
     request: Metadata,
     parameters: ProjectsSetCommonInstanceMetadataParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/setCommonInstanceMetadata",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/setCommonInstanceMetadata",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct ProjectsSetDefaultNetworkTierParameters : Parameterizable {
@@ -7876,11 +8105,12 @@ public class Compute : Service {
     request: ProjectsSetDefaultNetworkTierRequest,
     parameters: ProjectsSetDefaultNetworkTierParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/setDefaultNetworkTier",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/setDefaultNetworkTier",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct ProjectsSetUsageExportBucketParameters : Parameterizable {
@@ -7898,11 +8128,12 @@ public class Compute : Service {
     request: UsageExportLocation,
     parameters: ProjectsSetUsageExportBucketParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/setUsageExportBucket",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/setUsageExportBucket",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionAutoscalersDeleteParameters : Parameterizable {
@@ -7921,10 +8152,11 @@ public class Compute : Service {
   public func regionAutoscalers_delete (
     parameters: RegionAutoscalersDeleteParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/regions/{region}/autoscalers/{autoscaler}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/regions/{region}/autoscalers/{autoscaler}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionAutoscalersGetParameters : Parameterizable {
@@ -7942,10 +8174,11 @@ public class Compute : Service {
   public func regionAutoscalers_get (
     parameters: RegionAutoscalersGetParameters,
     completion: @escaping (Autoscaler?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/regions/{region}/autoscalers/{autoscaler}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/regions/{region}/autoscalers/{autoscaler}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionAutoscalersInsertParameters : Parameterizable {
@@ -7964,11 +8197,12 @@ public class Compute : Service {
     request: Autoscaler,
     parameters: RegionAutoscalersInsertParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/regions/{region}/autoscalers",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/regions/{region}/autoscalers",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionAutoscalersListParameters : Parameterizable {
@@ -7989,10 +8223,11 @@ public class Compute : Service {
   public func regionAutoscalers_list (
     parameters: RegionAutoscalersListParameters,
     completion: @escaping (RegionAutoscalerList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/regions/{region}/autoscalers",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/regions/{region}/autoscalers",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionAutoscalersPatchParameters : Parameterizable {
@@ -8012,11 +8247,12 @@ public class Compute : Service {
     request: Autoscaler,
     parameters: RegionAutoscalersPatchParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "PATCH",
-                   path: "{project}/regions/{region}/autoscalers",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "PATCH",
+        path: "{project}/regions/{region}/autoscalers",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionAutoscalersUpdateParameters : Parameterizable {
@@ -8036,11 +8272,12 @@ public class Compute : Service {
     request: Autoscaler,
     parameters: RegionAutoscalersUpdateParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "PUT",
-                   path: "{project}/regions/{region}/autoscalers",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "PUT",
+        path: "{project}/regions/{region}/autoscalers",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionBackendServicesDeleteParameters : Parameterizable {
@@ -8059,10 +8296,11 @@ public class Compute : Service {
   public func regionBackendServices_delete (
     parameters: RegionBackendServicesDeleteParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/regions/{region}/backendServices/{backendService}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/regions/{region}/backendServices/{backendService}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionBackendServicesGetParameters : Parameterizable {
@@ -8080,10 +8318,11 @@ public class Compute : Service {
   public func regionBackendServices_get (
     parameters: RegionBackendServicesGetParameters,
     completion: @escaping (BackendService?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/regions/{region}/backendServices/{backendService}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/regions/{region}/backendServices/{backendService}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionBackendServicesGetHealthParameters : Parameterizable {
@@ -8102,11 +8341,12 @@ public class Compute : Service {
     request: ResourceGroupReference,
     parameters: RegionBackendServicesGetHealthParameters,
     completion: @escaping (BackendServiceGroupHealth?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/regions/{region}/backendServices/{backendService}/getHealth",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/regions/{region}/backendServices/{backendService}/getHealth",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionBackendServicesInsertParameters : Parameterizable {
@@ -8125,11 +8365,12 @@ public class Compute : Service {
     request: BackendService,
     parameters: RegionBackendServicesInsertParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/regions/{region}/backendServices",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/regions/{region}/backendServices",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionBackendServicesListParameters : Parameterizable {
@@ -8150,10 +8391,11 @@ public class Compute : Service {
   public func regionBackendServices_list (
     parameters: RegionBackendServicesListParameters,
     completion: @escaping (BackendServiceList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/regions/{region}/backendServices",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/regions/{region}/backendServices",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionBackendServicesPatchParameters : Parameterizable {
@@ -8173,11 +8415,12 @@ public class Compute : Service {
     request: BackendService,
     parameters: RegionBackendServicesPatchParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "PATCH",
-                   path: "{project}/regions/{region}/backendServices/{backendService}",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "PATCH",
+        path: "{project}/regions/{region}/backendServices/{backendService}",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionBackendServicesUpdateParameters : Parameterizable {
@@ -8197,11 +8440,12 @@ public class Compute : Service {
     request: BackendService,
     parameters: RegionBackendServicesUpdateParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "PUT",
-                   path: "{project}/regions/{region}/backendServices/{backendService}",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "PUT",
+        path: "{project}/regions/{region}/backendServices/{backendService}",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionCommitmentsAggregatedListParameters : Parameterizable {
@@ -8221,10 +8465,11 @@ public class Compute : Service {
   public func regionCommitments_aggregatedList (
     parameters: RegionCommitmentsAggregatedListParameters,
     completion: @escaping (CommitmentAggregatedList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/aggregated/commitments",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/aggregated/commitments",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionCommitmentsGetParameters : Parameterizable {
@@ -8242,10 +8487,11 @@ public class Compute : Service {
   public func regionCommitments_get (
     parameters: RegionCommitmentsGetParameters,
     completion: @escaping (Commitment?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/regions/{region}/commitments/{commitment}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/regions/{region}/commitments/{commitment}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionCommitmentsInsertParameters : Parameterizable {
@@ -8264,11 +8510,12 @@ public class Compute : Service {
     request: Commitment,
     parameters: RegionCommitmentsInsertParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/regions/{region}/commitments",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/regions/{region}/commitments",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionCommitmentsListParameters : Parameterizable {
@@ -8289,10 +8536,11 @@ public class Compute : Service {
   public func regionCommitments_list (
     parameters: RegionCommitmentsListParameters,
     completion: @escaping (CommitmentList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/regions/{region}/commitments",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/regions/{region}/commitments",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionDiskTypesGetParameters : Parameterizable {
@@ -8310,10 +8558,11 @@ public class Compute : Service {
   public func regionDiskTypes_get (
     parameters: RegionDiskTypesGetParameters,
     completion: @escaping (DiskType?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/regions/{region}/diskTypes/{diskType}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/regions/{region}/diskTypes/{diskType}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionDiskTypesListParameters : Parameterizable {
@@ -8334,10 +8583,11 @@ public class Compute : Service {
   public func regionDiskTypes_list (
     parameters: RegionDiskTypesListParameters,
     completion: @escaping (RegionDiskTypeList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/regions/{region}/diskTypes",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/regions/{region}/diskTypes",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionDisksCreateSnapshotParameters : Parameterizable {
@@ -8357,11 +8607,12 @@ public class Compute : Service {
     request: Snapshot,
     parameters: RegionDisksCreateSnapshotParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/regions/{region}/disks/{disk}/createSnapshot",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/regions/{region}/disks/{disk}/createSnapshot",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionDisksDeleteParameters : Parameterizable {
@@ -8380,10 +8631,11 @@ public class Compute : Service {
   public func regionDisks_delete (
     parameters: RegionDisksDeleteParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/regions/{region}/disks/{disk}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/regions/{region}/disks/{disk}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionDisksGetParameters : Parameterizable {
@@ -8401,10 +8653,11 @@ public class Compute : Service {
   public func regionDisks_get (
     parameters: RegionDisksGetParameters,
     completion: @escaping (Disk?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/regions/{region}/disks/{disk}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/regions/{region}/disks/{disk}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionDisksInsertParameters : Parameterizable {
@@ -8424,11 +8677,12 @@ public class Compute : Service {
     request: Disk,
     parameters: RegionDisksInsertParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/regions/{region}/disks",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/regions/{region}/disks",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionDisksListParameters : Parameterizable {
@@ -8449,10 +8703,11 @@ public class Compute : Service {
   public func regionDisks_list (
     parameters: RegionDisksListParameters,
     completion: @escaping (DiskList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/regions/{region}/disks",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/regions/{region}/disks",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionDisksResizeParameters : Parameterizable {
@@ -8472,11 +8727,12 @@ public class Compute : Service {
     request: RegionDisksResizeRequest,
     parameters: RegionDisksResizeParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/regions/{region}/disks/{disk}/resize",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/regions/{region}/disks/{disk}/resize",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionDisksSetLabelsParameters : Parameterizable {
@@ -8496,11 +8752,12 @@ public class Compute : Service {
     request: RegionSetLabelsRequest,
     parameters: RegionDisksSetLabelsParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/regions/{region}/disks/{resource}/setLabels",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/regions/{region}/disks/{resource}/setLabels",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionDisksTestIamPermissionsParameters : Parameterizable {
@@ -8519,11 +8776,12 @@ public class Compute : Service {
     request: TestPermissionsRequest,
     parameters: RegionDisksTestIamPermissionsParameters,
     completion: @escaping (TestPermissionsResponse?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/regions/{region}/disks/{resource}/testIamPermissions",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/regions/{region}/disks/{resource}/testIamPermissions",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionInstanceGroupManagersAbandonInstancesParameters : Parameterizable {
@@ -8543,11 +8801,12 @@ public class Compute : Service {
     request: RegionInstanceGroupManagersAbandonInstancesRequest,
     parameters: RegionInstanceGroupManagersAbandonInstancesParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/abandonInstances",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/abandonInstances",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionInstanceGroupManagersDeleteParameters : Parameterizable {
@@ -8566,10 +8825,11 @@ public class Compute : Service {
   public func regionInstanceGroupManagers_delete (
     parameters: RegionInstanceGroupManagersDeleteParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionInstanceGroupManagersDeleteInstancesParameters : Parameterizable {
@@ -8589,11 +8849,12 @@ public class Compute : Service {
     request: RegionInstanceGroupManagersDeleteInstancesRequest,
     parameters: RegionInstanceGroupManagersDeleteInstancesParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/deleteInstances",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/deleteInstances",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionInstanceGroupManagersGetParameters : Parameterizable {
@@ -8611,10 +8872,11 @@ public class Compute : Service {
   public func regionInstanceGroupManagers_get (
     parameters: RegionInstanceGroupManagersGetParameters,
     completion: @escaping (InstanceGroupManager?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionInstanceGroupManagersInsertParameters : Parameterizable {
@@ -8633,11 +8895,12 @@ public class Compute : Service {
     request: InstanceGroupManager,
     parameters: RegionInstanceGroupManagersInsertParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/regions/{region}/instanceGroupManagers",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/regions/{region}/instanceGroupManagers",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionInstanceGroupManagersListParameters : Parameterizable {
@@ -8658,10 +8921,11 @@ public class Compute : Service {
   public func regionInstanceGroupManagers_list (
     parameters: RegionInstanceGroupManagersListParameters,
     completion: @escaping (RegionInstanceGroupManagerList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/regions/{region}/instanceGroupManagers",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/regions/{region}/instanceGroupManagers",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionInstanceGroupManagersListManagedInstancesParameters : Parameterizable {
@@ -8683,10 +8947,11 @@ public class Compute : Service {
   public func regionInstanceGroupManagers_listManagedInstances (
     parameters: RegionInstanceGroupManagersListManagedInstancesParameters,
     completion: @escaping (RegionInstanceGroupManagersListInstancesResponse?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/listManagedInstances",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/listManagedInstances",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionInstanceGroupManagersPatchParameters : Parameterizable {
@@ -8706,11 +8971,12 @@ public class Compute : Service {
     request: InstanceGroupManager,
     parameters: RegionInstanceGroupManagersPatchParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "PATCH",
-                   path: "{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "PATCH",
+        path: "{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionInstanceGroupManagersRecreateInstancesParameters : Parameterizable {
@@ -8730,11 +8996,12 @@ public class Compute : Service {
     request: RegionInstanceGroupManagersRecreateRequest,
     parameters: RegionInstanceGroupManagersRecreateInstancesParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/recreateInstances",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/recreateInstances",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionInstanceGroupManagersResizeParameters : Parameterizable {
@@ -8754,10 +9021,11 @@ public class Compute : Service {
   public func regionInstanceGroupManagers_resize (
     parameters: RegionInstanceGroupManagersResizeParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/resize",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/resize",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionInstanceGroupManagersSetInstanceTemplateParameters : Parameterizable {
@@ -8777,11 +9045,12 @@ public class Compute : Service {
     request: RegionInstanceGroupManagersSetTemplateRequest,
     parameters: RegionInstanceGroupManagersSetInstanceTemplateParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/setInstanceTemplate",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/setInstanceTemplate",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionInstanceGroupManagersSetTargetPoolsParameters : Parameterizable {
@@ -8801,11 +9070,12 @@ public class Compute : Service {
     request: RegionInstanceGroupManagersSetTargetPoolsRequest,
     parameters: RegionInstanceGroupManagersSetTargetPoolsParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/setTargetPools",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/setTargetPools",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionInstanceGroupsGetParameters : Parameterizable {
@@ -8823,10 +9093,11 @@ public class Compute : Service {
   public func regionInstanceGroups_get (
     parameters: RegionInstanceGroupsGetParameters,
     completion: @escaping (InstanceGroup?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/regions/{region}/instanceGroups/{instanceGroup}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/regions/{region}/instanceGroups/{instanceGroup}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionInstanceGroupsListParameters : Parameterizable {
@@ -8847,10 +9118,11 @@ public class Compute : Service {
   public func regionInstanceGroups_list (
     parameters: RegionInstanceGroupsListParameters,
     completion: @escaping (RegionInstanceGroupList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/regions/{region}/instanceGroups",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/regions/{region}/instanceGroups",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionInstanceGroupsListInstancesParameters : Parameterizable {
@@ -8873,11 +9145,12 @@ public class Compute : Service {
     request: RegionInstanceGroupsListInstancesRequest,
     parameters: RegionInstanceGroupsListInstancesParameters,
     completion: @escaping (RegionInstanceGroupsListInstances?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/regions/{region}/instanceGroups/{instanceGroup}/listInstances",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/regions/{region}/instanceGroups/{instanceGroup}/listInstances",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionInstanceGroupsSetNamedPortsParameters : Parameterizable {
@@ -8897,11 +9170,12 @@ public class Compute : Service {
     request: RegionInstanceGroupsSetNamedPortsRequest,
     parameters: RegionInstanceGroupsSetNamedPortsParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/regions/{region}/instanceGroups/{instanceGroup}/setNamedPorts",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/regions/{region}/instanceGroups/{instanceGroup}/setNamedPorts",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionOperationsDeleteParameters : Parameterizable {
@@ -8919,10 +9193,11 @@ public class Compute : Service {
   public func regionOperations_delete (
     parameters: RegionOperationsDeleteParameters,
     completion: @escaping (Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/regions/{region}/operations/{operation}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/regions/{region}/operations/{operation}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionOperationsGetParameters : Parameterizable {
@@ -8940,10 +9215,11 @@ public class Compute : Service {
   public func regionOperations_get (
     parameters: RegionOperationsGetParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/regions/{region}/operations/{operation}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/regions/{region}/operations/{operation}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionOperationsListParameters : Parameterizable {
@@ -8964,10 +9240,11 @@ public class Compute : Service {
   public func regionOperations_list (
     parameters: RegionOperationsListParameters,
     completion: @escaping (OperationList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/regions/{region}/operations",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/regions/{region}/operations",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionsGetParameters : Parameterizable {
@@ -8984,10 +9261,11 @@ public class Compute : Service {
   public func regions_get (
     parameters: RegionsGetParameters,
     completion: @escaping (Region?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/regions/{region}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/regions/{region}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RegionsListParameters : Parameterizable {
@@ -9007,10 +9285,11 @@ public class Compute : Service {
   public func regions_list (
     parameters: RegionsListParameters,
     completion: @escaping (RegionList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/regions",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/regions",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RoutersAggregatedListParameters : Parameterizable {
@@ -9030,10 +9309,11 @@ public class Compute : Service {
   public func routers_aggregatedList (
     parameters: RoutersAggregatedListParameters,
     completion: @escaping (RouterAggregatedList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/aggregated/routers",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/aggregated/routers",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RoutersDeleteParameters : Parameterizable {
@@ -9052,10 +9332,11 @@ public class Compute : Service {
   public func routers_delete (
     parameters: RoutersDeleteParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/regions/{region}/routers/{router}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/regions/{region}/routers/{router}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RoutersGetParameters : Parameterizable {
@@ -9073,10 +9354,11 @@ public class Compute : Service {
   public func routers_get (
     parameters: RoutersGetParameters,
     completion: @escaping (Router?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/regions/{region}/routers/{router}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/regions/{region}/routers/{router}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RoutersGetNatMappingInfoParameters : Parameterizable {
@@ -9098,10 +9380,11 @@ public class Compute : Service {
   public func routers_getNatMappingInfo (
     parameters: RoutersGetNatMappingInfoParameters,
     completion: @escaping (VmEndpointNatMappingsList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/regions/{region}/routers/{router}/getNatMappingInfo",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/regions/{region}/routers/{router}/getNatMappingInfo",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RoutersGetRouterStatusParameters : Parameterizable {
@@ -9119,10 +9402,11 @@ public class Compute : Service {
   public func routers_getRouterStatus (
     parameters: RoutersGetRouterStatusParameters,
     completion: @escaping (RouterStatusResponse?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/regions/{region}/routers/{router}/getRouterStatus",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/regions/{region}/routers/{router}/getRouterStatus",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RoutersInsertParameters : Parameterizable {
@@ -9141,11 +9425,12 @@ public class Compute : Service {
     request: Router,
     parameters: RoutersInsertParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/regions/{region}/routers",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/regions/{region}/routers",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RoutersListParameters : Parameterizable {
@@ -9166,10 +9451,11 @@ public class Compute : Service {
   public func routers_list (
     parameters: RoutersListParameters,
     completion: @escaping (RouterList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/regions/{region}/routers",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/regions/{region}/routers",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RoutersPatchParameters : Parameterizable {
@@ -9189,11 +9475,12 @@ public class Compute : Service {
     request: Router,
     parameters: RoutersPatchParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "PATCH",
-                   path: "{project}/regions/{region}/routers/{router}",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "PATCH",
+        path: "{project}/regions/{region}/routers/{router}",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RoutersPreviewParameters : Parameterizable {
@@ -9212,11 +9499,12 @@ public class Compute : Service {
     request: Router,
     parameters: RoutersPreviewParameters,
     completion: @escaping (RoutersPreviewResponse?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/regions/{region}/routers/{router}/preview",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/regions/{region}/routers/{router}/preview",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RoutersUpdateParameters : Parameterizable {
@@ -9236,11 +9524,12 @@ public class Compute : Service {
     request: Router,
     parameters: RoutersUpdateParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "PUT",
-                   path: "{project}/regions/{region}/routers/{router}",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "PUT",
+        path: "{project}/regions/{region}/routers/{router}",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RoutesDeleteParameters : Parameterizable {
@@ -9258,10 +9547,11 @@ public class Compute : Service {
   public func routes_delete (
     parameters: RoutesDeleteParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/global/routes/{route}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/global/routes/{route}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RoutesGetParameters : Parameterizable {
@@ -9278,10 +9568,11 @@ public class Compute : Service {
   public func routes_get (
     parameters: RoutesGetParameters,
     completion: @escaping (Route?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/routes/{route}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/routes/{route}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RoutesInsertParameters : Parameterizable {
@@ -9299,11 +9590,12 @@ public class Compute : Service {
     request: Route,
     parameters: RoutesInsertParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/routes",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/routes",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct RoutesListParameters : Parameterizable {
@@ -9323,10 +9615,11 @@ public class Compute : Service {
   public func routes_list (
     parameters: RoutesListParameters,
     completion: @escaping (RouteList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/routes",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/routes",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct SecurityPoliciesAddRuleParameters : Parameterizable {
@@ -9344,11 +9637,12 @@ public class Compute : Service {
     request: SecurityPolicyRule,
     parameters: SecurityPoliciesAddRuleParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/securityPolicies/{securityPolicy}/addRule",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/securityPolicies/{securityPolicy}/addRule",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct SecurityPoliciesDeleteParameters : Parameterizable {
@@ -9366,10 +9660,11 @@ public class Compute : Service {
   public func securityPolicies_delete (
     parameters: SecurityPoliciesDeleteParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/global/securityPolicies/{securityPolicy}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/global/securityPolicies/{securityPolicy}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct SecurityPoliciesGetParameters : Parameterizable {
@@ -9386,10 +9681,11 @@ public class Compute : Service {
   public func securityPolicies_get (
     parameters: SecurityPoliciesGetParameters,
     completion: @escaping (SecurityPolicy?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/securityPolicies/{securityPolicy}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/securityPolicies/{securityPolicy}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct SecurityPoliciesGetRuleParameters : Parameterizable {
@@ -9407,10 +9703,11 @@ public class Compute : Service {
   public func securityPolicies_getRule (
     parameters: SecurityPoliciesGetRuleParameters,
     completion: @escaping (SecurityPolicyRule?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/securityPolicies/{securityPolicy}/getRule",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/securityPolicies/{securityPolicy}/getRule",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct SecurityPoliciesInsertParameters : Parameterizable {
@@ -9428,11 +9725,12 @@ public class Compute : Service {
     request: SecurityPolicy,
     parameters: SecurityPoliciesInsertParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/securityPolicies",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/securityPolicies",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct SecurityPoliciesListParameters : Parameterizable {
@@ -9452,10 +9750,11 @@ public class Compute : Service {
   public func securityPolicies_list (
     parameters: SecurityPoliciesListParameters,
     completion: @escaping (SecurityPolicyList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/securityPolicies",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/securityPolicies",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct SecurityPoliciesPatchParameters : Parameterizable {
@@ -9474,11 +9773,12 @@ public class Compute : Service {
     request: SecurityPolicy,
     parameters: SecurityPoliciesPatchParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "PATCH",
-                   path: "{project}/global/securityPolicies/{securityPolicy}",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "PATCH",
+        path: "{project}/global/securityPolicies/{securityPolicy}",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct SecurityPoliciesPatchRuleParameters : Parameterizable {
@@ -9497,11 +9797,12 @@ public class Compute : Service {
     request: SecurityPolicyRule,
     parameters: SecurityPoliciesPatchRuleParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/securityPolicies/{securityPolicy}/patchRule",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/securityPolicies/{securityPolicy}/patchRule",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct SecurityPoliciesRemoveRuleParameters : Parameterizable {
@@ -9519,10 +9820,11 @@ public class Compute : Service {
   public func securityPolicies_removeRule (
     parameters: SecurityPoliciesRemoveRuleParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/securityPolicies/{securityPolicy}/removeRule",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/securityPolicies/{securityPolicy}/removeRule",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct SnapshotsDeleteParameters : Parameterizable {
@@ -9540,10 +9842,11 @@ public class Compute : Service {
   public func snapshots_delete (
     parameters: SnapshotsDeleteParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/global/snapshots/{snapshot}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/global/snapshots/{snapshot}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct SnapshotsGetParameters : Parameterizable {
@@ -9560,10 +9863,11 @@ public class Compute : Service {
   public func snapshots_get (
     parameters: SnapshotsGetParameters,
     completion: @escaping (Snapshot?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/snapshots/{snapshot}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/snapshots/{snapshot}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct SnapshotsGetIamPolicyParameters : Parameterizable {
@@ -9580,10 +9884,11 @@ public class Compute : Service {
   public func snapshots_getIamPolicy (
     parameters: SnapshotsGetIamPolicyParameters,
     completion: @escaping (Policy?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/snapshots/{resource}/getIamPolicy",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/snapshots/{resource}/getIamPolicy",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct SnapshotsListParameters : Parameterizable {
@@ -9603,10 +9908,11 @@ public class Compute : Service {
   public func snapshots_list (
     parameters: SnapshotsListParameters,
     completion: @escaping (SnapshotList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/snapshots",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/snapshots",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct SnapshotsSetIamPolicyParameters : Parameterizable {
@@ -9624,11 +9930,12 @@ public class Compute : Service {
     request: GlobalSetPolicyRequest,
     parameters: SnapshotsSetIamPolicyParameters,
     completion: @escaping (Policy?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/snapshots/{resource}/setIamPolicy",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/snapshots/{resource}/setIamPolicy",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct SnapshotsSetLabelsParameters : Parameterizable {
@@ -9646,11 +9953,12 @@ public class Compute : Service {
     request: GlobalSetLabelsRequest,
     parameters: SnapshotsSetLabelsParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/snapshots/{resource}/setLabels",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/snapshots/{resource}/setLabels",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct SnapshotsTestIamPermissionsParameters : Parameterizable {
@@ -9668,11 +9976,12 @@ public class Compute : Service {
     request: TestPermissionsRequest,
     parameters: SnapshotsTestIamPermissionsParameters,
     completion: @escaping (TestPermissionsResponse?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/snapshots/{resource}/testIamPermissions",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/snapshots/{resource}/testIamPermissions",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct SslCertificatesDeleteParameters : Parameterizable {
@@ -9690,10 +9999,11 @@ public class Compute : Service {
   public func sslCertificates_delete (
     parameters: SslCertificatesDeleteParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/global/sslCertificates/{sslCertificate}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/global/sslCertificates/{sslCertificate}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct SslCertificatesGetParameters : Parameterizable {
@@ -9710,10 +10020,11 @@ public class Compute : Service {
   public func sslCertificates_get (
     parameters: SslCertificatesGetParameters,
     completion: @escaping (SslCertificate?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/sslCertificates/{sslCertificate}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/sslCertificates/{sslCertificate}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct SslCertificatesInsertParameters : Parameterizable {
@@ -9731,11 +10042,12 @@ public class Compute : Service {
     request: SslCertificate,
     parameters: SslCertificatesInsertParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/sslCertificates",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/sslCertificates",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct SslCertificatesListParameters : Parameterizable {
@@ -9755,10 +10067,11 @@ public class Compute : Service {
   public func sslCertificates_list (
     parameters: SslCertificatesListParameters,
     completion: @escaping (SslCertificateList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/sslCertificates",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/sslCertificates",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct SslPoliciesDeleteParameters : Parameterizable {
@@ -9776,10 +10089,11 @@ public class Compute : Service {
   public func sslPolicies_delete (
     parameters: SslPoliciesDeleteParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/global/sslPolicies/{sslPolicy}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/global/sslPolicies/{sslPolicy}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct SslPoliciesGetParameters : Parameterizable {
@@ -9796,10 +10110,11 @@ public class Compute : Service {
   public func sslPolicies_get (
     parameters: SslPoliciesGetParameters,
     completion: @escaping (SslPolicy?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/sslPolicies/{sslPolicy}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/sslPolicies/{sslPolicy}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct SslPoliciesInsertParameters : Parameterizable {
@@ -9817,11 +10132,12 @@ public class Compute : Service {
     request: SslPolicy,
     parameters: SslPoliciesInsertParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/sslPolicies",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/sslPolicies",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct SslPoliciesListParameters : Parameterizable {
@@ -9841,10 +10157,11 @@ public class Compute : Service {
   public func sslPolicies_list (
     parameters: SslPoliciesListParameters,
     completion: @escaping (SslPoliciesList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/sslPolicies",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/sslPolicies",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct SslPoliciesListAvailableFeaturesParameters : Parameterizable {
@@ -9864,10 +10181,11 @@ public class Compute : Service {
   public func sslPolicies_listAvailableFeatures (
     parameters: SslPoliciesListAvailableFeaturesParameters,
     completion: @escaping (SslPoliciesListAvailableFeaturesResponse?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/sslPolicies/listAvailableFeatures",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/sslPolicies/listAvailableFeatures",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct SslPoliciesPatchParameters : Parameterizable {
@@ -9886,11 +10204,12 @@ public class Compute : Service {
     request: SslPolicy,
     parameters: SslPoliciesPatchParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "PATCH",
-                   path: "{project}/global/sslPolicies/{sslPolicy}",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "PATCH",
+        path: "{project}/global/sslPolicies/{sslPolicy}",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct SubnetworksAggregatedListParameters : Parameterizable {
@@ -9910,10 +10229,11 @@ public class Compute : Service {
   public func subnetworks_aggregatedList (
     parameters: SubnetworksAggregatedListParameters,
     completion: @escaping (SubnetworkAggregatedList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/aggregated/subnetworks",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/aggregated/subnetworks",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct SubnetworksDeleteParameters : Parameterizable {
@@ -9932,10 +10252,11 @@ public class Compute : Service {
   public func subnetworks_delete (
     parameters: SubnetworksDeleteParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/regions/{region}/subnetworks/{subnetwork}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/regions/{region}/subnetworks/{subnetwork}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct SubnetworksExpandIpCidrRangeParameters : Parameterizable {
@@ -9955,11 +10276,12 @@ public class Compute : Service {
     request: SubnetworksExpandIpCidrRangeRequest,
     parameters: SubnetworksExpandIpCidrRangeParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/regions/{region}/subnetworks/{subnetwork}/expandIpCidrRange",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/regions/{region}/subnetworks/{subnetwork}/expandIpCidrRange",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct SubnetworksGetParameters : Parameterizable {
@@ -9977,10 +10299,11 @@ public class Compute : Service {
   public func subnetworks_get (
     parameters: SubnetworksGetParameters,
     completion: @escaping (Subnetwork?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/regions/{region}/subnetworks/{subnetwork}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/regions/{region}/subnetworks/{subnetwork}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct SubnetworksGetIamPolicyParameters : Parameterizable {
@@ -9998,10 +10321,11 @@ public class Compute : Service {
   public func subnetworks_getIamPolicy (
     parameters: SubnetworksGetIamPolicyParameters,
     completion: @escaping (Policy?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/regions/{region}/subnetworks/{resource}/getIamPolicy",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/regions/{region}/subnetworks/{resource}/getIamPolicy",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct SubnetworksInsertParameters : Parameterizable {
@@ -10020,11 +10344,12 @@ public class Compute : Service {
     request: Subnetwork,
     parameters: SubnetworksInsertParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/regions/{region}/subnetworks",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/regions/{region}/subnetworks",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct SubnetworksListParameters : Parameterizable {
@@ -10045,10 +10370,11 @@ public class Compute : Service {
   public func subnetworks_list (
     parameters: SubnetworksListParameters,
     completion: @escaping (SubnetworkList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/regions/{region}/subnetworks",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/regions/{region}/subnetworks",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct SubnetworksListUsableParameters : Parameterizable {
@@ -10068,10 +10394,11 @@ public class Compute : Service {
   public func subnetworks_listUsable (
     parameters: SubnetworksListUsableParameters,
     completion: @escaping (UsableSubnetworksAggregatedList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/aggregated/subnetworks/listUsable",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/aggregated/subnetworks/listUsable",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct SubnetworksPatchParameters : Parameterizable {
@@ -10091,11 +10418,12 @@ public class Compute : Service {
     request: Subnetwork,
     parameters: SubnetworksPatchParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "PATCH",
-                   path: "{project}/regions/{region}/subnetworks/{subnetwork}",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "PATCH",
+        path: "{project}/regions/{region}/subnetworks/{subnetwork}",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct SubnetworksSetIamPolicyParameters : Parameterizable {
@@ -10114,11 +10442,12 @@ public class Compute : Service {
     request: RegionSetPolicyRequest,
     parameters: SubnetworksSetIamPolicyParameters,
     completion: @escaping (Policy?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/regions/{region}/subnetworks/{resource}/setIamPolicy",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/regions/{region}/subnetworks/{resource}/setIamPolicy",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct SubnetworksSetPrivateIpGoogleAccessParameters : Parameterizable {
@@ -10138,11 +10467,12 @@ public class Compute : Service {
     request: SubnetworksSetPrivateIpGoogleAccessRequest,
     parameters: SubnetworksSetPrivateIpGoogleAccessParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/regions/{region}/subnetworks/{subnetwork}/setPrivateIpGoogleAccess",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/regions/{region}/subnetworks/{subnetwork}/setPrivateIpGoogleAccess",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct SubnetworksTestIamPermissionsParameters : Parameterizable {
@@ -10161,11 +10491,12 @@ public class Compute : Service {
     request: TestPermissionsRequest,
     parameters: SubnetworksTestIamPermissionsParameters,
     completion: @escaping (TestPermissionsResponse?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/regions/{region}/subnetworks/{resource}/testIamPermissions",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/regions/{region}/subnetworks/{resource}/testIamPermissions",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetHttpProxiesDeleteParameters : Parameterizable {
@@ -10183,10 +10514,11 @@ public class Compute : Service {
   public func targetHttpProxies_delete (
     parameters: TargetHttpProxiesDeleteParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/global/targetHttpProxies/{targetHttpProxy}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/global/targetHttpProxies/{targetHttpProxy}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetHttpProxiesGetParameters : Parameterizable {
@@ -10203,10 +10535,11 @@ public class Compute : Service {
   public func targetHttpProxies_get (
     parameters: TargetHttpProxiesGetParameters,
     completion: @escaping (TargetHttpProxy?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/targetHttpProxies/{targetHttpProxy}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/targetHttpProxies/{targetHttpProxy}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetHttpProxiesInsertParameters : Parameterizable {
@@ -10224,11 +10557,12 @@ public class Compute : Service {
     request: TargetHttpProxy,
     parameters: TargetHttpProxiesInsertParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/targetHttpProxies",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/targetHttpProxies",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetHttpProxiesListParameters : Parameterizable {
@@ -10248,10 +10582,11 @@ public class Compute : Service {
   public func targetHttpProxies_list (
     parameters: TargetHttpProxiesListParameters,
     completion: @escaping (TargetHttpProxyList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/targetHttpProxies",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/targetHttpProxies",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetHttpProxiesSetUrlMapParameters : Parameterizable {
@@ -10270,11 +10605,12 @@ public class Compute : Service {
     request: UrlMapReference,
     parameters: TargetHttpProxiesSetUrlMapParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/targetHttpProxies/{targetHttpProxy}/setUrlMap",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/targetHttpProxies/{targetHttpProxy}/setUrlMap",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetHttpsProxiesDeleteParameters : Parameterizable {
@@ -10292,10 +10628,11 @@ public class Compute : Service {
   public func targetHttpsProxies_delete (
     parameters: TargetHttpsProxiesDeleteParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/global/targetHttpsProxies/{targetHttpsProxy}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/global/targetHttpsProxies/{targetHttpsProxy}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetHttpsProxiesGetParameters : Parameterizable {
@@ -10312,10 +10649,11 @@ public class Compute : Service {
   public func targetHttpsProxies_get (
     parameters: TargetHttpsProxiesGetParameters,
     completion: @escaping (TargetHttpsProxy?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/targetHttpsProxies/{targetHttpsProxy}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/targetHttpsProxies/{targetHttpsProxy}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetHttpsProxiesInsertParameters : Parameterizable {
@@ -10333,11 +10671,12 @@ public class Compute : Service {
     request: TargetHttpsProxy,
     parameters: TargetHttpsProxiesInsertParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/targetHttpsProxies",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/targetHttpsProxies",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetHttpsProxiesListParameters : Parameterizable {
@@ -10357,10 +10696,11 @@ public class Compute : Service {
   public func targetHttpsProxies_list (
     parameters: TargetHttpsProxiesListParameters,
     completion: @escaping (TargetHttpsProxyList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/targetHttpsProxies",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/targetHttpsProxies",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetHttpsProxiesSetQuicOverrideParameters : Parameterizable {
@@ -10379,11 +10719,12 @@ public class Compute : Service {
     request: TargetHttpsProxiesSetQuicOverrideRequest,
     parameters: TargetHttpsProxiesSetQuicOverrideParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/targetHttpsProxies/{targetHttpsProxy}/setQuicOverride",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/targetHttpsProxies/{targetHttpsProxy}/setQuicOverride",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetHttpsProxiesSetSslCertificatesParameters : Parameterizable {
@@ -10402,11 +10743,12 @@ public class Compute : Service {
     request: TargetHttpsProxiesSetSslCertificatesRequest,
     parameters: TargetHttpsProxiesSetSslCertificatesParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/targetHttpsProxies/{targetHttpsProxy}/setSslCertificates",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/targetHttpsProxies/{targetHttpsProxy}/setSslCertificates",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetHttpsProxiesSetSslPolicyParameters : Parameterizable {
@@ -10425,11 +10767,12 @@ public class Compute : Service {
     request: SslPolicyReference,
     parameters: TargetHttpsProxiesSetSslPolicyParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/targetHttpsProxies/{targetHttpsProxy}/setSslPolicy",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/targetHttpsProxies/{targetHttpsProxy}/setSslPolicy",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetHttpsProxiesSetUrlMapParameters : Parameterizable {
@@ -10448,11 +10791,12 @@ public class Compute : Service {
     request: UrlMapReference,
     parameters: TargetHttpsProxiesSetUrlMapParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/targetHttpsProxies/{targetHttpsProxy}/setUrlMap",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/targetHttpsProxies/{targetHttpsProxy}/setUrlMap",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetInstancesAggregatedListParameters : Parameterizable {
@@ -10472,10 +10816,11 @@ public class Compute : Service {
   public func targetInstances_aggregatedList (
     parameters: TargetInstancesAggregatedListParameters,
     completion: @escaping (TargetInstanceAggregatedList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/aggregated/targetInstances",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/aggregated/targetInstances",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetInstancesDeleteParameters : Parameterizable {
@@ -10494,10 +10839,11 @@ public class Compute : Service {
   public func targetInstances_delete (
     parameters: TargetInstancesDeleteParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/zones/{zone}/targetInstances/{targetInstance}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/zones/{zone}/targetInstances/{targetInstance}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetInstancesGetParameters : Parameterizable {
@@ -10515,10 +10861,11 @@ public class Compute : Service {
   public func targetInstances_get (
     parameters: TargetInstancesGetParameters,
     completion: @escaping (TargetInstance?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/zones/{zone}/targetInstances/{targetInstance}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/zones/{zone}/targetInstances/{targetInstance}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetInstancesInsertParameters : Parameterizable {
@@ -10537,11 +10884,12 @@ public class Compute : Service {
     request: TargetInstance,
     parameters: TargetInstancesInsertParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/zones/{zone}/targetInstances",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/zones/{zone}/targetInstances",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetInstancesListParameters : Parameterizable {
@@ -10562,10 +10910,11 @@ public class Compute : Service {
   public func targetInstances_list (
     parameters: TargetInstancesListParameters,
     completion: @escaping (TargetInstanceList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/zones/{zone}/targetInstances",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/zones/{zone}/targetInstances",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetPoolsAddHealthCheckParameters : Parameterizable {
@@ -10585,11 +10934,12 @@ public class Compute : Service {
     request: TargetPoolsAddHealthCheckRequest,
     parameters: TargetPoolsAddHealthCheckParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/regions/{region}/targetPools/{targetPool}/addHealthCheck",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/regions/{region}/targetPools/{targetPool}/addHealthCheck",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetPoolsAddInstanceParameters : Parameterizable {
@@ -10609,11 +10959,12 @@ public class Compute : Service {
     request: TargetPoolsAddInstanceRequest,
     parameters: TargetPoolsAddInstanceParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/regions/{region}/targetPools/{targetPool}/addInstance",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/regions/{region}/targetPools/{targetPool}/addInstance",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetPoolsAggregatedListParameters : Parameterizable {
@@ -10633,10 +10984,11 @@ public class Compute : Service {
   public func targetPools_aggregatedList (
     parameters: TargetPoolsAggregatedListParameters,
     completion: @escaping (TargetPoolAggregatedList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/aggregated/targetPools",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/aggregated/targetPools",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetPoolsDeleteParameters : Parameterizable {
@@ -10655,10 +11007,11 @@ public class Compute : Service {
   public func targetPools_delete (
     parameters: TargetPoolsDeleteParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/regions/{region}/targetPools/{targetPool}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/regions/{region}/targetPools/{targetPool}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetPoolsGetParameters : Parameterizable {
@@ -10676,10 +11029,11 @@ public class Compute : Service {
   public func targetPools_get (
     parameters: TargetPoolsGetParameters,
     completion: @escaping (TargetPool?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/regions/{region}/targetPools/{targetPool}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/regions/{region}/targetPools/{targetPool}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetPoolsGetHealthParameters : Parameterizable {
@@ -10698,11 +11052,12 @@ public class Compute : Service {
     request: InstanceReference,
     parameters: TargetPoolsGetHealthParameters,
     completion: @escaping (TargetPoolInstanceHealth?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/regions/{region}/targetPools/{targetPool}/getHealth",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/regions/{region}/targetPools/{targetPool}/getHealth",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetPoolsInsertParameters : Parameterizable {
@@ -10721,11 +11076,12 @@ public class Compute : Service {
     request: TargetPool,
     parameters: TargetPoolsInsertParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/regions/{region}/targetPools",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/regions/{region}/targetPools",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetPoolsListParameters : Parameterizable {
@@ -10746,10 +11102,11 @@ public class Compute : Service {
   public func targetPools_list (
     parameters: TargetPoolsListParameters,
     completion: @escaping (TargetPoolList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/regions/{region}/targetPools",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/regions/{region}/targetPools",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetPoolsRemoveHealthCheckParameters : Parameterizable {
@@ -10769,11 +11126,12 @@ public class Compute : Service {
     request: TargetPoolsRemoveHealthCheckRequest,
     parameters: TargetPoolsRemoveHealthCheckParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/regions/{region}/targetPools/{targetPool}/removeHealthCheck",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/regions/{region}/targetPools/{targetPool}/removeHealthCheck",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetPoolsRemoveInstanceParameters : Parameterizable {
@@ -10793,11 +11151,12 @@ public class Compute : Service {
     request: TargetPoolsRemoveInstanceRequest,
     parameters: TargetPoolsRemoveInstanceParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/regions/{region}/targetPools/{targetPool}/removeInstance",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/regions/{region}/targetPools/{targetPool}/removeInstance",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetPoolsSetBackupParameters : Parameterizable {
@@ -10818,11 +11177,12 @@ public class Compute : Service {
     request: TargetReference,
     parameters: TargetPoolsSetBackupParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/regions/{region}/targetPools/{targetPool}/setBackup",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/regions/{region}/targetPools/{targetPool}/setBackup",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetSslProxiesDeleteParameters : Parameterizable {
@@ -10840,10 +11200,11 @@ public class Compute : Service {
   public func targetSslProxies_delete (
     parameters: TargetSslProxiesDeleteParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/global/targetSslProxies/{targetSslProxy}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/global/targetSslProxies/{targetSslProxy}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetSslProxiesGetParameters : Parameterizable {
@@ -10860,10 +11221,11 @@ public class Compute : Service {
   public func targetSslProxies_get (
     parameters: TargetSslProxiesGetParameters,
     completion: @escaping (TargetSslProxy?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/targetSslProxies/{targetSslProxy}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/targetSslProxies/{targetSslProxy}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetSslProxiesInsertParameters : Parameterizable {
@@ -10881,11 +11243,12 @@ public class Compute : Service {
     request: TargetSslProxy,
     parameters: TargetSslProxiesInsertParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/targetSslProxies",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/targetSslProxies",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetSslProxiesListParameters : Parameterizable {
@@ -10905,10 +11268,11 @@ public class Compute : Service {
   public func targetSslProxies_list (
     parameters: TargetSslProxiesListParameters,
     completion: @escaping (TargetSslProxyList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/targetSslProxies",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/targetSslProxies",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetSslProxiesSetBackendServiceParameters : Parameterizable {
@@ -10927,11 +11291,12 @@ public class Compute : Service {
     request: TargetSslProxiesSetBackendServiceRequest,
     parameters: TargetSslProxiesSetBackendServiceParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/targetSslProxies/{targetSslProxy}/setBackendService",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/targetSslProxies/{targetSslProxy}/setBackendService",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetSslProxiesSetProxyHeaderParameters : Parameterizable {
@@ -10950,11 +11315,12 @@ public class Compute : Service {
     request: TargetSslProxiesSetProxyHeaderRequest,
     parameters: TargetSslProxiesSetProxyHeaderParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/targetSslProxies/{targetSslProxy}/setProxyHeader",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/targetSslProxies/{targetSslProxy}/setProxyHeader",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetSslProxiesSetSslCertificatesParameters : Parameterizable {
@@ -10973,11 +11339,12 @@ public class Compute : Service {
     request: TargetSslProxiesSetSslCertificatesRequest,
     parameters: TargetSslProxiesSetSslCertificatesParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/targetSslProxies/{targetSslProxy}/setSslCertificates",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/targetSslProxies/{targetSslProxy}/setSslCertificates",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetSslProxiesSetSslPolicyParameters : Parameterizable {
@@ -10996,11 +11363,12 @@ public class Compute : Service {
     request: SslPolicyReference,
     parameters: TargetSslProxiesSetSslPolicyParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/targetSslProxies/{targetSslProxy}/setSslPolicy",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/targetSslProxies/{targetSslProxy}/setSslPolicy",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetTcpProxiesDeleteParameters : Parameterizable {
@@ -11018,10 +11386,11 @@ public class Compute : Service {
   public func targetTcpProxies_delete (
     parameters: TargetTcpProxiesDeleteParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/global/targetTcpProxies/{targetTcpProxy}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/global/targetTcpProxies/{targetTcpProxy}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetTcpProxiesGetParameters : Parameterizable {
@@ -11038,10 +11407,11 @@ public class Compute : Service {
   public func targetTcpProxies_get (
     parameters: TargetTcpProxiesGetParameters,
     completion: @escaping (TargetTcpProxy?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/targetTcpProxies/{targetTcpProxy}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/targetTcpProxies/{targetTcpProxy}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetTcpProxiesInsertParameters : Parameterizable {
@@ -11059,11 +11429,12 @@ public class Compute : Service {
     request: TargetTcpProxy,
     parameters: TargetTcpProxiesInsertParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/targetTcpProxies",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/targetTcpProxies",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetTcpProxiesListParameters : Parameterizable {
@@ -11083,10 +11454,11 @@ public class Compute : Service {
   public func targetTcpProxies_list (
     parameters: TargetTcpProxiesListParameters,
     completion: @escaping (TargetTcpProxyList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/targetTcpProxies",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/targetTcpProxies",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetTcpProxiesSetBackendServiceParameters : Parameterizable {
@@ -11105,11 +11477,12 @@ public class Compute : Service {
     request: TargetTcpProxiesSetBackendServiceRequest,
     parameters: TargetTcpProxiesSetBackendServiceParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/targetTcpProxies/{targetTcpProxy}/setBackendService",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/targetTcpProxies/{targetTcpProxy}/setBackendService",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetTcpProxiesSetProxyHeaderParameters : Parameterizable {
@@ -11128,11 +11501,12 @@ public class Compute : Service {
     request: TargetTcpProxiesSetProxyHeaderRequest,
     parameters: TargetTcpProxiesSetProxyHeaderParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/targetTcpProxies/{targetTcpProxy}/setProxyHeader",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/targetTcpProxies/{targetTcpProxy}/setProxyHeader",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetVpnGatewaysAggregatedListParameters : Parameterizable {
@@ -11152,10 +11526,11 @@ public class Compute : Service {
   public func targetVpnGateways_aggregatedList (
     parameters: TargetVpnGatewaysAggregatedListParameters,
     completion: @escaping (TargetVpnGatewayAggregatedList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/aggregated/targetVpnGateways",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/aggregated/targetVpnGateways",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetVpnGatewaysDeleteParameters : Parameterizable {
@@ -11174,10 +11549,11 @@ public class Compute : Service {
   public func targetVpnGateways_delete (
     parameters: TargetVpnGatewaysDeleteParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/regions/{region}/targetVpnGateways/{targetVpnGateway}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/regions/{region}/targetVpnGateways/{targetVpnGateway}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetVpnGatewaysGetParameters : Parameterizable {
@@ -11195,10 +11571,11 @@ public class Compute : Service {
   public func targetVpnGateways_get (
     parameters: TargetVpnGatewaysGetParameters,
     completion: @escaping (TargetVpnGateway?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/regions/{region}/targetVpnGateways/{targetVpnGateway}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/regions/{region}/targetVpnGateways/{targetVpnGateway}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetVpnGatewaysInsertParameters : Parameterizable {
@@ -11217,11 +11594,12 @@ public class Compute : Service {
     request: TargetVpnGateway,
     parameters: TargetVpnGatewaysInsertParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/regions/{region}/targetVpnGateways",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/regions/{region}/targetVpnGateways",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TargetVpnGatewaysListParameters : Parameterizable {
@@ -11242,10 +11620,11 @@ public class Compute : Service {
   public func targetVpnGateways_list (
     parameters: TargetVpnGatewaysListParameters,
     completion: @escaping (TargetVpnGatewayList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/regions/{region}/targetVpnGateways",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/regions/{region}/targetVpnGateways",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct UrlMapsDeleteParameters : Parameterizable {
@@ -11263,10 +11642,11 @@ public class Compute : Service {
   public func urlMaps_delete (
     parameters: UrlMapsDeleteParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/global/urlMaps/{urlMap}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/global/urlMaps/{urlMap}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct UrlMapsGetParameters : Parameterizable {
@@ -11283,10 +11663,11 @@ public class Compute : Service {
   public func urlMaps_get (
     parameters: UrlMapsGetParameters,
     completion: @escaping (UrlMap?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/urlMaps/{urlMap}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/urlMaps/{urlMap}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct UrlMapsInsertParameters : Parameterizable {
@@ -11304,11 +11685,12 @@ public class Compute : Service {
     request: UrlMap,
     parameters: UrlMapsInsertParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/urlMaps",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/urlMaps",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct UrlMapsInvalidateCacheParameters : Parameterizable {
@@ -11327,11 +11709,12 @@ public class Compute : Service {
     request: CacheInvalidationRule,
     parameters: UrlMapsInvalidateCacheParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/urlMaps/{urlMap}/invalidateCache",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/urlMaps/{urlMap}/invalidateCache",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct UrlMapsListParameters : Parameterizable {
@@ -11351,10 +11734,11 @@ public class Compute : Service {
   public func urlMaps_list (
     parameters: UrlMapsListParameters,
     completion: @escaping (UrlMapList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/global/urlMaps",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/global/urlMaps",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct UrlMapsPatchParameters : Parameterizable {
@@ -11373,11 +11757,12 @@ public class Compute : Service {
     request: UrlMap,
     parameters: UrlMapsPatchParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "PATCH",
-                   path: "{project}/global/urlMaps/{urlMap}",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "PATCH",
+        path: "{project}/global/urlMaps/{urlMap}",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct UrlMapsUpdateParameters : Parameterizable {
@@ -11396,11 +11781,12 @@ public class Compute : Service {
     request: UrlMap,
     parameters: UrlMapsUpdateParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "PUT",
-                   path: "{project}/global/urlMaps/{urlMap}",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "PUT",
+        path: "{project}/global/urlMaps/{urlMap}",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct UrlMapsValidateParameters : Parameterizable {
@@ -11418,11 +11804,12 @@ public class Compute : Service {
     request: UrlMapsValidateRequest,
     parameters: UrlMapsValidateParameters,
     completion: @escaping (UrlMapsValidateResponse?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/global/urlMaps/{urlMap}/validate",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/global/urlMaps/{urlMap}/validate",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct VpnTunnelsAggregatedListParameters : Parameterizable {
@@ -11442,10 +11829,11 @@ public class Compute : Service {
   public func vpnTunnels_aggregatedList (
     parameters: VpnTunnelsAggregatedListParameters,
     completion: @escaping (VpnTunnelAggregatedList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/aggregated/vpnTunnels",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/aggregated/vpnTunnels",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct VpnTunnelsDeleteParameters : Parameterizable {
@@ -11464,10 +11852,11 @@ public class Compute : Service {
   public func vpnTunnels_delete (
     parameters: VpnTunnelsDeleteParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/regions/{region}/vpnTunnels/{vpnTunnel}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/regions/{region}/vpnTunnels/{vpnTunnel}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct VpnTunnelsGetParameters : Parameterizable {
@@ -11485,10 +11874,11 @@ public class Compute : Service {
   public func vpnTunnels_get (
     parameters: VpnTunnelsGetParameters,
     completion: @escaping (VpnTunnel?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/regions/{region}/vpnTunnels/{vpnTunnel}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/regions/{region}/vpnTunnels/{vpnTunnel}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct VpnTunnelsInsertParameters : Parameterizable {
@@ -11507,11 +11897,12 @@ public class Compute : Service {
     request: VpnTunnel,
     parameters: VpnTunnelsInsertParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "{project}/regions/{region}/vpnTunnels",
-                   request: request,
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "{project}/regions/{region}/vpnTunnels",
+        request: request,
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct VpnTunnelsListParameters : Parameterizable {
@@ -11532,10 +11923,11 @@ public class Compute : Service {
   public func vpnTunnels_list (
     parameters: VpnTunnelsListParameters,
     completion: @escaping (VpnTunnelList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/regions/{region}/vpnTunnels",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/regions/{region}/vpnTunnels",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct ZoneOperationsDeleteParameters : Parameterizable {
@@ -11553,10 +11945,11 @@ public class Compute : Service {
   public func zoneOperations_delete (
     parameters: ZoneOperationsDeleteParameters,
     completion: @escaping (Error?) -> ()) throws {
-       try perform(method: "DELETE",
-                   path: "{project}/zones/{zone}/operations/{operation}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "DELETE",
+        path: "{project}/zones/{zone}/operations/{operation}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct ZoneOperationsGetParameters : Parameterizable {
@@ -11574,10 +11967,11 @@ public class Compute : Service {
   public func zoneOperations_get (
     parameters: ZoneOperationsGetParameters,
     completion: @escaping (Operation?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/zones/{zone}/operations/{operation}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/zones/{zone}/operations/{operation}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct ZoneOperationsListParameters : Parameterizable {
@@ -11598,10 +11992,11 @@ public class Compute : Service {
   public func zoneOperations_list (
     parameters: ZoneOperationsListParameters,
     completion: @escaping (OperationList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/zones/{zone}/operations",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/zones/{zone}/operations",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct ZonesGetParameters : Parameterizable {
@@ -11618,10 +12013,11 @@ public class Compute : Service {
   public func zones_get (
     parameters: ZonesGetParameters,
     completion: @escaping (Zone?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/zones/{zone}",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/zones/{zone}",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct ZonesListParameters : Parameterizable {
@@ -11641,10 +12037,11 @@ public class Compute : Service {
   public func zones_list (
     parameters: ZonesListParameters,
     completion: @escaping (ZoneList?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "{project}/zones",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "{project}/zones",
+        parameters: parameters,
+        completion: completion)
   }
 }
 

@@ -12,148 +12,171 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// NOTE: This file is automatically-generated!
 import Foundation
 import Dispatch
 import OAuth2
 import GoogleAPIRuntime
+import Commander
 
-let USE_SERVICE_ACCOUNT = false
-let SERVICE_ACCOUNT_CREDENTIALS = ".credentials/service_account.json"
-
-let CLIENT_CREDENTIALS = "google.json"
-let TOKEN = "google.json"
-
-let content = "Organize the world's information and make it universally accessible and useful."
+let CLIENT_CREDENTIALS = "language.json"
+let TOKEN = "language.json"
 
 func main() throws {
-  let arguments = CommandLine.arguments
-  
-  if arguments.count == 1 {
-    print("Usage: \(arguments[0]) [options]")
+  let scopes = [
+    "https://www.googleapis.com/auth/cloud-language",
+    "https://www.googleapis.com/auth/cloud-platform"]
+
+  guard let tokenProvider = BrowserTokenProvider(credentials:CLIENT_CREDENTIALS, token:TOKEN) else {
     return
   }
-  
-  let scopes = ["https://www.googleapis.com/auth/cloud-platform"]
-  
-  var tokenProvider : TokenProvider
-  #if os(OSX)
-  tokenProvider = BrowserTokenProvider(credentials:CLIENT_CREDENTIALS, token:TOKEN)!
-  #else
-  tokenProvider = DefaultTokenProvider(scopes:scopes)!
-  #endif
-  
-  if USE_SERVICE_ACCOUNT {
-    if #available(OSX 10.12, *) {
-      let homeURL = FileManager.default.homeDirectoryForCurrentUser
-      let credentialsURL = homeURL.appendingPathComponent(SERVICE_ACCOUNT_CREDENTIALS)
-      tokenProvider = ServiceAccountTokenProvider(credentialsURL:credentialsURL,
-                                                  scopes:scopes)!
-    } else {
-      print("This sample requires OSX 10.12 or later.")
-    }
-  }
-  
   let language = try Language(tokenProvider:tokenProvider)
-  
-  if arguments[1] == "login" {
-    #if os(OSX)
-    let browserTokenProvider = tokenProvider as! BrowserTokenProvider
-    try browserTokenProvider.signIn(scopes:scopes)
-    try browserTokenProvider.saveToken(TOKEN)
-    #endif
-  }
-  
-  var document = Language.Document(content: content,
-                                   gcsContentUri: nil,
-                                   language: "en",
-                                   type: "PLAIN_TEXT")
-  
-  if arguments.count > 2 {
-    let path = arguments[2]
-    let data = try Data(contentsOf: URL(fileURLWithPath: path))
-    document.content = String(data:data, encoding:.utf8)
-  }
-  
-  if arguments[1] == "analyzeEntities" {
-    let request = Language.AnalyzeEntitiesRequest(document: document,
-                                                  encodingType: "UTF8")
-    let sem = DispatchSemaphore(value: 0)
-    try language.documents_analyzeEntities(request: request) {response, error in
-      print(String(describing:response))
-      print(String(describing:error))
-      sem.signal()
+
+  let group = Group {
+    $0.command("login", description:"Log in with browser-based authentication.") {
+      try tokenProvider.signIn(scopes:scopes)
+      try tokenProvider.saveToken(TOKEN)
     }
-    _ = sem.wait(timeout: DispatchTime.distantFuture)
-  }
-  
-  if arguments[1] == "analyzeEntitySentiment" {
-    let request = Language.AnalyzeEntitySentimentRequest(document: document,
-                                                         encodingType: "UTF8")
-    let sem = DispatchSemaphore(value: 0)
-    try language.documents_analyzeEntitySentiment(request: request) {response, error in
-      print(String(describing:response))
-      print(String(describing:error))
-      sem.signal()
+
+    $0.command(
+      "documents.analyzeEntities",
+      Options<String>("encodingType", default: [], count: 1, description: "The encoding type used by the API to calculate offsets."),
+      description: "Finds named entities (currently proper names and common nouns) in the text along with entity types, salience, mentions for each entity, and other properties.") {
+      encodingType in
+      do {
+        var request = Language.AnalyzeEntitiesRequest()
+        if let encodingType = encodingType.first {
+          request.encodingType = encodingType
+        }
+        let sem = DispatchSemaphore(value: 0)
+        try language.documents_analyzeEntities(request:request) {
+          response, error in
+          if let response = response { print ("RESPONSE: \(response)") }
+          if let error = error { print ("ERROR: \(error)") }
+          sem.signal()
+        }
+        _ = sem.wait()
+      } catch let error {
+        print ("Client error: \(error)")
+      }
     }
-    _ = sem.wait(timeout: DispatchTime.distantFuture)
-  }
-  
-  if arguments[1] == "analyzeSentiment" {
-    let request = Language.AnalyzeSentimentRequest(document: document,
-                                                   encodingType: "UTF8")
-    let sem = DispatchSemaphore(value: 0)
-    try language.documents_analyzeSentiment(request: request) {response, error in
-      print(String(describing:response))
-      print(String(describing:error))
-      sem.signal()
+
+    $0.command(
+      "documents.analyzeEntitySentiment",
+      Options<String>("encodingType", default: [], count: 1, description: "The encoding type used by the API to calculate offsets."),
+      description: "Finds entities, similar to AnalyzeEntities in the text and analyzes sentiment associated with each entity and its mentions.") {
+      encodingType in
+      do {
+        var request = Language.AnalyzeEntitySentimentRequest()
+        if let encodingType = encodingType.first {
+          request.encodingType = encodingType
+        }
+        let sem = DispatchSemaphore(value: 0)
+        try language.documents_analyzeEntitySentiment(request:request) {
+          response, error in
+          if let response = response { print ("RESPONSE: \(response)") }
+          if let error = error { print ("ERROR: \(error)") }
+          sem.signal()
+        }
+        _ = sem.wait()
+      } catch let error {
+        print ("Client error: \(error)")
+      }
     }
-    _ = sem.wait(timeout: DispatchTime.distantFuture)
-  }
-  
-  if arguments[1] == "analyzeSyntax" {
-    let request = Language.AnalyzeSyntaxRequest(document: document,
-                                                encodingType: "UTF8")
-    let sem = DispatchSemaphore(value: 0)
-    try language.documents_analyzeSyntax(request: request) {response, error in
-      print(String(describing:response))
-      print(String(describing:error))
-      sem.signal()
+
+    $0.command(
+      "documents.analyzeSentiment",
+      Options<String>("encodingType", default: [], count: 1, description: "The encoding type used by the API to calculate sentence offsets."),
+      description: "Analyzes the sentiment of the provided text.") {
+      encodingType in
+      do {
+        var request = Language.AnalyzeSentimentRequest()
+        if let encodingType = encodingType.first {
+          request.encodingType = encodingType
+        }
+        let sem = DispatchSemaphore(value: 0)
+        try language.documents_analyzeSentiment(request:request) {
+          response, error in
+          if let response = response { print ("RESPONSE: \(response)") }
+          if let error = error { print ("ERROR: \(error)") }
+          sem.signal()
+        }
+        _ = sem.wait()
+      } catch let error {
+        print ("Client error: \(error)")
+      }
     }
-    _ = sem.wait(timeout: DispatchTime.distantFuture)
-  }
-  
-  if arguments[1] == "annotateText" {
-    let features = Language.Features(classifyText: true,
-                                     extractDocumentSentiment:true,
-                                     extractEntities:true,
-                                     extractEntitySentiment:true,
-                                     extractSyntax:true)
-    let request = Language.AnnotateTextRequest(document: document,
-                                               encodingType: "UTF8",
-                                               features: features)
-    let sem = DispatchSemaphore(value: 0)
-    try language.documents_annotateText(request: request) {response, error in
-      print(String(describing:response))
-      print(String(describing:error))
-      sem.signal()
+
+    $0.command(
+      "documents.analyzeSyntax",
+      Options<String>("encodingType", default: [], count: 1, description: "The encoding type used by the API to calculate offsets."),
+      description: "Analyzes the syntax of the text and provides sentence boundaries and tokenization along with part of speech tags, dependency trees, and other properties.") {
+      encodingType in
+      do {
+        var request = Language.AnalyzeSyntaxRequest()
+        if let encodingType = encodingType.first {
+          request.encodingType = encodingType
+        }
+        let sem = DispatchSemaphore(value: 0)
+        try language.documents_analyzeSyntax(request:request) {
+          response, error in
+          if let response = response { print ("RESPONSE: \(response)") }
+          if let error = error { print ("ERROR: \(error)") }
+          sem.signal()
+        }
+        _ = sem.wait()
+      } catch let error {
+        print ("Client error: \(error)")
+      }
     }
-    _ = sem.wait(timeout: DispatchTime.distantFuture)
-  }
-  
-  if arguments[1] == "classifyText" {
-    let request = Language.ClassifyTextRequest(document: document)
-    let sem = DispatchSemaphore(value: 0)
-    try language.documents_classifyText(request: request) {response, error in
-      print(String(describing:response))
-      print(String(describing:error))
-      sem.signal()
+
+    $0.command(
+      "documents.annotateText",
+      Options<String>("encodingType", default: [], count: 1, description: "The encoding type used by the API to calculate offsets."),
+      description: "A convenience method that provides all the features that analyzeSentiment, analyzeEntities, and analyzeSyntax provide in one call.") {
+      encodingType in
+      do {
+        var request = Language.AnnotateTextRequest()
+        if let encodingType = encodingType.first {
+          request.encodingType = encodingType
+        }
+        let sem = DispatchSemaphore(value: 0)
+        try language.documents_annotateText(request:request) {
+          response, error in
+          if let response = response { print ("RESPONSE: \(response)") }
+          if let error = error { print ("ERROR: \(error)") }
+          sem.signal()
+        }
+        _ = sem.wait()
+      } catch let error {
+        print ("Client error: \(error)")
+      }
     }
-    _ = sem.wait(timeout: DispatchTime.distantFuture)
+
+    $0.command(
+      "documents.classifyText",
+      description: "Classifies a document into categories.") {
+      do {
+        var request = Language.ClassifyTextRequest()
+        let sem = DispatchSemaphore(value: 0)
+        try language.documents_classifyText(request:request) {
+          response, error in
+          if let response = response { print ("RESPONSE: \(response)") }
+          if let error = error { print ("ERROR: \(error)") }
+          sem.signal()
+        }
+        _ = sem.wait()
+      } catch let error {
+        print ("Client error: \(error)")
+      }
+    }
   }
+  group.run()
 }
 
 do {
   try main()
 } catch (let error) {
-  print("ERROR: \(error)")
+  print("Application error: \(error)")
 }
+

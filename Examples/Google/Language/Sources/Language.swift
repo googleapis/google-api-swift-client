@@ -176,55 +176,61 @@ public class Language : Service {
   public func documents_analyzeEntities (
     request: AnalyzeEntitiesRequest,
     completion: @escaping (AnalyzeEntitiesResponse?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "v1/documents:analyzeEntities",
-                   request: request,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "v1/documents:analyzeEntities",
+        request: request,
+        completion: completion)
   }
 
   public func documents_analyzeEntitySentiment (
     request: AnalyzeEntitySentimentRequest,
     completion: @escaping (AnalyzeEntitySentimentResponse?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "v1/documents:analyzeEntitySentiment",
-                   request: request,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "v1/documents:analyzeEntitySentiment",
+        request: request,
+        completion: completion)
   }
 
   public func documents_analyzeSentiment (
     request: AnalyzeSentimentRequest,
     completion: @escaping (AnalyzeSentimentResponse?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "v1/documents:analyzeSentiment",
-                   request: request,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "v1/documents:analyzeSentiment",
+        request: request,
+        completion: completion)
   }
 
   public func documents_analyzeSyntax (
     request: AnalyzeSyntaxRequest,
     completion: @escaping (AnalyzeSyntaxResponse?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "v1/documents:analyzeSyntax",
-                   request: request,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "v1/documents:analyzeSyntax",
+        request: request,
+        completion: completion)
   }
 
   public func documents_annotateText (
     request: AnnotateTextRequest,
     completion: @escaping (AnnotateTextResponse?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "v1/documents:annotateText",
-                   request: request,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "v1/documents:annotateText",
+        request: request,
+        completion: completion)
   }
 
   public func documents_classifyText (
     request: ClassifyTextRequest,
     completion: @escaping (ClassifyTextResponse?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "v1/documents:classifyText",
-                   request: request,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "v1/documents:classifyText",
+        request: request,
+        completion: completion)
   }
 }
 

@@ -75,10 +75,11 @@ public class Translate : Service {
   public func detections_detect (
     request: DetectLanguageRequest,
     completion: @escaping (DetectionsListResponse?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "v2/detect",
-                   request: request,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "v2/detect",
+        request: request,
+        completion: completion)
   }
 
   public struct DetectionsListParameters : Parameterizable {
@@ -94,10 +95,11 @@ public class Translate : Service {
   public func detections_list (
     parameters: DetectionsListParameters,
     completion: @escaping (DetectionsListResponse?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "v2/detect",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "v2/detect",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct LanguagesListParameters : Parameterizable {
@@ -114,10 +116,11 @@ public class Translate : Service {
   public func languages_list (
     parameters: LanguagesListParameters,
     completion: @escaping (LanguagesListResponse?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "v2/languages",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "v2/languages",
+        parameters: parameters,
+        completion: completion)
   }
 
   public struct TranslationsListParameters : Parameterizable {
@@ -138,19 +141,21 @@ public class Translate : Service {
   public func translations_list (
     parameters: TranslationsListParameters,
     completion: @escaping (TranslationsListResponse?, Error?) -> ()) throws {
-       try perform(method: "GET",
-                   path: "v2",
-                   parameters: parameters,
-                   completion: completion)
+      try perform(
+        method: "GET",
+        path: "v2",
+        parameters: parameters,
+        completion: completion)
   }
 
   public func translations_translate (
     request: TranslateTextRequest,
     completion: @escaping (TranslationsListResponse?, Error?) -> ()) throws {
-       try perform(method: "POST",
-                   path: "v2",
-                   request: request,
-                   completion: completion)
+      try perform(
+        method: "POST",
+        path: "v2",
+        request: request,
+        completion: completion)
   }
 }
 

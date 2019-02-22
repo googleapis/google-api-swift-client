@@ -71,7 +71,7 @@ extension Discovery.Method {
     if let requestSchema = requestSchema,
       let properties = requestSchema.properties {
       for p in properties.sorted(by: { $0.key < $1.key }) {
-       if p.value.type == "string" || p.value.type == "integer" {
+        if p.value.type == "string" || p.value.type == "integer" {
           if s != "" {
             s += ", "
           }
@@ -109,10 +109,10 @@ extension Discovery.Method {
     if let requestSchema = requestSchema,
       let properties = requestSchema.properties {
       for p in properties.sorted(by: { $0.key < $1.key }) {
-          let d = optionDeclaration("r_", p.key, p.value)
-          if d.count > 0 {
-            s.addLine(indent:6, d)
-          }
+        let d = optionDeclaration("r_", p.key, p.value)
+        if d.count > 0 {
+          s.addLine(indent:6, d)
+        }
       }
     }
     if let description = method.description {
@@ -123,7 +123,7 @@ extension Discovery.Method {
     let p = self.parametersString()
     let r = self.requestPropertiesString(requestSchema: requestSchema)
     if p != "" && r != "" {
-      s.addLine(indent:6, p + "," + r + " in")
+      s.addLine(indent:6, p + ", " + r + " in")
     } else if p != "" {
       s.addLine(indent:6, p + " in")
     } else if r != "" {
@@ -202,6 +202,30 @@ extension Discovery.Method {
   }
 }
 
+extension Discovery.Resource {
+  func generate(service: Service, name: String) -> String {
+    var s = ""
+    if let methods = self.methods {
+      for m in methods.sorted(by:  { $0.key < $1.key }) {
+        let requestSchema = service.schema(name: m.value.RequestTypeName())
+        s += m.value.Invocation(serviceName:service.serviceName(),
+                                resourceName:name,
+                                resource:self,
+                                methodName:m.key,
+                                method:m.value,
+                                requestSchema:requestSchema
+        )
+      }
+    }
+    if let resources = self.resources {
+      for r in resources.sorted(by: { $0.key < $1.key }) {
+        s += r.value.generate(service: service, name: name + "_" + r.key)
+      }
+    }
+    return s
+  }
+}
+
 extension Discovery.Service {
   func serviceTitle() -> String {
     return self.name.capitalized()
@@ -213,11 +237,12 @@ extension Discovery.Service {
     var scopeSet = Set<String>()
     if let resources = resources {
       for r in resources {
-        let methods = r.value.methods
-        for m in methods {
-          if let scopes = m.value.scopes {
-            for scope in scopes {
-              scopeSet.insert(scope)
+        if let methods = r.value.methods {
+          for m in methods {
+            if let scopes = m.value.scopes {
+              for scope in scopes {
+                scopeSet.insert(scope)
+              }
             }
           }
         }
@@ -260,18 +285,8 @@ extension Discovery.Service {
     s.addLine(indent:6, "try tokenProvider.saveToken(TOKEN)")
     s.addLine(indent:4, "}")
     if let resources = resources {
-      for r in resources.sorted(by:  { $0.key < $1.key }) {
-        let methods = r.value.methods
-        for m in methods.sorted(by:  { $0.key < $1.key }) {
-          let requestSchema = self.schema(name: m.value.RequestTypeName())
-          s += m.value.Invocation(serviceName:self.serviceName(),
-                                  resourceName:r.key,
-                                  resource:r.value,
-                                  methodName:m.key,
-                                  method:m.value,
-                                  requestSchema:requestSchema
-          )
-        }
+      for r in resources.sorted(by: { $0.key < $1.key }) {
+        s += r.value.generate(service: self, name: r.key)
       }
     }
     s.addLine(indent:2, "}")

@@ -130,6 +130,7 @@ public class Schema : Codable {
       case "integer": return "Int"
       case "number": return "Float"
       case "boolean": return "Bool"
+      case "any": return "JSONAny"
       case "array":
         return "[" + self.ItemsType() + "]"
       case "object":
@@ -239,8 +240,8 @@ public class MediaUploadProtocol : Codable {
 }
 
 public class Resource : Codable {
-  public var methods : [String : Method]
-  public var resource : [String : Resource]?
+  public var methods : [String : Method]?
+  public var resources : [String : Resource]?
 }
 
 public class Service : Codable {

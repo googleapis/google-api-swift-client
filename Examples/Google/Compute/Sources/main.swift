@@ -524,7 +524,7 @@ func main() throws {
       Options<String>("r_target", default: [], count: 1, description: "URL of the managed instance group that this autoscaler will scale."),
       Options<String>("r_zone", default: [], count: 1, description: "[Output Only] URL of the zone where the instance group resides (for autoscalers living in zonal scope)."),
       description: "Creates an autoscaler in the specified project using the data included in the request.") {
-      p_project, p_requestId, p_zone,r_creationTimestamp, r_description, r_id, r_kind, r_name, r_region, r_selfLink, r_status, r_target, r_zone in
+      p_project, p_requestId, p_zone, r_creationTimestamp, r_description, r_id, r_kind, r_name, r_region, r_selfLink, r_status, r_target, r_zone in
       do {
         var parameters = Compute.AutoscalersInsertParameters()
         if let p_project = p_project.first {
@@ -640,7 +640,7 @@ func main() throws {
       Options<String>("r_target", default: [], count: 1, description: "URL of the managed instance group that this autoscaler will scale."),
       Options<String>("r_zone", default: [], count: 1, description: "[Output Only] URL of the zone where the instance group resides (for autoscalers living in zonal scope)."),
       description: "Updates an autoscaler in the specified project using the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.") {
-      p_autoscaler, p_project, p_requestId, p_zone,r_creationTimestamp, r_description, r_id, r_kind, r_name, r_region, r_selfLink, r_status, r_target, r_zone in
+      p_autoscaler, p_project, p_requestId, p_zone, r_creationTimestamp, r_description, r_id, r_kind, r_name, r_region, r_selfLink, r_status, r_target, r_zone in
       do {
         var parameters = Compute.AutoscalersPatchParameters()
         if let p_autoscaler = p_autoscaler.first {
@@ -716,7 +716,7 @@ func main() throws {
       Options<String>("r_target", default: [], count: 1, description: "URL of the managed instance group that this autoscaler will scale."),
       Options<String>("r_zone", default: [], count: 1, description: "[Output Only] URL of the zone where the instance group resides (for autoscalers living in zonal scope)."),
       description: "Updates an autoscaler in the specified project using the data included in the request.") {
-      p_autoscaler, p_project, p_requestId, p_zone,r_creationTimestamp, r_description, r_id, r_kind, r_name, r_region, r_selfLink, r_status, r_target, r_zone in
+      p_autoscaler, p_project, p_requestId, p_zone, r_creationTimestamp, r_description, r_id, r_kind, r_name, r_region, r_selfLink, r_status, r_target, r_zone in
       do {
         var parameters = Compute.AutoscalersUpdateParameters()
         if let p_autoscaler = p_autoscaler.first {
@@ -783,7 +783,7 @@ func main() throws {
       Options<String>("r_keyName", default: [], count: 1, description: "Name of the key. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash."),
       Options<String>("r_keyValue", default: [], count: 1, description: "128-bit key value used for signing the URL. The key value must be a valid RFC 4648 Section 5 base64url encoded string."),
       description: "Adds a key for validating requests with signed URLs for this backend bucket.") {
-      p_backendBucket, p_project, p_requestId,r_keyName, r_keyValue in
+      p_backendBucket, p_project, p_requestId, r_keyName, r_keyValue in
       do {
         var parameters = Compute.BackendBucketsAddSignedUrlKeyParameters()
         if let p_backendBucket = p_backendBucket.first {
@@ -920,7 +920,7 @@ func main() throws {
       Options<String>("r_name", default: [], count: 1, description: "Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash."),
       Options<String>("r_selfLink", default: [], count: 1, description: "[Output Only] Server-defined URL for the resource."),
       description: "Creates a BackendBucket resource in the specified project using the data included in the request.") {
-      p_project, p_requestId,r_bucketName, r_creationTimestamp, r_description, r_id, r_kind, r_name, r_selfLink in
+      p_project, p_requestId, r_bucketName, r_creationTimestamp, r_description, r_id, r_kind, r_name, r_selfLink in
       do {
         var parameters = Compute.BackendBucketsInsertParameters()
         if let p_project = p_project.first {
@@ -1016,7 +1016,7 @@ func main() throws {
       Options<String>("r_name", default: [], count: 1, description: "Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash."),
       Options<String>("r_selfLink", default: [], count: 1, description: "[Output Only] Server-defined URL for the resource."),
       description: "Updates the specified BackendBucket resource with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.") {
-      p_backendBucket, p_project, p_requestId,r_bucketName, r_creationTimestamp, r_description, r_id, r_kind, r_name, r_selfLink in
+      p_backendBucket, p_project, p_requestId, r_bucketName, r_creationTimestamp, r_description, r_id, r_kind, r_name, r_selfLink in
       do {
         var parameters = Compute.BackendBucketsPatchParameters()
         if let p_backendBucket = p_backendBucket.first {
@@ -1076,7 +1076,7 @@ func main() throws {
       Options<String>("r_name", default: [], count: 1, description: "Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash."),
       Options<String>("r_selfLink", default: [], count: 1, description: "[Output Only] Server-defined URL for the resource."),
       description: "Updates the specified BackendBucket resource with the data included in the request.") {
-      p_backendBucket, p_project, p_requestId,r_bucketName, r_creationTimestamp, r_description, r_id, r_kind, r_name, r_selfLink in
+      p_backendBucket, p_project, p_requestId, r_bucketName, r_creationTimestamp, r_description, r_id, r_kind, r_name, r_selfLink in
       do {
         var parameters = Compute.BackendBucketsUpdateParameters()
         if let p_backendBucket = p_backendBucket.first {
@@ -1131,7 +1131,7 @@ func main() throws {
       Options<String>("r_keyName", default: [], count: 1, description: "Name of the key. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash."),
       Options<String>("r_keyValue", default: [], count: 1, description: "128-bit key value used for signing the URL. The key value must be a valid RFC 4648 Section 5 base64url encoded string."),
       description: "Adds a key for validating requests with signed URLs for this backend service.") {
-      p_backendService, p_project, p_requestId,r_keyName, r_keyValue in
+      p_backendService, p_project, p_requestId, r_keyName, r_keyValue in
       do {
         var parameters = Compute.BackendServicesAddSignedUrlKeyParameters()
         if let p_backendService = p_backendService.first {
@@ -1301,7 +1301,7 @@ func main() throws {
       Options<String>("p_project", default: [], count: 1, description: ""),
       Options<String>("r_group", default: [], count: 1, description: "A URI referencing one of the instance groups or network endpoint groups listed in the backend service."),
       description: "Gets the most recent health check results for this BackendService.") {
-      p_backendService, p_project,r_group in
+      p_backendService, p_project, r_group in
       do {
         var parameters = Compute.BackendServicesGetHealthParameters()
         if let p_backendService = p_backendService.first {
@@ -1349,7 +1349,7 @@ func main() throws {
       Options<String>("r_sessionAffinity", default: [], count: 1, description: "Type of session affinity to use. The default is NONE.  When the load balancing scheme is EXTERNAL, can be NONE, CLIENT_IP, or GENERATED_COOKIE.  When the load balancing scheme is INTERNAL, can be NONE, CLIENT_IP, CLIENT_IP_PROTO, or CLIENT_IP_PORT_PROTO.  When the protocol is UDP, this field is not used."),
       Options<Int>("r_timeoutSec", default: [], count: 1, description: "How many seconds to wait for the backend before considering it a failed request. Default is 30 seconds."),
       description: "Creates a BackendService resource in the specified project using the data included in the request. There are several restrictions and guidelines to keep in mind when creating a backend service. Read  Restrictions and Guidelines for more information.") {
-      p_project, p_requestId,r_affinityCookieTtlSec, r_creationTimestamp, r_description, r_fingerprint, r_healthChecks, r_id, r_kind, r_loadBalancingScheme, r_name, r_port, r_portName, r_protocol, r_region, r_securityPolicy, r_selfLink, r_sessionAffinity, r_timeoutSec in
+      p_project, p_requestId, r_affinityCookieTtlSec, r_creationTimestamp, r_description, r_fingerprint, r_healthChecks, r_id, r_kind, r_loadBalancingScheme, r_name, r_port, r_portName, r_protocol, r_region, r_securityPolicy, r_selfLink, r_sessionAffinity, r_timeoutSec in
       do {
         var parameters = Compute.BackendServicesInsertParameters()
         if let p_project = p_project.first {
@@ -1485,7 +1485,7 @@ func main() throws {
       Options<String>("r_sessionAffinity", default: [], count: 1, description: "Type of session affinity to use. The default is NONE.  When the load balancing scheme is EXTERNAL, can be NONE, CLIENT_IP, or GENERATED_COOKIE.  When the load balancing scheme is INTERNAL, can be NONE, CLIENT_IP, CLIENT_IP_PROTO, or CLIENT_IP_PORT_PROTO.  When the protocol is UDP, this field is not used."),
       Options<Int>("r_timeoutSec", default: [], count: 1, description: "How many seconds to wait for the backend before considering it a failed request. Default is 30 seconds."),
       description: "Patches the specified BackendService resource with the data included in the request. There are several restrictions and guidelines to keep in mind when updating a backend service. Read  Restrictions and Guidelines for more information. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.") {
-      p_backendService, p_project, p_requestId,r_affinityCookieTtlSec, r_creationTimestamp, r_description, r_fingerprint, r_healthChecks, r_id, r_kind, r_loadBalancingScheme, r_name, r_port, r_portName, r_protocol, r_region, r_securityPolicy, r_selfLink, r_sessionAffinity, r_timeoutSec in
+      p_backendService, p_project, p_requestId, r_affinityCookieTtlSec, r_creationTimestamp, r_description, r_fingerprint, r_healthChecks, r_id, r_kind, r_loadBalancingScheme, r_name, r_port, r_portName, r_protocol, r_region, r_securityPolicy, r_selfLink, r_sessionAffinity, r_timeoutSec in
       do {
         var parameters = Compute.BackendServicesPatchParameters()
         if let p_backendService = p_backendService.first {
@@ -1569,7 +1569,7 @@ func main() throws {
       Options<String>("p_requestId", default: [], count: 1, description: "An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.  For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments.  The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."),
       Options<String>("r_securityPolicy", default: [], count: 1, description: ""),
       description: "Sets the security policy for the specified backend service.") {
-      p_backendService, p_project, p_requestId,r_securityPolicy in
+      p_backendService, p_project, p_requestId, r_securityPolicy in
       do {
         var parameters = Compute.BackendServicesSetSecurityPolicyParameters()
         if let p_backendService = p_backendService.first {
@@ -1621,7 +1621,7 @@ func main() throws {
       Options<String>("r_sessionAffinity", default: [], count: 1, description: "Type of session affinity to use. The default is NONE.  When the load balancing scheme is EXTERNAL, can be NONE, CLIENT_IP, or GENERATED_COOKIE.  When the load balancing scheme is INTERNAL, can be NONE, CLIENT_IP, CLIENT_IP_PROTO, or CLIENT_IP_PORT_PROTO.  When the protocol is UDP, this field is not used."),
       Options<Int>("r_timeoutSec", default: [], count: 1, description: "How many seconds to wait for the backend before considering it a failed request. Default is 30 seconds."),
       description: "Updates the specified BackendService resource with the data included in the request. There are several restrictions and guidelines to keep in mind when updating a backend service. Read  Restrictions and Guidelines for more information.") {
-      p_backendService, p_project, p_requestId,r_affinityCookieTtlSec, r_creationTimestamp, r_description, r_fingerprint, r_healthChecks, r_id, r_kind, r_loadBalancingScheme, r_name, r_port, r_portName, r_protocol, r_region, r_securityPolicy, r_selfLink, r_sessionAffinity, r_timeoutSec in
+      p_backendService, p_project, p_requestId, r_affinityCookieTtlSec, r_creationTimestamp, r_description, r_fingerprint, r_healthChecks, r_id, r_kind, r_loadBalancingScheme, r_name, r_port, r_portName, r_protocol, r_region, r_securityPolicy, r_selfLink, r_sessionAffinity, r_timeoutSec in
       do {
         var parameters = Compute.BackendServicesUpdateParameters()
         if let p_backendService = p_backendService.first {
@@ -1872,7 +1872,7 @@ func main() throws {
       Options<String>("r_storageBytes", default: [], count: 1, description: "[Output Only] A size of the storage used by the snapshot. As snapshots share storage, this number is expected to change with snapshot creation/deletion."),
       Options<String>("r_storageBytesStatus", default: [], count: 1, description: "[Output Only] An indicator whether storageBytes is in a stable state or it is being adjusted as a result of shared storage reallocation. This status can either be UPDATING, meaning the size of the snapshot is being updated, or UP_TO_DATE, meaning the size of the snapshot is up-to-date."),
       description: "Creates a snapshot of a specified persistent disk.") {
-      p_disk, p_project, p_requestId, p_zone,r_creationTimestamp, r_description, r_diskSizeGb, r_id, r_kind, r_labelFingerprint, r_licenseCodes, r_licenses, r_name, r_selfLink, r_sourceDisk, r_sourceDiskId, r_status, r_storageBytes, r_storageBytesStatus in
+      p_disk, p_project, p_requestId, p_zone, r_creationTimestamp, r_description, r_diskSizeGb, r_id, r_kind, r_labelFingerprint, r_licenseCodes, r_licenses, r_name, r_selfLink, r_sourceDisk, r_sourceDiskId, r_status, r_storageBytes, r_storageBytesStatus in
       do {
         var parameters = Compute.DisksCreateSnapshotParameters()
         if let p_disk = p_disk.first {
@@ -2074,7 +2074,7 @@ func main() throws {
       VariadicOption<String>("r_users", default: [], description: "[Output Only] Links to the users of the disk (attached instances) in form: project/zones/zone/instances/instance"),
       Options<String>("r_zone", default: [], count: 1, description: "[Output Only] URL of the zone where the disk resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body."),
       description: "Creates a persistent disk in the specified project using the data in the request. You can create a disk with a sourceImage, a sourceSnapshot, or create an empty 500 GB data disk by omitting all properties. You can also create a disk that is larger than the default size by specifying the sizeGb property.") {
-      p_project, p_requestId, p_sourceImage, p_zone,r_creationTimestamp, r_description, r_id, r_kind, r_labelFingerprint, r_lastAttachTimestamp, r_lastDetachTimestamp, r_licenseCodes, r_licenses, r_name, r_options, r_physicalBlockSizeBytes, r_region, r_replicaZones, r_selfLink, r_sizeGb, r_sourceImage, r_sourceImageId, r_sourceSnapshot, r_sourceSnapshotId, r_status, r_type, r_users, r_zone in
+      p_project, p_requestId, p_sourceImage, p_zone, r_creationTimestamp, r_description, r_id, r_kind, r_labelFingerprint, r_lastAttachTimestamp, r_lastDetachTimestamp, r_licenseCodes, r_licenses, r_name, r_options, r_physicalBlockSizeBytes, r_region, r_replicaZones, r_selfLink, r_sizeGb, r_sourceImage, r_sourceImageId, r_sourceSnapshot, r_sourceSnapshotId, r_status, r_type, r_users, r_zone in
       do {
         var parameters = Compute.DisksInsertParameters()
         if let p_project = p_project.first {
@@ -2226,7 +2226,7 @@ func main() throws {
       Options<String>("p_zone", default: [], count: 1, description: "The name of the zone for this request."),
       Options<String>("r_sizeGb", default: [], count: 1, description: "The new size of the persistent disk, which is specified in GB."),
       description: "Resizes the specified persistent disk. You can only increase the size of the disk.") {
-      p_disk, p_project, p_requestId, p_zone,r_sizeGb in
+      p_disk, p_project, p_requestId, p_zone, r_sizeGb in
       do {
         var parameters = Compute.DisksResizeParameters()
         if let p_disk = p_disk.first {
@@ -2265,7 +2265,7 @@ func main() throws {
       Options<String>("p_zone", default: [], count: 1, description: "The name of the zone for this request."),
       Options<String>("r_etag", default: [], count: 1, description: "Flatten Policy to create a backward compatible wire-format. Deprecated. Use 'policy' to specify the etag."),
       description: "Sets the access control policy on the specified resource. Replaces any existing policy.") {
-      p_project, p_resource, p_zone,r_etag in
+      p_project, p_resource, p_zone, r_etag in
       do {
         var parameters = Compute.DisksSetIamPolicyParameters()
         if let p_project = p_project.first {
@@ -2302,7 +2302,7 @@ func main() throws {
       Options<String>("p_zone", default: [], count: 1, description: "The name of the zone for this request."),
       Options<String>("r_labelFingerprint", default: [], count: 1, description: "The fingerprint of the previous set of labels for this resource, used to detect conflicts. The fingerprint is initially generated by Compute Engine and changes after every request to modify or update labels. You must always provide an up-to-date fingerprint hash in order to update or change labels. Make a get() request to the resource to get the latest fingerprint."),
       description: "Sets the labels on a disk. To learn more about labels, read the Labeling Resources documentation.") {
-      p_project, p_requestId, p_resource, p_zone,r_labelFingerprint in
+      p_project, p_requestId, p_resource, p_zone, r_labelFingerprint in
       do {
         var parameters = Compute.DisksSetLabelsParameters()
         if let p_project = p_project.first {
@@ -2341,7 +2341,7 @@ func main() throws {
       Options<String>("p_zone", default: [], count: 1, description: "The name of the zone for this request."),
       VariadicOption<String>("r_permissions", default: [], description: "The set of permissions to check for the 'resource'. Permissions with wildcards (such as '*' or 'storage.*') are not allowed."),
       description: "Returns permissions that a caller has on the specified resource.") {
-      p_project, p_resource, p_zone,r_permissions in
+      p_project, p_resource, p_zone, r_permissions in
       do {
         var parameters = Compute.DisksTestIamPermissionsParameters()
         if let p_project = p_project.first {
@@ -2448,7 +2448,7 @@ func main() throws {
       VariadicOption<String>("r_targetServiceAccounts", default: [], description: "A list of service accounts indicating sets of instances located in the network that may make network connections as specified in allowed[]. targetServiceAccounts cannot be used at the same time as targetTags or sourceTags. If neither targetServiceAccounts nor targetTags are specified, the firewall rule applies to all instances on the specified network."),
       VariadicOption<String>("r_targetTags", default: [], description: "A list of tags that controls which instances the firewall rule applies to. If targetTags are specified, then the firewall rule applies only to instances in the VPC network that have one of those tags. If no targetTags are specified, the firewall rule applies to all instances on the specified network."),
       description: "Creates a firewall rule in the specified project using the data included in the request.") {
-      p_project, p_requestId,r_creationTimestamp, r_description, r_destinationRanges, r_direction, r_id, r_kind, r_name, r_network, r_priority, r_selfLink, r_sourceRanges, r_sourceServiceAccounts, r_sourceTags, r_targetServiceAccounts, r_targetTags in
+      p_project, p_requestId, r_creationTimestamp, r_description, r_destinationRanges, r_direction, r_id, r_kind, r_name, r_network, r_priority, r_selfLink, r_sourceRanges, r_sourceServiceAccounts, r_sourceTags, r_targetServiceAccounts, r_targetTags in
       do {
         var parameters = Compute.FirewallsInsertParameters()
         if let p_project = p_project.first {
@@ -2576,7 +2576,7 @@ func main() throws {
       VariadicOption<String>("r_targetServiceAccounts", default: [], description: "A list of service accounts indicating sets of instances located in the network that may make network connections as specified in allowed[]. targetServiceAccounts cannot be used at the same time as targetTags or sourceTags. If neither targetServiceAccounts nor targetTags are specified, the firewall rule applies to all instances on the specified network."),
       VariadicOption<String>("r_targetTags", default: [], description: "A list of tags that controls which instances the firewall rule applies to. If targetTags are specified, then the firewall rule applies only to instances in the VPC network that have one of those tags. If no targetTags are specified, the firewall rule applies to all instances on the specified network."),
       description: "Updates the specified firewall rule with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.") {
-      p_firewall, p_project, p_requestId,r_creationTimestamp, r_description, r_destinationRanges, r_direction, r_id, r_kind, r_name, r_network, r_priority, r_selfLink, r_sourceRanges, r_sourceServiceAccounts, r_sourceTags, r_targetServiceAccounts, r_targetTags in
+      p_firewall, p_project, p_requestId, r_creationTimestamp, r_description, r_destinationRanges, r_direction, r_id, r_kind, r_name, r_network, r_priority, r_selfLink, r_sourceRanges, r_sourceServiceAccounts, r_sourceTags, r_targetServiceAccounts, r_targetTags in
       do {
         var parameters = Compute.FirewallsPatchParameters()
         if let p_firewall = p_firewall.first {
@@ -2668,7 +2668,7 @@ func main() throws {
       VariadicOption<String>("r_targetServiceAccounts", default: [], description: "A list of service accounts indicating sets of instances located in the network that may make network connections as specified in allowed[]. targetServiceAccounts cannot be used at the same time as targetTags or sourceTags. If neither targetServiceAccounts nor targetTags are specified, the firewall rule applies to all instances on the specified network."),
       VariadicOption<String>("r_targetTags", default: [], description: "A list of tags that controls which instances the firewall rule applies to. If targetTags are specified, then the firewall rule applies only to instances in the VPC network that have one of those tags. If no targetTags are specified, the firewall rule applies to all instances on the specified network."),
       description: "Updates the specified firewall rule with the data included in the request. The PUT method can only update the following fields of firewall rule: allowed, description, sourceRanges, sourceTags, targetTags.") {
-      p_firewall, p_project, p_requestId,r_creationTimestamp, r_description, r_destinationRanges, r_direction, r_id, r_kind, r_name, r_network, r_priority, r_selfLink, r_sourceRanges, r_sourceServiceAccounts, r_sourceTags, r_targetServiceAccounts, r_targetTags in
+      p_firewall, p_project, p_requestId, r_creationTimestamp, r_description, r_destinationRanges, r_direction, r_id, r_kind, r_name, r_network, r_priority, r_selfLink, r_sourceRanges, r_sourceServiceAccounts, r_sourceTags, r_targetServiceAccounts, r_targetTags in
       do {
         var parameters = Compute.FirewallsUpdateParameters()
         if let p_firewall = p_firewall.first {
@@ -2870,7 +2870,7 @@ func main() throws {
       Options<String>("r_subnetwork", default: [], count: 1, description: "This field is only used for INTERNAL load balancing.  For internal load balancing, this field identifies the subnetwork that the load balanced IP should belong to for this Forwarding Rule.  If the network specified is in auto subnet mode, this field is optional. However, if the network is in custom subnet mode, a subnetwork must be specified."),
       Options<String>("r_target", default: [], count: 1, description: "The URL of the target resource to receive the matched traffic. For regional forwarding rules, this target must live in the same region as the forwarding rule. For global forwarding rules, this target must be a global load balancing resource. The forwarded traffic must be of a type appropriate to the target object. For INTERNAL_SELF_MANAGED' load balancing, only HTTP and HTTPS targets are valid."),
       description: "Creates a ForwardingRule resource in the specified project and region using the data included in the request.") {
-      p_project, p_region, p_requestId,r_IPAddress, r_IPProtocol, r_backendService, r_creationTimestamp, r_description, r_id, r_ipVersion, r_kind, r_loadBalancingScheme, r_name, r_network, r_networkTier, r_portRange, r_ports, r_region, r_selfLink, r_serviceLabel, r_serviceName, r_subnetwork, r_target in
+      p_project, p_region, p_requestId, r_IPAddress, r_IPProtocol, r_backendService, r_creationTimestamp, r_description, r_id, r_ipVersion, r_kind, r_loadBalancingScheme, r_name, r_network, r_networkTier, r_portRange, r_ports, r_region, r_selfLink, r_serviceLabel, r_serviceName, r_subnetwork, r_target in
       do {
         var parameters = Compute.ForwardingRulesInsertParameters()
         if let p_project = p_project.first {
@@ -3007,7 +3007,7 @@ func main() throws {
       Options<String>("p_requestId", default: [], count: 1, description: "An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.  For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments.  The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."),
       Options<String>("r_target", default: [], count: 1, description: ""),
       description: "Changes target URL for forwarding rule. The new target should be of the same type as the old target.") {
-      p_forwardingRule, p_project, p_region, p_requestId,r_target in
+      p_forwardingRule, p_project, p_region, p_requestId, r_target in
       do {
         var parameters = Compute.ForwardingRulesSetTargetParameters()
         if let p_forwardingRule = p_forwardingRule.first {
@@ -3119,7 +3119,7 @@ func main() throws {
       Options<String>("r_subnetwork", default: [], count: 1, description: "The URL of the subnetwork in which to reserve the address. If an IP address is specified, it must be within the subnetwork's IP range. This field can only be used with INTERNAL type with GCE_ENDPOINT/DNS_RESOLVER purposes."),
       VariadicOption<String>("r_users", default: [], description: "[Output Only] The URLs of the resources that are using this address."),
       description: "Creates an address resource in the specified project using the data included in the request.") {
-      p_project, p_requestId,r_address, r_addressType, r_creationTimestamp, r_description, r_id, r_ipVersion, r_kind, r_name, r_network, r_networkTier, r_prefixLength, r_purpose, r_region, r_selfLink, r_status, r_subnetwork, r_users in
+      p_project, p_requestId, r_address, r_addressType, r_creationTimestamp, r_description, r_id, r_ipVersion, r_kind, r_name, r_network, r_networkTier, r_prefixLength, r_purpose, r_region, r_selfLink, r_status, r_subnetwork, r_users in
       do {
         var parameters = Compute.GlobalAddressesInsertParameters()
         if let p_project = p_project.first {
@@ -3315,7 +3315,7 @@ func main() throws {
       Options<String>("r_subnetwork", default: [], count: 1, description: "This field is only used for INTERNAL load balancing.  For internal load balancing, this field identifies the subnetwork that the load balanced IP should belong to for this Forwarding Rule.  If the network specified is in auto subnet mode, this field is optional. However, if the network is in custom subnet mode, a subnetwork must be specified."),
       Options<String>("r_target", default: [], count: 1, description: "The URL of the target resource to receive the matched traffic. For regional forwarding rules, this target must live in the same region as the forwarding rule. For global forwarding rules, this target must be a global load balancing resource. The forwarded traffic must be of a type appropriate to the target object. For INTERNAL_SELF_MANAGED' load balancing, only HTTP and HTTPS targets are valid."),
       description: "Creates a GlobalForwardingRule resource in the specified project using the data included in the request.") {
-      p_project, p_requestId,r_IPAddress, r_IPProtocol, r_backendService, r_creationTimestamp, r_description, r_id, r_ipVersion, r_kind, r_loadBalancingScheme, r_name, r_network, r_networkTier, r_portRange, r_ports, r_region, r_selfLink, r_serviceLabel, r_serviceName, r_subnetwork, r_target in
+      p_project, p_requestId, r_IPAddress, r_IPProtocol, r_backendService, r_creationTimestamp, r_description, r_id, r_ipVersion, r_kind, r_loadBalancingScheme, r_name, r_network, r_networkTier, r_portRange, r_ports, r_region, r_selfLink, r_serviceLabel, r_serviceName, r_subnetwork, r_target in
       do {
         var parameters = Compute.GlobalForwardingRulesInsertParameters()
         if let p_project = p_project.first {
@@ -3444,7 +3444,7 @@ func main() throws {
       Options<String>("p_requestId", default: [], count: 1, description: "An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.  For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments.  The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."),
       Options<String>("r_target", default: [], count: 1, description: ""),
       description: "Changes target URL for the GlobalForwardingRule resource. The new target should be of the same type as the old target.") {
-      p_forwardingRule, p_project, p_requestId,r_target in
+      p_forwardingRule, p_project, p_requestId, r_target in
       do {
         var parameters = Compute.GlobalForwardingRulesSetTargetParameters()
         if let p_forwardingRule = p_forwardingRule.first {
@@ -3678,7 +3678,7 @@ func main() throws {
       Options<String>("r_type", default: [], count: 1, description: "Specifies the type of the healthCheck, either TCP, SSL, HTTP or HTTPS. If not specified, the default is TCP. Exactly one of the protocol-specific health check field must be specified, which must match type field."),
       Options<Int>("r_unhealthyThreshold", default: [], count: 1, description: "A so-far healthy instance will be marked unhealthy after this many consecutive failures. The default value is 2."),
       description: "Creates a HealthCheck resource in the specified project using the data included in the request.") {
-      p_project, p_requestId,r_checkIntervalSec, r_creationTimestamp, r_description, r_healthyThreshold, r_id, r_kind, r_name, r_selfLink, r_timeoutSec, r_type, r_unhealthyThreshold in
+      p_project, p_requestId, r_checkIntervalSec, r_creationTimestamp, r_description, r_healthyThreshold, r_id, r_kind, r_name, r_selfLink, r_timeoutSec, r_type, r_unhealthyThreshold in
       do {
         var parameters = Compute.HealthChecksInsertParameters()
         if let p_project = p_project.first {
@@ -3790,7 +3790,7 @@ func main() throws {
       Options<String>("r_type", default: [], count: 1, description: "Specifies the type of the healthCheck, either TCP, SSL, HTTP or HTTPS. If not specified, the default is TCP. Exactly one of the protocol-specific health check field must be specified, which must match type field."),
       Options<Int>("r_unhealthyThreshold", default: [], count: 1, description: "A so-far healthy instance will be marked unhealthy after this many consecutive failures. The default value is 2."),
       description: "Updates a HealthCheck resource in the specified project using the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.") {
-      p_healthCheck, p_project, p_requestId,r_checkIntervalSec, r_creationTimestamp, r_description, r_healthyThreshold, r_id, r_kind, r_name, r_selfLink, r_timeoutSec, r_type, r_unhealthyThreshold in
+      p_healthCheck, p_project, p_requestId, r_checkIntervalSec, r_creationTimestamp, r_description, r_healthyThreshold, r_id, r_kind, r_name, r_selfLink, r_timeoutSec, r_type, r_unhealthyThreshold in
       do {
         var parameters = Compute.HealthChecksPatchParameters()
         if let p_healthCheck = p_healthCheck.first {
@@ -3866,7 +3866,7 @@ func main() throws {
       Options<String>("r_type", default: [], count: 1, description: "Specifies the type of the healthCheck, either TCP, SSL, HTTP or HTTPS. If not specified, the default is TCP. Exactly one of the protocol-specific health check field must be specified, which must match type field."),
       Options<Int>("r_unhealthyThreshold", default: [], count: 1, description: "A so-far healthy instance will be marked unhealthy after this many consecutive failures. The default value is 2."),
       description: "Updates a HealthCheck resource in the specified project using the data included in the request.") {
-      p_healthCheck, p_project, p_requestId,r_checkIntervalSec, r_creationTimestamp, r_description, r_healthyThreshold, r_id, r_kind, r_name, r_selfLink, r_timeoutSec, r_type, r_unhealthyThreshold in
+      p_healthCheck, p_project, p_requestId, r_checkIntervalSec, r_creationTimestamp, r_description, r_healthyThreshold, r_id, r_kind, r_name, r_selfLink, r_timeoutSec, r_type, r_unhealthyThreshold in
       do {
         var parameters = Compute.HealthChecksUpdateParameters()
         if let p_healthCheck = p_healthCheck.first {
@@ -4001,7 +4001,7 @@ func main() throws {
       Options<Int>("r_timeoutSec", default: [], count: 1, description: "How long (in seconds) to wait before claiming failure. The default value is 5 seconds. It is invalid for timeoutSec to have greater value than checkIntervalSec."),
       Options<Int>("r_unhealthyThreshold", default: [], count: 1, description: "A so-far healthy instance will be marked unhealthy after this many consecutive failures. The default value is 2."),
       description: "Creates a HttpHealthCheck resource in the specified project using the data included in the request.") {
-      p_project, p_requestId,r_checkIntervalSec, r_creationTimestamp, r_description, r_healthyThreshold, r_host, r_id, r_kind, r_name, r_port, r_requestPath, r_selfLink, r_timeoutSec, r_unhealthyThreshold in
+      p_project, p_requestId, r_checkIntervalSec, r_creationTimestamp, r_description, r_healthyThreshold, r_host, r_id, r_kind, r_name, r_port, r_requestPath, r_selfLink, r_timeoutSec, r_unhealthyThreshold in
       do {
         var parameters = Compute.HttpHealthChecksInsertParameters()
         if let p_project = p_project.first {
@@ -4121,7 +4121,7 @@ func main() throws {
       Options<Int>("r_timeoutSec", default: [], count: 1, description: "How long (in seconds) to wait before claiming failure. The default value is 5 seconds. It is invalid for timeoutSec to have greater value than checkIntervalSec."),
       Options<Int>("r_unhealthyThreshold", default: [], count: 1, description: "A so-far healthy instance will be marked unhealthy after this many consecutive failures. The default value is 2."),
       description: "Updates a HttpHealthCheck resource in the specified project using the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.") {
-      p_httpHealthCheck, p_project, p_requestId,r_checkIntervalSec, r_creationTimestamp, r_description, r_healthyThreshold, r_host, r_id, r_kind, r_name, r_port, r_requestPath, r_selfLink, r_timeoutSec, r_unhealthyThreshold in
+      p_httpHealthCheck, p_project, p_requestId, r_checkIntervalSec, r_creationTimestamp, r_description, r_healthyThreshold, r_host, r_id, r_kind, r_name, r_port, r_requestPath, r_selfLink, r_timeoutSec, r_unhealthyThreshold in
       do {
         var parameters = Compute.HttpHealthChecksPatchParameters()
         if let p_httpHealthCheck = p_httpHealthCheck.first {
@@ -4205,7 +4205,7 @@ func main() throws {
       Options<Int>("r_timeoutSec", default: [], count: 1, description: "How long (in seconds) to wait before claiming failure. The default value is 5 seconds. It is invalid for timeoutSec to have greater value than checkIntervalSec."),
       Options<Int>("r_unhealthyThreshold", default: [], count: 1, description: "A so-far healthy instance will be marked unhealthy after this many consecutive failures. The default value is 2."),
       description: "Updates a HttpHealthCheck resource in the specified project using the data included in the request.") {
-      p_httpHealthCheck, p_project, p_requestId,r_checkIntervalSec, r_creationTimestamp, r_description, r_healthyThreshold, r_host, r_id, r_kind, r_name, r_port, r_requestPath, r_selfLink, r_timeoutSec, r_unhealthyThreshold in
+      p_httpHealthCheck, p_project, p_requestId, r_checkIntervalSec, r_creationTimestamp, r_description, r_healthyThreshold, r_host, r_id, r_kind, r_name, r_port, r_requestPath, r_selfLink, r_timeoutSec, r_unhealthyThreshold in
       do {
         var parameters = Compute.HttpHealthChecksUpdateParameters()
         if let p_httpHealthCheck = p_httpHealthCheck.first {
@@ -4346,7 +4346,7 @@ func main() throws {
       Options<Int>("r_timeoutSec", default: [], count: 1, description: "How long (in seconds) to wait before claiming failure. The default value is 5 seconds. It is invalid for timeoutSec to have a greater value than checkIntervalSec."),
       Options<Int>("r_unhealthyThreshold", default: [], count: 1, description: "A so-far healthy instance will be marked unhealthy after this many consecutive failures. The default value is 2."),
       description: "Creates a HttpsHealthCheck resource in the specified project using the data included in the request.") {
-      p_project, p_requestId,r_checkIntervalSec, r_creationTimestamp, r_description, r_healthyThreshold, r_host, r_id, r_kind, r_name, r_port, r_requestPath, r_selfLink, r_timeoutSec, r_unhealthyThreshold in
+      p_project, p_requestId, r_checkIntervalSec, r_creationTimestamp, r_description, r_healthyThreshold, r_host, r_id, r_kind, r_name, r_port, r_requestPath, r_selfLink, r_timeoutSec, r_unhealthyThreshold in
       do {
         var parameters = Compute.HttpsHealthChecksInsertParameters()
         if let p_project = p_project.first {
@@ -4466,7 +4466,7 @@ func main() throws {
       Options<Int>("r_timeoutSec", default: [], count: 1, description: "How long (in seconds) to wait before claiming failure. The default value is 5 seconds. It is invalid for timeoutSec to have a greater value than checkIntervalSec."),
       Options<Int>("r_unhealthyThreshold", default: [], count: 1, description: "A so-far healthy instance will be marked unhealthy after this many consecutive failures. The default value is 2."),
       description: "Updates a HttpsHealthCheck resource in the specified project using the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.") {
-      p_httpsHealthCheck, p_project, p_requestId,r_checkIntervalSec, r_creationTimestamp, r_description, r_healthyThreshold, r_host, r_id, r_kind, r_name, r_port, r_requestPath, r_selfLink, r_timeoutSec, r_unhealthyThreshold in
+      p_httpsHealthCheck, p_project, p_requestId, r_checkIntervalSec, r_creationTimestamp, r_description, r_healthyThreshold, r_host, r_id, r_kind, r_name, r_port, r_requestPath, r_selfLink, r_timeoutSec, r_unhealthyThreshold in
       do {
         var parameters = Compute.HttpsHealthChecksPatchParameters()
         if let p_httpsHealthCheck = p_httpsHealthCheck.first {
@@ -4550,7 +4550,7 @@ func main() throws {
       Options<Int>("r_timeoutSec", default: [], count: 1, description: "How long (in seconds) to wait before claiming failure. The default value is 5 seconds. It is invalid for timeoutSec to have a greater value than checkIntervalSec."),
       Options<Int>("r_unhealthyThreshold", default: [], count: 1, description: "A so-far healthy instance will be marked unhealthy after this many consecutive failures. The default value is 2."),
       description: "Updates a HttpsHealthCheck resource in the specified project using the data included in the request.") {
-      p_httpsHealthCheck, p_project, p_requestId,r_checkIntervalSec, r_creationTimestamp, r_description, r_healthyThreshold, r_host, r_id, r_kind, r_name, r_port, r_requestPath, r_selfLink, r_timeoutSec, r_unhealthyThreshold in
+      p_httpsHealthCheck, p_project, p_requestId, r_checkIntervalSec, r_creationTimestamp, r_description, r_healthyThreshold, r_host, r_id, r_kind, r_name, r_port, r_requestPath, r_selfLink, r_timeoutSec, r_unhealthyThreshold in
       do {
         var parameters = Compute.HttpsHealthChecksUpdateParameters()
         if let p_httpsHealthCheck = p_httpsHealthCheck.first {
@@ -4657,7 +4657,7 @@ func main() throws {
       Options<String>("r_replacement", default: [], count: 1, description: "The URL of the suggested replacement for a deprecated resource. The suggested replacement resource must be the same kind of resource as the deprecated resource."),
       Options<String>("r_state", default: [], count: 1, description: "The deprecation state of this resource. This can be DEPRECATED, OBSOLETE, or DELETED. Operations which create a new resource using a DEPRECATED resource will return successfully, but with a warning indicating the deprecated resource and recommending its replacement. Operations which use OBSOLETE or DELETED resources will be rejected and result in an error."),
       description: "Sets the deprecation status of an image.  If an empty request body is given, clears the deprecation status instead.") {
-      p_image, p_project, p_requestId,r_deleted, r_deprecated, r_obsolete, r_replacement, r_state in
+      p_image, p_project, p_requestId, r_deleted, r_deprecated, r_obsolete, r_replacement, r_state in
       do {
         var parameters = Compute.ImagesDeprecateParameters()
         if let p_image = p_image.first {
@@ -4804,7 +4804,7 @@ func main() throws {
       Options<String>("r_sourceType", default: [], count: 1, description: "The type of the image used to create this disk. The default and only value is RAW"),
       Options<String>("r_status", default: [], count: 1, description: "[Output Only] The status of the image. An image can be used to create other resources, such as instances, only after the image has been successfully created and the status is set to READY. Possible values are FAILED, PENDING, or READY."),
       description: "Creates an image in the specified project using the data included in the request.") {
-      p_project, p_requestId,r_archiveSizeBytes, r_creationTimestamp, r_description, r_diskSizeGb, r_family, r_id, r_kind, r_labelFingerprint, r_licenseCodes, r_licenses, r_name, r_selfLink, r_sourceDisk, r_sourceDiskId, r_sourceImage, r_sourceImageId, r_sourceSnapshot, r_sourceSnapshotId, r_sourceType, r_status in
+      p_project, p_requestId, r_archiveSizeBytes, r_creationTimestamp, r_description, r_diskSizeGb, r_family, r_id, r_kind, r_labelFingerprint, r_licenseCodes, r_licenses, r_name, r_selfLink, r_sourceDisk, r_sourceDiskId, r_sourceImage, r_sourceImageId, r_sourceSnapshot, r_sourceSnapshotId, r_sourceType, r_status in
       do {
         var parameters = Compute.ImagesInsertParameters()
         if let p_project = p_project.first {
@@ -4932,7 +4932,7 @@ func main() throws {
       Options<String>("p_resource", default: [], count: 1, description: "Name or id of the resource for this request."),
       Options<String>("r_etag", default: [], count: 1, description: "Flatten Policy to create a backward compatible wire-format. Deprecated. Use 'policy' to specify the etag."),
       description: "Sets the access control policy on the specified resource. Replaces any existing policy.") {
-      p_project, p_resource,r_etag in
+      p_project, p_resource, r_etag in
       do {
         var parameters = Compute.ImagesSetIamPolicyParameters()
         if let p_project = p_project.first {
@@ -4964,7 +4964,7 @@ func main() throws {
       Options<String>("p_resource", default: [], count: 1, description: "Name or id of the resource for this request."),
       Options<String>("r_labelFingerprint", default: [], count: 1, description: "The fingerprint of the previous set of labels for this resource, used to detect conflicts. The fingerprint is initially generated by Compute Engine and changes after every request to modify or update labels. You must always provide an up-to-date fingerprint hash when updating or changing labels, otherwise the request will fail with error 412 conditionNotMet. Make a get() request to the resource to get the latest fingerprint."),
       description: "Sets the labels on an image. To learn more about labels, read the Labeling Resources documentation.") {
-      p_project, p_resource,r_labelFingerprint in
+      p_project, p_resource, r_labelFingerprint in
       do {
         var parameters = Compute.ImagesSetLabelsParameters()
         if let p_project = p_project.first {
@@ -4996,7 +4996,7 @@ func main() throws {
       Options<String>("p_resource", default: [], count: 1, description: "Name or id of the resource for this request."),
       VariadicOption<String>("r_permissions", default: [], description: "The set of permissions to check for the 'resource'. Permissions with wildcards (such as '*' or 'storage.*') are not allowed."),
       description: "Returns permissions that a caller has on the specified resource.") {
-      p_project, p_resource,r_permissions in
+      p_project, p_resource, r_permissions in
       do {
         var parameters = Compute.ImagesTestIamPermissionsParameters()
         if let p_project = p_project.first {
@@ -5030,7 +5030,7 @@ func main() throws {
       Options<String>("p_zone", default: [], count: 1, description: "The name of the zone where the managed instance group is located."),
       VariadicOption<String>("r_instances", default: [], description: "The URLs of one or more instances to abandon. This can be a full URL or a partial URL, such as zones/[ZONE]/instances/[INSTANCE_NAME]."),
       description: "Flags the specified instances to be removed from the managed instance group. Abandoning an instance does not delete the instance, but it does remove the instance from any target pools that are applied by the managed instance group. This method reduces the targetSize of the managed instance group by the number of instances that you abandon. This operation is marked as DONE when the action is scheduled even if the instances have not yet been removed from the group. You must separately verify the status of the abandoning action with the listmanagedinstances method.  If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted.  You can specify a maximum of 1000 instances with this method per request.") {
-      p_instanceGroupManager, p_project, p_requestId, p_zone,r_instances in
+      p_instanceGroupManager, p_project, p_requestId, p_zone, r_instances in
       do {
         var parameters = Compute.InstanceGroupManagersAbandonInstancesParameters()
         if let p_instanceGroupManager = p_instanceGroupManager.first {
@@ -5144,7 +5144,7 @@ func main() throws {
       Options<String>("p_zone", default: [], count: 1, description: "The name of the zone where the managed instance group is located."),
       VariadicOption<String>("r_instances", default: [], description: "The URLs of one or more instances to delete. This can be a full URL or a partial URL, such as zones/[ZONE]/instances/[INSTANCE_NAME]."),
       description: "Flags the specified instances in the managed instance group for immediate deletion. The instances are also removed from any target pools of which they were a member. This method reduces the targetSize of the managed instance group by the number of instances that you delete. This operation is marked as DONE when the action is scheduled even if the instances are still being deleted. You must separately verify the status of the deleting action with the listmanagedinstances method.  If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted.  You can specify a maximum of 1000 instances with this method per request.") {
-      p_instanceGroupManager, p_project, p_requestId, p_zone,r_instances in
+      p_instanceGroupManager, p_project, p_requestId, p_zone, r_instances in
       do {
         var parameters = Compute.InstanceGroupManagersDeleteInstancesParameters()
         if let p_instanceGroupManager = p_instanceGroupManager.first {
@@ -5227,7 +5227,7 @@ func main() throws {
       Options<Int>("r_targetSize", default: [], count: 1, description: "The target number of running instances for this managed instance group. Deleting or abandoning instances reduces this number. Resizing the group changes this number."),
       Options<String>("r_zone", default: [], count: 1, description: "[Output Only] The URL of the zone where the managed instance group is located (for zonal resources)."),
       description: "Creates a managed instance group using the information that you specify in the request. After the group is created, instances in the group are created using the specified instance template. This operation is marked as DONE when the group is created even if the instances in the group have not yet been created. You must separately verify the status of the individual instances with the listmanagedinstances method.  A managed instance group can have up to 1000 VM instances per group. Please contact Cloud Support if you need an increase in this limit.") {
-      p_project, p_requestId, p_zone,r_baseInstanceName, r_creationTimestamp, r_description, r_fingerprint, r_id, r_instanceGroup, r_instanceTemplate, r_kind, r_name, r_region, r_selfLink, r_targetPools, r_targetSize, r_zone in
+      p_project, p_requestId, p_zone, r_baseInstanceName, r_creationTimestamp, r_description, r_fingerprint, r_id, r_instanceGroup, r_instanceTemplate, r_kind, r_name, r_region, r_selfLink, r_targetPools, r_targetSize, r_zone in
       do {
         var parameters = Compute.InstanceGroupManagersInsertParameters()
         if let p_project = p_project.first {
@@ -5406,7 +5406,7 @@ func main() throws {
       Options<Int>("r_targetSize", default: [], count: 1, description: "The target number of running instances for this managed instance group. Deleting or abandoning instances reduces this number. Resizing the group changes this number."),
       Options<String>("r_zone", default: [], count: 1, description: "[Output Only] The URL of the zone where the managed instance group is located (for zonal resources)."),
       description: "Updates a managed instance group using the information that you specify in the request. This operation is marked as DONE when the group is patched even if the instances in the group are still in the process of being patched. You must separately verify the status of the individual instances with the listManagedInstances method. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.") {
-      p_instanceGroupManager, p_project, p_requestId, p_zone,r_baseInstanceName, r_creationTimestamp, r_description, r_fingerprint, r_id, r_instanceGroup, r_instanceTemplate, r_kind, r_name, r_region, r_selfLink, r_targetPools, r_targetSize, r_zone in
+      p_instanceGroupManager, p_project, p_requestId, p_zone, r_baseInstanceName, r_creationTimestamp, r_description, r_fingerprint, r_id, r_instanceGroup, r_instanceTemplate, r_kind, r_name, r_region, r_selfLink, r_targetPools, r_targetSize, r_zone in
       do {
         var parameters = Compute.InstanceGroupManagersPatchParameters()
         if let p_instanceGroupManager = p_instanceGroupManager.first {
@@ -5485,7 +5485,7 @@ func main() throws {
       Options<String>("p_zone", default: [], count: 1, description: "The name of the zone where the managed instance group is located."),
       VariadicOption<String>("r_instances", default: [], description: "The URLs of one or more instances to recreate. This can be a full URL or a partial URL, such as zones/[ZONE]/instances/[INSTANCE_NAME]."),
       description: "Flags the specified instances in the managed instance group to be immediately recreated. The instances are deleted and recreated using the current instance template for the managed instance group. This operation is marked as DONE when the flag is set even if the instances have not yet been recreated. You must separately verify the status of the recreating action with the listmanagedinstances method.  If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted.  You can specify a maximum of 1000 instances with this method per request.") {
-      p_instanceGroupManager, p_project, p_requestId, p_zone,r_instances in
+      p_instanceGroupManager, p_project, p_requestId, p_zone, r_instances in
       do {
         var parameters = Compute.InstanceGroupManagersRecreateInstancesParameters()
         if let p_instanceGroupManager = p_instanceGroupManager.first {
@@ -5564,7 +5564,7 @@ func main() throws {
       Options<String>("p_zone", default: [], count: 1, description: "The name of the zone where the managed instance group is located."),
       Options<String>("r_instanceTemplate", default: [], count: 1, description: "The URL of the instance template that is specified for this managed instance group. The group uses this template to create all new instances in the managed instance group."),
       description: "Specifies the instance template to use when creating new instances in this group. The templates for existing instances in the group do not change unless you recreate them.") {
-      p_instanceGroupManager, p_project, p_requestId, p_zone,r_instanceTemplate in
+      p_instanceGroupManager, p_project, p_requestId, p_zone, r_instanceTemplate in
       do {
         var parameters = Compute.InstanceGroupManagersSetInstanceTemplateParameters()
         if let p_instanceGroupManager = p_instanceGroupManager.first {
@@ -5605,7 +5605,7 @@ func main() throws {
       Options<String>("r_fingerprint", default: [], count: 1, description: "The fingerprint of the target pools information. Use this optional property to prevent conflicts when multiple users change the target pools settings concurrently. Obtain the fingerprint with the instanceGroupManagers.get method. Then, include the fingerprint in your request to ensure that you do not overwrite changes that were applied from another concurrent request."),
       VariadicOption<String>("r_targetPools", default: [], description: "The list of target pool URLs that instances in this managed instance group belong to. The managed instance group applies these target pools to all of the instances in the group. Existing instances and new instances in the group all receive these target pool settings."),
       description: "Modifies the target pools to which all instances in this managed instance group are assigned. The target pools automatically apply to all of the instances in the managed instance group. This operation is marked DONE when you make the request even if the instances have not yet been added to their target pools. The change might take some time to apply to all of the instances in the group depending on the size of the group.") {
-      p_instanceGroupManager, p_project, p_requestId, p_zone,r_fingerprint, r_targetPools in
+      p_instanceGroupManager, p_project, p_requestId, p_zone, r_fingerprint, r_targetPools in
       do {
         var parameters = Compute.InstanceGroupManagersSetTargetPoolsParameters()
         if let p_instanceGroupManager = p_instanceGroupManager.first {
@@ -5799,7 +5799,7 @@ func main() throws {
       Options<String>("r_subnetwork", default: [], count: 1, description: "[Output Only] The URL of the subnetwork to which all instances in the instance group belong."),
       Options<String>("r_zone", default: [], count: 1, description: "[Output Only] The URL of the zone where the instance group is located (for zonal resources)."),
       description: "Creates an instance group in the specified project using the parameters that are included in the request.") {
-      p_project, p_requestId, p_zone,r_creationTimestamp, r_description, r_fingerprint, r_id, r_kind, r_name, r_network, r_region, r_selfLink, r_size, r_subnetwork, r_zone in
+      p_project, p_requestId, p_zone, r_creationTimestamp, r_description, r_fingerprint, r_id, r_kind, r_name, r_network, r_region, r_selfLink, r_size, r_subnetwork, r_zone in
       do {
         var parameters = Compute.InstanceGroupsInsertParameters()
         if let p_project = p_project.first {
@@ -5915,7 +5915,7 @@ func main() throws {
       Options<String>("p_zone", default: [], count: 1, description: "The name of the zone where the instance group is located."),
       Options<String>("r_instanceState", default: [], count: 1, description: "A filter for the state of the instances in the instance group. Valid options are ALL or RUNNING. If you do not specify this parameter the list includes all instances regardless of their state."),
       description: "Lists the instances in the specified instance group.") {
-      p_filter, p_instanceGroup, p_maxResults, p_orderBy, p_pageToken, p_project, p_zone,r_instanceState in
+      p_filter, p_instanceGroup, p_maxResults, p_orderBy, p_pageToken, p_project, p_zone, r_instanceState in
       do {
         var parameters = Compute.InstanceGroupsListInstancesParameters()
         if let p_filter = p_filter.first {
@@ -6000,7 +6000,7 @@ func main() throws {
       Options<String>("p_zone", default: [], count: 1, description: "The name of the zone where the instance group is located."),
       Options<String>("r_fingerprint", default: [], count: 1, description: "The fingerprint of the named ports information for this instance group. Use this optional property to prevent conflicts when multiple users change the named ports settings concurrently. Obtain the fingerprint with the instanceGroups.get method. Then, include the fingerprint in your request to ensure that you do not overwrite changes that were applied from another concurrent request. A request with an incorrect fingerprint will fail with error 412 conditionNotMet."),
       description: "Sets the named ports for the specified instance group.") {
-      p_instanceGroup, p_project, p_requestId, p_zone,r_fingerprint in
+      p_instanceGroup, p_project, p_requestId, p_zone, r_fingerprint in
       do {
         var parameters = Compute.InstanceGroupsSetNamedPortsParameters()
         if let p_instanceGroup = p_instanceGroup.first {
@@ -6129,7 +6129,7 @@ func main() throws {
       Options<String>("r_selfLink", default: [], count: 1, description: "[Output Only] The URL for this instance template. The server defines this URL."),
       Options<String>("r_sourceInstance", default: [], count: 1, description: "The source instance used to create the template. You can provide this as a partial or full URL to the resource. For example, the following are valid values:   - https://www.googleapis.com/compute/v1/projects/project/zones/zone/instances/instance  - projects/project/zones/zone/instances/instance"),
       description: "Creates an instance template in the specified project using the data that is included in the request. If you are creating a new template to update an existing instance group, your new instance template must use the same network or, if applicable, the same subnetwork as the original template.") {
-      p_project, p_requestId,r_creationTimestamp, r_description, r_id, r_kind, r_name, r_selfLink, r_sourceInstance in
+      p_project, p_requestId, r_creationTimestamp, r_description, r_id, r_kind, r_name, r_selfLink, r_sourceInstance in
       do {
         var parameters = Compute.InstanceTemplatesInsertParameters()
         if let p_project = p_project.first {
@@ -6218,7 +6218,7 @@ func main() throws {
       Options<String>("p_resource", default: [], count: 1, description: "Name or id of the resource for this request."),
       Options<String>("r_etag", default: [], count: 1, description: "Flatten Policy to create a backward compatible wire-format. Deprecated. Use 'policy' to specify the etag."),
       description: "Sets the access control policy on the specified resource. Replaces any existing policy.") {
-      p_project, p_resource,r_etag in
+      p_project, p_resource, r_etag in
       do {
         var parameters = Compute.InstanceTemplatesSetIamPolicyParameters()
         if let p_project = p_project.first {
@@ -6250,7 +6250,7 @@ func main() throws {
       Options<String>("p_resource", default: [], count: 1, description: "Name or id of the resource for this request."),
       VariadicOption<String>("r_permissions", default: [], description: "The set of permissions to check for the 'resource'. Permissions with wildcards (such as '*' or 'storage.*') are not allowed."),
       description: "Returns permissions that a caller has on the specified resource.") {
-      p_project, p_resource,r_permissions in
+      p_project, p_resource, r_permissions in
       do {
         var parameters = Compute.InstanceTemplatesTestIamPermissionsParameters()
         if let p_project = p_project.first {
@@ -6290,7 +6290,7 @@ func main() throws {
       Options<String>("r_publicPtrDomainName", default: [], count: 1, description: "The DNS domain name for the public PTR record. This field can only be set when the set_public_ptr field is enabled."),
       Options<String>("r_type", default: [], count: 1, description: "The type of configuration. The default and only option is ONE_TO_ONE_NAT."),
       description: "Adds an access config to an instance's network interface.") {
-      p_instance, p_networkInterface, p_project, p_requestId, p_zone,r_kind, r_name, r_natIP, r_networkTier, r_publicPtrDomainName, r_type in
+      p_instance, p_networkInterface, p_project, p_requestId, p_zone, r_kind, r_name, r_natIP, r_networkTier, r_publicPtrDomainName, r_type in
       do {
         var parameters = Compute.InstancesAddAccessConfigParameters()
         if let p_instance = p_instance.first {
@@ -6394,7 +6394,7 @@ func main() throws {
       Options<String>("r_source", default: [], count: 1, description: "Specifies a valid partial or full URL to an existing Persistent Disk resource. When creating a new instance, one of initializeParams.sourceImage or disks.source is required except for local SSD.  If desired, you can also attach existing non-root persistent disks using this property. This field is only applicable for persistent disks.  Note that for InstanceTemplate, specify the disk name, not the URL for the disk."),
       Options<String>("r_type", default: [], count: 1, description: "Specifies the type of the disk, either SCRATCH or PERSISTENT. If not specified, the default is PERSISTENT."),
       description: "Attaches an existing Disk resource to an instance. You must first create the disk before you can attach it. It is not possible to create and attach a disk at the same time. For more information, read Adding a persistent disk to your instance.") {
-      p_instance, p_project, p_requestId, p_zone,r_deviceName, r_index, r_interface, r_kind, r_licenses, r_mode, r_source, r_type in
+      p_instance, p_project, p_requestId, p_zone, r_deviceName, r_index, r_interface, r_kind, r_licenses, r_mode, r_source, r_type in
       do {
         var parameters = Compute.InstancesAttachDiskParameters()
         if let p_instance = p_instance.first {
@@ -6686,7 +6686,7 @@ func main() throws {
       Options<String>("r_statusMessage", default: [], count: 1, description: "[Output Only] An optional, human-readable explanation of the status."),
       Options<String>("r_zone", default: [], count: 1, description: "[Output Only] URL of the zone where the instance resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body."),
       description: "Creates an instance resource in the specified project using the data included in the request.") {
-      p_project, p_requestId, p_sourceInstanceTemplate, p_zone,r_cpuPlatform, r_creationTimestamp, r_description, r_hostname, r_id, r_kind, r_labelFingerprint, r_machineType, r_minCpuPlatform, r_name, r_selfLink, r_status, r_statusMessage, r_zone in
+      p_project, p_requestId, p_sourceInstanceTemplate, p_zone, r_cpuPlatform, r_creationTimestamp, r_description, r_hostname, r_id, r_kind, r_labelFingerprint, r_machineType, r_minCpuPlatform, r_name, r_selfLink, r_status, r_statusMessage, r_zone in
       do {
         var parameters = Compute.InstancesInsertParameters()
         if let p_project = p_project.first {
@@ -6963,7 +6963,7 @@ func main() throws {
       Options<String>("p_zone", default: [], count: 1, description: "The name of the zone for this request."),
       Options<String>("r_etag", default: [], count: 1, description: "Flatten Policy to create a backward compatible wire-format. Deprecated. Use 'policy' to specify the etag."),
       description: "Sets the access control policy on the specified resource. Replaces any existing policy.") {
-      p_project, p_resource, p_zone,r_etag in
+      p_project, p_resource, p_zone, r_etag in
       do {
         var parameters = Compute.InstancesSetIamPolicyParameters()
         if let p_project = p_project.first {
@@ -7000,7 +7000,7 @@ func main() throws {
       Options<String>("p_zone", default: [], count: 1, description: "The name of the zone for this request."),
       Options<String>("r_labelFingerprint", default: [], count: 1, description: "Fingerprint of the previous set of labels for this resource, used to prevent conflicts. Provide the latest fingerprint value when making a request to add or change labels."),
       description: "Sets labels on an instance. To learn more about labels, read the Labeling Resources documentation.") {
-      p_instance, p_project, p_requestId, p_zone,r_labelFingerprint in
+      p_instance, p_project, p_requestId, p_zone, r_labelFingerprint in
       do {
         var parameters = Compute.InstancesSetLabelsParameters()
         if let p_instance = p_instance.first {
@@ -7076,7 +7076,7 @@ func main() throws {
       Options<String>("p_zone", default: [], count: 1, description: "The name of the zone for this request."),
       Options<String>("r_machineType", default: [], count: 1, description: "Full or partial URL of the machine type resource. See Machine Types for a full list of machine types. For example: zones/us-central1-f/machineTypes/n1-standard-1"),
       description: "Changes the machine type for a stopped instance to the machine type specified in the request.") {
-      p_instance, p_project, p_requestId, p_zone,r_machineType in
+      p_instance, p_project, p_requestId, p_zone, r_machineType in
       do {
         var parameters = Compute.InstancesSetMachineTypeParameters()
         if let p_instance = p_instance.first {
@@ -7117,7 +7117,7 @@ func main() throws {
       Options<String>("r_fingerprint", default: [], count: 1, description: "Specifies a fingerprint for this request, which is essentially a hash of the metadata's contents and used for optimistic locking. The fingerprint is initially generated by Compute Engine and changes after every request to modify or update metadata. You must always provide an up-to-date fingerprint hash in order to update or change metadata, otherwise the request will fail with error 412 conditionNotMet.  To see the latest fingerprint, make a get() request to retrieve the resource."),
       Options<String>("r_kind", default: [], count: 1, description: "[Output Only] Type of the resource. Always compute#metadata for metadata."),
       description: "Sets metadata for the specified instance to the data included in the request.") {
-      p_instance, p_project, p_requestId, p_zone,r_fingerprint, r_kind in
+      p_instance, p_project, p_requestId, p_zone, r_fingerprint, r_kind in
       do {
         var parameters = Compute.InstancesSetMetadataParameters()
         if let p_instance = p_instance.first {
@@ -7160,7 +7160,7 @@ func main() throws {
       Options<String>("p_zone", default: [], count: 1, description: "The name of the zone for this request."),
       Options<String>("r_minCpuPlatform", default: [], count: 1, description: "Minimum cpu/platform this instance should be started at."),
       description: "Changes the minimum CPU platform that this instance should use. This method can only be called on a stopped instance. For more information, read Specifying a Minimum CPU Platform.") {
-      p_instance, p_project, p_requestId, p_zone,r_minCpuPlatform in
+      p_instance, p_project, p_requestId, p_zone, r_minCpuPlatform in
       do {
         var parameters = Compute.InstancesSetMinCpuPlatformParameters()
         if let p_instance = p_instance.first {
@@ -7200,7 +7200,7 @@ func main() throws {
       Options<String>("p_zone", default: [], count: 1, description: "The name of the zone for this request."),
       Options<String>("r_onHostMaintenance", default: [], count: 1, description: "Defines the maintenance behavior for this instance. For standard instances, the default behavior is MIGRATE. For preemptible instances, the default and only possible behavior is TERMINATE. For more information, see Setting Instance Scheduling Options."),
       description: "Sets an instance's scheduling options.") {
-      p_instance, p_project, p_requestId, p_zone,r_onHostMaintenance in
+      p_instance, p_project, p_requestId, p_zone, r_onHostMaintenance in
       do {
         var parameters = Compute.InstancesSetSchedulingParameters()
         if let p_instance = p_instance.first {
@@ -7241,7 +7241,7 @@ func main() throws {
       Options<String>("r_email", default: [], count: 1, description: "Email address of the service account."),
       VariadicOption<String>("r_scopes", default: [], description: "The list of scopes to be made available for this service account."),
       description: "Sets the service account on the instance. For more information, read Changing the service account and access scopes for an instance.") {
-      p_instance, p_project, p_requestId, p_zone,r_email, r_scopes in
+      p_instance, p_project, p_requestId, p_zone, r_email, r_scopes in
       do {
         var parameters = Compute.InstancesSetServiceAccountParameters()
         if let p_instance = p_instance.first {
@@ -7285,7 +7285,7 @@ func main() throws {
       Options<String>("r_fingerprint", default: [], count: 1, description: "Specifies a fingerprint for this request, which is essentially a hash of the tags' contents and used for optimistic locking. The fingerprint is initially generated by Compute Engine and changes after every request to modify or update tags. You must always provide an up-to-date fingerprint hash in order to update or change tags.  To see the latest fingerprint, make get() request to the instance."),
       VariadicOption<String>("r_items", default: [], description: "An array of tags. Each tag must be 1-63 characters long, and comply with RFC1035."),
       description: "Sets network tags for the specified instance to the data included in the request.") {
-      p_instance, p_project, p_requestId, p_zone,r_fingerprint, r_items in
+      p_instance, p_project, p_requestId, p_zone, r_fingerprint, r_items in
       do {
         var parameters = Compute.InstancesSetTagsParameters()
         if let p_instance = p_instance.first {
@@ -7464,7 +7464,7 @@ func main() throws {
       Options<String>("p_zone", default: [], count: 1, description: "The name of the zone for this request."),
       VariadicOption<String>("r_permissions", default: [], description: "The set of permissions to check for the 'resource'. Permissions with wildcards (such as '*' or 'storage.*') are not allowed."),
       description: "Returns permissions that a caller has on the specified resource.") {
-      p_project, p_resource, p_zone,r_permissions in
+      p_project, p_resource, p_zone, r_permissions in
       do {
         var parameters = Compute.InstancesTestIamPermissionsParameters()
         if let p_project = p_project.first {
@@ -7507,7 +7507,7 @@ func main() throws {
       Options<String>("r_publicPtrDomainName", default: [], count: 1, description: "The DNS domain name for the public PTR record. This field can only be set when the set_public_ptr field is enabled."),
       Options<String>("r_type", default: [], count: 1, description: "The type of configuration. The default and only option is ONE_TO_ONE_NAT."),
       description: "Updates the specified access config from an instance's network interface with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.") {
-      p_instance, p_networkInterface, p_project, p_requestId, p_zone,r_kind, r_name, r_natIP, r_networkTier, r_publicPtrDomainName, r_type in
+      p_instance, p_networkInterface, p_project, p_requestId, p_zone, r_kind, r_name, r_natIP, r_networkTier, r_publicPtrDomainName, r_type in
       do {
         var parameters = Compute.InstancesUpdateAccessConfigParameters()
         if let p_instance = p_instance.first {
@@ -7571,7 +7571,7 @@ func main() throws {
       Options<String>("r_networkIP", default: [], count: 1, description: "An IPv4 internal network address to assign to the instance for this network interface. If not specified by the user, an unused internal IP is assigned by the system."),
       Options<String>("r_subnetwork", default: [], count: 1, description: "The URL of the Subnetwork resource for this instance. If the network resource is in legacy mode, do not provide this property. If the network is in auto subnet mode, providing the subnetwork is optional. If the network is in custom subnet mode, then this field should be specified. If you specify this property, you can specify the subnetwork as a full or partial URL. For example, the following are all valid URLs:   - https://www.googleapis.com/compute/v1/projects/project/regions/region/subnetworks/subnetwork  - regions/region/subnetworks/subnetwork"),
       description: "Updates an instance's network interface. This method follows PATCH semantics.") {
-      p_instance, p_networkInterface, p_project, p_requestId, p_zone,r_fingerprint, r_kind, r_name, r_network, r_networkIP, r_subnetwork in
+      p_instance, p_networkInterface, p_project, p_requestId, p_zone, r_fingerprint, r_kind, r_name, r_network, r_networkIP, r_subnetwork in
       do {
         var parameters = Compute.InstancesUpdateNetworkInterfaceParameters()
         if let p_instance = p_instance.first {
@@ -7753,7 +7753,7 @@ func main() throws {
       Options<String>("r_type", default: [], count: 1, description: ""),
       Options<Int>("r_vlanTag8021q", default: [], count: 1, description: "The IEEE 802.1Q VLAN tag for this attachment, in the range 2-4094. Only specified at creation time."),
       description: "Creates an InterconnectAttachment in the specified project using the data included in the request.") {
-      p_project, p_region, p_requestId,r_bandwidth, r_candidateSubnets, r_cloudRouterIpAddress, r_creationTimestamp, r_customerRouterIpAddress, r_description, r_edgeAvailabilityDomain, r_googleReferenceId, r_id, r_interconnect, r_kind, r_name, r_operationalStatus, r_pairingKey, r_partnerAsn, r_region, r_router, r_selfLink, r_state, r_type, r_vlanTag8021q in
+      p_project, p_region, p_requestId, r_bandwidth, r_candidateSubnets, r_cloudRouterIpAddress, r_creationTimestamp, r_customerRouterIpAddress, r_description, r_edgeAvailabilityDomain, r_googleReferenceId, r_id, r_interconnect, r_kind, r_name, r_operationalStatus, r_pairingKey, r_partnerAsn, r_region, r_router, r_selfLink, r_state, r_type, r_vlanTag8021q in
       do {
         var parameters = Compute.InterconnectAttachmentsInsertParameters()
         if let p_project = p_project.first {
@@ -7913,7 +7913,7 @@ func main() throws {
       Options<String>("r_type", default: [], count: 1, description: ""),
       Options<Int>("r_vlanTag8021q", default: [], count: 1, description: "The IEEE 802.1Q VLAN tag for this attachment, in the range 2-4094. Only specified at creation time."),
       description: "Updates the specified interconnect attachment with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.") {
-      p_interconnectAttachment, p_project, p_region, p_requestId,r_bandwidth, r_candidateSubnets, r_cloudRouterIpAddress, r_creationTimestamp, r_customerRouterIpAddress, r_description, r_edgeAvailabilityDomain, r_googleReferenceId, r_id, r_interconnect, r_kind, r_name, r_operationalStatus, r_pairingKey, r_partnerAsn, r_region, r_router, r_selfLink, r_state, r_type, r_vlanTag8021q in
+      p_interconnectAttachment, p_project, p_region, p_requestId, r_bandwidth, r_candidateSubnets, r_cloudRouterIpAddress, r_creationTimestamp, r_customerRouterIpAddress, r_description, r_edgeAvailabilityDomain, r_googleReferenceId, r_id, r_interconnect, r_kind, r_name, r_operationalStatus, r_pairingKey, r_partnerAsn, r_region, r_router, r_selfLink, r_state, r_type, r_vlanTag8021q in
       do {
         var parameters = Compute.InterconnectAttachmentsPatchParameters()
         if let p_interconnectAttachment = p_interconnectAttachment.first {
@@ -8180,7 +8180,7 @@ func main() throws {
       Options<String>("r_selfLink", default: [], count: 1, description: "[Output Only] Server-defined URL for the resource."),
       Options<String>("r_state", default: [], count: 1, description: "[Output Only] The current state of whether or not this Interconnect is functional."),
       description: "Creates a Interconnect in the specified project using the data included in the request.") {
-      p_project, p_requestId,r_creationTimestamp, r_customerName, r_description, r_googleIpAddress, r_googleReferenceId, r_id, r_interconnectAttachments, r_interconnectType, r_kind, r_linkType, r_location, r_name, r_nocContactEmail, r_operationalStatus, r_peerIpAddress, r_provisionedLinkCount, r_requestedLinkCount, r_selfLink, r_state in
+      p_project, p_requestId, r_creationTimestamp, r_customerName, r_description, r_googleIpAddress, r_googleReferenceId, r_id, r_interconnectAttachments, r_interconnectType, r_kind, r_linkType, r_location, r_name, r_nocContactEmail, r_operationalStatus, r_peerIpAddress, r_provisionedLinkCount, r_requestedLinkCount, r_selfLink, r_state in
       do {
         var parameters = Compute.InterconnectsInsertParameters()
         if let p_project = p_project.first {
@@ -8324,7 +8324,7 @@ func main() throws {
       Options<String>("r_selfLink", default: [], count: 1, description: "[Output Only] Server-defined URL for the resource."),
       Options<String>("r_state", default: [], count: 1, description: "[Output Only] The current state of whether or not this Interconnect is functional."),
       description: "Updates the specified interconnect with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.") {
-      p_interconnect, p_project, p_requestId,r_creationTimestamp, r_customerName, r_description, r_googleIpAddress, r_googleReferenceId, r_id, r_interconnectAttachments, r_interconnectType, r_kind, r_linkType, r_location, r_name, r_nocContactEmail, r_operationalStatus, r_peerIpAddress, r_provisionedLinkCount, r_requestedLinkCount, r_selfLink, r_state in
+      p_interconnect, p_project, p_requestId, r_creationTimestamp, r_customerName, r_description, r_googleIpAddress, r_googleReferenceId, r_id, r_interconnectAttachments, r_interconnectType, r_kind, r_linkType, r_location, r_name, r_nocContactEmail, r_operationalStatus, r_peerIpAddress, r_provisionedLinkCount, r_requestedLinkCount, r_selfLink, r_state in
       do {
         var parameters = Compute.InterconnectsPatchParameters()
         if let p_interconnect = p_interconnect.first {
@@ -8440,7 +8440,7 @@ func main() throws {
       Options<String>("p_resource", default: [], count: 1, description: "Name or id of the resource for this request."),
       VariadicOption<String>("r_permissions", default: [], description: "The set of permissions to check for the 'resource'. Permissions with wildcards (such as '*' or 'storage.*') are not allowed."),
       description: "Returns permissions that a caller has on the specified resource.") {
-      p_project, p_resource,r_permissions in
+      p_project, p_resource, r_permissions in
       do {
         var parameters = Compute.LicenseCodesTestIamPermissionsParameters()
         if let p_project = p_project.first {
@@ -8563,7 +8563,7 @@ func main() throws {
       Options<String>("r_name", default: [], count: 1, description: "Name of the resource. The name must be 1-63 characters long and comply with RFC1035."),
       Options<String>("r_selfLink", default: [], count: 1, description: "[Output Only] Server-defined URL for the resource."),
       description: "Create a License resource in the specified project.") {
-      p_project, p_requestId,r_creationTimestamp, r_description, r_id, r_kind, r_licenseCode, r_name, r_selfLink in
+      p_project, p_requestId, r_creationTimestamp, r_description, r_id, r_kind, r_licenseCode, r_name, r_selfLink in
       do {
         var parameters = Compute.LicensesInsertParameters()
         if let p_project = p_project.first {
@@ -8652,7 +8652,7 @@ func main() throws {
       Options<String>("p_resource", default: [], count: 1, description: "Name or id of the resource for this request."),
       Options<String>("r_etag", default: [], count: 1, description: "Flatten Policy to create a backward compatible wire-format. Deprecated. Use 'policy' to specify the etag."),
       description: "Sets the access control policy on the specified resource. Replaces any existing policy.") {
-      p_project, p_resource,r_etag in
+      p_project, p_resource, r_etag in
       do {
         var parameters = Compute.LicensesSetIamPolicyParameters()
         if let p_project = p_project.first {
@@ -8684,7 +8684,7 @@ func main() throws {
       Options<String>("p_resource", default: [], count: 1, description: "Name or id of the resource for this request."),
       VariadicOption<String>("r_permissions", default: [], description: "The set of permissions to check for the 'resource'. Permissions with wildcards (such as '*' or 'storage.*') are not allowed."),
       description: "Returns permissions that a caller has on the specified resource.") {
-      p_project, p_resource,r_permissions in
+      p_project, p_resource, r_permissions in
       do {
         var parameters = Compute.LicensesTestIamPermissionsParameters()
         if let p_project = p_project.first {
@@ -8831,7 +8831,7 @@ func main() throws {
       Options<String>("r_name", default: [], count: 1, description: "Name of the peering, which should conform to RFC1035."),
       Options<String>("r_peerNetwork", default: [], count: 1, description: "URL of the peer network. It can be either full URL or partial URL. The peer network may belong to a different project. If the partial URL does not contain project, it is assumed that the peer network is in the same project as the current network."),
       description: "Adds a peering to the specified network.") {
-      p_network, p_project, p_requestId,r_name, r_peerNetwork in
+      p_network, p_project, p_requestId, r_name, r_peerNetwork in
       do {
         var parameters = Compute.NetworksAddPeeringParameters()
         if let p_network = p_network.first {
@@ -8935,7 +8935,7 @@ func main() throws {
       Options<String>("r_selfLink", default: [], count: 1, description: "[Output Only] Server-defined URL for the resource."),
       VariadicOption<String>("r_subnetworks", default: [], description: "[Output Only] Server-defined fully-qualified URLs for all subnetworks in this VPC network."),
       description: "Creates a network in the specified project using the data included in the request.") {
-      p_project, p_requestId,r_IPv4Range, r_creationTimestamp, r_description, r_gatewayIPv4, r_id, r_kind, r_name, r_selfLink, r_subnetworks in
+      p_project, p_requestId, r_IPv4Range, r_creationTimestamp, r_description, r_gatewayIPv4, r_id, r_kind, r_name, r_selfLink, r_subnetworks in
       do {
         var parameters = Compute.NetworksInsertParameters()
         if let p_project = p_project.first {
@@ -9039,7 +9039,7 @@ func main() throws {
       Options<String>("r_selfLink", default: [], count: 1, description: "[Output Only] Server-defined URL for the resource."),
       VariadicOption<String>("r_subnetworks", default: [], description: "[Output Only] Server-defined fully-qualified URLs for all subnetworks in this VPC network."),
       description: "Patches the specified network with the data included in the request. Only the following fields can be modified: routingConfig.routingMode.") {
-      p_network, p_project, p_requestId,r_IPv4Range, r_creationTimestamp, r_description, r_gatewayIPv4, r_id, r_kind, r_name, r_selfLink, r_subnetworks in
+      p_network, p_project, p_requestId, r_IPv4Range, r_creationTimestamp, r_description, r_gatewayIPv4, r_id, r_kind, r_name, r_selfLink, r_subnetworks in
       do {
         var parameters = Compute.NetworksPatchParameters()
         if let p_network = p_network.first {
@@ -9099,7 +9099,7 @@ func main() throws {
       Options<String>("p_requestId", default: [], count: 1, description: "An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.  For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments.  The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."),
       Options<String>("r_name", default: [], count: 1, description: "Name of the peering, which should conform to RFC1035."),
       description: "Removes a peering from the specified network.") {
-      p_network, p_project, p_requestId,r_name in
+      p_network, p_project, p_requestId, r_name in
       do {
         var parameters = Compute.NetworksRemovePeeringParameters()
         if let p_network = p_network.first {
@@ -9167,7 +9167,7 @@ func main() throws {
       Options<String>("p_zone", default: [], count: 1, description: "The name of the zone for this request."),
       Options<Int>("r_additionalNodeCount", default: [], count: 1, description: "Count of additional nodes to be added to the node group."),
       description: "Adds specified number of nodes to the node group.") {
-      p_nodeGroup, p_project, p_requestId, p_zone,r_additionalNodeCount in
+      p_nodeGroup, p_project, p_requestId, p_zone, r_additionalNodeCount in
       do {
         var parameters = Compute.NodeGroupsAddNodesParameters()
         if let p_nodeGroup = p_nodeGroup.first {
@@ -9281,7 +9281,7 @@ func main() throws {
       Options<String>("p_zone", default: [], count: 1, description: "The name of the zone for this request."),
       VariadicOption<String>("r_nodes", default: [], description: ""),
       description: "Deletes specified nodes from the node group.") {
-      p_nodeGroup, p_project, p_requestId, p_zone,r_nodes in
+      p_nodeGroup, p_project, p_requestId, p_zone, r_nodes in
       do {
         var parameters = Compute.NodeGroupsDeleteNodesParameters()
         if let p_nodeGroup = p_nodeGroup.first {
@@ -9392,7 +9392,7 @@ func main() throws {
       Options<String>("r_status", default: [], count: 1, description: ""),
       Options<String>("r_zone", default: [], count: 1, description: "[Output Only] The name of the zone where the node group resides, such as us-central1-a."),
       description: "Creates a NodeGroup resource in the specified project using the data included in the request.") {
-      p_initialNodeCount, p_project, p_requestId, p_zone,r_creationTimestamp, r_description, r_id, r_kind, r_name, r_nodeTemplate, r_selfLink, r_size, r_status, r_zone in
+      p_initialNodeCount, p_project, p_requestId, p_zone, r_creationTimestamp, r_description, r_id, r_kind, r_name, r_nodeTemplate, r_selfLink, r_size, r_status, r_zone in
       do {
         var parameters = Compute.NodeGroupsInsertParameters()
         if let p_initialNodeCount = p_initialNodeCount.first {
@@ -9548,7 +9548,7 @@ func main() throws {
       Options<String>("p_zone", default: [], count: 1, description: "The name of the zone for this request."),
       Options<String>("r_etag", default: [], count: 1, description: "Flatten Policy to create a backward compatible wire-format. Deprecated. Use 'policy' to specify the etag."),
       description: "Sets the access control policy on the specified resource. Replaces any existing policy.") {
-      p_project, p_resource, p_zone,r_etag in
+      p_project, p_resource, p_zone, r_etag in
       do {
         var parameters = Compute.NodeGroupsSetIamPolicyParameters()
         if let p_project = p_project.first {
@@ -9585,7 +9585,7 @@ func main() throws {
       Options<String>("p_zone", default: [], count: 1, description: "The name of the zone for this request."),
       Options<String>("r_nodeTemplate", default: [], count: 1, description: "Full or partial URL of the node template resource to be updated for this node group."),
       description: "Updates the node template of the node group.") {
-      p_nodeGroup, p_project, p_requestId, p_zone,r_nodeTemplate in
+      p_nodeGroup, p_project, p_requestId, p_zone, r_nodeTemplate in
       do {
         var parameters = Compute.NodeGroupsSetNodeTemplateParameters()
         if let p_nodeGroup = p_nodeGroup.first {
@@ -9624,7 +9624,7 @@ func main() throws {
       Options<String>("p_zone", default: [], count: 1, description: "The name of the zone for this request."),
       VariadicOption<String>("r_permissions", default: [], description: "The set of permissions to check for the 'resource'. Permissions with wildcards (such as '*' or 'storage.*') are not allowed."),
       description: "Returns permissions that a caller has on the specified resource.") {
-      p_project, p_resource, p_zone,r_permissions in
+      p_project, p_resource, p_zone, r_permissions in
       do {
         var parameters = Compute.NodeGroupsTestIamPermissionsParameters()
         if let p_project = p_project.first {
@@ -9805,7 +9805,7 @@ func main() throws {
       Options<String>("r_status", default: [], count: 1, description: "[Output Only] The status of the node template. One of the following values: CREATING, READY, and DELETING."),
       Options<String>("r_statusMessage", default: [], count: 1, description: "[Output Only] An optional, human-readable explanation of the status."),
       description: "Creates a NodeTemplate resource in the specified project using the data included in the request.") {
-      p_project, p_region, p_requestId,r_creationTimestamp, r_description, r_id, r_kind, r_name, r_nodeType, r_region, r_selfLink, r_status, r_statusMessage in
+      p_project, p_region, p_requestId, r_creationTimestamp, r_description, r_id, r_kind, r_name, r_nodeType, r_region, r_selfLink, r_status, r_statusMessage in
       do {
         var parameters = Compute.NodeTemplatesInsertParameters()
         if let p_project = p_project.first {
@@ -9911,7 +9911,7 @@ func main() throws {
       Options<String>("p_resource", default: [], count: 1, description: "Name or id of the resource for this request."),
       Options<String>("r_etag", default: [], count: 1, description: "Flatten Policy to create a backward compatible wire-format. Deprecated. Use 'policy' to specify the etag."),
       description: "Sets the access control policy on the specified resource. Replaces any existing policy.") {
-      p_project, p_region, p_resource,r_etag in
+      p_project, p_region, p_resource, r_etag in
       do {
         var parameters = Compute.NodeTemplatesSetIamPolicyParameters()
         if let p_project = p_project.first {
@@ -9947,7 +9947,7 @@ func main() throws {
       Options<String>("p_resource", default: [], count: 1, description: "Name or id of the resource for this request."),
       VariadicOption<String>("r_permissions", default: [], description: "The set of permissions to check for the 'resource'. Permissions with wildcards (such as '*' or 'storage.*') are not allowed."),
       description: "Returns permissions that a caller has on the specified resource.") {
-      p_project, p_region, p_resource,r_permissions in
+      p_project, p_region, p_resource, r_permissions in
       do {
         var parameters = Compute.NodeTemplatesTestIamPermissionsParameters()
         if let p_project = p_project.first {
@@ -10293,7 +10293,7 @@ func main() throws {
       Options<String>("p_project", default: [], count: 1, description: "Project ID for this request."),
       Options<String>("r_organization", default: [], count: 1, description: "Optional organization ID managed by Cloud Resource Manager, for which to list shared VPC host projects. If not specified, the organization will be inferred from the project."),
       description: "Lists all shared VPC host projects visible to the user in an organization.") {
-      p_filter, p_maxResults, p_order_by, p_pageToken, p_project,r_organization in
+      p_filter, p_maxResults, p_order_by, p_pageToken, p_project, r_organization in
       do {
         var parameters = Compute.ProjectsListXpnHostsParameters()
         if let p_filter = p_filter.first {
@@ -10335,7 +10335,7 @@ func main() throws {
       Options<String>("r_destinationZone", default: [], count: 1, description: "The URL of the destination zone to move the disk. This can be a full or partial URL. For example, the following are all valid URLs to a zone:   - https://www.googleapis.com/compute/v1/projects/project/zones/zone  - projects/project/zones/zone  - zones/zone"),
       Options<String>("r_targetDisk", default: [], count: 1, description: "The URL of the target disk to move. This can be a full or partial URL. For example, the following are all valid URLs to a disk:   - https://www.googleapis.com/compute/v1/projects/project/zones/zone/disks/disk  - projects/project/zones/zone/disks/disk  - zones/zone/disks/disk"),
       description: "Moves a persistent disk from one zone to another.") {
-      p_project, p_requestId,r_destinationZone, r_targetDisk in
+      p_project, p_requestId, r_destinationZone, r_targetDisk in
       do {
         var parameters = Compute.ProjectsMoveDiskParameters()
         if let p_project = p_project.first {
@@ -10371,7 +10371,7 @@ func main() throws {
       Options<String>("r_destinationZone", default: [], count: 1, description: "The URL of the destination zone to move the instance. This can be a full or partial URL. For example, the following are all valid URLs to a zone:   - https://www.googleapis.com/compute/v1/projects/project/zones/zone  - projects/project/zones/zone  - zones/zone"),
       Options<String>("r_targetInstance", default: [], count: 1, description: "The URL of the target instance to move. This can be a full or partial URL. For example, the following are all valid URLs to an instance:   - https://www.googleapis.com/compute/v1/projects/project/zones/zone/instances/instance  - projects/project/zones/zone/instances/instance  - zones/zone/instances/instance"),
       description: "Moves an instance and its attached persistent disks from one zone to another.") {
-      p_project, p_requestId,r_destinationZone, r_targetInstance in
+      p_project, p_requestId, r_destinationZone, r_targetInstance in
       do {
         var parameters = Compute.ProjectsMoveInstanceParameters()
         if let p_project = p_project.first {
@@ -10407,7 +10407,7 @@ func main() throws {
       Options<String>("r_fingerprint", default: [], count: 1, description: "Specifies a fingerprint for this request, which is essentially a hash of the metadata's contents and used for optimistic locking. The fingerprint is initially generated by Compute Engine and changes after every request to modify or update metadata. You must always provide an up-to-date fingerprint hash in order to update or change metadata, otherwise the request will fail with error 412 conditionNotMet.  To see the latest fingerprint, make a get() request to retrieve the resource."),
       Options<String>("r_kind", default: [], count: 1, description: "[Output Only] Type of the resource. Always compute#metadata for metadata."),
       description: "Sets metadata common to all instances within the specified project using the data included in the request.") {
-      p_project, p_requestId,r_fingerprint, r_kind in
+      p_project, p_requestId, r_fingerprint, r_kind in
       do {
         var parameters = Compute.ProjectsSetCommonInstanceMetadataParameters()
         if let p_project = p_project.first {
@@ -10442,7 +10442,7 @@ func main() throws {
       Options<String>("p_requestId", default: [], count: 1, description: "An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.  For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments.  The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."),
       Options<String>("r_networkTier", default: [], count: 1, description: "Default network tier to be set."),
       description: "Sets the default network tier of the project. The default network tier is used when an address/forwardingRule/instance is created without specifying the network tier field.") {
-      p_project, p_requestId,r_networkTier in
+      p_project, p_requestId, r_networkTier in
       do {
         var parameters = Compute.ProjectsSetDefaultNetworkTierParameters()
         if let p_project = p_project.first {
@@ -10475,7 +10475,7 @@ func main() throws {
       Options<String>("r_bucketName", default: [], count: 1, description: "The name of an existing bucket in Cloud Storage where the usage report object is stored. The Google Service Account is granted write access to this bucket. This can either be the bucket name by itself, such as example-bucket, or the bucket name with gs:// or https://storage.googleapis.com/ in front of it, such as gs://example-bucket."),
       Options<String>("r_reportNamePrefix", default: [], count: 1, description: "An optional prefix for the name of the usage report object stored in bucketName. If not supplied, defaults to usage. The report is stored as a CSV file named report_name_prefix_gce_YYYYMMDD.csv where YYYYMMDD is the day of the usage according to Pacific Time. If you supply a prefix, it should conform to Cloud Storage object naming conventions."),
       description: "Enables the usage export feature and sets the usage export bucket where reports are stored. If you provide an empty request body using this method, the usage export feature will be disabled.") {
-      p_project, p_requestId,r_bucketName, r_reportNamePrefix in
+      p_project, p_requestId, r_bucketName, r_reportNamePrefix in
       do {
         var parameters = Compute.ProjectsSetUsageExportBucketParameters()
         if let p_project = p_project.first {
@@ -10586,7 +10586,7 @@ func main() throws {
       Options<String>("r_target", default: [], count: 1, description: "URL of the managed instance group that this autoscaler will scale."),
       Options<String>("r_zone", default: [], count: 1, description: "[Output Only] URL of the zone where the instance group resides (for autoscalers living in zonal scope)."),
       description: "Creates an autoscaler in the specified project using the data included in the request.") {
-      p_project, p_region, p_requestId,r_creationTimestamp, r_description, r_id, r_kind, r_name, r_region, r_selfLink, r_status, r_target, r_zone in
+      p_project, p_region, p_requestId, r_creationTimestamp, r_description, r_id, r_kind, r_name, r_region, r_selfLink, r_status, r_target, r_zone in
       do {
         var parameters = Compute.RegionAutoscalersInsertParameters()
         if let p_project = p_project.first {
@@ -10702,7 +10702,7 @@ func main() throws {
       Options<String>("r_target", default: [], count: 1, description: "URL of the managed instance group that this autoscaler will scale."),
       Options<String>("r_zone", default: [], count: 1, description: "[Output Only] URL of the zone where the instance group resides (for autoscalers living in zonal scope)."),
       description: "Updates an autoscaler in the specified project using the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.") {
-      p_autoscaler, p_project, p_region, p_requestId,r_creationTimestamp, r_description, r_id, r_kind, r_name, r_region, r_selfLink, r_status, r_target, r_zone in
+      p_autoscaler, p_project, p_region, p_requestId, r_creationTimestamp, r_description, r_id, r_kind, r_name, r_region, r_selfLink, r_status, r_target, r_zone in
       do {
         var parameters = Compute.RegionAutoscalersPatchParameters()
         if let p_autoscaler = p_autoscaler.first {
@@ -10778,7 +10778,7 @@ func main() throws {
       Options<String>("r_target", default: [], count: 1, description: "URL of the managed instance group that this autoscaler will scale."),
       Options<String>("r_zone", default: [], count: 1, description: "[Output Only] URL of the zone where the instance group resides (for autoscalers living in zonal scope)."),
       description: "Updates an autoscaler in the specified project using the data included in the request.") {
-      p_autoscaler, p_project, p_region, p_requestId,r_creationTimestamp, r_description, r_id, r_kind, r_name, r_region, r_selfLink, r_status, r_target, r_zone in
+      p_autoscaler, p_project, p_region, p_requestId, r_creationTimestamp, r_description, r_id, r_kind, r_name, r_region, r_selfLink, r_status, r_target, r_zone in
       do {
         var parameters = Compute.RegionAutoscalersUpdateParameters()
         if let p_autoscaler = p_autoscaler.first {
@@ -10910,7 +10910,7 @@ func main() throws {
       Options<String>("p_region", default: [], count: 1, description: "Name of the region scoping this request."),
       Options<String>("r_group", default: [], count: 1, description: "A URI referencing one of the instance groups or network endpoint groups listed in the backend service."),
       description: "Gets the most recent health check results for this regional BackendService.") {
-      p_backendService, p_project, p_region,r_group in
+      p_backendService, p_project, p_region, r_group in
       do {
         var parameters = Compute.RegionBackendServicesGetHealthParameters()
         if let p_backendService = p_backendService.first {
@@ -10962,7 +10962,7 @@ func main() throws {
       Options<String>("r_sessionAffinity", default: [], count: 1, description: "Type of session affinity to use. The default is NONE.  When the load balancing scheme is EXTERNAL, can be NONE, CLIENT_IP, or GENERATED_COOKIE.  When the load balancing scheme is INTERNAL, can be NONE, CLIENT_IP, CLIENT_IP_PROTO, or CLIENT_IP_PORT_PROTO.  When the protocol is UDP, this field is not used."),
       Options<Int>("r_timeoutSec", default: [], count: 1, description: "How many seconds to wait for the backend before considering it a failed request. Default is 30 seconds."),
       description: "Creates a regional BackendService resource in the specified project using the data included in the request. There are several restrictions and guidelines to keep in mind when creating a regional backend service. Read  Restrictions and Guidelines for more information.") {
-      p_project, p_region, p_requestId,r_affinityCookieTtlSec, r_creationTimestamp, r_description, r_fingerprint, r_healthChecks, r_id, r_kind, r_loadBalancingScheme, r_name, r_port, r_portName, r_protocol, r_region, r_securityPolicy, r_selfLink, r_sessionAffinity, r_timeoutSec in
+      p_project, p_region, p_requestId, r_affinityCookieTtlSec, r_creationTimestamp, r_description, r_fingerprint, r_healthChecks, r_id, r_kind, r_loadBalancingScheme, r_name, r_port, r_portName, r_protocol, r_region, r_securityPolicy, r_selfLink, r_sessionAffinity, r_timeoutSec in
       do {
         var parameters = Compute.RegionBackendServicesInsertParameters()
         if let p_project = p_project.first {
@@ -11106,7 +11106,7 @@ func main() throws {
       Options<String>("r_sessionAffinity", default: [], count: 1, description: "Type of session affinity to use. The default is NONE.  When the load balancing scheme is EXTERNAL, can be NONE, CLIENT_IP, or GENERATED_COOKIE.  When the load balancing scheme is INTERNAL, can be NONE, CLIENT_IP, CLIENT_IP_PROTO, or CLIENT_IP_PORT_PROTO.  When the protocol is UDP, this field is not used."),
       Options<Int>("r_timeoutSec", default: [], count: 1, description: "How many seconds to wait for the backend before considering it a failed request. Default is 30 seconds."),
       description: "Updates the specified regional BackendService resource with the data included in the request. There are several restrictions and guidelines to keep in mind when updating a backend service. Read  Restrictions and Guidelines for more information. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.") {
-      p_backendService, p_project, p_region, p_requestId,r_affinityCookieTtlSec, r_creationTimestamp, r_description, r_fingerprint, r_healthChecks, r_id, r_kind, r_loadBalancingScheme, r_name, r_port, r_portName, r_protocol, r_region, r_securityPolicy, r_selfLink, r_sessionAffinity, r_timeoutSec in
+      p_backendService, p_project, p_region, p_requestId, r_affinityCookieTtlSec, r_creationTimestamp, r_description, r_fingerprint, r_healthChecks, r_id, r_kind, r_loadBalancingScheme, r_name, r_port, r_portName, r_protocol, r_region, r_securityPolicy, r_selfLink, r_sessionAffinity, r_timeoutSec in
       do {
         var parameters = Compute.RegionBackendServicesPatchParameters()
         if let p_backendService = p_backendService.first {
@@ -11210,7 +11210,7 @@ func main() throws {
       Options<String>("r_sessionAffinity", default: [], count: 1, description: "Type of session affinity to use. The default is NONE.  When the load balancing scheme is EXTERNAL, can be NONE, CLIENT_IP, or GENERATED_COOKIE.  When the load balancing scheme is INTERNAL, can be NONE, CLIENT_IP, CLIENT_IP_PROTO, or CLIENT_IP_PORT_PROTO.  When the protocol is UDP, this field is not used."),
       Options<Int>("r_timeoutSec", default: [], count: 1, description: "How many seconds to wait for the backend before considering it a failed request. Default is 30 seconds."),
       description: "Updates the specified regional BackendService resource with the data included in the request. There are several restrictions and guidelines to keep in mind when updating a backend service. Read  Restrictions and Guidelines for more information.") {
-      p_backendService, p_project, p_region, p_requestId,r_affinityCookieTtlSec, r_creationTimestamp, r_description, r_fingerprint, r_healthChecks, r_id, r_kind, r_loadBalancingScheme, r_name, r_port, r_portName, r_protocol, r_region, r_securityPolicy, r_selfLink, r_sessionAffinity, r_timeoutSec in
+      p_backendService, p_project, p_region, p_requestId, r_affinityCookieTtlSec, r_creationTimestamp, r_description, r_fingerprint, r_healthChecks, r_id, r_kind, r_loadBalancingScheme, r_name, r_port, r_portName, r_protocol, r_region, r_securityPolicy, r_selfLink, r_sessionAffinity, r_timeoutSec in
       do {
         var parameters = Compute.RegionBackendServicesUpdateParameters()
         if let p_backendService = p_backendService.first {
@@ -11378,7 +11378,7 @@ func main() throws {
       Options<String>("r_status", default: [], count: 1, description: "[Output Only] Status of the commitment with regards to eventual expiration (each commitment has an end date defined). One of the following values: NOT_YET_ACTIVE, ACTIVE, EXPIRED."),
       Options<String>("r_statusMessage", default: [], count: 1, description: "[Output Only] An optional, human-readable explanation of the status."),
       description: "Creates a commitment in the specified project using the data included in the request.") {
-      p_project, p_region, p_requestId,r_creationTimestamp, r_description, r_endTimestamp, r_id, r_kind, r_name, r_plan, r_region, r_selfLink, r_startTimestamp, r_status, r_statusMessage in
+      p_project, p_region, p_requestId, r_creationTimestamp, r_description, r_endTimestamp, r_id, r_kind, r_name, r_plan, r_region, r_selfLink, r_startTimestamp, r_status, r_statusMessage in
       do {
         var parameters = Compute.RegionCommitmentsInsertParameters()
         if let p_project = p_project.first {
@@ -11579,7 +11579,7 @@ func main() throws {
       Options<String>("r_storageBytes", default: [], count: 1, description: "[Output Only] A size of the storage used by the snapshot. As snapshots share storage, this number is expected to change with snapshot creation/deletion."),
       Options<String>("r_storageBytesStatus", default: [], count: 1, description: "[Output Only] An indicator whether storageBytes is in a stable state or it is being adjusted as a result of shared storage reallocation. This status can either be UPDATING, meaning the size of the snapshot is being updated, or UP_TO_DATE, meaning the size of the snapshot is up-to-date."),
       description: "Creates a snapshot of this regional disk.") {
-      p_disk, p_project, p_region, p_requestId,r_creationTimestamp, r_description, r_diskSizeGb, r_id, r_kind, r_labelFingerprint, r_licenseCodes, r_licenses, r_name, r_selfLink, r_sourceDisk, r_sourceDiskId, r_status, r_storageBytes, r_storageBytesStatus in
+      p_disk, p_project, p_region, p_requestId, r_creationTimestamp, r_description, r_diskSizeGb, r_id, r_kind, r_labelFingerprint, r_licenseCodes, r_licenses, r_name, r_selfLink, r_sourceDisk, r_sourceDiskId, r_status, r_storageBytes, r_storageBytesStatus in
       do {
         var parameters = Compute.RegionDisksCreateSnapshotParameters()
         if let p_disk = p_disk.first {
@@ -11750,7 +11750,7 @@ func main() throws {
       VariadicOption<String>("r_users", default: [], description: "[Output Only] Links to the users of the disk (attached instances) in form: project/zones/zone/instances/instance"),
       Options<String>("r_zone", default: [], count: 1, description: "[Output Only] URL of the zone where the disk resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body."),
       description: "Creates a persistent regional disk in the specified project using the data included in the request.") {
-      p_project, p_region, p_requestId, p_sourceImage,r_creationTimestamp, r_description, r_id, r_kind, r_labelFingerprint, r_lastAttachTimestamp, r_lastDetachTimestamp, r_licenseCodes, r_licenses, r_name, r_options, r_physicalBlockSizeBytes, r_region, r_replicaZones, r_selfLink, r_sizeGb, r_sourceImage, r_sourceImageId, r_sourceSnapshot, r_sourceSnapshotId, r_status, r_type, r_users, r_zone in
+      p_project, p_region, p_requestId, p_sourceImage, r_creationTimestamp, r_description, r_id, r_kind, r_labelFingerprint, r_lastAttachTimestamp, r_lastDetachTimestamp, r_licenseCodes, r_licenses, r_name, r_options, r_physicalBlockSizeBytes, r_region, r_replicaZones, r_selfLink, r_sizeGb, r_sourceImage, r_sourceImageId, r_sourceSnapshot, r_sourceSnapshotId, r_status, r_type, r_users, r_zone in
       do {
         var parameters = Compute.RegionDisksInsertParameters()
         if let p_project = p_project.first {
@@ -11902,7 +11902,7 @@ func main() throws {
       Options<String>("p_requestId", default: [], count: 1, description: "An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.  For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments.  The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."),
       Options<String>("r_sizeGb", default: [], count: 1, description: "The new size of the regional persistent disk, which is specified in GB."),
       description: "Resizes the specified regional persistent disk.") {
-      p_disk, p_project, p_region, p_requestId,r_sizeGb in
+      p_disk, p_project, p_region, p_requestId, r_sizeGb in
       do {
         var parameters = Compute.RegionDisksResizeParameters()
         if let p_disk = p_disk.first {
@@ -11942,7 +11942,7 @@ func main() throws {
       Options<String>("p_resource", default: [], count: 1, description: "Name or id of the resource for this request."),
       Options<String>("r_labelFingerprint", default: [], count: 1, description: "The fingerprint of the previous set of labels for this resource, used to detect conflicts. The fingerprint is initially generated by Compute Engine and changes after every request to modify or update labels. You must always provide an up-to-date fingerprint hash in order to update or change labels. Make a get() request to the resource to get the latest fingerprint."),
       description: "Sets the labels on the target regional disk.") {
-      p_project, p_region, p_requestId, p_resource,r_labelFingerprint in
+      p_project, p_region, p_requestId, p_resource, r_labelFingerprint in
       do {
         var parameters = Compute.RegionDisksSetLabelsParameters()
         if let p_project = p_project.first {
@@ -11981,7 +11981,7 @@ func main() throws {
       Options<String>("p_resource", default: [], count: 1, description: "Name or id of the resource for this request."),
       VariadicOption<String>("r_permissions", default: [], description: "The set of permissions to check for the 'resource'. Permissions with wildcards (such as '*' or 'storage.*') are not allowed."),
       description: "Returns permissions that a caller has on the specified resource.") {
-      p_project, p_region, p_resource,r_permissions in
+      p_project, p_region, p_resource, r_permissions in
       do {
         var parameters = Compute.RegionDisksTestIamPermissionsParameters()
         if let p_project = p_project.first {
@@ -12018,7 +12018,7 @@ func main() throws {
       Options<String>("p_requestId", default: [], count: 1, description: "An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.  For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments.  The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."),
       VariadicOption<String>("r_instances", default: [], description: "The URLs of one or more instances to abandon. This can be a full URL or a partial URL, such as zones/[ZONE]/instances/[INSTANCE_NAME]."),
       description: "Flags the specified instances to be immediately removed from the managed instance group. Abandoning an instance does not delete the instance, but it does remove the instance from any target pools that are applied by the managed instance group. This method reduces the targetSize of the managed instance group by the number of instances that you abandon. This operation is marked as DONE when the action is scheduled even if the instances have not yet been removed from the group. You must separately verify the status of the abandoning action with the listmanagedinstances method.  If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted.  You can specify a maximum of 1000 instances with this method per request.") {
-      p_instanceGroupManager, p_project, p_region, p_requestId,r_instances in
+      p_instanceGroupManager, p_project, p_region, p_requestId, r_instances in
       do {
         var parameters = Compute.RegionInstanceGroupManagersAbandonInstancesParameters()
         if let p_instanceGroupManager = p_instanceGroupManager.first {
@@ -12093,7 +12093,7 @@ func main() throws {
       Options<String>("p_requestId", default: [], count: 1, description: "An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.  For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments.  The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."),
       VariadicOption<String>("r_instances", default: [], description: "The URLs of one or more instances to delete. This can be a full URL or a partial URL, such as zones/[ZONE]/instances/[INSTANCE_NAME]."),
       description: "Flags the specified instances in the managed instance group to be immediately deleted. The instances are also removed from any target pools of which they were a member. This method reduces the targetSize of the managed instance group by the number of instances that you delete. The deleteInstances operation is marked DONE if the deleteInstances request is successful. The underlying actions take additional time. You must separately verify the status of the deleting action with the listmanagedinstances method.  If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted.  You can specify a maximum of 1000 instances with this method per request.") {
-      p_instanceGroupManager, p_project, p_region, p_requestId,r_instances in
+      p_instanceGroupManager, p_project, p_region, p_requestId, r_instances in
       do {
         var parameters = Compute.RegionInstanceGroupManagersDeleteInstancesParameters()
         if let p_instanceGroupManager = p_instanceGroupManager.first {
@@ -12176,7 +12176,7 @@ func main() throws {
       Options<Int>("r_targetSize", default: [], count: 1, description: "The target number of running instances for this managed instance group. Deleting or abandoning instances reduces this number. Resizing the group changes this number."),
       Options<String>("r_zone", default: [], count: 1, description: "[Output Only] The URL of the zone where the managed instance group is located (for zonal resources)."),
       description: "Creates a managed instance group using the information that you specify in the request. After the group is created, instances in the group are created using the specified instance template. This operation is marked as DONE when the group is created even if the instances in the group have not yet been created. You must separately verify the status of the individual instances with the listmanagedinstances method.  A regional managed instance group can contain up to 2000 instances.") {
-      p_project, p_region, p_requestId,r_baseInstanceName, r_creationTimestamp, r_description, r_fingerprint, r_id, r_instanceGroup, r_instanceTemplate, r_kind, r_name, r_region, r_selfLink, r_targetPools, r_targetSize, r_zone in
+      p_project, p_region, p_requestId, r_baseInstanceName, r_creationTimestamp, r_description, r_fingerprint, r_id, r_instanceGroup, r_instanceTemplate, r_kind, r_name, r_region, r_selfLink, r_targetPools, r_targetSize, r_zone in
       do {
         var parameters = Compute.RegionInstanceGroupManagersInsertParameters()
         if let p_project = p_project.first {
@@ -12355,7 +12355,7 @@ func main() throws {
       Options<Int>("r_targetSize", default: [], count: 1, description: "The target number of running instances for this managed instance group. Deleting or abandoning instances reduces this number. Resizing the group changes this number."),
       Options<String>("r_zone", default: [], count: 1, description: "[Output Only] The URL of the zone where the managed instance group is located (for zonal resources)."),
       description: "Updates a managed instance group using the information that you specify in the request. This operation is marked as DONE when the group is patched even if the instances in the group are still in the process of being patched. You must separately verify the status of the individual instances with the listmanagedinstances method. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.") {
-      p_instanceGroupManager, p_project, p_region, p_requestId,r_baseInstanceName, r_creationTimestamp, r_description, r_fingerprint, r_id, r_instanceGroup, r_instanceTemplate, r_kind, r_name, r_region, r_selfLink, r_targetPools, r_targetSize, r_zone in
+      p_instanceGroupManager, p_project, p_region, p_requestId, r_baseInstanceName, r_creationTimestamp, r_description, r_fingerprint, r_id, r_instanceGroup, r_instanceTemplate, r_kind, r_name, r_region, r_selfLink, r_targetPools, r_targetSize, r_zone in
       do {
         var parameters = Compute.RegionInstanceGroupManagersPatchParameters()
         if let p_instanceGroupManager = p_instanceGroupManager.first {
@@ -12434,7 +12434,7 @@ func main() throws {
       Options<String>("p_requestId", default: [], count: 1, description: "An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.  For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments.  The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."),
       VariadicOption<String>("r_instances", default: [], description: "The URLs of one or more instances to recreate. This can be a full URL or a partial URL, such as zones/[ZONE]/instances/[INSTANCE_NAME]."),
       description: "Flags the specified instances in the managed instance group to be immediately recreated. The instances are deleted and recreated using the current instance template for the managed instance group. This operation is marked as DONE when the flag is set even if the instances have not yet been recreated. You must separately verify the status of the recreating action with the listmanagedinstances method.  If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted.  You can specify a maximum of 1000 instances with this method per request.") {
-      p_instanceGroupManager, p_project, p_region, p_requestId,r_instances in
+      p_instanceGroupManager, p_project, p_region, p_requestId, r_instances in
       do {
         var parameters = Compute.RegionInstanceGroupManagersRecreateInstancesParameters()
         if let p_instanceGroupManager = p_instanceGroupManager.first {
@@ -12513,7 +12513,7 @@ func main() throws {
       Options<String>("p_requestId", default: [], count: 1, description: "An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.  For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments.  The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."),
       Options<String>("r_instanceTemplate", default: [], count: 1, description: "URL of the InstanceTemplate resource from which all new instances will be created."),
       description: "Sets the instance template to use when creating new instances or recreating instances in this group. Existing instances are not affected.") {
-      p_instanceGroupManager, p_project, p_region, p_requestId,r_instanceTemplate in
+      p_instanceGroupManager, p_project, p_region, p_requestId, r_instanceTemplate in
       do {
         var parameters = Compute.RegionInstanceGroupManagersSetInstanceTemplateParameters()
         if let p_instanceGroupManager = p_instanceGroupManager.first {
@@ -12554,7 +12554,7 @@ func main() throws {
       Options<String>("r_fingerprint", default: [], count: 1, description: "Fingerprint of the target pools information, which is a hash of the contents. This field is used for optimistic locking when you update the target pool entries. This field is optional."),
       VariadicOption<String>("r_targetPools", default: [], description: "The URL of all TargetPool resources to which instances in the instanceGroup field are added. The target pools automatically apply to all of the instances in the managed instance group."),
       description: "Modifies the target pools to which all new instances in this group are assigned. Existing instances in the group are not affected.") {
-      p_instanceGroupManager, p_project, p_region, p_requestId,r_fingerprint, r_targetPools in
+      p_instanceGroupManager, p_project, p_region, p_requestId, r_fingerprint, r_targetPools in
       do {
         var parameters = Compute.RegionInstanceGroupManagersSetTargetPoolsParameters()
         if let p_instanceGroupManager = p_instanceGroupManager.first {
@@ -12675,7 +12675,7 @@ func main() throws {
       Options<String>("r_instanceState", default: [], count: 1, description: "Instances in which state should be returned. Valid options are: 'ALL', 'RUNNING'. By default, it lists all instances."),
       Options<String>("r_portName", default: [], count: 1, description: "Name of port user is interested in. It is optional. If it is set, only information about this ports will be returned. If it is not set, all the named ports will be returned. Always lists all instances."),
       description: "Lists the instances in the specified instance group and displays information about the named ports. Depending on the specified options, this method can list all instances or only the instances that are running.") {
-      p_filter, p_instanceGroup, p_maxResults, p_orderBy, p_pageToken, p_project, p_region,r_instanceState, r_portName in
+      p_filter, p_instanceGroup, p_maxResults, p_orderBy, p_pageToken, p_project, p_region, r_instanceState, r_portName in
       do {
         var parameters = Compute.RegionInstanceGroupsListInstancesParameters()
         if let p_filter = p_filter.first {
@@ -12727,7 +12727,7 @@ func main() throws {
       Options<String>("p_requestId", default: [], count: 1, description: "An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.  For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments.  The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."),
       Options<String>("r_fingerprint", default: [], count: 1, description: "The fingerprint of the named ports information for this instance group. Use this optional property to prevent conflicts when multiple users change the named ports settings concurrently. Obtain the fingerprint with the instanceGroups.get method. Then, include the fingerprint in your request to ensure that you do not overwrite changes that were applied from another concurrent request."),
       description: "Sets the named ports for the specified regional instance group.") {
-      p_instanceGroup, p_project, p_region, p_requestId,r_fingerprint in
+      p_instanceGroup, p_project, p_region, p_requestId, r_fingerprint in
       do {
         var parameters = Compute.RegionInstanceGroupsSetNamedPortsParameters()
         if let p_instanceGroup = p_instanceGroup.first {
@@ -13126,7 +13126,7 @@ func main() throws {
       Options<String>("r_region", default: [], count: 1, description: "[Output Only] URI of the region where the router resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body."),
       Options<String>("r_selfLink", default: [], count: 1, description: "[Output Only] Server-defined URL for the resource."),
       description: "Creates a Router resource in the specified project and region using the data included in the request.") {
-      p_project, p_region, p_requestId,r_creationTimestamp, r_description, r_id, r_kind, r_name, r_network, r_region, r_selfLink in
+      p_project, p_region, p_requestId, r_creationTimestamp, r_description, r_id, r_kind, r_name, r_network, r_region, r_selfLink in
       do {
         var parameters = Compute.RoutersInsertParameters()
         if let p_project = p_project.first {
@@ -13234,7 +13234,7 @@ func main() throws {
       Options<String>("r_region", default: [], count: 1, description: "[Output Only] URI of the region where the router resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body."),
       Options<String>("r_selfLink", default: [], count: 1, description: "[Output Only] Server-defined URL for the resource."),
       description: "Patches the specified Router resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules.") {
-      p_project, p_region, p_requestId, p_router,r_creationTimestamp, r_description, r_id, r_kind, r_name, r_network, r_region, r_selfLink in
+      p_project, p_region, p_requestId, p_router, r_creationTimestamp, r_description, r_id, r_kind, r_name, r_network, r_region, r_selfLink in
       do {
         var parameters = Compute.RoutersPatchParameters()
         if let p_project = p_project.first {
@@ -13301,7 +13301,7 @@ func main() throws {
       Options<String>("r_region", default: [], count: 1, description: "[Output Only] URI of the region where the router resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body."),
       Options<String>("r_selfLink", default: [], count: 1, description: "[Output Only] Server-defined URL for the resource."),
       description: "Preview fields auto-generated during router create and update operations. Calling this method does NOT create or update the router.") {
-      p_project, p_region, p_router,r_creationTimestamp, r_description, r_id, r_kind, r_name, r_network, r_region, r_selfLink in
+      p_project, p_region, p_router, r_creationTimestamp, r_description, r_id, r_kind, r_name, r_network, r_region, r_selfLink in
       do {
         var parameters = Compute.RoutersPreviewParameters()
         if let p_project = p_project.first {
@@ -13366,7 +13366,7 @@ func main() throws {
       Options<String>("r_region", default: [], count: 1, description: "[Output Only] URI of the region where the router resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body."),
       Options<String>("r_selfLink", default: [], count: 1, description: "[Output Only] Server-defined URL for the resource."),
       description: "Updates the specified Router resource with the data included in the request.") {
-      p_project, p_region, p_requestId, p_router,r_creationTimestamp, r_description, r_id, r_kind, r_name, r_network, r_region, r_selfLink in
+      p_project, p_region, p_requestId, p_router, r_creationTimestamp, r_description, r_id, r_kind, r_name, r_network, r_region, r_selfLink in
       do {
         var parameters = Compute.RoutersUpdateParameters()
         if let p_project = p_project.first {
@@ -13498,7 +13498,7 @@ func main() throws {
       Options<String>("r_selfLink", default: [], count: 1, description: "[Output Only] Server-defined fully-qualified URL for this resource."),
       VariadicOption<String>("r_tags", default: [], description: "A list of instance tags to which this route applies."),
       description: "Creates a Route resource in the specified project using the data included in the request.") {
-      p_project, p_requestId,r_creationTimestamp, r_description, r_destRange, r_id, r_kind, r_name, r_network, r_nextHopGateway, r_nextHopInstance, r_nextHopIp, r_nextHopNetwork, r_nextHopPeering, r_nextHopVpnTunnel, r_priority, r_selfLink, r_tags in
+      p_project, p_requestId, r_creationTimestamp, r_description, r_destRange, r_id, r_kind, r_name, r_network, r_nextHopGateway, r_nextHopInstance, r_nextHopIp, r_nextHopNetwork, r_nextHopPeering, r_nextHopVpnTunnel, r_priority, r_selfLink, r_tags in
       do {
         var parameters = Compute.RoutesInsertParameters()
         if let p_project = p_project.first {
@@ -13617,7 +13617,7 @@ func main() throws {
       Options<String>("r_kind", default: [], count: 1, description: "[Output only] Type of the resource. Always compute#securityPolicyRule for security policy rules"),
       Options<Int>("r_priority", default: [], count: 1, description: "An integer indicating the priority of a rule in the list. The priority must be a positive value between 0 and 2147483647. Rules are evaluated from highest to lowest priority where 0 is the highest priority and 2147483647 is the lowest prority."),
       description: "Inserts a rule into a security policy.") {
-      p_project, p_securityPolicy,r_action, r_description, r_kind, r_priority in
+      p_project, p_securityPolicy, r_action, r_description, r_kind, r_priority in
       do {
         var parameters = Compute.SecurityPoliciesAddRuleParameters()
         if let p_project = p_project.first {
@@ -13753,7 +13753,7 @@ func main() throws {
       Options<String>("r_name", default: [], count: 1, description: "Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash."),
       Options<String>("r_selfLink", default: [], count: 1, description: "[Output Only] Server-defined URL for the resource."),
       description: "Creates a new policy in the specified project using the data included in the request.") {
-      p_project, p_requestId,r_creationTimestamp, r_description, r_fingerprint, r_id, r_kind, r_name, r_selfLink in
+      p_project, p_requestId, r_creationTimestamp, r_description, r_fingerprint, r_id, r_kind, r_name, r_selfLink in
       do {
         var parameters = Compute.SecurityPoliciesInsertParameters()
         if let p_project = p_project.first {
@@ -13849,7 +13849,7 @@ func main() throws {
       Options<String>("r_name", default: [], count: 1, description: "Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash."),
       Options<String>("r_selfLink", default: [], count: 1, description: "[Output Only] Server-defined URL for the resource."),
       description: "Patches the specified policy with the data included in the request.") {
-      p_project, p_requestId, p_securityPolicy,r_creationTimestamp, r_description, r_fingerprint, r_id, r_kind, r_name, r_selfLink in
+      p_project, p_requestId, p_securityPolicy, r_creationTimestamp, r_description, r_fingerprint, r_id, r_kind, r_name, r_selfLink in
       do {
         var parameters = Compute.SecurityPoliciesPatchParameters()
         if let p_project = p_project.first {
@@ -13906,7 +13906,7 @@ func main() throws {
       Options<String>("r_kind", default: [], count: 1, description: "[Output only] Type of the resource. Always compute#securityPolicyRule for security policy rules"),
       Options<Int>("r_priority", default: [], count: 1, description: "An integer indicating the priority of a rule in the list. The priority must be a positive value between 0 and 2147483647. Rules are evaluated from highest to lowest priority where 0 is the highest priority and 2147483647 is the lowest prority."),
       description: "Patches a rule at the specified priority.") {
-      p_priority, p_project, p_securityPolicy,r_action, r_description, r_kind, r_priority in
+      p_priority, p_project, p_securityPolicy, r_action, r_description, r_kind, r_priority in
       do {
         var parameters = Compute.SecurityPoliciesPatchRuleParameters()
         if let p_priority = p_priority.first {
@@ -14105,7 +14105,7 @@ func main() throws {
       Options<String>("p_resource", default: [], count: 1, description: "Name or id of the resource for this request."),
       Options<String>("r_etag", default: [], count: 1, description: "Flatten Policy to create a backward compatible wire-format. Deprecated. Use 'policy' to specify the etag."),
       description: "Sets the access control policy on the specified resource. Replaces any existing policy.") {
-      p_project, p_resource,r_etag in
+      p_project, p_resource, r_etag in
       do {
         var parameters = Compute.SnapshotsSetIamPolicyParameters()
         if let p_project = p_project.first {
@@ -14137,7 +14137,7 @@ func main() throws {
       Options<String>("p_resource", default: [], count: 1, description: "Name or id of the resource for this request."),
       Options<String>("r_labelFingerprint", default: [], count: 1, description: "The fingerprint of the previous set of labels for this resource, used to detect conflicts. The fingerprint is initially generated by Compute Engine and changes after every request to modify or update labels. You must always provide an up-to-date fingerprint hash when updating or changing labels, otherwise the request will fail with error 412 conditionNotMet. Make a get() request to the resource to get the latest fingerprint."),
       description: "Sets the labels on a snapshot. To learn more about labels, read the Labeling Resources documentation.") {
-      p_project, p_resource,r_labelFingerprint in
+      p_project, p_resource, r_labelFingerprint in
       do {
         var parameters = Compute.SnapshotsSetLabelsParameters()
         if let p_project = p_project.first {
@@ -14169,7 +14169,7 @@ func main() throws {
       Options<String>("p_resource", default: [], count: 1, description: "Name or id of the resource for this request."),
       VariadicOption<String>("r_permissions", default: [], description: "The set of permissions to check for the 'resource'. Permissions with wildcards (such as '*' or 'storage.*') are not allowed."),
       description: "Returns permissions that a caller has on the specified resource.") {
-      p_project, p_resource,r_permissions in
+      p_project, p_resource, r_permissions in
       do {
         var parameters = Compute.SnapshotsTestIamPermissionsParameters()
         if let p_project = p_project.first {
@@ -14266,7 +14266,7 @@ func main() throws {
       Options<String>("r_privateKey", default: [], count: 1, description: "A write-only private key in PEM format. Only insert requests will include this field."),
       Options<String>("r_selfLink", default: [], count: 1, description: "[Output only] Server-defined URL for the resource."),
       description: "Creates a SslCertificate resource in the specified project using the data included in the request.") {
-      p_project, p_requestId,r_certificate, r_creationTimestamp, r_description, r_id, r_kind, r_name, r_privateKey, r_selfLink in
+      p_project, p_requestId, r_certificate, r_creationTimestamp, r_description, r_id, r_kind, r_name, r_privateKey, r_selfLink in
       do {
         var parameters = Compute.SslCertificatesInsertParameters()
         if let p_project = p_project.first {
@@ -14426,7 +14426,7 @@ func main() throws {
       Options<String>("r_profile", default: [], count: 1, description: "Profile specifies the set of SSL features that can be used by the load balancer when negotiating SSL with clients. This can be one of COMPATIBLE, MODERN, RESTRICTED, or CUSTOM. If using CUSTOM, the set of SSL features to enable must be specified in the customFeatures field."),
       Options<String>("r_selfLink", default: [], count: 1, description: "[Output Only] Server-defined URL for the resource."),
       description: "Returns the specified SSL policy resource. Gets a list of available SSL policies by making a list() request.") {
-      p_project, p_requestId,r_creationTimestamp, r_customFeatures, r_description, r_enabledFeatures, r_fingerprint, r_id, r_kind, r_minTlsVersion, r_name, r_profile, r_selfLink in
+      p_project, p_requestId, r_creationTimestamp, r_customFeatures, r_description, r_enabledFeatures, r_fingerprint, r_id, r_kind, r_minTlsVersion, r_name, r_profile, r_selfLink in
       do {
         var parameters = Compute.SslPoliciesInsertParameters()
         if let p_project = p_project.first {
@@ -14577,7 +14577,7 @@ func main() throws {
       Options<String>("r_profile", default: [], count: 1, description: "Profile specifies the set of SSL features that can be used by the load balancer when negotiating SSL with clients. This can be one of COMPATIBLE, MODERN, RESTRICTED, or CUSTOM. If using CUSTOM, the set of SSL features to enable must be specified in the customFeatures field."),
       Options<String>("r_selfLink", default: [], count: 1, description: "[Output Only] Server-defined URL for the resource."),
       description: "Patches the specified SSL policy with the data included in the request.") {
-      p_project, p_requestId, p_sslPolicy,r_creationTimestamp, r_customFeatures, r_description, r_enabledFeatures, r_fingerprint, r_id, r_kind, r_minTlsVersion, r_name, r_profile, r_selfLink in
+      p_project, p_requestId, p_sslPolicy, r_creationTimestamp, r_customFeatures, r_description, r_enabledFeatures, r_fingerprint, r_id, r_kind, r_minTlsVersion, r_name, r_profile, r_selfLink in
       do {
         var parameters = Compute.SslPoliciesPatchParameters()
         if let p_project = p_project.first {
@@ -14718,7 +14718,7 @@ func main() throws {
       Options<String>("p_subnetwork", default: [], count: 1, description: "Name of the Subnetwork resource to update."),
       Options<String>("r_ipCidrRange", default: [], count: 1, description: "The IP (in CIDR format or netmask) of internal addresses that are legal on this Subnetwork. This range should be disjoint from other subnetworks within this network. This range can only be larger than (i.e. a superset of) the range previously defined before the update."),
       description: "Expands the IP CIDR range of the subnetwork to a specified value.") {
-      p_project, p_region, p_requestId, p_subnetwork,r_ipCidrRange in
+      p_project, p_region, p_requestId, p_subnetwork, r_ipCidrRange in
       do {
         var parameters = Compute.SubnetworksExpandIpCidrRangeParameters()
         if let p_project = p_project.first {
@@ -14829,7 +14829,7 @@ func main() throws {
       Options<String>("r_region", default: [], count: 1, description: "URL of the region where the Subnetwork resides. This field can be set only at resource creation time."),
       Options<String>("r_selfLink", default: [], count: 1, description: "[Output Only] Server-defined URL for the resource."),
       description: "Creates a subnetwork in the specified project using the data included in the request.") {
-      p_project, p_region, p_requestId,r_creationTimestamp, r_description, r_fingerprint, r_gatewayAddress, r_id, r_ipCidrRange, r_kind, r_name, r_network, r_region, r_selfLink in
+      p_project, p_region, p_requestId, r_creationTimestamp, r_description, r_fingerprint, r_gatewayAddress, r_id, r_ipCidrRange, r_kind, r_name, r_network, r_region, r_selfLink in
       do {
         var parameters = Compute.SubnetworksInsertParameters()
         if let p_project = p_project.first {
@@ -14988,7 +14988,7 @@ func main() throws {
       Options<String>("r_region", default: [], count: 1, description: "URL of the region where the Subnetwork resides. This field can be set only at resource creation time."),
       Options<String>("r_selfLink", default: [], count: 1, description: "[Output Only] Server-defined URL for the resource."),
       description: "Patches the specified subnetwork with the data included in the request. Only certain fields can up updated with a patch request as indicated in the field descriptions. You must specify the current fingeprint of the subnetwork resource being patched.") {
-      p_project, p_region, p_requestId, p_subnetwork,r_creationTimestamp, r_description, r_fingerprint, r_gatewayAddress, r_id, r_ipCidrRange, r_kind, r_name, r_network, r_region, r_selfLink in
+      p_project, p_region, p_requestId, p_subnetwork, r_creationTimestamp, r_description, r_fingerprint, r_gatewayAddress, r_id, r_ipCidrRange, r_kind, r_name, r_network, r_region, r_selfLink in
       do {
         var parameters = Compute.SubnetworksPatchParameters()
         if let p_project = p_project.first {
@@ -15057,7 +15057,7 @@ func main() throws {
       Options<String>("p_resource", default: [], count: 1, description: "Name or id of the resource for this request."),
       Options<String>("r_etag", default: [], count: 1, description: "Flatten Policy to create a backward compatible wire-format. Deprecated. Use 'policy' to specify the etag."),
       description: "Sets the access control policy on the specified resource. Replaces any existing policy.") {
-      p_project, p_region, p_resource,r_etag in
+      p_project, p_region, p_resource, r_etag in
       do {
         var parameters = Compute.SubnetworksSetIamPolicyParameters()
         if let p_project = p_project.first {
@@ -15129,7 +15129,7 @@ func main() throws {
       Options<String>("p_resource", default: [], count: 1, description: "Name or id of the resource for this request."),
       VariadicOption<String>("r_permissions", default: [], description: "The set of permissions to check for the 'resource'. Permissions with wildcards (such as '*' or 'storage.*') are not allowed."),
       description: "Returns permissions that a caller has on the specified resource.") {
-      p_project, p_region, p_resource,r_permissions in
+      p_project, p_region, p_resource, r_permissions in
       do {
         var parameters = Compute.SubnetworksTestIamPermissionsParameters()
         if let p_project = p_project.first {
@@ -15228,7 +15228,7 @@ func main() throws {
       Options<String>("r_selfLink", default: [], count: 1, description: "[Output Only] Server-defined URL for the resource."),
       Options<String>("r_urlMap", default: [], count: 1, description: "URL to the UrlMap resource that defines the mapping from URL to the BackendService."),
       description: "Creates a TargetHttpProxy resource in the specified project using the data included in the request.") {
-      p_project, p_requestId,r_creationTimestamp, r_description, r_id, r_kind, r_name, r_selfLink, r_urlMap in
+      p_project, p_requestId, r_creationTimestamp, r_description, r_id, r_kind, r_name, r_selfLink, r_urlMap in
       do {
         var parameters = Compute.TargetHttpProxiesInsertParameters()
         if let p_project = p_project.first {
@@ -15318,7 +15318,7 @@ func main() throws {
       Options<String>("p_targetHttpProxy", default: [], count: 1, description: "Name of the TargetHttpProxy to set a URL map for."),
       Options<String>("r_urlMap", default: [], count: 1, description: ""),
       description: "Changes the URL map for TargetHttpProxy.") {
-      p_project, p_requestId, p_targetHttpProxy,r_urlMap in
+      p_project, p_requestId, p_targetHttpProxy, r_urlMap in
       do {
         var parameters = Compute.TargetHttpProxiesSetUrlMapParameters()
         if let p_project = p_project.first {
@@ -15420,7 +15420,7 @@ func main() throws {
       Options<String>("r_sslPolicy", default: [], count: 1, description: "URL of SslPolicy resource that will be associated with the TargetHttpsProxy resource. If not set, the TargetHttpsProxy resource will not have any SSL policy configured."),
       Options<String>("r_urlMap", default: [], count: 1, description: "A fully-qualified or valid partial URL to the UrlMap resource that defines the mapping from URL to the BackendService. For example, the following are all valid URLs for specifying a URL map:   - https://www.googleapis.compute/v1/projects/project/global/urlMaps/url-map  - projects/project/global/urlMaps/url-map  - global/urlMaps/url-map"),
       description: "Creates a TargetHttpsProxy resource in the specified project using the data included in the request.") {
-      p_project, p_requestId,r_creationTimestamp, r_description, r_id, r_kind, r_name, r_quicOverride, r_selfLink, r_sslCertificates, r_sslPolicy, r_urlMap in
+      p_project, p_requestId, r_creationTimestamp, r_description, r_id, r_kind, r_name, r_quicOverride, r_selfLink, r_sslCertificates, r_sslPolicy, r_urlMap in
       do {
         var parameters = Compute.TargetHttpsProxiesInsertParameters()
         if let p_project = p_project.first {
@@ -15519,7 +15519,7 @@ func main() throws {
       Options<String>("p_targetHttpsProxy", default: [], count: 1, description: "Name of the TargetHttpsProxy resource to set the QUIC override policy for. The name should conform to RFC1035."),
       Options<String>("r_quicOverride", default: [], count: 1, description: "QUIC policy for the TargetHttpsProxy resource."),
       description: "Sets the QUIC override policy for TargetHttpsProxy.") {
-      p_project, p_requestId, p_targetHttpsProxy,r_quicOverride in
+      p_project, p_requestId, p_targetHttpsProxy, r_quicOverride in
       do {
         var parameters = Compute.TargetHttpsProxiesSetQuicOverrideParameters()
         if let p_project = p_project.first {
@@ -15555,7 +15555,7 @@ func main() throws {
       Options<String>("p_targetHttpsProxy", default: [], count: 1, description: "Name of the TargetHttpsProxy resource to set an SslCertificates resource for."),
       VariadicOption<String>("r_sslCertificates", default: [], description: "New set of SslCertificate resources to associate with this TargetHttpsProxy resource. Currently exactly one SslCertificate resource must be specified."),
       description: "Replaces SslCertificates for TargetHttpsProxy.") {
-      p_project, p_requestId, p_targetHttpsProxy,r_sslCertificates in
+      p_project, p_requestId, p_targetHttpsProxy, r_sslCertificates in
       do {
         var parameters = Compute.TargetHttpsProxiesSetSslCertificatesParameters()
         if let p_project = p_project.first {
@@ -15591,7 +15591,7 @@ func main() throws {
       Options<String>("p_targetHttpsProxy", default: [], count: 1, description: "Name of the TargetHttpsProxy resource whose SSL policy is to be set. The name must be 1-63 characters long, and comply with RFC1035."),
       Options<String>("r_sslPolicy", default: [], count: 1, description: "URL of the SSL policy resource. Set this to empty string to clear any existing SSL policy associated with the target proxy resource."),
       description: "Sets the SSL policy for TargetHttpsProxy. The SSL policy specifies the server-side support for SSL features. This affects connections between clients and the HTTPS proxy load balancer. They do not affect the connection between the load balancer and the backends.") {
-      p_project, p_requestId, p_targetHttpsProxy,r_sslPolicy in
+      p_project, p_requestId, p_targetHttpsProxy, r_sslPolicy in
       do {
         var parameters = Compute.TargetHttpsProxiesSetSslPolicyParameters()
         if let p_project = p_project.first {
@@ -15627,7 +15627,7 @@ func main() throws {
       Options<String>("p_targetHttpsProxy", default: [], count: 1, description: "Name of the TargetHttpsProxy resource whose URL map is to be set."),
       Options<String>("r_urlMap", default: [], count: 1, description: ""),
       description: "Changes the URL map for TargetHttpsProxy.") {
-      p_project, p_requestId, p_targetHttpsProxy,r_urlMap in
+      p_project, p_requestId, p_targetHttpsProxy, r_urlMap in
       do {
         var parameters = Compute.TargetHttpsProxiesSetUrlMapParameters()
         if let p_project = p_project.first {
@@ -15776,7 +15776,7 @@ func main() throws {
       Options<String>("r_selfLink", default: [], count: 1, description: "[Output Only] Server-defined URL for the resource."),
       Options<String>("r_zone", default: [], count: 1, description: "[Output Only] URL of the zone where the target instance resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body."),
       description: "Creates a TargetInstance resource in the specified project and zone using the data included in the request.") {
-      p_project, p_requestId, p_zone,r_creationTimestamp, r_description, r_id, r_instance, r_kind, r_name, r_natPolicy, r_selfLink, r_zone in
+      p_project, p_requestId, p_zone, r_creationTimestamp, r_description, r_id, r_instance, r_kind, r_name, r_natPolicy, r_selfLink, r_zone in
       do {
         var parameters = Compute.TargetInstancesInsertParameters()
         if let p_project = p_project.first {
@@ -16056,7 +16056,7 @@ func main() throws {
       Options<String>("p_targetPool", default: [], count: 1, description: "Name of the TargetPool resource to which the queried instance belongs."),
       Options<String>("r_instance", default: [], count: 1, description: "The URL for a specific instance."),
       description: "Gets the most recent health check results for each IP for the instance that is referenced by the given target pool.") {
-      p_project, p_region, p_targetPool,r_instance in
+      p_project, p_region, p_targetPool, r_instance in
       do {
         var parameters = Compute.TargetPoolsGetHealthParameters()
         if let p_project = p_project.first {
@@ -16102,7 +16102,7 @@ func main() throws {
       Options<String>("r_selfLink", default: [], count: 1, description: "[Output Only] Server-defined URL for the resource."),
       Options<String>("r_sessionAffinity", default: [], count: 1, description: "Session affinity option, must be one of the following values: NONE: Connections from the same client IP may go to any instance in the pool. CLIENT_IP: Connections from the same client IP will go to the same instance in the pool while that instance remains healthy. CLIENT_IP_PROTO: Connections from the same client IP with the same IP protocol will go to the same instance in the pool while that instance remains healthy."),
       description: "Creates a target pool in the specified project and region using the data included in the request.") {
-      p_project, p_region, p_requestId,r_backupPool, r_creationTimestamp, r_description, r_healthChecks, r_id, r_instances, r_kind, r_name, r_region, r_selfLink, r_sessionAffinity in
+      p_project, p_region, p_requestId, r_backupPool, r_creationTimestamp, r_description, r_healthChecks, r_id, r_instances, r_kind, r_name, r_region, r_selfLink, r_sessionAffinity in
       do {
         var parameters = Compute.TargetPoolsInsertParameters()
         if let p_project = p_project.first {
@@ -16284,7 +16284,7 @@ func main() throws {
       Options<String>("p_targetPool", default: [], count: 1, description: "Name of the TargetPool resource to set a backup pool for."),
       Options<String>("r_target", default: [], count: 1, description: ""),
       description: "Changes a backup target pool's configurations.") {
-      p_project, p_region, p_requestId, p_targetPool,r_target in
+      p_project, p_region, p_requestId, p_targetPool, r_target in
       do {
         var parameters = Compute.TargetPoolsSetBackupParameters()
         if let p_project = p_project.first {
@@ -16389,7 +16389,7 @@ func main() throws {
       VariadicOption<String>("r_sslCertificates", default: [], description: "URLs to SslCertificate resources that are used to authenticate connections to Backends. At least one SSL certificate must be specified. Currently, you may specify up to 15 SSL certificates."),
       Options<String>("r_sslPolicy", default: [], count: 1, description: "URL of SslPolicy resource that will be associated with the TargetSslProxy resource. If not set, the TargetSslProxy resource will not have any SSL policy configured."),
       description: "Creates a TargetSslProxy resource in the specified project using the data included in the request.") {
-      p_project, p_requestId,r_creationTimestamp, r_description, r_id, r_kind, r_name, r_proxyHeader, r_selfLink, r_service, r_sslCertificates, r_sslPolicy in
+      p_project, p_requestId, r_creationTimestamp, r_description, r_id, r_kind, r_name, r_proxyHeader, r_selfLink, r_service, r_sslCertificates, r_sslPolicy in
       do {
         var parameters = Compute.TargetSslProxiesInsertParameters()
         if let p_project = p_project.first {
@@ -16488,7 +16488,7 @@ func main() throws {
       Options<String>("p_targetSslProxy", default: [], count: 1, description: "Name of the TargetSslProxy resource whose BackendService resource is to be set."),
       Options<String>("r_service", default: [], count: 1, description: "The URL of the new BackendService resource for the targetSslProxy."),
       description: "Changes the BackendService for TargetSslProxy.") {
-      p_project, p_requestId, p_targetSslProxy,r_service in
+      p_project, p_requestId, p_targetSslProxy, r_service in
       do {
         var parameters = Compute.TargetSslProxiesSetBackendServiceParameters()
         if let p_project = p_project.first {
@@ -16524,7 +16524,7 @@ func main() throws {
       Options<String>("p_targetSslProxy", default: [], count: 1, description: "Name of the TargetSslProxy resource whose ProxyHeader is to be set."),
       Options<String>("r_proxyHeader", default: [], count: 1, description: "The new type of proxy header to append before sending data to the backend. NONE or PROXY_V1 are allowed."),
       description: "Changes the ProxyHeaderType for TargetSslProxy.") {
-      p_project, p_requestId, p_targetSslProxy,r_proxyHeader in
+      p_project, p_requestId, p_targetSslProxy, r_proxyHeader in
       do {
         var parameters = Compute.TargetSslProxiesSetProxyHeaderParameters()
         if let p_project = p_project.first {
@@ -16560,7 +16560,7 @@ func main() throws {
       Options<String>("p_targetSslProxy", default: [], count: 1, description: "Name of the TargetSslProxy resource whose SslCertificate resource is to be set."),
       VariadicOption<String>("r_sslCertificates", default: [], description: "New set of URLs to SslCertificate resources to associate with this TargetSslProxy. Currently exactly one ssl certificate must be specified."),
       description: "Changes SslCertificates for TargetSslProxy.") {
-      p_project, p_requestId, p_targetSslProxy,r_sslCertificates in
+      p_project, p_requestId, p_targetSslProxy, r_sslCertificates in
       do {
         var parameters = Compute.TargetSslProxiesSetSslCertificatesParameters()
         if let p_project = p_project.first {
@@ -16596,7 +16596,7 @@ func main() throws {
       Options<String>("p_targetSslProxy", default: [], count: 1, description: "Name of the TargetSslProxy resource whose SSL policy is to be set. The name must be 1-63 characters long, and comply with RFC1035."),
       Options<String>("r_sslPolicy", default: [], count: 1, description: "URL of the SSL policy resource. Set this to empty string to clear any existing SSL policy associated with the target proxy resource."),
       description: "Sets the SSL policy for TargetSslProxy. The SSL policy specifies the server-side support for SSL features. This affects connections between clients and the SSL proxy load balancer. They do not affect the connection between the load balancer and the backends.") {
-      p_project, p_requestId, p_targetSslProxy,r_sslPolicy in
+      p_project, p_requestId, p_targetSslProxy, r_sslPolicy in
       do {
         var parameters = Compute.TargetSslProxiesSetSslPolicyParameters()
         if let p_project = p_project.first {
@@ -16696,7 +16696,7 @@ func main() throws {
       Options<String>("r_selfLink", default: [], count: 1, description: "[Output Only] Server-defined URL for the resource."),
       Options<String>("r_service", default: [], count: 1, description: "URL to the BackendService resource."),
       description: "Creates a TargetTcpProxy resource in the specified project using the data included in the request.") {
-      p_project, p_requestId,r_creationTimestamp, r_description, r_id, r_kind, r_name, r_proxyHeader, r_selfLink, r_service in
+      p_project, p_requestId, r_creationTimestamp, r_description, r_id, r_kind, r_name, r_proxyHeader, r_selfLink, r_service in
       do {
         var parameters = Compute.TargetTcpProxiesInsertParameters()
         if let p_project = p_project.first {
@@ -16789,7 +16789,7 @@ func main() throws {
       Options<String>("p_targetTcpProxy", default: [], count: 1, description: "Name of the TargetTcpProxy resource whose BackendService resource is to be set."),
       Options<String>("r_service", default: [], count: 1, description: "The URL of the new BackendService resource for the targetTcpProxy."),
       description: "Changes the BackendService for TargetTcpProxy.") {
-      p_project, p_requestId, p_targetTcpProxy,r_service in
+      p_project, p_requestId, p_targetTcpProxy, r_service in
       do {
         var parameters = Compute.TargetTcpProxiesSetBackendServiceParameters()
         if let p_project = p_project.first {
@@ -16825,7 +16825,7 @@ func main() throws {
       Options<String>("p_targetTcpProxy", default: [], count: 1, description: "Name of the TargetTcpProxy resource whose ProxyHeader is to be set."),
       Options<String>("r_proxyHeader", default: [], count: 1, description: "The new type of proxy header to append before sending data to the backend. NONE or PROXY_V1 are allowed."),
       description: "Changes the ProxyHeaderType for TargetTcpProxy.") {
-      p_project, p_requestId, p_targetTcpProxy,r_proxyHeader in
+      p_project, p_requestId, p_targetTcpProxy, r_proxyHeader in
       do {
         var parameters = Compute.TargetTcpProxiesSetProxyHeaderParameters()
         if let p_project = p_project.first {
@@ -16976,7 +16976,7 @@ func main() throws {
       Options<String>("r_status", default: [], count: 1, description: "[Output Only] The status of the VPN gateway."),
       VariadicOption<String>("r_tunnels", default: [], description: "[Output Only] A list of URLs to VpnTunnel resources. VpnTunnels are created using compute.vpntunnels.insert method and associated to a VPN gateway."),
       description: "Creates a target VPN gateway in the specified project and region using the data included in the request.") {
-      p_project, p_region, p_requestId,r_creationTimestamp, r_description, r_forwardingRules, r_id, r_kind, r_name, r_network, r_region, r_selfLink, r_status, r_tunnels in
+      p_project, p_region, p_requestId, r_creationTimestamp, r_description, r_forwardingRules, r_id, r_kind, r_name, r_network, r_region, r_selfLink, r_status, r_tunnels in
       do {
         var parameters = Compute.TargetVpnGatewaysInsertParameters()
         if let p_project = p_project.first {
@@ -17149,7 +17149,7 @@ func main() throws {
       Options<String>("r_name", default: [], count: 1, description: "Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash."),
       Options<String>("r_selfLink", default: [], count: 1, description: "[Output Only] Server-defined URL for the resource."),
       description: "Creates a UrlMap resource in the specified project using the data included in the request.") {
-      p_project, p_requestId,r_creationTimestamp, r_defaultService, r_description, r_fingerprint, r_id, r_kind, r_name, r_selfLink in
+      p_project, p_requestId, r_creationTimestamp, r_defaultService, r_description, r_fingerprint, r_id, r_kind, r_name, r_selfLink in
       do {
         var parameters = Compute.UrlMapsInsertParameters()
         if let p_project = p_project.first {
@@ -17204,7 +17204,7 @@ func main() throws {
       Options<String>("r_host", default: [], count: 1, description: "If set, this invalidation rule will only apply to requests with a Host header matching host."),
       Options<String>("r_path", default: [], count: 1, description: ""),
       description: "Initiates a cache invalidation operation, invalidating the specified path, scoped to the specified UrlMap.") {
-      p_project, p_requestId, p_urlMap,r_host, r_path in
+      p_project, p_requestId, p_urlMap, r_host, r_path in
       do {
         var parameters = Compute.UrlMapsInvalidateCacheParameters()
         if let p_project = p_project.first {
@@ -17289,7 +17289,7 @@ func main() throws {
       Options<String>("r_name", default: [], count: 1, description: "Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash."),
       Options<String>("r_selfLink", default: [], count: 1, description: "[Output Only] Server-defined URL for the resource."),
       description: "Patches the specified UrlMap resource with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.") {
-      p_project, p_requestId, p_urlMap,r_creationTimestamp, r_defaultService, r_description, r_fingerprint, r_id, r_kind, r_name, r_selfLink in
+      p_project, p_requestId, p_urlMap, r_creationTimestamp, r_defaultService, r_description, r_fingerprint, r_id, r_kind, r_name, r_selfLink in
       do {
         var parameters = Compute.UrlMapsPatchParameters()
         if let p_project = p_project.first {
@@ -17353,7 +17353,7 @@ func main() throws {
       Options<String>("r_name", default: [], count: 1, description: "Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash."),
       Options<String>("r_selfLink", default: [], count: 1, description: "[Output Only] Server-defined URL for the resource."),
       description: "Updates the specified UrlMap resource with the data included in the request.") {
-      p_project, p_requestId, p_urlMap,r_creationTimestamp, r_defaultService, r_description, r_fingerprint, r_id, r_kind, r_name, r_selfLink in
+      p_project, p_requestId, p_urlMap, r_creationTimestamp, r_defaultService, r_description, r_fingerprint, r_id, r_kind, r_name, r_selfLink in
       do {
         var parameters = Compute.UrlMapsUpdateParameters()
         if let p_project = p_project.first {
@@ -17559,7 +17559,7 @@ func main() throws {
       Options<String>("r_status", default: [], count: 1, description: "[Output Only] The status of the VPN tunnel."),
       Options<String>("r_targetVpnGateway", default: [], count: 1, description: "URL of the Target VPN gateway with which this VPN tunnel is associated. Provided by the client when the VPN tunnel is created."),
       description: "Creates a VpnTunnel resource in the specified project and region using the data included in the request.") {
-      p_project, p_region, p_requestId,r_creationTimestamp, r_description, r_detailedStatus, r_id, r_ikeVersion, r_kind, r_localTrafficSelector, r_name, r_peerIp, r_region, r_remoteTrafficSelector, r_router, r_selfLink, r_sharedSecret, r_sharedSecretHash, r_status, r_targetVpnGateway in
+      p_project, p_region, p_requestId, r_creationTimestamp, r_description, r_detailedStatus, r_id, r_ikeVersion, r_kind, r_localTrafficSelector, r_name, r_peerIp, r_region, r_remoteTrafficSelector, r_router, r_selfLink, r_sharedSecret, r_sharedSecretHash, r_status, r_targetVpnGateway in
       do {
         var parameters = Compute.VpnTunnelsInsertParameters()
         if let p_project = p_project.first {

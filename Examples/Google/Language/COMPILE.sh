@@ -14,9 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Regenerate the Spotify client library from a YAML-format
-# Discovery Document.
-
 ../../../.build/debug/google-api-swift-generator disco-language-v1.json > Sources/Language.swift 
 ../../../.build/debug/google-cli-swift-generator disco-language-v1.json > Sources/main.swift 
 

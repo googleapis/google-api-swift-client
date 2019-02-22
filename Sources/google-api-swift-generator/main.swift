@@ -46,6 +46,54 @@ extension Discovery.Method {
   }
 }
 
+extension Discovery.Resource {
+  func generate(name: String) -> String {
+    var s = ""
+    if let methods = self.methods {
+      for m in methods.sorted(by:  { $0.key < $1.key }) {
+        if m.value.HasParameters() {
+          s += m.value.ParametersTypeDeclaration(resource:name, method:m.key)
+        }
+        let methodName = name + "_" + m.key
+        s.addLine()
+        s.addLine(indent:2, "public func \(methodName) (")
+        if m.value.HasRequest() {
+          s.addLine(indent:4, "request: \(m.value.RequestTypeName()),")
+        }
+        if m.value.HasParameters() {
+          s.addLine(indent:4, "parameters: \(m.value.ParametersTypeName(resource:name, method:m.key)),")
+        }
+        if m.value.HasResponse() {
+          s.addLine(indent:4, "completion: @escaping (\(m.value.ResponseTypeName())?, Error?) -> ()) throws {")
+        } else {
+          s.addLine(indent:4, "completion: @escaping (Error?) -> ()) throws {")
+        }
+        s.addLine(indent:6, "try perform(")
+        s.addLine(indent:8, "method: \"\(m.value.httpMethod!)\",")
+        var path = ""
+        if m.value.path != nil {
+          path = m.value.path!
+        }
+        s.addLine(indent:8, "path: \"\(path)\",")
+        if m.value.HasRequest() {
+          s.addLine(indent:8, "request: request,")
+        }
+        if m.value.HasParameters() {
+          s.addLine(indent:8, "parameters: parameters,")
+        }
+        s.addLine(indent:8, "completion: completion)")
+        s.addLine(indent:2, "}")
+      }
+    }
+    if let resources = self.resources {
+      for r in resources.sorted(by:  { $0.key < $1.key }) {
+        s += r.value.generate(name: name + "_" + r.key)
+      }
+    }
+    return s
+  }
+}
+
 extension Discovery.Service {
   func generate() -> String {
     guard let schemas = schemas else {
@@ -105,41 +153,7 @@ extension Discovery.Service {
     
     if let resources = resources {
       for r in resources.sorted(by:  { $0.key < $1.key }) {
-        let methods = r.value.methods
-        for m in methods.sorted(by:  { $0.key < $1.key }) {
-          if m.value.HasParameters() {
-            s += m.value.ParametersTypeDeclaration(resource:r.key, method:m.key)
-          }
-          let methodName = r.key + "_" + m.key
-          s.addLine()
-          s.addLine(indent:2, "public func \(methodName) (")
-          if m.value.HasRequest() {
-            s.addLine(indent:4, "request: \(m.value.RequestTypeName()),")
-          }
-          if m.value.HasParameters() {
-            s.addLine(indent:4, "parameters: \(m.value.ParametersTypeName(resource:r.key, method:m.key)),")
-          }
-          if m.value.HasResponse() {
-            s.addLine(indent:4, "completion: @escaping (\(m.value.ResponseTypeName())?, Error?) -> ()) throws {")
-          } else {
-            s.addLine(indent:4, "completion: @escaping (Error?) -> ()) throws {")
-          }
-          s.addLine(indent:6, "try perform(")
-          s.addLine(indent:8, "method: \"\(m.value.httpMethod!)\",")
-          var path = ""
-          if m.value.path != nil {
-            path = m.value.path!
-          }
-          s.addLine(indent:8, "path: \"\(path)\",")
-          if m.value.HasRequest() {
-            s.addLine(indent:8, "request: request,")
-          }
-          if m.value.HasParameters() {
-            s.addLine(indent:8, "parameters: parameters,")
-          }
-          s.addLine(indent:8, "completion: completion)")
-          s.addLine(indent:2, "}")
-        }
+        s += r.value.generate(name: r.key)
       }
     }
     s.addLine("}")

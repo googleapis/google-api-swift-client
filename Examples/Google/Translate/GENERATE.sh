@@ -14,6 +14,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-../../../.build/debug/google-api-swift-generator disco-language-v1.json > Sources/Language.swift 
-../../../.build/debug/google-cli-swift-generator disco-language-v1.json > Sources/main.swift 
+mkdir -p Sources
 
+ROOT=../../../.build/debug
+$ROOT/google-api-swift-generator disco-translate-v2.json > Sources/Translate.swift 
+$ROOT/google-cli-swift-generator disco-translate-v2.json > Sources/main.swift 

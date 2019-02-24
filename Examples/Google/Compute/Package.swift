@@ -18,12 +18,13 @@
 import PackageDescription
 
 let package = Package(
-  name: "Spotify Client",
+  name: "Cloud Compute",
   dependencies: [
-    .package(url: "https://github.com/googleapis/auth-library-swift.git", from: "0.4.1"),
-    .package(path: "../.."),
+    .package(url: "https://github.com/googleapis/google-auth-library-swift.git", from: "0.4.2"),
+    .package(url: "https://github.com/kylef/Commander.git", .upToNextMinor(from: "0.8.0")),
+    .package(path: "../../.."),
   ],
   targets: [
-    .target(name: "SpotifyClient", dependencies: ["OAuth2", "GoogleAPIRuntime"], path: "Sources"),
+    .target(name: "Compute", dependencies: ["OAuth2", "GoogleAPIRuntime", "Commander"], path: "Sources"),
   ]
 )

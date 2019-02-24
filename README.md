@@ -18,7 +18,19 @@ Running the following writes a client to standard output:
 % google-api-swift-generator <filename>
 ```
 
-The [Examples](Examples) directory contains several example clients.
+This project also includes an experimental CLI generator that
+generates command-line interfaces for APIs. These CLIs depend
+on the generated client libraries and are produced with the
+`google-cli-swift-generator` command. Running the following
+writes a CLI `main.swift` to standard output:
+ 
+```
+% google-cli-swift-generator <filename>
+```
+
+The [Examples](Examples) directory contains several example 
+clients including scripts for generating both client libraries and 
+CLIs.
 
 ## Contributing
 

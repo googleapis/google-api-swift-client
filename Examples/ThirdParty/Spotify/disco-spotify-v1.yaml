@@ -396,6 +396,7 @@ schemas:
         type: array
         items:
           type: string
+        description: The URI to play. May be repeated.
       offset:
         type: Offset
       position_ms:
@@ -457,16 +458,20 @@ resources:
             location: path
           include_groups:
             type: string
+            description: A comma-separated list of keywords that will be used to filter the response. If not supplied, all album types will be returned. Valid values are album, single, appears_on, compilation
             location: query
           market:
             type: string
+            description: An ISO 3166-1 alpha-2 country code or the string from_token. Supply this parameter to limit the response to one particular geographical market.
             location: query
           limit:
             type: integer
+            description: The number of album objects to return. Default 20. Minimum 1. Maximum 50.
             location: query
           offset:
             type: integer
-            location: query               
+            description: The index of the first album to return. Default 0 (i.e., the first album). Use with limit to get the next set of albums.
+            location: query
         response:
           $ref: PageOfAlbumSimplified
       getMultiple:
@@ -484,8 +489,8 @@ resources:
           $ref: ArrayOfArtistFull
   player:
     methods:
-      currently-playing:
-        id: player.currently-playing
+      currentlyPlaying:
+        id: player.currentlyPlaying
         path: me/player/currently-playing
         httpMethod: GET
         description: Get the user's currently playing track.
@@ -510,6 +515,8 @@ resources:
         description: Start/resume a user's playback.
         request:
           $ref: PlayRequest
+        scopes:
+        - user-modify-playback-state
   users:
     methods:
       me:
@@ -519,6 +526,10 @@ resources:
         description: Get the user's profile.
         response:
           $ref: User
+        scopes:
+        - user-read-email
+        - user-read-private
+        - user-read-birthdate
       profile:
         id: users.profile
         path: users/{user_id}

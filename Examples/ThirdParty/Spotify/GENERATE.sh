@@ -14,12 +14,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Regenerate the Spotify client library from a YAML-format
-# Discovery Document.
+# Regenerate the Spotify client library from a YAML-format Discovery Document.
+# (For ease of human-editing, we write the Discovery Document with YAML)
 
 # YAML is converted to JSON with j2y2j
 # available at https://github.com/googleapis/gnostic/blob/master/tools/j2y2j
 j2y2j disco-spotify-v1.yaml --json > disco-spotify-v1.json 
 
-../../.build/debug/google-api-swift-generator disco-spotify-v1.json > Sources/Spotify.swift 
+mkdir -p Sources
+ROOT=../../../.build/debug
 
+$ROOT/google-api-swift-generator disco-spotify-v1.json > Sources/Spotify.swift 
+$ROOT/google-cli-swift-generator disco-spotify-v1.json > Sources/main.swift 

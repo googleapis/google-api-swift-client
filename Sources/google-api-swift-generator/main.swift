@@ -156,6 +156,8 @@ extension Discovery.Service {
               s.addLine()
               s.addLine(indent:2, "public struct \(schema.key)Item : Codable {")
               if let properties = itemsSchema.properties {
+                let initializer = createStructInitLines(baseIndent: 4, parameters: properties)
+                s.addTextWithoutLinebreak(initializer)
                 for p in properties.sorted(by: { $0.key < $1.key }) {
                   s.addLine(indent:4, "public var `\(p.key)` : \(p.value.Type())?")
                 }

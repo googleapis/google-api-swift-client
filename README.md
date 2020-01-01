@@ -14,9 +14,15 @@ API clients are be produced by running the generator with Discovery
 Documents downloaded from the Discovery Service. 
 Running the following writes a client to standard output:
 
+```sh
+google-api-swift-generator <discovery-document-filename>
 ```
-% google-api-swift-generator <filename>
+
+This can be redirected to a file for easier inspection:
+```sh
+google-api-swift-generator <discovery-document-filename> > client.swift
 ```
+
 
 This project also includes an experimental CLI generator that
 generates command-line interfaces for APIs. These CLIs depend
@@ -24,8 +30,8 @@ on the generated client libraries and are produced with the
 `google-cli-swift-generator` command. Running the following
 writes a CLI `main.swift` to standard output:
  
-```
-% google-cli-swift-generator <filename>
+```sh
+google-cli-swift-generator <discovery-document-filename>
 ```
 
 The [Examples](Examples) directory contains several example 

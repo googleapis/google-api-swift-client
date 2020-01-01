@@ -128,7 +128,7 @@ public class Schema : Codable {
       switch type {
       case "string": return "String"
       case "integer": return "Int"
-      case "number": return "Float"
+      case "number": return "Double"
       case "boolean": return "Bool"
       case "any": return "JSONAny"
       case "array":

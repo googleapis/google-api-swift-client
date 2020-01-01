@@ -15,6 +15,11 @@
 import Foundation
 import Discovery
 
+enum ParsingError: Error {
+  case topLevelSchemaUnknownType(schemaName: String, type: String)
+  case topLevelSchemaArrayDoesNotContainObjects(schemaName: String, type: String)
+}
+
 extension Discovery.Method {
   func ParametersTypeDeclaration(resource : String, method : String) -> String {
     var s = ""
@@ -95,7 +100,7 @@ extension Discovery.Resource {
 }
 
 extension Discovery.Service {
-  func generate() -> String {
+  func generate() throws -> String {
     guard let schemas = schemas else {
       return ""
     }
@@ -142,12 +147,15 @@ extension Discovery.Service {
               }
               s.addLine("}")
             default:
-              s.addLine("ERROR-UNHANDLED-ARRAY-TYPE \(itemType)")
+              throw ParsingError.topLevelSchemaArrayDoesNotContainObjects(schemaName: schema.key, type: itemType)
             }
           }
         }
+      case "any":
+        s.addLine()
+        s.addLine(indent: 2, "public typealias `\(schema.key)` = JSONAny")
       default:
-        s.addLine("ERROR-UNHANDLED-SCHEMA-VALUE-TYPE \(schema.key) \(String(describing:schema.value.type))")
+        throw ParsingError.topLevelSchemaUnknownType(schemaName: schema.key, type: schema.value.type ?? "nil - unknown type")
       }
     }
     
@@ -171,7 +179,7 @@ func main() throws {
   let decoder = JSONDecoder()
   do {
     let service = try decoder.decode(Service.self, from: data)
-    let code = service.generate()
+    let code = try service.generate()
     print(code)
   } catch {
     print("error \(error)\n")

@@ -15,12 +15,30 @@
 import Foundation
 import Discovery
 
+func createStructInitLines(baseIndent: Int, parameters: [String: Schema]) -> String {
+  var currentIndent = baseIndent
+  var initDeclaration = String(repeating: " ", count: currentIndent) + "public init ("
+  let inputSignature = parameters.sorted(by: { $0.key < $1.key }).map { "`\($0.key)`: \($0.value.Type())?" }.joined(separator: ", ")
+  initDeclaration.addLine(inputSignature + ") {")
+  currentIndent += 2
+  for p in parameters.sorted(by: { $0.key < $1.key }) {
+    initDeclaration.addLine(indent: currentIndent, "self.`\(p.key)` = `\(p.key)`")
+  }
+  currentIndent -= 2
+  initDeclaration.addLine(indent: currentIndent, "}")
+  return initDeclaration
+}
+
 extension Discovery.Method {
+  
   func ParametersTypeDeclaration(resource : String, method : String) -> String {
     var s = ""
     s.addLine()
     if let parameters = parameters {
       s.addLine(indent:2, "public struct " + ParametersTypeName(resource:resource, method:method) + " : Parameterizable {")
+      let initializer = createStructInitLines(baseIndent: 4, parameters: parameters)
+      s.addTextWithoutLinebreak(initializer)
+      
       for p in parameters.sorted(by:  { $0.key < $1.key }) {
         s.addLine(indent:4, "public var " + p.key + " : " + p.value.Type() + "?")
       }
@@ -110,7 +128,7 @@ extension Discovery.Service {
     s.addLine()
     s.addLine("public class \(self.name.capitalized()) : Service {")
     s.addLine()
-    s.addLine(indent:2, "init(tokenProvider: TokenProvider) throws {")
+    s.addLine(indent:2, "public init(tokenProvider: TokenProvider) throws {")
     s.addLine(indent:4, "try super.init(tokenProvider, \"\(self.baseUrl)\")")
     s.addLine(indent:2, "}")
     s.addLine()
@@ -121,6 +139,8 @@ extension Discovery.Service {
         s.addLine()
         s.addLine(indent:2, "public struct \(schema.key) : Codable {")
         if let properties = schema.value.properties {
+          let initializer = createStructInitLines(baseIndent: 4, parameters: properties)
+          s.addTextWithoutLinebreak(initializer)
           for p in properties.sorted(by: { $0.key < $1.key }) {
             s.addLine(indent:4, "public var `\(p.key)` : \(p.value.Type())?")
           }

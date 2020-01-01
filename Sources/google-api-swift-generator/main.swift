@@ -21,7 +21,7 @@ enum ParsingError: Error {
   case topLevelSchemaArrayDoesNotContainObjects(schemaName: String, type: String)
 }
 
-func createStructInitLines(baseIndent: Int, parameters: [String: Schema]) -> String {
+func createInitLines(baseIndent: Int, parameters: [String: Schema]) -> String {
   var currentIndent = baseIndent
   var initDeclaration = String(repeating: " ", count: currentIndent) + "public init ("
   let inputSignature = parameters.sorted(by: { $0.key < $1.key }).map { "`\($0.key)`: \($0.value.Type())?" }.joined(separator: ", ")
@@ -41,8 +41,8 @@ extension Discovery.Method {
     var s = ""
     s.addLine()
     if let parameters = parameters {
-      s.addLine(indent:2, "public struct " + ParametersTypeName(resource:resource, method:method) + " : Parameterizable {")
-      let initializer = createStructInitLines(baseIndent: 4, parameters: parameters)
+      s.addLine(indent:2, "public class " + ParametersTypeName(resource:resource, method:method) + " : Parameterizable {")
+      let initializer = createInitLines(baseIndent: 4, parameters: parameters)
       s.addTextWithoutLinebreak(initializer)
       
       for p in parameters.sorted(by:  { $0.key < $1.key }) {
@@ -143,9 +143,9 @@ extension Discovery.Service {
       switch schema.value.type {
       case "object":
         s.addLine()
-        s.addLine(indent:2, "public struct \(schema.key) : Codable {")
+        s.addLine(indent:2, "public class \(schema.key) : Codable {")
         if let properties = schema.value.properties {
-          let initializer = createStructInitLines(baseIndent: 4, parameters: properties)
+          let initializer = createInitLines(baseIndent: 4, parameters: properties)
           s.addTextWithoutLinebreak(initializer)
           for p in properties.sorted(by: { $0.key < $1.key }) {
             s.addLine(indent:4, "public var `\(p.key)` : \(p.value.Type())?")
@@ -160,9 +160,9 @@ extension Discovery.Service {
             case "object":
               s.addLine(indent:2, "public typealias \(schema.key) = [\(schema.key)Item]")
               s.addLine()
-              s.addLine(indent:2, "public struct \(schema.key)Item : Codable {")
+              s.addLine(indent:2, "public class \(schema.key)Item : Codable {")
               if let properties = itemsSchema.properties {
-                let initializer = createStructInitLines(baseIndent: 4, parameters: properties)
+                let initializer = createInitLines(baseIndent: 4, parameters: properties)
                 s.addTextWithoutLinebreak(initializer)
                 for p in properties.sorted(by: { $0.key < $1.key }) {
                   s.addLine(indent:4, "public var `\(p.key)` : \(p.value.Type())?")

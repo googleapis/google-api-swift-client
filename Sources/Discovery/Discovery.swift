@@ -72,6 +72,10 @@ extension String {
   public mutating func addLine(indent: Int, _ line: String) {
     self += String(repeating: " ", count: indent) + line + "\n"
   }
+    
+  public mutating func addTextWithoutLinebreak(_ line: String) {
+    self += line
+  }
 }
 
 public class Auth : Codable {

@@ -40,7 +40,14 @@ extension String {
   }
   
   public func camelCased() -> String {
-    return self.components(separatedBy: "-").map {$0.capitalized()}.joined(separator: "")
+    let components = self.components(separatedBy: "-")
+    let firstValue = components[0]
+    let remainingWords = components.dropFirst().map {$0.capitalized()}.joined(separator: "")
+    return "\(firstValue)\(remainingWords)"
+  }
+  
+  public func upperCamelCased() -> String {
+    self.components(separatedBy: "-").map {$0.capitalized()}.joined(separator: "")
   }
   
   public func snakeCased() -> String {
@@ -226,7 +233,7 @@ public class Method : Codable {
   
   public func ParametersTypeName(resource : String, method : String) -> String {
     if parameters != nil {
-      return resource.capitalized() + method.camelCased() + "Parameters"
+      return resource.capitalized() + method.upperCamelCased() + "Parameters"
     }
     return "ERROR-UNKNOWN-PARAMETERS-TYPE"
   }

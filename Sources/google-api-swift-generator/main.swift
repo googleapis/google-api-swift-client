@@ -21,37 +21,92 @@ enum ParsingError: Error {
   case topLevelSchemaArrayDoesNotContainObjects(schemaName: String, type: String)
 }
 
-func createInitLines(baseIndent: Int, parameters: [String: Schema]) -> String {
-  var currentIndent = baseIndent
-  var initDeclaration = String(repeating: " ", count: currentIndent) + "public init ("
-  let inputSignature = parameters.sorted(by: { $0.key < $1.key }).map { "`\($0.key.camelCased())`: \($0.value.Type())?" }.joined(separator: ", ")
-  initDeclaration.addLine(inputSignature + ") {")
-  currentIndent += 2
-  for p in parameters.sorted(by: { $0.key < $1.key }) {
-    initDeclaration.addLine(indent: currentIndent, "self.`\(p.key.camelCased())` = `\(p.key.camelCased())`")
+func createInitLines(baseIndent: Int, parentName: String?, parameters: [String: Schema]) -> String {
+  let inputs = parameters
+      .sorted(by: { $0.key < $1.key })
+      .map { (arg: (key: String, value: Schema)) -> (key: String, type: String) in
+        let (key, value) = arg
+        var typeName = ""
+        if let parentName = parentName {
+          typeName = "\(parentName.upperCamelCased())\(key.upperCamelCased())"
+        } else {
+          typeName = key.upperCamelCased()
+        }
+        return (key: "`\(key.camelCased())`", type: "\(value.Type(objectName: typeName))?")
+      }
+  let inputSignature = inputs.map { "\($0.key): \($0.type)" }.joined(separator: ", ")
+  let assignments = inputs.reduce("") { (prev: String, curr: (key: String, type: String)) -> String in
+    let nextItem = String(repeating: " ", count: 8) + "self.\(curr.key) = \(curr.key)"
+    if prev.isEmpty { return "\n" + nextItem }
+    return """
+    \(prev)
+    \(nextItem)
+    """
   }
-  currentIndent -= 2
-  initDeclaration.addLine(indent: currentIndent, "}")
-  return initDeclaration
+  return """
+    public init (\(inputSignature)) {\(assignments)
+        }
+  """
 }
 
-func createCodingKeys(baseIndent: Int, parameters: [String: Schema]) -> String {
+func createCodingKeys(baseIndent: Int, parentName: String?, parameters: [String: Schema]) -> String {
   let someKeyHasHyphen = parameters.keys.reduce(false) { (prev: Bool, curr: String) -> Bool in
     if prev { return prev }
     return curr.contains("-")
   }
   guard someKeyHasHyphen else { return "" }
-  var currentIndent = baseIndent
-  var enumDeclaration = ""
-  enumDeclaration.addLine(indent: currentIndent, "enum CodingKeys : String, CodingKey {")
-  currentIndent += 2
-  for p in parameters.sorted(by: { $0.key < $1.key }) {
-    let explicitValue = p.key.contains("-") ? " = \"\(p.key)\"" : ""
-    enumDeclaration.addLine(indent: currentIndent, "case `\(p.key.camelCased())`\(explicitValue)")
+  let cases = parameters
+      .sorted(by: { $0.key < $1.key })
+      .reduce("") { (prev: String, curr: (key: String, value: Schema)) -> String in
+        let explicitValue = curr.key.contains("-") ? " = \"\(curr.key)\""
+                                                : ""
+        let nextLine = "case `\(curr.key.camelCased())`\(explicitValue)"
+        return """
+          \(prev)
+          \(nextLine)
+        """
+      }
+  return """
+      enum CodingKeys : String, CodingKey {
+        \(cases)
+      }
+  """
+}
+
+func createNestedObject(parentName: String?, name: String, schema: Schema, stringUnderConstruction: inout String) {
+  let currentIndent = 2
+  guard let properties = schema.properties else { return } // should throw error?
+  let initializer = createInitLines(baseIndent: currentIndent, parentName: parentName, parameters: properties)
+  let codingKeys = createCodingKeys(baseIndent: currentIndent, parentName: parentName, parameters: properties)
+  var assignments = ""
+  for p in properties.sorted(by: { $0.key.camelCased() < $1.key.camelCased() }) {
+    if let t = p.value.type {
+      switch t {
+        case "object":
+          let nextName = "\(name.upperCamelCased())\(p.key.upperCamelCased())"
+          createNestedObject(parentName: nextName, name: nextName, schema: p.value, stringUnderConstruction: &stringUnderConstruction)
+          assignments.addLine(indent:6, "public var `\(p.key.camelCased())` : \(p.value.Type(objectName: nextName))?")
+        case "array":
+          // call createArrayObject
+          break
+        default:
+          assignments.addLine(indent:6, "public var `\(p.key.camelCased())` : \(p.value.Type())?")
+      }
+    }
+    // todo: add case where it's a reference, or remove optional unwrap and handle more carefully
   }
-  currentIndent -= 2
-  enumDeclaration.addLine(indent: currentIndent, "}")
-  return enumDeclaration
+  //todo: add comments for class
+  let def = """
+    public class \(name): Codable {
+      \(initializer)\(!codingKeys.isEmpty ? "\n\(codingKeys)" : "")
+  \(assignments)    }
+  
+  """
+  stringUnderConstruction.addLine(indent: currentIndent, def)
+}
+
+func createArrayObject(name: String, stringUnderConstruction: inout String) {
+  // should work for an array
 }
 
 extension Discovery.Method {
@@ -59,35 +114,46 @@ extension Discovery.Method {
   func ParametersTypeDeclaration(resource : String, method : String) -> String {
     var s = ""
     s.addLine()
-    if let parameters = parameters {
-      s.addLine(indent:2, "public class " + ParametersTypeName(resource:resource, method:method) + " : Parameterizable {")
-      let initializer = createInitLines(baseIndent: 4, parameters: parameters)
-      s.addTextWithoutLinebreak(initializer)
-      let codingKeys = createCodingKeys(baseIndent: 4, parameters: parameters)
-      s.addLine(codingKeys)
-      
-      for p in parameters.sorted(by:  { $0.key < $1.key }) {
-        s.addLine(indent:4, "public var `\(p.key.camelCased())`: \(p.value.Type())?")
-      }
-      s.addLine(indent:4, "public func queryParameters() -> [String] {")
-      s.addLine(indent:6, "return [" +
-        parameters.sorted(by: { $0.key < $1.key })
-          .filter { if let location = $0.value.location { return location == "query" } else {return false}}
-          .map { return "\"\($0.key.camelCased())\"" }
-          .joined(separator: ",")
-        + "]")
-      s.addLine(indent:4, "}")
-      s.addLine(indent:4, "public func pathParameters() -> [String] {")
-      s.addLine(indent:6, "return [" +
-        parameters.sorted(by: { $0.key < $1.key })
-          .filter { if let location = $0.value.location { return location == "path" } else {return false}}
-          .map { return "\"" + $0.key + "\"" }
-          .joined(separator: ",")
-        + "]")
-      s.addLine(indent:4, "}")
-      s.addLine(indent:2, "}")
+    guard let parameters = parameters else { return "" } // todo: check: should this throw an error or return func with no args?
+    
+    let initializer = createInitLines(baseIndent: 4, parentName: nil, parameters: parameters)
+    let codingKeys = createCodingKeys(baseIndent: 4, parentName: nil, parameters: parameters)
+    var classProperties = ""
+    for p in parameters.sorted(by:  { $0.key < $1.key }) {
+      classProperties.addLine(indent:4, "public var `\(p.key.camelCased())`: \(p.value.Type())?")
     }
-    return s
+    
+    let queryParameterItems = parameters
+        .sorted(by: { $0.key < $1.key })
+        .filter { if let location = $0.value.location { return location == "query" } else { return false } }
+        .map { return "\"\($0.key.camelCased())\"" }
+        .joined(separator: ",")
+    let queryParametersDef = """
+        public func queryParameters() -> [String] {
+          [\(queryParameterItems)]
+        }
+    """
+    
+    let pathParameterItems = parameters
+        .sorted(by: { $0.key < $1.key })
+        .filter { if let location = $0.value.location { return location == "path" } else { return false } }
+        .map { return "\"\($0.key.camelCased())\"" }
+        .joined(separator: ",")
+    let pathParametersDef = """
+        public func pathParameters() -> [String] {
+          [\(pathParameterItems)]
+        }
+    """
+    
+    return """
+      public class \(ParametersTypeName(resource:resource, method:method)): Parameterizable {
+        \(initializer)
+        \(codingKeys)
+        \(classProperties)
+        \(queryParametersDef)
+        \(pathParametersDef)
+      }
+    """
   }
 }
 
@@ -144,76 +210,68 @@ extension Discovery.Service {
     guard let schemas = schemas else {
       return ""
     }
-    var s = Discovery.License
-    s.addLine()
-    for i in
-      ["Foundation",
-       "OAuth2",
-       "GoogleAPIRuntime"] {
-        s.addLine("import " + i)
-    }
-    s.addLine()
-    s.addLine("public class \(self.name.capitalized()) : Service {")
-    s.addLine()
-    s.addLine(indent:2, "public init(tokenProvider: TokenProvider) throws {")
-    s.addLine(indent:4, "try super.init(tokenProvider, \"\(self.baseUrl)\")")
-    s.addLine(indent:2, "}")
-    s.addLine()
-    s.addLine(indent:2, "public class Object : Codable {}")
+    var generatedSchemas = ""
     for schema in schemas.sorted(by:  { $0.key < $1.key }) {
       switch schema.value.type {
       case "object":
-        s.addLine()
-        s.addLine(indent:2, "public class \(schema.key) : Codable {")
-        if let properties = schema.value.properties {
-          let initializer = createInitLines(baseIndent: 4, parameters: properties)
-          s.addTextWithoutLinebreak(initializer)
-          let codingKeys = createCodingKeys(baseIndent: 4, parameters: properties)
-          s.addLine(codingKeys)
-          for p in properties.sorted(by: { $0.key < $1.key }) {
-            s.addLine(indent:4, "public var `\(p.key.camelCased())` : \(p.value.Type())?")
-          }
-        }
-        s.addLine(indent:2, "}")
+        createNestedObject(parentName: schema.key,
+                           name: schema.key.camelCased(),
+                           schema: schema.value,
+                           stringUnderConstruction: &generatedSchemas)
       case "array":
-        s.addLine()
         if let itemsSchema = schema.value.items {
           if let itemType = itemsSchema.type {
             switch itemType {
             case "object":
-              s.addLine(indent:2, "public typealias \(schema.key) = [\(schema.key)Item]")
-              s.addLine()
-              s.addLine(indent:2, "public class \(schema.key)Item : Codable {")
+              generatedSchemas.addLine(indent:2, "public typealias \(schema.key) = [\(schema.key)Item]")
+              generatedSchemas.addLine()
+              generatedSchemas.addLine(indent:2, "public class \(schema.key)Item : Codable {")
               if let properties = itemsSchema.properties {
-                let initializer = createInitLines(baseIndent: 4, parameters: properties)
-                s.addTextWithoutLinebreak(initializer)
-                let codingKeys = createCodingKeys(baseIndent: 4, parameters: properties)
-                s.addLine(codingKeys)
+                let initializer = createInitLines(baseIndent: 4, parentName: nil, parameters: properties)
+                generatedSchemas.addTextWithoutLinebreak(initializer)
+                let codingKeys = createCodingKeys(baseIndent: 4, parentName: nil, parameters: properties)
+                generatedSchemas.addLine(codingKeys)
                 for p in properties.sorted(by: { $0.key < $1.key }) {
-                  s.addLine(indent:4, "public var `\(p.key.camelCased())` : \(p.value.Type())?")
+                  generatedSchemas.addLine(indent:4, "public var `\(p.key.camelCased())` : \(p.value.Type())?")
                 }
               }
-              s.addLine("}")
+              generatedSchemas.addLine("}")
             default:
               throw ParsingError.topLevelSchemaArrayDoesNotContainObjects(schemaName: schema.key, type: itemType)
             }
           }
         }
       case "any":
-        s.addLine()
-        s.addLine(indent: 2, "public typealias `\(schema.key)` = JSONAny")
+        generatedSchemas.addLine(indent: 2, "public typealias `\(schema.key)` = JSONAny")
       default:
         throw ParsingError.topLevelSchemaUnknownType(schemaName: schema.key, type: schema.value.type ?? "nil - unknown type")
       }
     }
     
+    var generatesResources = ""
     if let resources = resources {
       for r in resources.sorted(by:  { $0.key < $1.key }) {
-        s += r.value.generate(name: r.key)
+        generatesResources += r.value.generate(name: r.key)
       }
     }
-    s.addLine("}")
-    return s
+    
+    return """
+    \(Discovery.License)
+    
+    import Foundation
+    import OAuth2
+    import GoogleAPIRuntime
+    
+    public class \(self.name.capitalized()) : Service {
+      public init(tokenProvider: TokenProvider) throws {
+        try super.init(tokenProvider, "\(self.baseUrl)")
+      }
+    
+    \(generatedSchemas)
+    
+    \(generatesResources)
+    }
+    """
   }
 }
 

@@ -134,7 +134,7 @@ public class Schema : Codable {
     case annotations
   }
   
-  public func Type() -> String {
+  public func Type(objectName: String? = nil) -> String {
     if let type = type {
       switch type {
       case "string": return "String"
@@ -145,7 +145,7 @@ public class Schema : Codable {
       case "array":
         return "[" + self.ItemsType() + "]"
       case "object":
-        return "Object"
+        return objectName ?? "Object"
       default:
         return type
       }

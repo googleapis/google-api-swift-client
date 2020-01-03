@@ -143,7 +143,7 @@ public class Schema : Codable {
       case "boolean": return "Bool"
       case "any": return "JSONAny"
       case "array":
-        return "[" + self.ItemsType() + "]"
+        return "[" + self.ItemsType(objectName: objectName) + "]"
       case "object":
         return objectName ?? "Object"
       default:
@@ -156,9 +156,9 @@ public class Schema : Codable {
     return "UNKNOWN SCHEMA TYPE"
   }
   
-  public func ItemsType() -> String {
+  public func ItemsType(objectName: String? = nil) -> String {
     if let items = items {
-      return items.Type()
+      return items.Type(objectName: objectName)
     } else {
       return "UNKNOWN ITEM TYPE"
     }

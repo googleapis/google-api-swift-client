@@ -19,6 +19,8 @@ import Discovery
 enum ParsingError: Error {
   case topLevelSchemaUnknownType(schemaName: String, type: String)
   case topLevelSchemaArrayDoesNotContainObjects(schemaName: String, type: String)
+  case arrayDidNotIncludeItems(schemaName: String)
+  case arrayHadUnknownItems(schemaName: String)
 }
 
 func createInitLines(baseIndent: Int, parentName: String?, parameters: [String: Schema]) -> String {
@@ -73,7 +75,7 @@ func createCodingKeys(baseIndent: Int, parentName: String?, parameters: [String:
   """
 }
 
-func createNestedObject(parentName: String?, name: String, schema: Schema, stringUnderConstruction: inout String) {
+func createNestedObject(parentName: String?, name: String, schema: Schema, stringUnderConstruction: inout String) throws {
   let currentIndent = 2
   guard let properties = schema.properties else { return } // should throw error?
   let initializer = createInitLines(baseIndent: currentIndent, parentName: parentName, parameters: properties)
@@ -81,19 +83,38 @@ func createNestedObject(parentName: String?, name: String, schema: Schema, strin
   var assignments = ""
   for p in properties.sorted(by: { $0.key.camelCased() < $1.key.camelCased() }) {
     if let t = p.value.type {
+      let nextName = "\(name.upperCamelCased())\(p.key.upperCamelCased())"
       switch t {
         case "object":
-          let nextName = "\(name.upperCamelCased())\(p.key.upperCamelCased())"
-          createNestedObject(parentName: nextName, name: nextName, schema: p.value, stringUnderConstruction: &stringUnderConstruction)
-          assignments.addLine(indent:6, "public var `\(p.key.camelCased())` : \(p.value.Type(objectName: nextName))?")
+          // check for `additionalProperties`, item could be a dictionary of unknown type.
+          try createNestedObject(parentName: nextName, name: nextName, schema: p.value, stringUnderConstruction: &stringUnderConstruction)
+          assignments.addLine(indent:6, "public var `\(p.key.camelCased())`: \(p.value.Type(objectName: nextName))?")
         case "array":
-          // call createArrayObject
-          break
+          guard let arrayItems = p.value.items else { throw ParsingError.arrayDidNotIncludeItems(schemaName: p.key) }
+          if let ref = arrayItems.ref {
+            assignments.addLine(indent:6, "public var `\(p.key.camelCased())`: [\(ref)]?")
+          } else if let _ = arrayItems.properties {
+            try createNestedObject(parentName: nextName, name: nextName, schema: arrayItems, stringUnderConstruction: &stringUnderConstruction)
+            assignments.addLine(indent:6, "public var `\(p.key.camelCased())`: \(p.value.Type(objectName: nextName))?")
+          } else if let arrayItemType = arrayItems.type {
+            var arrayItemTypeName = ""
+            switch arrayItemType {
+              case "string": arrayItemTypeName = "String"
+              case "integer": arrayItemTypeName = "Int"
+              case "number": arrayItemTypeName = "Double"
+              case "boolean": arrayItemTypeName = "Bool"
+              default: throw ParsingError.arrayHadUnknownItems(schemaName: p.key)
+            }
+            assignments.addLine(indent:6, "public var `\(p.key.camelCased())` : [\(arrayItemTypeName)]?")
+          } else {
+            throw ParsingError.arrayHadUnknownItems(schemaName: p.key)
+        }
         default:
           assignments.addLine(indent:6, "public var `\(p.key.camelCased())` : \(p.value.Type())?")
       }
+    } else if let ref = p.value.ref {
+      assignments.addLine(indent:6, "public var `\(p.key.camelCased())` : \(ref)?")
     }
-    // todo: add case where it's a reference, or remove optional unwrap and handle more carefully
   }
   //todo: add comments for class
   let def = """
@@ -214,7 +235,7 @@ extension Discovery.Service {
     for schema in schemas.sorted(by:  { $0.key < $1.key }) {
       switch schema.value.type {
       case "object":
-        createNestedObject(parentName: schema.key,
+        try createNestedObject(parentName: schema.key,
                            name: schema.key.camelCased(),
                            schema: schema.value,
                            stringUnderConstruction: &generatedSchemas)

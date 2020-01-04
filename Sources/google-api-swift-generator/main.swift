@@ -19,8 +19,10 @@ import Discovery
 enum ParsingError: Error {
   case topLevelSchemaUnknownType(schemaName: String, type: String)
   case topLevelSchemaArrayDoesNotContainObjects(schemaName: String, type: String)
-  case arrayDidNotIncludeItems(schemaName: String)
+  case arrayDidNotIncludeItems(schemaName: String?)
   case arrayHadUnknownItems(schemaName: String)
+  case schemaDidNotIncludeTypeOrRef(schemaName: String)
+  case unknown
 }
 
 func createInitLines(baseIndent: Int, parentName: String?, parameters: [String: Schema]) -> String {
@@ -75,46 +77,65 @@ func createCodingKeys(baseIndent: Int, parentName: String?, parameters: [String:
   """
 }
 
-func createNestedObject(parentName: String?, name: String, schema: Schema, stringUnderConstruction: inout String) throws {
-  let currentIndent = 2
-  guard let properties = schema.properties else { return } // should throw error?
-  let initializer = createInitLines(baseIndent: currentIndent, parentName: parentName, parameters: properties)
-  let codingKeys = createCodingKeys(baseIndent: currentIndent, parentName: parentName, parameters: properties)
-  var assignments = ""
-  for p in properties.sorted(by: { $0.key.camelCased() < $1.key.camelCased() }) {
-    if let t = p.value.type {
-      let nextName = "\(name.upperCamelCased())\(p.key.upperCamelCased())"
-      switch t {
-        case "object":
-          // check for `additionalProperties`, item could be a dictionary of unknown type.
-          try createNestedObject(parentName: nextName, name: nextName, schema: p.value, stringUnderConstruction: &stringUnderConstruction)
-          assignments.addLine(indent:6, "public var `\(p.key.camelCased())`: \(p.value.Type(objectName: nextName))?")
-        case "array":
-          guard let arrayItems = p.value.items else { throw ParsingError.arrayDidNotIncludeItems(schemaName: p.key) }
-          if let ref = arrayItems.ref {
-            assignments.addLine(indent:6, "public var `\(p.key.camelCased())`: [\(ref)]?")
-          } else if let _ = arrayItems.properties {
-            try createNestedObject(parentName: nextName, name: nextName, schema: arrayItems, stringUnderConstruction: &stringUnderConstruction)
-            assignments.addLine(indent:6, "public var `\(p.key.camelCased())`: \(p.value.Type(objectName: nextName))?")
-          } else if let arrayItemType = arrayItems.type {
-            var arrayItemTypeName = ""
-            switch arrayItemType {
-              case "string": arrayItemTypeName = "String"
-              case "integer": arrayItemTypeName = "Int"
-              case "number": arrayItemTypeName = "Double"
-              case "boolean": arrayItemTypeName = "Bool"
-              default: throw ParsingError.arrayHadUnknownItems(schemaName: p.key)
-            }
-            assignments.addLine(indent:6, "public var `\(p.key.camelCased())` : [\(arrayItemTypeName)]?")
-          } else {
-            throw ParsingError.arrayHadUnknownItems(schemaName: p.key)
+func createSchemaAssignment(parentName: String?, name: String, schema: (key: String, value: Schema), stringUnderConstruction: inout String) throws -> String {
+  let key = schema.key.camelCased()
+  let type: String
+  let nextName = "\(name.upperCamelCased())\(schema.key.upperCamelCased())"
+  if let t = schema.value.type {
+    switch t {
+      case "object":
+        if let additionalProperties = schema.value.additionalProperties {
+          try createDynamicNestedObject(parentName: nextName, name: nextName, schema: additionalProperties, stringUnderConstruction: &stringUnderConstruction)
+          type = schema.value.Type(objectName: nextName)
+          let aliasType = "[String: \(additionalProperties.Type(objectName: nextName))]"
+          stringUnderConstruction.addLine(indent: 4, "public typealias \(schema.value.Type(objectName: nextName)) = \(aliasType)\n")
+        } else {
+          try createNestedObject(parentName: nextName, name: nextName, schema: schema.value, stringUnderConstruction: &stringUnderConstruction)
+          type = "\(schema.value.Type(objectName: nextName))"
         }
-        default:
-          assignments.addLine(indent:6, "public var `\(p.key.camelCased())` : \(p.value.Type())?")
+      case "array":
+        guard let arrayItems = schema.value.items else { throw ParsingError.arrayDidNotIncludeItems(schemaName: schema.key) }
+        if let ref = arrayItems.ref {
+          type = "[\(ref)]"
+        } else if let _ = arrayItems.properties {
+          try createNestedObject(parentName: nextName, name: nextName, schema: arrayItems, stringUnderConstruction: &stringUnderConstruction)
+          type = "\(schema.value.Type(objectName: nextName))"
+        } else if let arrayItemType = arrayItems.type {
+          var arrayItemTypeName = ""
+          switch arrayItemType {
+            case "string": arrayItemTypeName = "String" // todo: perform check for enums.
+            case "integer": arrayItemTypeName = "Int"
+            case "number": arrayItemTypeName = "Double"
+            case "boolean": arrayItemTypeName = "Bool"
+            default: throw ParsingError.arrayHadUnknownItems(schemaName: schema.key)
+          }
+          type = "[\(arrayItemTypeName)]"
+        } else {
+          throw ParsingError.arrayHadUnknownItems(schemaName: schema.key)
       }
-    } else if let ref = p.value.ref {
-      assignments.addLine(indent:6, "public var `\(p.key.camelCased())` : \(ref)?")
+      default:
+        type = schema.value.Type()
     }
+  } else if let ref = schema.value.ref {
+      type = ref
+  } else {
+    throw ParsingError.schemaDidNotIncludeTypeOrRef(schemaName: schema.key)
+  }
+  return "public var `\(key)`: \(type)?"
+}
+
+func createDynamicNestedObject(parentName: String?, name: String, schema: Schema, stringUnderConstruction: inout String) throws {
+  throw ParsingError.unknown
+}
+
+func createStaticNestedObject(parentName: String?, name: String, schema: Schema, stringUnderConstruction: inout String) throws {
+  let currentIndent = 2
+  let initializer = createInitLines(baseIndent: currentIndent, parentName: parentName, parameters: schema.properties!)
+  let codingKeys = createCodingKeys(baseIndent: currentIndent, parentName: parentName, parameters: schema.properties!)
+  var assignments = ""
+  for p in schema.properties!.sorted(by: { $0.key.camelCased() < $1.key.camelCased() }) {
+    let assignment = try createSchemaAssignment(parentName: parentName, name: name, schema: p, stringUnderConstruction: &stringUnderConstruction)
+    assignments.addLine(indent: 6, assignment)
   }
   //todo: add comments for class
   let def = """
@@ -126,8 +147,18 @@ func createNestedObject(parentName: String?, name: String, schema: Schema, strin
   stringUnderConstruction.addLine(indent: currentIndent, def)
 }
 
+func createNestedObject(parentName: String?, name: String, schema: Schema, stringUnderConstruction: inout String) throws {
+  if let _ = schema.additionalProperties {
+    try createDynamicNestedObject(parentName: parentName, name: name, schema: schema, stringUnderConstruction: &stringUnderConstruction)
+  } else if let _ = schema.properties {
+    try createStaticNestedObject(parentName: parentName, name: name, schema: schema, stringUnderConstruction: &stringUnderConstruction)
+  } else {
+    throw ParsingError.arrayDidNotIncludeItems(schemaName: parentName)
+  }
+}
+
 func createArrayObject(name: String, stringUnderConstruction: inout String) {
-  // should work for an array
+  throw ParsingError.unknown
 }
 
 extension Discovery.Method {

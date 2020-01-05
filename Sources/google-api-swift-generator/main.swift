@@ -239,7 +239,7 @@ extension Discovery.Resource {
         if m.value.HasParameters() {
           s += m.value.ParametersTypeDeclaration(resource:name, method:m.key)
         }
-        let methodName = name + "_" + m.key
+        let methodName = name.camelCased() + "_" + m.key.upperCamelCased()
         s.addLine()
         s.addLine(indent:2, "public func \(methodName) (")
         if m.value.HasRequest() {
@@ -356,9 +356,6 @@ func main() throws {
   //print(String(data:data, encoding:.utf8)!)
   let decoder = JSONDecoder()
   let service = try decoder.decode(Service.self, from: data)
-  if service.id == nil {
-    print("\(service.name) has no ID")
-  }
   let code = try service.generate()
   print(code)
 }

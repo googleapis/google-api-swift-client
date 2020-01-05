@@ -239,7 +239,7 @@ public class Method : Codable {
   
   public func ParametersTypeName(resource : String, method : String) -> String {
     if parameters != nil {
-      return resource.capitalized() + method.upperCamelCased() + "Parameters"
+      return resource.upperCamelCased() + method.upperCamelCased() + "Parameters"
     }
     return "ERROR-UNKNOWN-PARAMETERS-TYPE"
   }

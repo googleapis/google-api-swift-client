@@ -85,8 +85,12 @@ extension String {
   }
 }
 
+public class Auth_OAuth2: Codable {
+    public var scopes : [String : AuthScope]
+}
+
 public class Auth : Codable {
-  public var scopes : [String : AuthScope]
+  public var oauth2 : Auth_OAuth2
 }
 
 public class AuthScope : Codable {
@@ -274,7 +278,7 @@ public class Service : Codable {
   public var servicePath : String
   public var batchPath : String
   public var parameters : [String : Schema]
-  public var auth : [String : Auth]
+  public var auth: Auth?
   public var features : [String]?
   public var schemas : [String : Schema]?
   public var methods : [String : Method]?

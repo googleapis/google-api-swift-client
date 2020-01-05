@@ -18,7 +18,7 @@ import Discovery
 
 enum ParsingError: Error {
   case topLevelSchemaUnknownType(schemaName: String, type: String)
-  case topLevelSchemaArrayDoesNotContainObjects(schemaName: String, type: String)
+  case topLevelSchemaArrayDoesNotContainObjects(schemaName: String)
   case arrayDidNotIncludeItems(schemaName: String?)
   case arrayHadUnknownItems(schemaName: String)
   case schemaDidNotIncludeTypeOrRef(schemaName: String)
@@ -33,7 +33,7 @@ func createInitLines(baseIndent: Int, parentName: String?, parameters: [String: 
         let (key, value) = arg
         var typeName = ""
         if let parentName = parentName {
-          typeName = "\(parentName.upperCamelCased())\(key.upperCamelCased())"
+          typeName = "\(parentName.upperCamelCased())_\(key.upperCamelCased())"
         } else {
           typeName = key.upperCamelCased()
         }
@@ -57,29 +57,32 @@ func createInitLines(baseIndent: Int, parentName: String?, parameters: [String: 
 func createCodingKeys(baseIndent: Int, parentName: String?, parameters: [String: Schema]) -> String {
   let someKeyHasHyphen = parameters.keys.reduce(false) { (prev: Bool, curr: String) -> Bool in
     if prev { return prev }
-    return curr.contains("-")
+    return curr.contains("-") || curr.contains(".")
   }
   guard someKeyHasHyphen else { return "" }
   let cases = parameters
       .sorted(by: { $0.key < $1.key })
       .reduce("") { (prev: String, curr: (key: String, value: Schema)) -> String in
-        let explicitValue = curr.key.contains("-") ? " = \"\(curr.key)\""
-                                                : ""
+        let explicitValue = curr.key.contains("-") || curr.key.contains(".") ? " = \"\(curr.key)\""
+                                                                             : ""
         let nextLine = "case `\(curr.key.camelCased())`\(explicitValue)"
+        if prev.isEmpty { return String(repeating: " ", count: 2) + nextLine }
         return """
-          \(prev)
-          \(nextLine)
+        \(prev)
+                \(nextLine)
         """
       }
   return """
-      enum CodingKeys : String, CodingKey {
+    enum CodingKeys : String, CodingKey {
         \(cases)
-      }
+        }
   """
 }
 
 func createArrayType(nextName: String, schema: (key: String, value: Schema), stringUnderConstruction: inout String) throws -> String {
-  guard let arrayItems = schema.value.items else { throw ParsingError.arrayDidNotIncludeItems(schemaName: schema.key) }
+  guard let arrayItems = schema.value.items else {
+    throw ParsingError.arrayDidNotIncludeItems(schemaName: schema.key)
+  }
   let type: String
   if let ref = arrayItems.ref {
     type = "[\(ref)]"
@@ -99,7 +102,7 @@ func createArrayType(nextName: String, schema: (key: String, value: Schema), str
       case "boolean": arrayItemTypeName = "Bool"
       case "array":
         arrayItemTypeName = try createArrayType(nextName: nextName, schema: (key: "\(schema.key)ArrayItem", value: arrayItems), stringUnderConstruction: &stringUnderConstruction)
-      default: throw ParsingError.arrayHadUnknownItems(schemaName: schema.key)
+      default: arrayItemTypeName = "JSONAny"
     }
     type = "[\(arrayItemTypeName)]"
   } else {
@@ -111,7 +114,7 @@ func createArrayType(nextName: String, schema: (key: String, value: Schema), str
 func createSchemaAssignment(parentName: String?, name: String, schema: (key: String, value: Schema), stringUnderConstruction: inout String) throws -> (key: String, type: String) {
   let key = schema.key.camelCased()
   let type: String
-  let nextName = "\(name.upperCamelCased())\(schema.key.upperCamelCased())"
+  let nextName = "\(name.upperCamelCased())_\(schema.key.upperCamelCased())"
   if let t = schema.value.type {
     switch t {
       case "object":
@@ -138,11 +141,14 @@ func createSchemaAssignment(parentName: String?, name: String, schema: (key: Str
 }
 
 func createDynamicNestedObject(parentName: String?, name: String, schema: Schema, stringUnderConstruction: inout String) throws {
+  let aliasType: String
   if let type = schema.type, type == "object" {
-    try createNestedObject(parentName: parentName, name: name, schema: schema, stringUnderConstruction: &stringUnderConstruction)
+    try createNestedObject(parentName: (parentName ?? "") + "Item", name: name + "Item", schema: schema, stringUnderConstruction: &stringUnderConstruction)
+    aliasType = "[String: \(schema.Type(objectName: name + "Item"))]"
+  } else {
+    aliasType = "[String: \(schema.Type(objectName: name))]"
   }
   // todo: check for string being an enum
-  let aliasType = "[String: \(schema.Type(objectName: name))]"
   stringUnderConstruction.addLine(indent: 4, "public typealias \(name) = \(aliasType)\n")
 }
 
@@ -171,12 +177,10 @@ func createNestedObject(parentName: String?, name: String, schema: Schema, strin
   } else if let _ = schema.properties {
     try createStaticNestedObject(parentName: parentName, name: name, schema: schema, stringUnderConstruction: &stringUnderConstruction)
   } else {
-    throw ParsingError.arrayDidNotIncludeItems(schemaName: parentName)
+    // object has no dynamic properties, and no static properties. Can't infer what it is. Typealias to JSONAny
+    let aliasDef = "public typealias \(name) = JSONAny\n"
+    stringUnderConstruction.addLine(indent: 4, aliasDef)
   }
-}
-
-func createArrayObject(name: String, stringUnderConstruction: inout String) throws {
-  throw ParsingError.unknown
 }
 
 extension Discovery.Method {
@@ -289,27 +293,25 @@ extension Discovery.Service {
                            schema: schema.value,
                            stringUnderConstruction: &generatedSchemas)
       case "array":
-        if let itemsSchema = schema.value.items {
-          if let itemType = itemsSchema.type {
-            switch itemType {
-            case "object":
-              generatedSchemas.addLine(indent:2, "public typealias \(schema.key) = [\(schema.key)Item]")
-              generatedSchemas.addLine()
-              generatedSchemas.addLine(indent:2, "public class \(schema.key)Item : Codable {")
-              if let properties = itemsSchema.properties {
-                let initializer = createInitLines(baseIndent: 4, parentName: nil, parameters: properties)
-                generatedSchemas.addTextWithoutLinebreak(initializer)
-                let codingKeys = createCodingKeys(baseIndent: 4, parentName: nil, parameters: properties)
-                generatedSchemas.addLine(codingKeys)
-                for p in properties.sorted(by: { $0.key < $1.key }) {
-                  generatedSchemas.addLine(indent:4, "public var `\(p.key.camelCased())` : \(p.value.Type())?")
-                }
-              }
-              generatedSchemas.addLine("}")
-            default:
-              throw ParsingError.topLevelSchemaArrayDoesNotContainObjects(schemaName: schema.key, type: itemType)
+        guard let itemsSchema = schema.value.items else {
+          throw ParsingError.topLevelSchemaArrayDoesNotContainObjects(schemaName: schema.key)
+        }
+        if let ref = itemsSchema.ref {
+          generatedSchemas.addLine(indent: 4, "public typealias \(schema.key) = [\(ref)]")
+        } else {
+          generatedSchemas.addLine(indent:2, "public typealias \(schema.key) = [\(schema.key)Item]")
+          generatedSchemas.addLine()
+          generatedSchemas.addLine(indent:2, "public class \(schema.key)Item : Codable {")
+          if let properties = itemsSchema.properties {
+            let initializer = createInitLines(baseIndent: 4, parentName: nil, parameters: properties)
+            generatedSchemas.addTextWithoutLinebreak(initializer)
+            let codingKeys = createCodingKeys(baseIndent: 4, parentName: nil, parameters: properties)
+            generatedSchemas.addLine(codingKeys)
+            for p in properties.sorted(by: { $0.key < $1.key }) {
+              generatedSchemas.addLine(indent:4, "public var `\(p.key.camelCased())` : \(p.value.Type())?")
             }
           }
+          generatedSchemas.addLine("}")
         }
       case "any":
         generatedSchemas.addLine(indent: 2, "public typealias `\(schema.key)` = JSONAny")
@@ -353,13 +355,12 @@ func main() throws {
   let data = try Data(contentsOf: URL(fileURLWithPath: path))
   //print(String(data:data, encoding:.utf8)!)
   let decoder = JSONDecoder()
-  do {
-    let service = try decoder.decode(Service.self, from: data)
-    let code = try service.generate()
-    print(code)
-  } catch {
-    print("error \(error)\n")
+  let service = try decoder.decode(Service.self, from: data)
+  if service.id == nil {
+    print("\(service.name) has no ID")
   }
+  let code = try service.generate()
+  print(code)
 }
 
 try! main()

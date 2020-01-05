@@ -40,14 +40,16 @@ extension String {
   }
   
   public func camelCased() -> String {
-    let components = self.components(separatedBy: "-")
+    let characterSet: CharacterSet = .init(charactersIn: "-.")
+    let components = self.components(separatedBy: characterSet)
     let firstValue = components[0]
     let remainingWords = components.dropFirst().map {$0.capitalized()}.joined(separator: "")
     return "\(firstValue)\(remainingWords)"
   }
   
   public func upperCamelCased() -> String {
-    self.components(separatedBy: "-").map {$0.capitalized()}.joined(separator: "")
+    let characterSet: CharacterSet = .init(charactersIn: "-.")
+    return self.components(separatedBy: characterSet).map {$0.capitalized()}.joined(separator: "")
   }
   
   public func snakeCased() -> String {

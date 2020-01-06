@@ -164,6 +164,9 @@ func createDynamicNestedObject(parentName: String?, name: String, schema: Schema
   if let type = schema.type, type == "object" {
     try createNestedObject(parentName: (parentName ?? "") + "Item", name: name + "Item", schema: schema, stringUnderConstruction: &stringUnderConstruction)
     aliasType = "[String: \(schema.Type(objectName: name + "Item"))]"
+  } else if let type = schema.type, type == "array", let arrayItems = schema.items, arrayItems.type == "object" {
+    try createNestedObject(parentName: (parentName ?? "") + "Item", name: name + "Item", schema: schema, stringUnderConstruction: &stringUnderConstruction)
+    aliasType = "[String: \(schema.Type(objectName: name + "Item"))]"
   } else {
     aliasType = "[String: \(schema.Type(objectName: name))]"
   }

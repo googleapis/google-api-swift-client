@@ -31,13 +31,17 @@ func createInitLines(baseIndent: Int, parentName: String?, parameters: [String: 
       .sorted(by: { $0.key < $1.key })
       .map { (arg: (key: String, value: Schema)) -> (key: String, type: String) in
         let (key, value) = arg
-        var typeName = ""
+        let typeName: String
         if let parentName = parentName {
           typeName = "\(parentName.upperCamelCased())_\(key.upperCamelCased())"
         } else {
           typeName = key.upperCamelCased()
         }
-        return (key: "`\(key.camelCased())`", type: "\(value.Type(objectName: typeName))?")
+        var tmpKey = key.camelCased()
+        if tmpKey == "self" {
+          tmpKey = "selfRef"
+        }
+        return (key: "`\(tmpKey)`", type: "\(value.Type(objectName: typeName))?")
       }
   let inputSignature = inputs.map { "\($0.key): \($0.type)" }.joined(separator: ", ")
   let assignments = inputs.reduce("") { (prev: String, curr: (key: String, type: String)) -> String in
@@ -57,15 +61,20 @@ func createInitLines(baseIndent: Int, parentName: String?, parameters: [String: 
 func createCodingKeys(baseIndent: Int, parentName: String?, parameters: [String: Schema]) -> String {
   let someKeyHasHyphen = parameters.keys.reduce(false) { (prev: Bool, curr: String) -> Bool in
     if prev { return prev }
-    return curr.contains("-") || curr.contains(".")
+    return curr.contains("-") || curr.contains(".") || curr.starts(with: "$") || curr.starts(with: "@") || curr == "self"
   }
   guard someKeyHasHyphen else { return "" }
   let cases = parameters
       .sorted(by: { $0.key < $1.key })
       .reduce("") { (prev: String, curr: (key: String, value: Schema)) -> String in
-        let explicitValue = curr.key.contains("-") || curr.key.contains(".") ? " = \"\(curr.key)\""
-                                                                             : ""
-        let nextLine = "case `\(curr.key.camelCased())`\(explicitValue)"
+        let explicitValue = curr.key.contains("-") || curr.key.contains(".") || curr.key.starts(with: "$") || curr.key.starts(with: "@") || curr.key == "self"
+            ? " = \"\(curr.key)\""
+            : ""
+        var key = curr.key.camelCased()
+        if key == "self" {
+          key = "selfRef"
+        }
+        let nextLine = "case `\(key)`\(explicitValue)"
         if prev.isEmpty { return String(repeating: " ", count: 2) + nextLine }
         return """
         \(prev)
@@ -84,7 +93,11 @@ func createArrayType(nextName: String, schema: (key: String, value: Schema), str
     throw ParsingError.arrayDidNotIncludeItems(schemaName: schema.key)
   }
   let type: String
-  if let ref = arrayItems.ref {
+  if var ref = arrayItems.ref {
+    let escapingNames = ["Type", "Error"]
+    if escapingNames.contains(ref) {
+      ref = "Custom_" + ref
+    }
     type = "[\(ref)]"
   } else if let _ = arrayItems.properties {
     try createNestedObject(parentName: nextName, name: nextName, schema: arrayItems, stringUnderConstruction: &stringUnderConstruction)
@@ -112,7 +125,8 @@ func createArrayType(nextName: String, schema: (key: String, value: Schema), str
 }
 
 func createSchemaAssignment(parentName: String?, name: String, schema: (key: String, value: Schema), stringUnderConstruction: inout String) throws -> (key: String, type: String) {
-  let key = schema.key.camelCased()
+  var key = schema.key.camelCased()
+  if key == "self" { key = "selfRef" }
   let type: String
   let nextName = "\(name.upperCamelCased())_\(schema.key.upperCamelCased())"
   if let t = schema.value.type {
@@ -133,7 +147,12 @@ func createSchemaAssignment(parentName: String?, name: String, schema: (key: Str
         type = schema.value.Type()
     }
   } else if let ref = schema.value.ref {
-      type = ref
+      let escapingNames = ["Type", "Error"]
+      if escapingNames.contains(ref) {
+        type = "Custom_" + ref
+      } else {
+        type = ref
+      }
   } else {
     throw ParsingError.schemaDidNotIncludeTypeOrRef(schemaName: schema.key)
   }
@@ -162,8 +181,10 @@ func createStaticNestedObject(parentName: String?, name: String, schema: Schema,
     assignments.addLine(indent: 6, "public var `\(assignment.key)`: \(assignment.type)?")
   }
   //todo: add comments for class
+  let escapingNames = ["Type", "Error"]
+  let className = escapingNames.contains(name) ? "Custom_" + name : name
   let def = """
-    public class \(name): Codable {
+    public class \(className): Codable {
       \(initializer)\(!codingKeys.isEmpty ? "\n\(codingKeys)" : "")
   \(assignments)    }
   

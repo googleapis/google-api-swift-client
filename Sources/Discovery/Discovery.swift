@@ -42,14 +42,23 @@ extension String {
   public func camelCased() -> String {
     let characterSet: CharacterSet = .init(charactersIn: "-.")
     let components = self.components(separatedBy: characterSet)
-    let firstValue = components[0]
+    var firstValue = components[0]
+    if firstValue.starts(with: "$") || firstValue.starts(with: "@") {
+      firstValue = String(firstValue.dropFirst())
+    }
     let remainingWords = components.dropFirst().map {$0.capitalized()}.joined(separator: "")
     return "\(firstValue)\(remainingWords)"
   }
   
   public func upperCamelCased() -> String {
     let characterSet: CharacterSet = .init(charactersIn: "-.")
-    return self.components(separatedBy: characterSet).map {$0.capitalized()}.joined(separator: "")
+    let components = self.components(separatedBy: characterSet)
+    var firstValue = components[0]
+    if firstValue.starts(with: "$") || firstValue.starts(with: "@") {
+      firstValue = String(firstValue.dropFirst())
+    }
+    let remainingWords = components.dropFirst().map {$0.capitalized()}.joined(separator: "")
+    return "\(firstValue)\(remainingWords)"
   }
   
   public func snakeCased() -> String {
@@ -151,12 +160,16 @@ public class Schema : Codable {
       case "array":
         return "[" + self.ItemsType(objectName: objectName) + "]"
       case "object":
-        return objectName ?? "Object"
+        let potentialName = objectName ?? "Object"
+        let escapingNames = ["Type", "Error"]
+        return escapingNames.contains(potentialName) ? "Custom_" + potentialName : potentialName
       default:
         return type
       }
     }
     if let ref = ref {
+      let escapingNames = ["Type", "Error"]
+      if escapingNames.contains(ref) { return "Custom_" + ref }
       return ref
     }
     return "UNKNOWN SCHEMA TYPE"

@@ -45,7 +45,7 @@ func createInitLines(baseIndent: Int, parentName: String?, parameters: [String: 
       }
   let inputSignature = inputs.map { "\($0.key): \($0.type)" }.joined(separator: ", ")
   let assignments = inputs.reduce("") { (prev: String, curr: (key: String, type: String)) -> String in
-    let nextItem = String(repeating: " ", count: 8) + "self.\(curr.key) = \(curr.key)"
+    let nextItem = String(repeating: " ", count: 12) + "self.\(curr.key) = \(curr.key)"
     if prev.isEmpty { return "\n" + nextItem }
     return """
     \(prev)
@@ -53,8 +53,8 @@ func createInitLines(baseIndent: Int, parentName: String?, parameters: [String: 
     """
   }
   return """
-    public init (\(inputSignature)) {\(assignments)
-        }
+      public init (\(inputSignature)) {\(assignments)
+          }
   """
 }
 
@@ -75,16 +75,16 @@ func createCodingKeys(baseIndent: Int, parentName: String?, parameters: [String:
           key = "selfRef"
         }
         let nextLine = "case `\(key)`\(explicitValue)"
-        if prev.isEmpty { return String(repeating: " ", count: 2) + nextLine }
+        if prev.isEmpty { return String(repeating: " ", count: 12) + nextLine }
         return """
         \(prev)
-                \(nextLine)
+                    \(nextLine)
         """
       }
   return """
-    enum CodingKeys : String, CodingKey {
-        \(cases)
-        }
+          enum CodingKeys : String, CodingKey {
+  \(cases)
+          }
   """
 }
 
@@ -181,7 +181,7 @@ func createStaticNestedObject(parentName: String?, name: String, schema: Schema,
   var assignments = ""
   for p in schema.properties!.sorted(by: { $0.key.camelCased() < $1.key.camelCased() }) {
     let assignment = try createSchemaAssignment(parentName: parentName, name: name, schema: p, stringUnderConstruction: &stringUnderConstruction)
-    assignments.addLine(indent: 6, "public var `\(assignment.key)`: \(assignment.type)?")
+    assignments.addLine(indent: 8, "public var `\(assignment.key)`: \(assignment.type)?")
   }
   //todo: add comments for class
   let escapingNames = ["Type", "Error"]
@@ -218,7 +218,7 @@ extension Discovery.Method {
     let codingKeys = createCodingKeys(baseIndent: 4, parentName: nil, parameters: parameters)
     var classProperties = ""
     for p in parameters.sorted(by:  { $0.key < $1.key }) {
-      classProperties.addLine(indent:4, "public var `\(p.key.camelCased())`: \(p.value.Type())?")
+      classProperties.addLine(indent:8, "public var `\(p.key.camelCased())`: \(p.value.Type())?")
     }
     
     let queryParameterItems = parameters
@@ -227,9 +227,9 @@ extension Discovery.Method {
         .map { return "\"\($0.key.camelCased())\"" }
         .joined(separator: ",")
     let queryParametersDef = """
-        public func queryParameters() -> [String] {
-          [\(queryParameterItems)]
-        }
+            public func queryParameters() -> [String] {
+                [\(queryParameterItems)]
+            }
     """
     
     let pathParameterItems = parameters
@@ -238,19 +238,20 @@ extension Discovery.Method {
         .map { return "\"\($0.key.camelCased())\"" }
         .joined(separator: ",")
     let pathParametersDef = """
-        public func pathParameters() -> [String] {
-          [\(pathParameterItems)]
-        }
+            public func pathParameters() -> [String] {
+                [\(pathParameterItems)]
+            }
     """
     
     return """
-      public class \(ParametersTypeName(resource:resource, method:method)): Parameterizable {
+        public class \(ParametersTypeName(resource:resource, method:method)): Parameterizable {
         \(initializer)
-        \(codingKeys)
-        \(classProperties)
-        \(queryParametersDef)
-        \(pathParametersDef)
-      }
+    \(codingKeys)
+    \(classProperties)
+    \(queryParametersDef)
+    \(pathParametersDef)
+        }
+    
     """
   }
 }
@@ -260,38 +261,40 @@ extension Discovery.Resource {
     var s = ""
     if let methods = self.methods {
       for m in methods.sorted(by:  { $0.key < $1.key }) {
+        s.addLine()
         if m.value.HasParameters() {
           s += m.value.ParametersTypeDeclaration(resource:name, method:m.key)
         }
         let methodName = name.camelCased() + "_" + m.key.upperCamelCased()
         s.addLine()
-        s.addLine(indent:2, "public func \(methodName) (")
+        s.addLine(indent:4, "public func \(methodName) (")
         if m.value.HasRequest() {
-          s.addLine(indent:4, "request: \(m.value.RequestTypeName()),")
+          s.addLine(indent:8, "request: \(m.value.RequestTypeName()),")
         }
         if m.value.HasParameters() {
-          s.addLine(indent:4, "parameters: \(m.value.ParametersTypeName(resource:name, method:m.key)),")
+          s.addLine(indent:8, "parameters: \(m.value.ParametersTypeName(resource:name, method:m.key)),")
         }
         if m.value.HasResponse() {
-          s.addLine(indent:4, "completion: @escaping (\(m.value.ResponseTypeName())?, Error?) -> ()) throws {")
+          s.addLine(indent:8, "completion: @escaping (\(m.value.ResponseTypeName())?, Error?) -> ()) throws {")
         } else {
-          s.addLine(indent:4, "completion: @escaping (Error?) -> ()) throws {")
+          s.addLine(indent:8, "completion: @escaping (Error?) -> ()) throws {")
         }
-        s.addLine(indent:6, "try perform(")
-        s.addLine(indent:8, "method: \"\(m.value.httpMethod!)\",")
+        s.addLine(indent:12, "try perform(")
+        s.addLine(indent:16, "method: \"\(m.value.httpMethod!)\",")
         var path = ""
         if m.value.path != nil {
           path = m.value.path!
         }
-        s.addLine(indent:8, "path: \"\(path)\",")
+        s.addLine(indent:16, "path: \"\(path)\",")
         if m.value.HasRequest() {
-          s.addLine(indent:8, "request: request,")
+          s.addLine(indent:16, "request: request,")
         }
         if m.value.HasParameters() {
-          s.addLine(indent:8, "parameters: parameters,")
+          s.addLine(indent:16, "parameters: parameters,")
         }
-        s.addLine(indent:8, "completion: completion)")
-        s.addLine(indent:2, "}")
+        s.addLine(indent:16, "completion: completion)")
+        s.addLine(indent:4, "}")
+        s.addLine()
       }
     }
     if let resources = self.resources {
@@ -359,9 +362,9 @@ extension Discovery.Service {
     import GoogleAPIRuntime
     
     public class \(self.name.capitalized()) : Service {
-      public init(tokenProvider: TokenProvider) throws {
-        try super.init(tokenProvider, "\(self.baseUrl)")
-      }
+        public init(tokenProvider: TokenProvider) throws {
+            try super.init(tokenProvider, "\(self.baseUrl)")
+        }
     
     \(generatedSchemas)
     

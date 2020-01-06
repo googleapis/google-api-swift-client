@@ -147,9 +147,9 @@ open class Service {
   public func perform<Z:Decodable>(
     method : String,
     path : String,
-    completion : @escaping(Result<Z, Error>) -> ()) throws {
+    completion : @escaping(Result<Z, Error>) -> ()) {
     let postData : Data? = nil
-    try connection.performRequest(
+    connection.performRequest(
       method:method,
       urlString:base + path,
       parameters: [:],
@@ -162,15 +162,19 @@ open class Service {
     method : String,
     path : String,
     request : X,
-    completion : @escaping(Result<Z, Error>) -> ()) throws {
-    let encoder = JSONEncoder()
-    let postData = try encoder.encode(request)
-    try connection.performRequest(
-      method:method,
-      urlString:base + path,
-      parameters: [:],
-      body:postData) {(data, response, error) in
-        self.handleResponse(data, response, error, completion)
+    completion : @escaping(Result<Z, Error>) -> ()) {
+    do {
+      let encoder = JSONEncoder()
+      let postData = try encoder.encode(request)
+      connection.performRequest(
+        method:method,
+        urlString:base + path,
+        parameters: [:],
+        body:postData) {(data, response, error) in
+          self.handleResponse(data, response, error, completion)
+      }
+    } catch let error {
+      completion(.failure(error))
     }
   }
   
@@ -178,14 +182,19 @@ open class Service {
     method : String,
     path : String,
     parameters : Y,
-    completion : @escaping(Result<Z, Error>) -> ()) throws {
-    let postData : Data? = nil
-    try connection.performRequest(
-      method:method,
-      urlString:base + parameters.path(pattern:path),
-      parameters: parameters.query(),
-      body:postData) {(data, response, error) in
-        self.handleResponse(data, response, error, completion)
+    completion : @escaping(Result<Z, Error>) -> ()) {
+    do {
+      let postData : Data? = nil
+      let path = try parameters.path(pattern:path)
+      connection.performRequest(
+        method:method,
+        urlString:base + path,
+        parameters: parameters.query(),
+        body:postData) {(data, response, error) in
+          self.handleResponse(data, response, error, completion)
+      }
+    } catch let error {
+      completion(.failure(error))
     }
   }
   
@@ -194,15 +203,20 @@ open class Service {
     path : String,
     request : X,
     parameters : Y,
-    completion : @escaping(Result<Z, Error>) -> ()) throws {
-    let encoder = JSONEncoder()
-    let postData = try encoder.encode(request)
-    try connection.performRequest(
-      method:method,
-      urlString:base + parameters.path(pattern:path),
-      parameters: parameters.query(),
-      body:postData) {(data, response, error) in
-        self.handleResponse(data, response, error, completion)
+    completion : @escaping(Result<Z, Error>) -> ()) {
+    do {
+      let encoder = JSONEncoder()
+      let postData = try encoder.encode(request)
+      let path = try parameters.path(pattern:path)
+      connection.performRequest(
+        method:method,
+        urlString:base + path,
+        parameters: parameters.query(),
+        body:postData) {(data, response, error) in
+          self.handleResponse(data, response, error, completion)
+      }
+    } catch let error {
+      completion(.failure(error))
     }
   }
   
@@ -217,9 +231,9 @@ open class Service {
   public func perform(
     method : String,
     path : String,
-    completion : @escaping(Error?) -> ()) throws {
+    completion : @escaping(Error?) -> ()) {
     let postData : Data? = nil
-    try connection.performRequest(
+    connection.performRequest(
       method:method,
       urlString:base + path,
       parameters: [:],
@@ -232,15 +246,19 @@ open class Service {
     method : String,
     path : String,
     request : X,
-    completion : @escaping(Error?) -> ()) throws {
-    let encoder = JSONEncoder()
-    let postData = try encoder.encode(request)
-    try connection.performRequest(
-      method:method,
-      urlString:base + path,
-      parameters: [:],
-      body:postData) {(data, response, error) in
-        self.handleResponse(data, response, error, completion)
+    completion : @escaping(Error?) -> ()) {
+    do {
+      let encoder = JSONEncoder()
+      let postData = try encoder.encode(request)
+      connection.performRequest(
+        method:method,
+        urlString:base + path,
+        parameters: [:],
+        body:postData) {(data, response, error) in
+          self.handleResponse(data, response, error, completion)
+      }
+    } catch let error {
+      completion(error)
     }
   }
   
@@ -248,14 +266,19 @@ open class Service {
     method : String,
     path : String,
     parameters : Y,
-    completion : @escaping(Error?) -> ()) throws {
-    let postData : Data? = nil
-    try connection.performRequest(
-      method:method,
-      urlString:base + parameters.path(pattern:path),
-      parameters: parameters.query(),
-      body:postData) {(data, response, error) in
-        self.handleResponse(data, response, error, completion)
+    completion : @escaping(Error?) -> ()) {
+    do {
+      let postData : Data? = nil
+      let path = try parameters.path(pattern:path)
+      connection.performRequest(
+        method:method,
+        urlString:base + path,
+        parameters: parameters.query(),
+        body:postData) {(data, response, error) in
+          self.handleResponse(data, response, error, completion)
+      }
+    } catch let error {
+      completion(error)
     }
   }
 }

@@ -15,9 +15,11 @@
 import Foundation
 import OAuth2
 
-enum GoogleAPIRuntimeError: Error {
+public enum GoogleAPIRuntimeError: Error {
+  case apiError(code: Int, message: String)
+  case internalError
   case missingPathParameter(String)
-  case invalidResponseFromServer
+  case undecodableApiResponse
 }
 
 public protocol Parameterizable {
@@ -25,6 +27,15 @@ public protocol Parameterizable {
   func pathParameters() -> [String]
   func query() -> [String:String]
   func path(pattern: String) throws -> String
+}
+
+public struct ApiError: Decodable {
+  public let code: Int
+  public let message: String
+}
+
+public struct ApiRootError: Decodable {
+  public let error: ApiError
 }
 
 extension Parameterizable {
@@ -87,34 +98,56 @@ open class Service {
     _ data : Data?,
     _ response : URLResponse?,
     _ error : Error?,
-    _ completion : @escaping(Z?, Error?) -> ()) {
-    if let data = data {
-      print(String(data:data, encoding:.utf8)!)
-      let decoder = JSONDecoder()
-      do {
-        let json = try? JSONSerialization.jsonObject(with: data, options: [])
-        if let json = json as? [String:Any] {
-          // remove the "data" wrapper that is used with some APIs (e.g. translate)
-          if let payload = json["data"] {
-            let payloadData = try JSONSerialization.data(withJSONObject:payload)
-            completion(try decoder.decode(Z.self, from: payloadData), nil)
-          } else {
-            completion(try decoder.decode(Z.self, from: data), nil)
-          }
-        }
-      } catch {
-        print(String(data:data, encoding:.utf8)!)
-        completion(nil, error)
+    _ completion : @escaping(Result<Z, Error>) -> ()) {
+    guard let data = data, let response = response as? HTTPURLResponse else {
+      if let error = error {
+        completion(.failure(error))
+      } else {
+        completion(.failure(GoogleAPIRuntimeError.internalError))
       }
+      return
+    }
+    if response.statusCode < 400 {
+      handleResponseSuccess(data: data, completion: completion)
     } else {
-      completion(nil, GoogleAPIRuntimeError.invalidResponseFromServer)
+      handleResponseError(data: data, completion: completion)
+    }
+  }
+  
+  func handleResponseSuccess<Z:Decodable>(data: Data, completion: @escaping(Result<Z, Error>) -> ()) {
+    do {
+      let decoder = JSONDecoder()
+      completion(.success(try decoder.decode(Z.self, from: data)))
+    } catch {
+      do {
+        // try again with the actual payload inside "data" wrapper that is used with some APIs (e.g. translate)
+        let decoder = JSONDecoder()
+        let payload = try decoder.decode([String: Z].self, from: data)
+        if let response = payload["data"] {
+          completion(.success(response))
+        } else {
+          completion(.failure(GoogleAPIRuntimeError.undecodableApiResponse))
+        }
+      } catch let decodingError {
+        completion(.failure(decodingError))
+      }
+    }
+  }
+  
+  func handleResponseError<Z:Decodable>(data: Data, completion: @escaping(Result<Z, Error>) -> ()) {
+    do {
+      let decoder = JSONDecoder()
+      let error = try decoder.decode(ApiRootError.self, from: data).error
+      completion(.failure(GoogleAPIRuntimeError.apiError(code: error.code, message: error.message)))
+    } catch let decodingError {
+      completion(.failure(decodingError))
     }
   }
   
   public func perform<Z:Decodable>(
     method : String,
     path : String,
-    completion : @escaping(Z?, Error?) -> ()) throws {
+    completion : @escaping(Result<Z, Error>) -> ()) throws {
     let postData : Data? = nil
     try connection.performRequest(
       method:method,
@@ -129,7 +162,7 @@ open class Service {
     method : String,
     path : String,
     request : X,
-    completion : @escaping(Z?, Error?) -> ()) throws {
+    completion : @escaping(Result<Z, Error>) -> ()) throws {
     let encoder = JSONEncoder()
     let postData = try encoder.encode(request)
     try connection.performRequest(
@@ -145,7 +178,7 @@ open class Service {
     method : String,
     path : String,
     parameters : Y,
-    completion : @escaping(Z?, Error?) -> ()) throws {
+    completion : @escaping(Result<Z, Error>) -> ()) throws {
     let postData : Data? = nil
     try connection.performRequest(
       method:method,
@@ -161,7 +194,7 @@ open class Service {
     path : String,
     request : X,
     parameters : Y,
-    completion : @escaping(Z?, Error?) -> ()) throws {
+    completion : @escaping(Result<Z, Error>) -> ()) throws {
     let encoder = JSONEncoder()
     let postData = try encoder.encode(request)
     try connection.performRequest(

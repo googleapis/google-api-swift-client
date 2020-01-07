@@ -82,7 +82,7 @@ extension Discovery.Resource {
           s.addLine(indent:4, "parameters: \(m.value.ParametersTypeName(resource:name, method:m.key)),")
         }
         if m.value.HasResponse() {
-          s.addLine(indent:4, "completion: @escaping (\(m.value.ResponseTypeName())?, Error?) -> ()) throws {")
+          s.addLine(indent:4, "completion: @escaping (Result<\(m.value.ResponseTypeName()), Error>) -> ()) throws {")
         } else {
           s.addLine(indent:4, "completion: @escaping (Error?) -> ()) throws {")
         }

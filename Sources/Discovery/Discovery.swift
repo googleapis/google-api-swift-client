@@ -86,6 +86,31 @@ public class AuthScope : Codable {
   public var description : String
 }
 
+public class Icon : Codable {
+  public var x16 : String
+  public var x32 : String
+}
+
+public class DirectoryItem : Codable {
+  public var kind : String
+  public var id : String
+  public var name : String
+  public var version : String
+  public var title : String
+  public var description : String
+  public var discoveryRestUrl : URL
+  public var icons : Icon
+  public var documentationLink : String
+  public var labels : [String]?
+  public var preferred : Bool
+}
+
+public class DirectoryList : Codable {
+  public var kind : String
+  public var discoveryVersion : String
+  public var items : [DirectoryItem]
+}
+
 public class Schema : Codable {
   public var id : String?
   public var type : String?

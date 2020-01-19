@@ -185,19 +185,54 @@ extension Discovery.Service {
 
 func main() throws {
   let arguments = CommandLine.arguments
-  //print("arguments: \(arguments)\n"
-  
-  let path = arguments[1]
-  let data = try Data(contentsOf: URL(fileURLWithPath: path))
-  //print(String(data:data, encoding:.utf8)!)
+  if (arguments.count > 1) {
+    let discoveryFileURL = URL(fileURLWithPath: arguments[1])
+    try processDiscoveryDocument(url: discoveryFileURL, name: discoveryFileURL.deletingPathExtension().lastPathComponent)
+  } else {
+    try interactiveServiceGeneration()
+  }
+}
+
+func processDiscoveryDocument(url: URL, name: String) throws {
+  let data = try Data(contentsOf: url)
   let decoder = JSONDecoder()
   do {
     let service = try decoder.decode(Service.self, from: data)
     let code = service.generate()
-    print(code)
+    let fileURL = URL(fileURLWithPath: name).appendingPathExtension("swift")
+    try code.write(to: fileURL, atomically: true, encoding: .utf8)
+    print("wrote \(fileURL.path)")
   } catch {
     print("error \(error)\n")
   }
+}
+
+func interactiveServiceGeneration() throws {
+  let data = try Data(contentsOf: URL(string: "https://www.googleapis.com/discovery/v1/apis")!)
+  let decoder = JSONDecoder()
+  let directoryList = try decoder.decode(DirectoryList.self, from: data)
+  var map : [Int:DirectoryItem] = [:]
+  var i = 1
+  for item in directoryList.items.filter({ $0.preferred }) {
+    map[i] = item
+    let istr = String.init(describing: i)
+    let padding = String(repeatElement(" ", count: 3 - istr.count))
+    print("\(padding + istr)) \(item.title)")
+    i += 1
+  }
+  var directoryItem: DirectoryItem?
+  repeat {
+    print("Please enter the number corresponding to the service or 0 to exit")
+    print("> ", terminator: "")
+    let input = readLine()
+    if input == "0" {
+      return
+    }
+    if let i = Int(input!), input != nil {
+      directoryItem = map[i]
+    }
+  } while directoryItem == nil
+  try processDiscoveryDocument(url: directoryItem!.discoveryRestUrl, name: directoryItem!.id.replacingOccurrences(of: ":", with: ""))
 }
 
 do {

@@ -34,6 +34,18 @@ public let License = """
 // NOTE: This file is automatically-generated!
 """
 
+// From https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#ID413
+let swiftKeywords: Set = [
+  // Keywords used in declarations
+  "associatedtype", "class", "deinit", "enum", "extension", "fileprivate", "func", "import", "init", "inout", "internal", "let", "open", "operator", "private", "protocol", "public", "rethrows", "static", "struct", "subscript", "typealias", "var",
+  // Keywords used in statements
+  "break", "case", "continue", "default", "defer", "do", "else", "fallthrough", "for", "guard", "if", "in", "repeat", "return", "switch", "where", "while",
+  // Keywords used in expressions and types
+  "as", "Any", "catch", "false", "is", "nil", "super", "self", "Self", "throw", "throws", "true", "try",
+  // Keywords reserved in particular contexts
+  "associativity", "convenience", "dynamic", "didSet", "final", "get", "infix", "indirect", "lazy", "left", "mutating", "none", "nonmutating", "optional", "override", "postfix", "precedence", "prefix", "Protocol", "required", "right", "set", "Type", "unowned", "weak", "willSet"
+]
+
 extension String {
   public func capitalized() -> String {
     return prefix(1).capitalized + dropFirst()
@@ -54,7 +66,7 @@ extension String {
   }
   
   public func escaped() -> String {
-    if self == "protocol" { // add other reserved words as needed
+    if swiftKeywords.contains(self) {
       return "`" + self + "`"
     } else {
       return self

@@ -18,11 +18,11 @@ import Discovery
 func createStructInitLines(baseIndent: Int, parameters: [(key: String, value: Schema)]) -> String {
   var currentIndent = baseIndent
   var initDeclaration = String(repeating: " ", count: currentIndent) + "public init ("
-  let inputSignature = parameters.map({ "`\($0.key)`: \($0.value.Type())" + ($0.value.required ?? false ? "" : "? = nil") }).joined(separator: ", ")
+  let inputSignature = parameters.map({ "\($0.key): \($0.value.Type())" + ($0.value.required ?? false ? "" : "? = nil") }).joined(separator: ", ")
   initDeclaration.addLine(inputSignature + ") {")
   currentIndent += 2
   for p in parameters {
-    initDeclaration.addLine(indent: currentIndent, "self.`\(p.key)` = `\(p.key)`")
+    initDeclaration.addLine(indent: currentIndent, "self.\(p.key.escaped()) = \(p.key.escaped())")
   }
   currentIndent -= 2
   initDeclaration.addLine(indent: currentIndent, "}")
@@ -144,7 +144,7 @@ extension Discovery.Service {
           s.addTextWithoutLinebreak(initializer)
           for p in properties {
             let optional = !(p.value.required ?? false)
-            s.addLine(indent:4, "public let `\(p.key)` : \(p.value.Type())\(optional ? "?" : "")")
+            s.addLine(indent:4, "public let \(p.key.escaped()) : \(p.value.Type())\(optional ? "?" : "")")
           }
         }
         s.addLine(indent:2, "}")
@@ -162,7 +162,7 @@ extension Discovery.Service {
                 s.addTextWithoutLinebreak(initializer)
                 for p in properties {
                   let optional = !(p.value.required ?? false)
-                  s.addLine(indent:4, "public let \(p.key) : \(p.value.Type())\(optional ? "?" : "")")
+                  s.addLine(indent:4, "public let \(p.key.escaped()) : \(p.value.Type())\(optional ? "?" : "")")
                 }
               }
               s.addLine("}")

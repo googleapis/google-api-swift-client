@@ -15,13 +15,13 @@
 import Foundation
 import Discovery
 
-func createStructInitLines(baseIndent: Int, parameters: [String: Schema]) -> String {
+func createStructInitLines(baseIndent: Int, parameters: [(key: String, value: Schema)]) -> String {
   var currentIndent = baseIndent
   var initDeclaration = String(repeating: " ", count: currentIndent) + "public init ("
-  let inputSignature = parameters.sorted(by: { $0.key < $1.key }).map { "`\($0.key)`: \($0.value.Type())?" }.joined(separator: ", ")
+  let inputSignature = parameters.map({ "`\($0.key)`: \($0.value.Type())" + ($0.value.required ?? false ? "" : "? = nil") }).joined(separator: ", ")
   initDeclaration.addLine(inputSignature + ") {")
   currentIndent += 2
-  for p in parameters.sorted(by: { $0.key < $1.key }) {
+  for p in parameters {
     initDeclaration.addLine(indent: currentIndent, "self.`\(p.key)` = `\(p.key)`")
   }
   currentIndent -= 2
@@ -34,17 +34,18 @@ extension Discovery.Method {
   func ParametersTypeDeclaration(resource : String, method : String) -> String {
     var s = ""
     s.addLine()
-    if let parameters = parameters {
+    if let parameters = parameters?.sorted(by: { $0.key < $1.key }) {
       s.addLine(indent:2, "public struct " + ParametersTypeName(resource:resource, method:method) + " : Parameterizable {")
       let initializer = createStructInitLines(baseIndent: 4, parameters: parameters)
       s.addTextWithoutLinebreak(initializer)
       
-      for p in parameters.sorted(by:  { $0.key < $1.key }) {
-        s.addLine(indent:4, "public var " + p.key + " : " + p.value.Type() + "?")
+      for p in parameters {
+        let optional = !(p.value.required ?? false)
+        s.addLine(indent:4, "public let " + p.key + " : " + p.value.Type() + (optional ? "?" : ""))
       }
       s.addLine(indent:4, "public func queryParameters() -> [String] {")
       s.addLine(indent:6, "return [" +
-        parameters.sorted(by: { $0.key < $1.key })
+        parameters
           .filter { if let location = $0.value.location { return location == "query" } else {return false}}
           .map { return "\"" + $0.key + "\"" }
           .joined(separator: ",")
@@ -52,7 +53,7 @@ extension Discovery.Method {
       s.addLine(indent:4, "}")
       s.addLine(indent:4, "public func pathParameters() -> [String] {")
       s.addLine(indent:6, "return [" +
-        parameters.sorted(by: { $0.key < $1.key })
+        parameters
           .filter { if let location = $0.value.location { return location == "path" } else {return false}}
           .map { return "\"" + $0.key + "\"" }
           .joined(separator: ",")
@@ -138,11 +139,12 @@ extension Discovery.Service {
       case "object":
         s.addLine()
         s.addLine(indent:2, "public struct \(schema.key) : Codable {")
-        if let properties = schema.value.properties {
+        if let properties = schema.value.properties?.sorted(by: { $0.key < $1.key }) {
           let initializer = createStructInitLines(baseIndent: 4, parameters: properties)
           s.addTextWithoutLinebreak(initializer)
-          for p in properties.sorted(by: { $0.key < $1.key }) {
-            s.addLine(indent:4, "public var `\(p.key)` : \(p.value.Type())?")
+          for p in properties {
+            let optional = !(p.value.required ?? false)
+            s.addLine(indent:4, "public let `\(p.key)` : \(p.value.Type())\(optional ? "?" : "")")
           }
         }
         s.addLine(indent:2, "}")
@@ -155,11 +157,12 @@ extension Discovery.Service {
               s.addLine(indent:2, "public typealias \(schema.key) = [\(schema.key)Item]")
               s.addLine()
               s.addLine(indent:2, "public struct \(schema.key)Item : Codable {")
-              if let properties = itemsSchema.properties {
+              if let properties = itemsSchema.properties?.sorted(by: { $0.key < $1.key }) {
                 let initializer = createStructInitLines(baseIndent: 4, parameters: properties)
                 s.addTextWithoutLinebreak(initializer)
-                for p in properties.sorted(by: { $0.key < $1.key }) {
-                  s.addLine(indent:4, "public var `\(p.key)` : \(p.value.Type())?")
+                for p in properties {
+                  let optional = !(p.value.required ?? false)
+                  s.addLine(indent:4, "public let \(p.key) : \(p.value.Type())\(optional ? "?" : "")")
                 }
               }
               s.addLine("}")

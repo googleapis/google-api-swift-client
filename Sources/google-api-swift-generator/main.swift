@@ -15,7 +15,6 @@
 import Foundation
 import Discovery
 
-
 enum ParsingError: Error {
   case topLevelSchemaUnknownType(schemaName: String, type: String)
   case topLevelSchemaArrayDoesNotContainObjects(schemaName: String, type: String)

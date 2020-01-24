@@ -87,11 +87,11 @@ extension Discovery.Resource {
           s.addLine(indent:4, "parameters: \(m.value.ParametersTypeName(resource:name, method:m.key)),")
         }
         if m.value.HasResponse() {
-          s.addLine(indent:4, "completion: @escaping (\(m.value.ResponseTypeName())?, Error?) -> ()) throws {")
+          s.addLine(indent:4, "completion: @escaping (Result<\(m.value.ResponseTypeName()), Swift.Error>) -> ()) {")
         } else {
-          s.addLine(indent:4, "completion: @escaping (Error?) -> ()) throws {")
+          s.addLine(indent:4, "completion: @escaping (Swift.Error?) -> ()) {")
         }
-        s.addLine(indent:6, "try perform(")
+        s.addLine(indent:6, "perform(")
         s.addLine(indent:8, "method: \"\(m.value.httpMethod!)\",")
         var path = ""
         if m.value.path != nil {

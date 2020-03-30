@@ -40,14 +40,25 @@ extension String {
   }
   
   public func camelCased() -> String {
-    let components = self.components(separatedBy: "-")
-    let firstValue = components[0]
+    let characterSet: CharacterSet = .init(charactersIn: "-.")
+    let components = self.components(separatedBy: characterSet)
+    var firstValue = components[0]
+    if firstValue.starts(with: "$") || firstValue.starts(with: "@") {
+      firstValue = String(firstValue.dropFirst())
+    }
     let remainingWords = components.dropFirst().map {$0.capitalized()}.joined(separator: "")
     return "\(firstValue)\(remainingWords)"
   }
   
   public func upperCamelCased() -> String {
-    self.components(separatedBy: "-").map {$0.capitalized()}.joined(separator: "")
+    let characterSet: CharacterSet = .init(charactersIn: "-.")
+    let components = self.components(separatedBy: characterSet)
+    var firstValue = components[0]
+    if firstValue.starts(with: "$") || firstValue.starts(with: "@") {
+      firstValue = String(firstValue.dropFirst())
+    }
+    let remainingWords = components.dropFirst().map {$0.capitalized()}.joined(separator: "")
+    return "\(firstValue)\(remainingWords)"
   }
   
   public func snakeCased() -> String {
@@ -85,8 +96,12 @@ extension String {
   }
 }
 
+public class Auth_OAuth2: Codable {
+    public var scopes : [String : AuthScope]
+}
+
 public class Auth : Codable {
-  public var scopes : [String : AuthScope]
+  public var oauth2 : Auth_OAuth2
 }
 
 public class AuthScope : Codable {
@@ -134,7 +149,7 @@ public class Schema : Codable {
     case annotations
   }
   
-  public func Type() -> String {
+  public func Type(objectName: String? = nil) -> String {
     if let type = type {
       switch type {
       case "string": return "String"
@@ -143,22 +158,26 @@ public class Schema : Codable {
       case "boolean": return "Bool"
       case "any": return "JSONAny"
       case "array":
-        return "[" + self.ItemsType() + "]"
+        return "[" + self.ItemsType(objectName: objectName) + "]"
       case "object":
-        return "Object"
+        let potentialName = objectName ?? "Object"
+        let escapingNames = ["Type", "Error"]
+        return escapingNames.contains(potentialName) ? "Custom_" + potentialName : potentialName
       default:
         return type
       }
     }
     if let ref = ref {
+      let escapingNames = ["Type", "Error"]
+      if escapingNames.contains(ref) { return "Custom_" + ref }
       return ref
     }
     return "UNKNOWN SCHEMA TYPE"
   }
   
-  public func ItemsType() -> String {
+  public func ItemsType(objectName: String? = nil) -> String {
     if let items = items {
-      return items.Type()
+      return items.Type(objectName: objectName)
     } else {
       return "UNKNOWN ITEM TYPE"
     }
@@ -233,7 +252,7 @@ public class Method : Codable {
   
   public func ParametersTypeName(resource : String, method : String) -> String {
     if parameters != nil {
-      return resource.capitalized() + method.upperCamelCased() + "Parameters"
+      return resource.upperCamelCased() + method.upperCamelCased() + "Parameters"
     }
     return "ERROR-UNKNOWN-PARAMETERS-TYPE"
   }
@@ -274,7 +293,7 @@ public class Service : Codable {
   public var servicePath : String
   public var batchPath : String
   public var parameters : [String : Schema]
-  public var auth : [String : Auth]
+  public var auth: Auth?
   public var features : [String]?
   public var schemas : [String : Schema]?
   public var methods : [String : Method]?

@@ -15,7 +15,6 @@
 import Foundation
 import Discovery
 
-
 enum ParsingError: Error {
   case topLevelSchemaUnknownType(schemaName: String, type: String)
   case topLevelSchemaArrayDoesNotContainObjects(schemaName: String)
@@ -205,6 +204,25 @@ func createNestedObject(parentName: String?, name: String, schema: Schema, strin
     let aliasDef = "public typealias \(name) = JSONAny\n"
     stringUnderConstruction.addLine(indent: 4, aliasDef)
   }
+}
+
+func createCodingKeys(baseIndent: Int, parameters: [String: Schema]) -> String {
+  let someKeyHasHyphen = parameters.keys.reduce(false) { (prev: Bool, curr: String) -> Bool in
+    if prev { return prev }
+    return curr.contains("-")
+  }
+  guard someKeyHasHyphen else { return "" }
+  var currentIndent = baseIndent
+  var enumDeclaration = ""
+  enumDeclaration.addLine(indent: currentIndent, "enum CodingKeys : String, CodingKey {")
+  currentIndent += 2
+  for p in parameters.sorted(by: { $0.key < $1.key }) {
+    let explicitValue = p.key.contains("-") ? " = \"\(p.key)\"" : ""
+    enumDeclaration.addLine(indent: currentIndent, "case `\(p.key.camelCased())`\(explicitValue)")
+  }
+  currentIndent -= 2
+  enumDeclaration.addLine(indent: currentIndent, "}")
+  return enumDeclaration
 }
 
 extension Discovery.Method {

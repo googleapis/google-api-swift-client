@@ -78,8 +78,8 @@ open class Service {
   var connection : Connection
   var base : String
   
-  public init(_ tokenProvider : TokenProvider, _ base : String) throws {
-    self.connection = try Connection(provider:tokenProvider)
+  public init(_ tokenProvider : TokenProvider, _ base : String) {
+    self.connection = Connection(provider:tokenProvider)
     self.base = base
   }
   

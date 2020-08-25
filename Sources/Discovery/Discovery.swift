@@ -122,7 +122,7 @@ public class DirectoryItem : Codable {
   public var description : String
   public var discoveryRestUrl : URL
   public var icons : Icon
-  public var documentationLink : String
+  public var documentationLink : String?
   public var labels : [String]?
   public var preferred : Bool
 }

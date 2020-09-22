@@ -1,4 +1,4 @@
-// swift-tools-version:4.2
+// swift-tools-version:5.2
 
 // Copyright 2019 Google Inc. All Rights Reserved.
 //
@@ -19,17 +19,21 @@ import PackageDescription
 
 let package = Package(
   name: "google-api-swift-client",
+  platforms: [
+    .macOS(.v10_12), .iOS(.v9), .tvOS(.v9)
+  ],
   products: [
     .library(name: "GoogleAPIRuntime", targets: ["GoogleAPIRuntime"]),
     .library(name: "Discovery", targets: ["Discovery"]),
   ],
   dependencies: [
-    .package(url: "https://github.com/googleapis/google-auth-library-swift.git", from: "0.5.3"),
+    .package(name: "Auth", url: "https://github.com/googleapis/google-auth-library-swift.git", from: "0.5.3"),
+
   ],
   targets: [
     .target(name: "google-api-swift-generator", dependencies: ["Discovery"], path: "Sources/google-api-swift-generator"),
     .target(name: "google-cli-swift-generator", dependencies: ["Discovery"], path: "Sources/google-cli-swift-generator"),
-    .target(name: "GoogleAPIRuntime", dependencies: ["OAuth2"], path: "Sources/GoogleAPIRuntime"),
+    .target(name: "GoogleAPIRuntime", dependencies: [.product(name: "OAuth2", package: "Auth")], path: "Sources/GoogleAPIRuntime"),
     .target(name: "Discovery", dependencies: [], path: "Sources/Discovery"),
   ]
 )

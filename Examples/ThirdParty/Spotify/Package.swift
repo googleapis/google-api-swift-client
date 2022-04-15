@@ -20,7 +20,7 @@ import PackageDescription
 let package = Package(
   name: "Spotify Client",
   dependencies: [
-    .package(url: "https://github.com/googleapis/google-auth-library-swift.git", from: "0.4.2"),
+    .package(url: "https://github.com/googleapis/google-auth-library-swift.git", from: "0.5.3"),
     .package(url: "https://github.com/kylef/Commander.git", .upToNextMinor(from: "0.8.0")),
     .package(path: "../../.."),
   ],

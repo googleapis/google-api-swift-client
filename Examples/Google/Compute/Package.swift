@@ -21,7 +21,7 @@ let package = Package(
   name: "Cloud Compute",
   dependencies: [
     .package(url: "https://github.com/googleapis/google-auth-library-swift.git", from: "0.5.3"),
-    .package(url: "https://github.com/kylef/Commander.git", .upToNextMinor(from: "0.8.0")),
+    .package(url: "https://github.com/kylef/Commander.git", .upToNextMinor(from: "0.9.2")),
     .package(path: "../../.."),
   ],
   targets: [

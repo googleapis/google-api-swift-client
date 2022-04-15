@@ -88,20 +88,27 @@ open class Service {
     _ response : URLResponse?,
     _ error : Error?,
     _ completion : @escaping(Z?, Error?) -> ()) {
-    if let data = data {
+    if let error = error {
+      completion(nil, error)
+    } else if let data = data {
       print(String(data:data, encoding:.utf8)!)
-      let decoder = JSONDecoder()
       do {
-        let json = try? JSONSerialization.jsonObject(with: data, options: [])
+        let json = try JSONSerialization.jsonObject(with: data, options: [])
+        let decoder = JSONDecoder()
         if let json = json as? [String:Any] {
-          // remove the "data" wrapper that is used with some APIs (e.g. translate)
-          if let payload = json["data"] {
+          if let errorPayload = json["error"] as? [String: Any],
+            let code = errorPayload["code"] as? Int {
+              return completion(nil, NSError(
+                domain: "GoogleAPIRuntime",
+                code: code,
+                userInfo: errorPayload))
+          } else if let payload = json["data"] {
+            // remove the "data" wrapper that is used with some APIs (e.g. translate)
             let payloadData = try JSONSerialization.data(withJSONObject:payload)
-            completion(try decoder.decode(Z.self, from: payloadData), nil)
-          } else {
-            completion(try decoder.decode(Z.self, from: data), nil)
+            return completion(try decoder.decode(Z.self, from: payloadData), nil)
           }
         }
+        completion(try decoder.decode(Z.self, from: data), nil)
       } catch {
         print(String(data:data, encoding:.utf8)!)
         completion(nil, error)

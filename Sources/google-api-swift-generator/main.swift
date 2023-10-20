@@ -360,6 +360,16 @@ extension Discovery.Service {
         }
       case "any":
         generatedSchemas.addLine(indent: 2, "public typealias `\(schema.key)` = JSONAny")
+      case "string":
+        if let enumItems = schema.value.`enum` {
+          generatedSchemas.addLine(indent: 4, "public enum \(schema.key): String, Codable, CaseIterable {")
+          enumItems.enumerated().forEach { enumItem in
+            let comment = schema.value.enumDescriptions?[safe: enumItem.offset]
+            let caseLine = comment != nil ? "case \(enumItem.element) // \(comment!)" : "case \(enumItem.element)"
+            generatedSchemas.addLine(indent: 8, caseLine)
+          }
+          generatedSchemas.addLine(indent: 4, "}")
+        }
       default:
         throw ParsingError.topLevelSchemaUnknownType(schemaName: schema.key, type: schema.value.type ?? "nil - unknown type")
       }
@@ -442,6 +452,13 @@ func interactiveServiceGeneration() throws {
     }
   } while directoryItem == nil
   try processDiscoveryDocument(url: directoryItem!.discoveryRestUrl, name: directoryItem!.id.replacingOccurrences(of: ":", with: ""))
+}
+
+extension Collection {
+  /// Returns the element at the specified index if it is within bounds, otherwise nil.
+  public subscript(safe index: Index) -> Iterator.Element? {
+    indices.contains(index) ? self[index] : nil
+  }
 }
 
 do {

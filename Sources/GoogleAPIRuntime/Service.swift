@@ -13,7 +13,9 @@
 // limitations under the License.
 
 import Foundation
-import OAuth2
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
 
 enum GoogleAPIRuntimeError: Error {
   case missingPathParameter(String)

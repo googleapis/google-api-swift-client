@@ -16,6 +16,7 @@ import Foundation
 #if canImport(FoundationNetworking)
 import FoundationNetworking
 #endif
+import OAuth2
 
 enum GoogleAPIRuntimeError: Error {
   case missingPathParameter(String)

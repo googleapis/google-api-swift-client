@@ -1,0 +1,61 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "BigInt",
+        "repositoryURL": "https://github.com/attaswift/BigInt",
+        "state": {
+          "branch": null,
+          "revision": "0ed110f7555c34ff468e72e1686e59721f2b0da6",
+          "version": "5.3.0"
+        }
+      },
+      {
+        "package": "CryptoSwift",
+        "repositoryURL": "https://github.com/krzyzanowskim/CryptoSwift.git",
+        "state": {
+          "branch": null,
+          "revision": "7892a123f7e8d0fe62f9f03728b17bbd4f94df5c",
+          "version": "1.8.1"
+        }
+      },
+      {
+        "package": "Auth",
+        "repositoryURL": "https://github.com/kevinzhow/google-auth-library-swift.git",
+        "state": {
+          "branch": null,
+          "revision": "5ce3239edb763bf278896e66aeb96ddd72dff04a",
+          "version": null
+        }
+      },
+      {
+        "package": "swift-atomics",
+        "repositoryURL": "https://github.com/apple/swift-atomics.git",
+        "state": {
+          "branch": null,
+          "revision": "cd142fd2f64be2100422d658e7411e39489da985",
+          "version": "1.2.0"
+        }
+      },
+      {
+        "package": "swift-collections",
+        "repositoryURL": "https://github.com/apple/swift-collections.git",
+        "state": {
+          "branch": null,
+          "revision": "d029d9d39c87bed85b1c50adee7c41795261a192",
+          "version": "1.0.6"
+        }
+      },
+      {
+        "package": "swift-nio",
+        "repositoryURL": "https://github.com/apple/swift-nio.git",
+        "state": {
+          "branch": null,
+          "revision": "702cd7c56d5d44eeba73fdf83918339b26dc855c",
+          "version": "2.62.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
